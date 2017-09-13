@@ -19,8 +19,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |  facebook_auth_on_load         boolean  Set to TRUE to have the library to check for valid access token on every page load.
 */
 
-$config['facebook_app_id']              = '123649704926063';
-$config['facebook_app_secret']          = 'bb3b27330ee7fd49e798562316c7e82a';
+$config['facebook_app_id']              = '1955887078024088';
+$config['facebook_app_secret']          = '113b837cdc896afc4c6948bb6c925c69';
 $config['facebook_login_type']          = 'web';
 $config['facebook_login_redirect_url']  = 'auth/facebook';
 $config['facebook_logout_redirect_url'] = 'auth/desconectarse';

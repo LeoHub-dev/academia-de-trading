@@ -24,7 +24,7 @@ $lang["content_reach"] = "La <span class='resaltar'>proyección</span> de la Fun
 
 donde se dispone de oficinas y líderes de trabajo, que puede ser replicado en distintas ciudades a nivel global.<br> Alcance expansivo.";
 
-$lang["title_goals"] = "Objetivos";
+$lang["title_goals"] = "¿Qué hacemos?";
 $lang["goals_1"] = "CREAR EMPLEOS";
 $lang["goals_2"] = "IMPULSAR VALORES";
 $lang["goals_3"] = "DESARROLLAR HABILIDADES";
@@ -83,7 +83,7 @@ A cada sponsor se brindará un regalo como muestra de gratitud por su donación 
 - Gold sponsor<br>
 - Angel sponsor <br>";
 
-$lang["title_magazine"] = "E-Magazine";
+$lang["title_magazine"] = "Revista Digital";
 $lang["content_magazine"] = "Espacio donde los <span class='resaltar'>negocios</span> y servicios de las personas que quieran ser <span class='resaltar'>donadores</span> también sean miembros de la fundación y puedan <span class='resaltar'>deducir impuestos</span> de sus inversiones publicitarias.<br>
 - Artículos de interés<br>
 - Testimonios<br>

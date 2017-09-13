@@ -74,6 +74,22 @@ class LH_Form_validation extends CI_Form_validation
         }    
     }
 
+    public function referidoExiste($id_usuario)
+    {
+        $this->db->where('id_usuario',$id_usuario);
+
+        $query = $this->db->get('usuarios_data');
+
+        if($query->num_rows() == 1)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }    
+    }
+
     public function __get($var)
     {
         return get_instance()->$var;

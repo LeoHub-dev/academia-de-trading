@@ -8,6 +8,16 @@ class LH_Controller extends CI_Controller
     {
         parent::__construct();
 
+        if($this->Auth_model->estaConectado())
+        {
+            if(!isset($this->scope['info_usuario']))
+            {
+                $this->scope['info_usuario'] = $this->Auth_model->obtenerUsuarioID($this->session->userdata('id_usuario'));
+            }
+
+
+        }
+
         if($this->session->userdata('site_lang'))
         {
             $this->scope['site_lang'] = $this->session->userdata('site_lang');
@@ -21,6 +31,7 @@ class LH_Controller extends CI_Controller
         $this->form_validation->set_message('esUnEmailUnico', 'El email debe ser unico');
         $this->form_validation->set_message('esUnUsuarioUnico', 'El usuario debe ser unico');
         $this->form_validation->set_message('noEsUnUsuarioUnico', 'El usuario no existe');
+        $this->form_validation->set_message('referidoExiste', 'El referido no existe');
         $this->form_validation->set_message('esUnDniUnico', 'Esa dni ya esta usada');
         $this->form_validation->set_message('isConfirmed', 'No esta confirmado');
         $this->form_validation->set_message('notPaidUser', 'No realizo su pago en una mesa en el tiempo necesario');

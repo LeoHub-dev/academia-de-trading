@@ -43,12 +43,18 @@
                         'field' => 'confirmar_password',
                         'label' => 'Confirmar contraseña',
                         'rules' => 'trim|required|matches[password]|min_length[3]'
-                )/*,
+                ),
                 array(
                         'field' => 'terminos',
                         'label' => 'Terminos y politicas',
-                        'rules' => 'trim|required|numeric'
-                )*/
+                        'rules' => 'trim|required'
+                ),
+                array(
+                        'field' => 'referido',
+                        'label' => 'Referido',
+                        'rules' => 'required|trim|numeric|referidoExiste',
+                )
+
         ),
         'registro_admin' => array(
                 array(
@@ -84,7 +90,7 @@
                         'rules' => 'required'
                 ),
                 array(
-                        'field' => 'clave',
+                        'field' => 'password',
                         'label' => 'Password',
                         'rules' => 'trim|required|min_length[3]'
                 ),

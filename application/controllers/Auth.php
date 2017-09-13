@@ -23,26 +23,35 @@ class Auth extends LH_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-
 	}
 
 
 	public function index()
 	{
-		if(!$this->Auth_model->isLoggedIn())
+		if(!$this->Auth_model->estaConectado())
 		{
+			$this->scope['titulo'] = "Inicio de sesion";
+
+			$this->scope['referido_id'] = NULL;
+
+			$referido = $this->session->userdata('ref');
+
+			if(isset($referido))
+			{
+				$this->scope['referido_id'] = $this->session->userdata('ref');
+			}
+
 			$this->load->view('Auth_view',$this->scope);
 		}
 	    else
 	    {
-	    	echo "conectado";
-	    	//redirect('/dashboard' ,'refresh');
+	    	redirect('/dashboard' ,'refresh');
 	    }
 	}
 
 	public function ingreso()
 	{
-		if(!$this->Auth_model->isLoggedIn())
+		if(!$this->Auth_model->estaConectado())
 		{
 			if($this->input->server('REQUEST_METHOD') == 'POST')
 			{
@@ -60,7 +69,7 @@ class Auth extends LH_Controller {
 
 		        	$usuario = array(
 						'usuario' => $this->input->post('usuario'),
-						'password' => $this->input->post('password')
+						'password' => myHash($this->input->post('password'))
 					);
 
 		        	if($this->Auth_model->ingresar($usuario))
@@ -78,15 +87,14 @@ class Auth extends LH_Controller {
 	    }
 	    else
 	    {
-	    	echo "conectado";
-	    	//redirect('/dashboard' ,'refresh');
+	    	redirect('/dashboard' ,'refresh');
 	    }
 
 	}
 
 	public function registro()
 	{
-		if ($this->Auth_model->isLoggedIn())
+		if ($this->Auth_model->estaConectado())
 		{
 			redirect('/dashboard' ,'refresh');
 		}
@@ -107,13 +115,16 @@ class Auth extends LH_Controller {
 						'email' => $this->input->post('email'),
 						'telefono' => $this->input->post('telefono'),
 						'usuario' => $this->input->post('usuario'),
-						'password' => $this->input->post('password')
+						'password' => myHash($this->input->post('password')),
+						'referido' => $this->input->post('referido'),
+						'tipo' => 0
 					);
 
 
 
 					if($this->Auth_model->registrar($usuario))
 					{
+						$this->Auth_model->ingresar($usuario);
 						echo response_good('Correcto','Ya puede ingresar a su cuenta');
 		        	}
 		        	else
@@ -154,7 +165,9 @@ class Auth extends LH_Controller {
 						'fecha_nacimiento' => NULL,
 						'telefono' => NULL,
 						'usuario' => $user['first_name'].$user['last_name'].$user['id'],
-						'password' => myHash('fbpw'.$user['email'].myHash('fb_login_lh').myHash($user['id']))
+						'password' => myHash('fbpw'.$user['email'].myHash('fb_login_lh').myHash($user['id'])),
+						'referido' => 1,
+						'tipo' => 1
 					);
 
 					if($this->Auth_model->registrar($usuario))
@@ -162,15 +175,13 @@ class Auth extends LH_Controller {
 						if($this->Auth_model->ingresar($usuario))
 			        	{
 			        		echo "<script> window.opener.responseFb('".response_good(false,false)."'); window.close();</script>";
-			        	
-			        		//redirect('/dashboard' ,'refresh');
 			        	}
 			        	else
 			        	{
 							echo "<script> window.opener.responseFb('".response_bad('Ya ese email fue registrado de forma manual')."'); window.close(); </script>";
 			        	}
 			        	
-						//echo "<script> window.opener.responseFb('".response_good('Correcto','Ya puede ingresar a su cuenta')."'); window.close(); </script>";
+						
 		        	}
 		        	else
 		        	{
@@ -187,8 +198,7 @@ class Auth extends LH_Controller {
 		        	if($this->Auth_model->ingresar($usuario))
 		        	{
 		        		echo "<script> window.opener.responseFb('".response_good(false,false)."'); window.close();</script>";
-		        	
-		        		//redirect('/dashboard' ,'refresh');
+
 		        	}
 		        	else
 		        	{
@@ -227,4 +237,6 @@ class Auth extends LH_Controller {
         redirect('/auth' ,'refresh');
         exit;
 	}
+
+	
 }

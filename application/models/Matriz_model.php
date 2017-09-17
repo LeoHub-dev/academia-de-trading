@@ -20,6 +20,8 @@ class Matriz_model extends CI_Model
 
     public function obtenerCuenta($id_matriz)
     {
+        $this->db->select('usuario, nombre, apellido, usuarios_data.id_usuario, id_matriz, imagen, usuarios_data.id_persona, referido, mineria');
+        
         $this->db->where('id_matriz',$id_matriz);
 
         $this->db->join('usuarios_data', 'usuarios_data.id_usuario = matriz.id_usuario');
@@ -42,6 +44,8 @@ class Matriz_model extends CI_Model
 
     public function obtenerMatrizActiva($id_usuario)
     {
+
+        $this->db->select('usuario, nombre, apellido, usuarios_data.id_usuario, id_matriz, imagen, usuarios_data.id_persona, referido, mineria');
 
         $this->db->where('matriz.id_usuario',$id_usuario);
 

@@ -1,6 +1,6 @@
-﻿$(function () {
+$(function () {
 
-    var base_url = window.location.protocol + "//" + window.location.host + "/";
+    var base_url = window.location.protocol + "//" + window.location.host + "/circulo/";
 
 	$('#login-form-link').click(function(e) {
         $("#login-form").delay(100).fadeIn(100);
@@ -93,6 +93,8 @@
         
     });
 
+
+
     $('#input_referido').trigger('input');
 
     $('*').on('click', '.pagar-con-btc', function(e){
@@ -154,7 +156,7 @@
     $('#perfil_form').on('submit', function(e){
 
         e.preventDefault();
-        e.stopImmediatePropagation();
+        e.stopImmediatePropagation();   
 
         var form = $(this);
 
@@ -170,9 +172,6 @@
 
 
     })
-
-
-   
 
 
 

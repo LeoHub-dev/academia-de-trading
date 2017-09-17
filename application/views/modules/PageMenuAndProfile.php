@@ -72,6 +72,15 @@
                         </a>
                     </li>
                     <?php endif; ?>
+
+                    <?php if($info_usuario['data']->tipo == 1): ?>
+                    <li>
+                        <a href="<?= site_url('panel'); ?>">
+                            <i class="material-icons col-light-blue">people</i>
+                            <span>Panel</span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
                 <?php else : ?>
                     <li>
                         <a href="<?= site_url('pago'); ?>">

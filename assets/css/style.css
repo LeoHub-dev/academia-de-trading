@@ -57,6 +57,9 @@
     z-index: 1;
     border-radius: 1px; }
 
+.usuario_label {
+  display: inline;
+}
 
 .marquee {
     width: 450px;

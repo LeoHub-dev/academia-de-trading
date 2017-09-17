@@ -49,7 +49,7 @@
             </div>
 
             <div class="row clearfix">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
@@ -58,11 +58,42 @@
                            
                         </div>
                         <div class="body">
-                            <iframe src="https://player.vimeo.com/video/185254072?title=0&amp;byline=0&amp;portrait=0;autoplay=1" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                            <iframe src="https://player.vimeo.com/video/234070411?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Clase 2 : </small>
+                            </h2>
+                           
+                        </div>
+                        <div class="body">
+                            <iframe src="https://player.vimeo.com/video/234117054?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Clase 3 : </small>
+                            </h2>
+                           
+                        </div>
+                        <div class="body">
+                            <iframe src="https://player.vimeo.com/video/234148702?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
+
 
             
             

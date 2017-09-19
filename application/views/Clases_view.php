@@ -53,7 +53,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Clase 1 : </small>
+                                Clase 1</small>
                             </h2>
                            
                         </div>
@@ -67,7 +67,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Clase 2 : </small>
+                                Clase 2</small>
                             </h2>
                            
                         </div>
@@ -81,12 +81,68 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Clase 3 : </small>
+                                Clase 3</small>
                             </h2>
                            
                         </div>
                         <div class="body">
                             <iframe src="https://player.vimeo.com/video/234148702?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Clase 4</small>
+                            </h2>
+                           
+                        </div>
+                        <div class="body">
+                            <iframe src="https://player.vimeo.com/video/234244776?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Clase 5</small>
+                            </h2>
+                           
+                        </div>
+                        <div class="body">
+                            <iframe src="https://player.vimeo.com/video/234245739?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Clase 6</small>
+                            </h2>
+                           
+                        </div>
+                        <div class="body">
+                            <iframe src="https://player.vimeo.com/video/234274531?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Clase 7</small>
+                            </h2>
+                           
+                        </div>
+                        <div class="body">
+                            <iframe src="https://player.vimeo.com/video/234275357?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>

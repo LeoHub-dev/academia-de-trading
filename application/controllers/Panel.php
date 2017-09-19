@@ -52,6 +52,100 @@ class Panel extends LH_Controller {
 		
 	}
 
+	public function marcar_pago()
+	{
+
+		if($this->input->server('REQUEST_METHOD') == 'POST')
+		{
+			if($this->Panel_model->marcarPagado($this->input->post('id_ganancia')))
+			{
+				echo response_good('Correcto','Pagada');
+			}
+		}
+
+	}
+
+	public function editar_usuario()
+	{
+
+		if($this->input->server('REQUEST_METHOD') == 'POST')
+		{
+			if($this->form_validation->run('editarusuario') == FALSE)
+        	{
+        		echo response_bad(validation_errors());
+        	}
+        	else
+        	{
+        		if($this->input->post('usuario_default') != $this->input->post('usuario'))
+        		{
+        			if($this->form_validation->noEsUnUsuarioUnico($this->input->post('usuario')))
+        			{
+        				echo response_bad('El usuario ya existe');
+        				return;
+        			}
+        		}
+
+				if($this->Panel_model->editarUsuario($this->input->post(),$this->input->post('id_usuario')))
+				{
+					echo response_good('Usuario editado','Informacion editada',array('posted_data' => $this->input->post()));
+				}
+				else
+				{
+					echo response_bad('Error al editar');
+				}
+			}
+        	
+		}
+		
+	}
+
+	public function activar_cuenta()
+	{
+		if($this->Auth_model->isLoggedIn() && $this->scope['info_usuario']->tipo == 1)
+		{
+			if($this->input->server('REQUEST_METHOD') == 'POST')
+			{
+
+				$this->db->select('*');
+		        $this->db->where('coinbase_invoice.id_invoice',$this->input->post('id_invoice'));
+		        $this->db->from('coinbase_invoice');
+		        $this->db->join('coinbase_address', 'coinbase_invoice.id_invoice = coinbase_address.id_invoice', 'left');
+
+		        $query_coinbase = $this->db->get();
+
+		        $invoice_data = FALSE;
+
+		        if($query_coinbase->num_rows() > 0)
+		        {
+		            foreach ($query_coinbase->result() as $coinbase_invoice)
+		            {
+		                $invoice_data = $coinbase_invoice;
+		            }
+
+		            $this->db->where('id_invoice', $invoice_data->id_invoice);
+		            $query_activeuser = $this->db->update('coinbase_invoice', array('estado' => 1));
+
+		            //AgregarCuentaAlSistema
+
+		            $this->Cuenta_model->AgregarCuentaAlSistema($invoice_data->id_usuario,$invoice_data->usuario_codigo);
+
+		            $this->Matriz_model->AgregarCuentaAMatriz($invoice_data->usuario_codigo,$invoice_data->id_usuario);
+
+		            response_good('Correcto','Pagada');
+
+		            return;
+		        }
+
+		        response_bad('No se encontro el invoice');
+
+
+				
+
+
+			}
+		}
+	}
+
 	public function generarPrueba()
 	{
 		set_time_limit(100);

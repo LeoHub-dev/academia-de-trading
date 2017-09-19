@@ -1,6 +1,6 @@
 $(function () {
 
-    var base_url = window.location.protocol + "//" + window.location.host + "/circulo/";
+    var base_url = window.location.protocol + "//" + window.location.host + "/";
 
 	$('#login-form-link').click(function(e) {
         $("#login-form").delay(100).fadeIn(100);

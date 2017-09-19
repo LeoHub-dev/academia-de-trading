@@ -82,6 +82,90 @@ class Panel_model extends CI_Model
         return FALSE;
     }
 
+    public function editarUsuario($post,$id_usuario)
+    {
+        
+
+        $usuario = $this->Auth_model->obtenerUsuarioID($id_usuario);
+
+        if(isset($post['usuario']) && !empty($post['usuario']))
+        {
+            $this->db->set('usuario', $post['usuario']);
+        }
+        else
+        {
+            return FALSE;
+        }
+
+        if(isset($post['password']) && !empty($post['password']))
+        {
+            if($usuario['data']->password != $post['password'])
+            {
+                $this->db->set('password', $post['password']);
+            }
+
+        }
+        else
+        {
+            return FALSE;
+        }
+
+        if(isset($post['referido']) && !empty($post['referido']))
+        {
+            $this->db->set('referido', $post['referido']);
+        }
+        else
+        {
+            return FALSE;
+        }
+
+        $this->db->where('id_usuario',$id_usuario);
+
+        $user_status = $this->db->update('usuarios_data');
+
+        
+
+        if(!$user_status)
+        {
+            return FALSE;
+        }
+
+        if(isset($post['nombre']) && !empty($post['nombre']))
+        {
+            $this->db->set('nombre', $post['nombre']);
+        }
+
+        if(isset($post['apellido']) && !empty($post['apellido']))
+        {
+            $this->db->set('apellido', $post['apellido']);
+        }
+
+        if(isset($post['email']) && !empty($post['email']))
+        {
+            $this->db->set('email', $post['email']);
+        }
+
+        if(isset($post['wallet']) && !empty($post['wallet']))
+        {
+            $this->db->set('wallet', $post['wallet']);
+        }
+
+        $this->db->where('id_persona',$usuario['data']->id_persona);
+
+        $user_status = $this->db->update('usuarios_personas');
+
+        if($user_status)
+        {
+            return TRUE;
+        }
+
+        return FALSE;
+
+
+    }
+
+
+
     public function editarGanancia($id_ganancia,$monto)
     {
         $status = $this->db->update('ganancias', array('monto' => $monto), array('id_ganancia' => $id_ganancia));

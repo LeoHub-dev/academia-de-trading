@@ -93,16 +93,7 @@ class Pago extends LH_Controller {
 	}
 
 
-	public function coinbase_callback()
-	{
-		$this->load->library('Coinbase');
-
-		$data = file_get_contents('php://input');
-		$signature = $_SERVER['HTTP_CB_SIGNATURE'];
-
-		$this->coinbase->callback($data,$signature);
-
-	}
+	
 
 
 

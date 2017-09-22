@@ -76,21 +76,7 @@ class Pago extends LH_Controller {
 	}
 
 
-	public function verificar_pago($payment = NULL)
-	{
-		$this->load->library('Coinbase');
-		$response = $this->coinbase->verifyPayment($payment);
-
-		if($response || $response == 0)
-		{
-			echo response_good(FALSE,FALSE,array('amount_paid' => $response));
-		}
-		else
-		{
-			echo response_bad('Error al verificar');
-		}
-
-	}
+	
 
 
 	

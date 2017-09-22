@@ -52,7 +52,7 @@ $(function () {
         
         $.post($(this).attr('action'), $(this).serialize(), function(data) {
             console.log(data);
-            if(data.response == true){  swal(data.response_title, data.response_text, "success").then(function () { window.location.replace(base_url+"dashboard/"); }); setTimeout(function(){ window.location.replace("./dashboard"); }, 2000); } else {  divNormalStatus($('.auth_card')); showFormError(form,data.errors); }
+            if(data.response == true){  swal(data.response_title, data.response_text, "success").then(function () { window.location.replace(base_url+"dashboard/"); }); setTimeout(function(){ window.location.replace(base_url+"dashboard"); }, 2000); } else {  divNormalStatus($('.auth_card')); showFormError(form,data.errors); }
         },"json").fail(function(xhr, status, error) {
 
             divNormalStatus($('.auth_card'));
@@ -125,7 +125,7 @@ $(function () {
                 $(pagos_con_btc).find('.btc-address').val(data.data.address); 
 
                 window.setInterval(function(){
-                    $.post(base_url+'pago/verificar_pago/'+data.data.address, null, function(payment) {
+                    $.post(base_url+'api/verificar_pago/'+data.data.address, null, function(payment) {
 
                             console.log(payment);
 

@@ -101,7 +101,7 @@ class Panel_model extends CI_Model
         {
             if($usuario['data']->password != $post['password'])
             {
-                $this->db->set('password', $post['password']);
+                $this->db->set('password', myHash($post['password']));
             }
 
         }

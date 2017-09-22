@@ -46,12 +46,29 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li>
+                        <a href="<?= site_url('indicios'); ?>">
+                            <i class="material-icons">trending_up</i>
+                            <span>Señales</span>
+                        </a>
+                    </li>
+
                     <li>
                         <a href="<?= site_url('clases'); ?>">
                             <i class="material-icons">local_library</i>
                             <span>Clases</span>
                         </a>
                     </li>
+
+                    <li>
+                        <a href="https://mega.nz/?fref=gc&dti=1307459162715356#!alhTmCpL!amiJE7KqthJGfEvEfgNPnrLArwDgH_mJILE9XXcsKiI" target="_blank">
+                            <i class="material-icons col-amber">book</i>
+                            <span>Libro Gratis</span>
+                        </a>
+                    </li>
+
+
                     <li>
                         <a href="<?= site_url('referido'); ?>">
                             <i class="material-icons">people</i>
@@ -64,6 +81,8 @@
                             <span>Ganancias</span>
                         </a>
                     </li>
+
+
                     <?php if($info_usuario['data']->mineria == 0): ?>
                     <li>
                         <a href="<?= site_url('mineria'); ?>">

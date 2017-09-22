@@ -54,6 +54,7 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
+<script src="https://use.fontawesome.com/a7fd4b808d.js"></script>
 <!-- Custom Css -->
 <link href="<?= asset_url(); ?>css/style.css" rel="stylesheet">
 <link rel='stylesheet' id='layerslider-css'  href='<?= asset_url(); ?>home/wp-content/plugins/LayerSlider/static/layerslider/css/layerslider069c.css?ver=6.5.8' type='text/css' media='all' />
@@ -72,10 +73,10 @@ img.emoji {
 <link rel='stylesheet' id='cms-navigation-style-css'  href='<?= asset_url(); ?>home/wp-content/plugins/wpml-cms-nav/res/css/cms-navigation13ac.css?ver=1.4.21' type='text/css' media='screen' />
 <link rel='stylesheet' id='avada-stylesheet-css'  href='<?= asset_url(); ?>home/wp-content/themes/Avada/assets/css/style.minbb49.css?ver=5.2.2' type='text/css' media='all' />
 <!--[if lte IE 9]>
-<link rel='stylesheet' id='avada-IE-fontawesome-css'  href='http://www.usitech.io/wp-content/themes/Avada/includes/lib/assets/fonts/fontawesome/font-awesome.css?ver=5.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='avada-IE-fontawesome-css'  href='<?= asset_url(); ?>home/wp-content/themes/Avada/includes/lib/assets/fonts/fontawesome/font-awesome.css?ver=5.2.2' type='text/css' media='all' />
 <![endif]-->
 <!--[if IE]>
-<link rel='stylesheet' id='avada-IE-css'  href='http://www.usitech.io/wp-content/themes/Avada/assets/css/ie.css?ver=5.2.2' type='text/css' media='all' />
+<link rel='stylesheet' id='avada-IE-css'  href='<?= asset_url(); ?>home/wp-content/themes/Avada/assets/css/ie.css?ver=5.2.2' type='text/css' media='all' />
 <![endif]-->
 <link rel='stylesheet' id='fusion-dynamic-css-css'  href='<?= asset_url(); ?>home/wp-content/uploads/fusion-styles/fusion-2d38c.css?timestamp=1504902479&amp;ver=4.8.1' type='text/css' media='all' />
 <link rel='stylesheet' id='jetpack_css-css'  href='<?= asset_url(); ?>home/wp-content/plugins/jetpack/css/jetpackde54.css?ver=5.3' type='text/css' media='all' />
@@ -206,6 +207,11 @@ document.ondragstart = function(){return false;};
 						<path d="M0 0 L11.5 12 L23 0 Z" fill="#ffffff" stroke="rgba(71,71,71,0)" stroke-width="1"/>
 						</svg></span></span></a></li>
 
+
+<li role="menuitem"  id="menu-item-170"  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-170"  ><a  title="" target="_blank" href="<?= asset_url(); ?>trading_plan.pdf" class="fusion-arrow-highlight"><span class="menu-text">Plan<span class="fusion-arrow-svg"><svg height="12px" width="23px">
+						<path d="M0 0 L11.5 12 L23 0 Z" fill="#ffffff" stroke="rgba(71,71,71,0)" stroke-width="1"/>
+						</svg></span></span></a></li>
+
 						<li role="menuitem"  id="menu-item-170"  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-170"  ><a  title="" href="<?= site_url('auth/'); ?>" class="fusion-arrow-highlight"><span class="menu-text">Login<span class="fusion-arrow-svg"><svg height="12px" width="23px">
 						<path d="M0 0 L11.5 12 L23 0 Z" fill="#ffffff" stroke="rgba(71,71,71,0)" stroke-width="1"/>
 						</svg></span></span></a></li>
@@ -293,7 +299,10 @@ lsjQuery("#layerslider_1").layerSlider({sliderVersion: '6.5.8', type: 'fullwidth
 					</div>
 				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-first 1_2"  style='margin-top:0px;margin-bottom:20px;width:50%;width:calc(50% - ( ( 4% ) * 0.5 ) );margin-right: 4%;'>
 					<div class="fusion-column-wrapper" style="padding: 0px 0px 5px 0px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
-						<!--<a id="" class="" title="USI Tech Presentation - Bitcoin Investment" href="https://www.youtube.com/watch?v=xxxxxx" data-rel="prettyPhoto"><img src="<?= asset_url(); ?>home/wp-content/uploads/2017/04/usi_tech_presentation2_yt_lightbox.jpg" alt="USI Tech Presentation - Bitcoin Investment" /></a>--><div class="fusion-clearfix"></div>
+						<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
+						<div class="imageframe-align-center"><span class="fusion-imageframe imageframe-none imageframe-1 hover-type-none"><img src="http://usitech.io/wp-content/uploads/2017/04/graphimg.png" width="" height="" alt="" title="" class="img-responsive"></span></div><div class="fusion-clearfix"></div>
+
+					</div><div class="fusion-clearfix"></div>
 
 					</div>
 				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-last 1_2"  style='margin-top:0px;margin-bottom:20px;width:50%;width:calc(50% - ( ( 4% ) * 0.5 ) );'>
@@ -312,7 +321,58 @@ lsjQuery("#layerslider_1").layerSlider({sliderVersion: '6.5.8', type: 'fullwidth
 						<div class="imageframe-align-center"><span class="fusion-imageframe imageframe-none imageframe-2 hover-type-none"><img src="<?= asset_url(); ?>home/wp-content/uploads/2017/04/operbotmimg.jpg" width="" height="" alt="" title="" class="img-responsive"/></span></div><div class="fusion-clearfix"></div>
 
 					</div>
+				</div>
+
+
+
+
+
+
+
+
+
+
+			</div></div>
+
+			<div id="about" class="fusion-fullwidth fullwidth-box fusion-parallax-up nonhundred-percent-fullwidth bg-parallax-parent" style="background-color: rgba(255, 255, 255, 0); background-image: none; background-position: center center; background-repeat: no-repeat; padding: 20px 30px 10px; background-size: cover; position: relative; overflow: hidden; z-index: 1;"><div class="parallax-inner" style="pointer-events: none; width: 1663px; height: 813.2px; position: absolute; z-index: -1; top: 0px; left: 0px; opacity: 1; background-position: center center; background-repeat: no-repeat; background-size: cover; background-image: url(&quot;http://usitech.io/wp-content/uploads/2017/04/aboutusbg.png&quot;); min-height: 150px; transform: translate3d(0px, -53.599px, 0px);"></div><div class="fusion-builder-row fusion-row "><div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:20px;">
+					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
+						<div class="fusion-title title fusion-title-center fusion-title-size-two" style="margin-top:30px;margin-bottom:31px;"><div class="title-sep-container title-sep-container-left"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div><h2 class="title-heading-center" data-fontsize="18" data-lineheight="27"><p style="text-align: center; font-size: 1.6em;"><strong>PAQUETES</strong></p></h2><div class="title-sep-container title-sep-container-right"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div></div><div class="fusion-clearfix"></div>
+
+					</div>
+				</div>
+
+
+				<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:20px;">
+					<div class="fusion-column-wrapper" style="padding: 20px 0px 0px 0px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;text-align: center" data-bg-url="">
+						<p>¡ Puedes aprender trading, pero mientras aprendes, aprovecha nuestros paquetes para empezar a GANAR !</p>
+<div class="fusion-clearfix"></div>
+
+					</div>
+				</div>
+
+				<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_3  fusion-one-third fusion-column-first fusion-blend-mode rounded 1_3" style="text-align:center;margin-top:0px;margin-bottom:0px;width:46%;margin-right: 4%;">
+					<div class="fusion-column-wrapper" style="background-color:rgba(0,0,0,0.08);padding: 20px 10px 10px 10px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
+						<div class="aligncenter"><i class="fa fontawesome-icon fa-codiepie circle-yes" style="border-color:rgba(51,51,51,0);background-color:#46cbf7;font-size:44px;line-height:88px;height:88px;width:88px;margin-left:0;margin-right:0;color:#ffffff;"></i></div><div class="fusion-sep-clear"></div><div class="fusion-separator fusion-full-width-sep sep-none" style="margin-left: auto;margin-right: auto;margin-top:;margin-bottom:10px;"></div><h2 style="text-align: center;" data-fontsize="18" data-lineheight="27"><strong>Paquete de 500$</strong></h2>
+<p style="text-align: center;"><ul class="fusion-checklist fusion-checklist-1" style="font-size:17px;line-height:28.9px;"><li class="fusion-li-item"><span style="background-color:#46cbf7;font-size:14.96px;height:28.9px;width:28.9px;margin-right:11.9px;" class="icon-wrapper circle-yes"><i class="fusion-li-icon fa fa-check" style="color:#ffffff;"></i></span><div class="fusion-li-item-content" style="margin-left:40.8px;"><span> En 90 dias habiles te regresamos 800$</span></div></li><li class="fusion-li-item"><span style="background-color:#46cbf7;font-size:14.96px;height:28.9px;width:28.9px;margin-right:11.9px;" class="icon-wrapper circle-yes"><i class="fusion-li-icon fa fa-check" style="color:#ffffff;"></i></span><div class="fusion-li-item-content" style="margin-left:40.8px;"><span>Una ganancia de mas del 35%</span></div></li></ul>
+
+
+<a class="fusion-button button-flat fusion-button-round button-large button-default button-1" target="_self" href="#"><span class="fusion-button-text">ADQUIRIR</span></a></p>
+<div class="fusion-clearfix"></div>
+
+					</div>
+				</div><div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_3  fusion-one-third fusion-blend-mode rounded 1_3" style="text-align:center;margin-top:0px;margin-bottom:0px;width:46%;margin-right: 4%;">
+					<div class="fusion-column-wrapper" style="background-color:rgba(0,0,0,0.08);padding: 20px 10px 10px 10px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
+						<div class="aligncenter"><i class="fa fontawesome-icon fa-bar-chart circle-yes" style="border-color:rgba(51,51,51,0);background-color:#46cbf7;font-size:44px;line-height:88px;height:88px;width:88px;margin-left:0;margin-right:0;color:#ffffff;"></i></div><div class="fusion-sep-clear"></div><div class="fusion-separator fusion-full-width-sep sep-none" style="margin-left: auto;margin-right: auto;margin-top:;margin-bottom:10px;"></div><h2 style="text-align: center;" data-fontsize="18" data-lineheight="27"><strong>Paquete de 1000$</strong></h2>
+<p style="text-align: center;"><ul class="fusion-checklist fusion-checklist-1" style="font-size:17px;line-height:28.9px;"><li class="fusion-li-item"><span style="background-color:#46cbf7;font-size:14.96px;height:28.9px;width:28.9px;margin-right:11.9px;" class="icon-wrapper circle-yes"><i class="fusion-li-icon fa fa-check" style="color:#ffffff;"></i></span><div class="fusion-li-item-content" style="margin-left:40.8px;"><span> En 90 dias habiles te regresamos 1600$</span></div></li><li class="fusion-li-item"><span style="background-color:#46cbf7;font-size:14.96px;height:28.9px;width:28.9px;margin-right:11.9px;" class="icon-wrapper circle-yes"><i class="fusion-li-icon fa fa-check" style="color:#ffffff;"></i></span><div class="fusion-li-item-content" style="margin-left:40.8px;"><span>Una ganancia de mas del 35%</span></div></li></ul>
+
+
+<a class="fusion-button button-flat fusion-button-round button-large button-default button-1" target="_self" href="#"><span class="fusion-button-text">ADQUIRIR</span></a></p>
+<div class="fusion-clearfix"></div>
+
+					</div>
 				</div></div></div>
+
+				
 
 
 
@@ -325,7 +385,9 @@ lsjQuery("#layerslider_1").layerSlider({sliderVersion: '6.5.8', type: 'fullwidth
 	</section>
 					
 				</div>  <!-- fusion-row -->
-			</main>  <!-- #main -->
+			</main>  <!-- #main --><div class="wpml-ls-statics-footer wpml-ls wpml-ls-legacy-list-horizontal" id="lang_sel_footer" style="margin: 0; text-align: center;">
+	Academia de Trading
+</div>
 			
 			
 			
@@ -356,7 +418,7 @@ var WPGroHo = {"my_hash":""};
 </script>
 <script type='text/javascript' src='<?= asset_url(); ?>home/wp-content/plugins/jetpack/modules/wpgrohoa288.js?ver=4.8.1'></script>
 <!--[if IE 9]>
-<script type='text/javascript' src='http://www.usitech.io/wp-content/themes/Avada/includes/lib/assets/min/js/general/fusion-ie9.js?ver=1'></script>
+<script type='text/javascript' src='<?= asset_url(); ?>home/wp-content/themes/Avada/includes/lib/assets/min/js/general/fusion-ie9.js?ver=1'></script>
 <![endif]-->
 <script type='text/javascript' src='<?= asset_url(); ?>home/wp-content/plugins/page-links-to/js/new-tab.min4315.js?ver=2.9.8'></script>
 <script type='text/javascript' src='<?= asset_url(); ?>home/wp-content/uploads/fusion-scripts/b5584a4a5dfd6aabf0f9bd35624320a3d6e3.js?timestamp=1504986701'></script>

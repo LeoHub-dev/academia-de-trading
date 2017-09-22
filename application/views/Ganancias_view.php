@@ -85,6 +85,7 @@
                                             <th>#</th>
                                             <th>Ganancia</th>
                                             <th>Monto</th>
+                                            <th>Pagada</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -92,6 +93,7 @@
                                             <th>#</th>
                                             <th>Ganancia</th>
                                             <th>Monto</th>
+                                            <th>Pagada</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -101,6 +103,7 @@
                                             <td><?= $n; ?></td>
                                             <td><?= $ganancia->razon; ?></td>
                                             <td><?= $ganancia->monto; ?></td>
+                                            <td><?php if($ganancia->pagada == 0) : ?>No<?php else : ?>Si<?php endif; ?></td>
                                         </tr>
                                     <?php $n++; endforeach; ?>
 
@@ -144,6 +147,7 @@
             $('.js-exportable').DataTable({
                 dom: 'Bfrtip',
                 responsive: true,
+                "order": [[ 3, "asc" ]],
                 buttons: [
                     'copy', 'csv', 'excel', 'pdf', 'print'
                 ]

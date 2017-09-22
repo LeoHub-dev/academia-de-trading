@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends LH_Controller {
+class Indicios extends LH_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -40,11 +40,9 @@ class Dashboard extends LH_Controller {
 
 	public function index()
 	{
-		$this->scope['titulo'] = "Dashboard";
-
-		$this->scope['cantidad_referidos'] = $this->Auth_model->obtenerReferidos($this->scope['info_usuario']['data']->id_usuario);
+		$this->scope['titulo'] = "Indicios";
 		
-		$this->load->view('Dashboard_view',$this->scope);
+		$this->load->view('Indicios_view',$this->scope);
 		
 	}
 

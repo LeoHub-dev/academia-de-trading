@@ -107,7 +107,10 @@
                                             <th>#</th>
                                             <th>Nombre</th>
                                             <th>Apellido</th>
+                                            <th>Email</th>
                                             <th>#Numero Referido</th>
+                                            <th>Activo</th>
+                                            <th>Fecha de Ingreso</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -115,7 +118,10 @@
                                             <th>#</th>
                                             <th>Nombre</th>
                                             <th>Apellido</th>
+                                            <th>Email</th>
                                             <th>#Numero Referido</th>
+                                            <th>Activo</th>
+                                            <th>Fecha de Ingreso</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -125,7 +131,10 @@
                                             <td><?= $n; ?></td>
                                             <td><?= $usuario->nombre; ?></td>
                                             <td><?= $usuario->apellido; ?></td>
+                                            <td><?= $usuario->email; ?></td>
                                             <td><?= $usuario->id_usuario; ?></td>
+                                            <td><?= ($usuario->pago == 1) ? "Activo" : "Inactivo"; ?></td>
+                                            <td><?= $usuario->fecha_creacion; ?></td>
                                         </tr>
                                     <?php $n++; endforeach; ?>
 

@@ -395,21 +395,16 @@ class Matriz_model extends CI_Model
 
         $account = $this->obtenerCuenta($id_matriz);
 
-        $ref_account = $this->obtenerCuenta($account->referido);
 
-        if($ref_account == NULL)
-        {
-            $ref_matriz = NULL;
-        }
-        else
-        {
-            $ref_matriz = $this->obtenerMatrizActiva($ref_account->id_usuario);
-        }
+        $ref_matriz = $this->obtenerMatrizActiva($account->referido);
+
         
         if($ref_matriz == NULL)
         {
             $ref_matriz = $this->obtenerMatrizActiva($this->obtenerRaiz()->id_usuario);
         }
+
+  
 
         $this->asignarRelacionDerrame($id_matriz,$ref_matriz->id_matriz);
         

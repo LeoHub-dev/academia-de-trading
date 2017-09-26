@@ -134,6 +134,17 @@
                                         </div>
                                     </div>
                                 </div>
+                                <h2 class="card-inside-title">Telefono/Skype</h2>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12">
+
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="telefono" class="form-control" placeholder="Telefono" value="<?= $info_usuario['data']->telefono; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <h2 class="card-inside-title">Wallet</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">

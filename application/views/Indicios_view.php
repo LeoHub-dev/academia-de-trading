@@ -63,19 +63,37 @@
                                     <div class="panel-group " id="accordion_19" role="tablist" aria-multiselectable="true">
 
                                         <div class="panel panel-col-cyan">
-                                            <div class="panel-heading" role="tab" id="headingOne_19">
+                                            <div class="panel-heading" role="tab" id="headingTwo_19">
                                                 <h4 class="panel-title">
-                                                    <a role="button" data-toggle="collapse" href="#collapseOne_19" aria-expanded="true" aria-controls="collapseOne_19">
-                                                        <i class="material-icons">show_chart</i> Señales 19 Septiembre
+                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo_19" aria-expanded="false" aria-controls="collapseTwo_19">
+                                                        <i class="material-icons">show_chart</i> Señal 25 Septiembre
                                                     </a>
                                                 </h4>
                                             </div>
-                                            <div id="collapseOne_19" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne_19">
+                                            <div id="collapseTwo_19" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo_19">
+                                                <div class="panel-body">
+                                                    <img src="<?= asset_url(); ?>images/indicios/25sep.jpg" class="img-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="panel panel-col-cyan">
+                                            <div class="panel-heading" role="tab" id="headingOne_19">
+                                                <h4 class="panel-title">
+                                                    <a role="button" data-toggle="collapse" href="#collapseOne_19" aria-expanded="true" aria-controls="collapseOne_19">
+                                                        <i class="material-icons">show_chart</i> Señal 19 Septiembre
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                            <div id="collapseOne_19" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne_19">
                                                 <div class="panel-body text-center">
                                                     <img src="<?= asset_url(); ?>images/indicios/19sep.png" class="img-responsive">
                                                 </div>
                                             </div>
                                         </div>
+
+                                        
                                         
 
                                     </div>

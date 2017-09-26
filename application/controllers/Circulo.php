@@ -57,7 +57,7 @@ class Circulo extends LH_Controller {
 	{
 		header("Content-type: application/x-javascript");
 
-		echo "var chart_config = '".json_encode($this->Matriz_model->crearMatriz(1))."';";
+		echo "var chart_config = '".json_encode($this->Matriz_model->crearMatriz($this->Matriz_model->obtenerMatrizActiva($this->scope['info_usuario']['data']->id_usuario)->id_matriz))."';";
 	}
 
 

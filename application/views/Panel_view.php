@@ -83,6 +83,7 @@
                                         <th>Usuario</th>
                                         <th>Nombre</th>
                                         <th>Mineria</th>
+                                        <th>Pago/Activo</th>
                                         <th>Ver</th>
                                     </tr>
                                 </thead>
@@ -92,6 +93,7 @@
                                         <th>Usuario</th>
                                         <th>Nombre</th>
                                         <th>Mineria</th>
+                                        <th>Pago/Activo</th>
                                         <th>Ver</th>
                                     </tr>
                                 </tfoot>
@@ -103,6 +105,7 @@
                                         <td><?= $usuario->usuario; ?></td>
                                         <td><?= $usuario->nombre; ?> <?= $usuario->apellido; ?></td>
                                         <td><?= ($usuario->mineria == 0) ? "Activo" : "Inactivo"; ?></td>
+                                        <td><?= ($usuario->pago == 0) ? "Inactivo" : "Activo"; ?></td>
                                         <td><button type="button" class="btn bg-blue btn-circle waves-effect waves-circle waves-float cargar-usuario" id-usuario="<?= $usuario->id_usuario; ?>"><i class="material-icons">search</i></button></td>
                                     </tr>
                                 <?php $n++; endforeach; ?>

@@ -206,6 +206,21 @@ class Auth_model extends CI_Model {
 
         $data_user = array();
 
+        if(isset($post['nombre']) && !empty($post['nombre']))
+        {
+            $data_user = array('nombre' => $post['nombre']) + $data_user;
+        }
+
+        if(isset($post['apellido']) && !empty($post['apellido']))
+        {
+            $data_user = array('apellido' => $post['apellido']) + $data_user;
+        }
+
+        if(isset($post['telefono']) && !empty($post['telefono']))
+        {
+            $data_user = array('telefono' => $post['telefono']) + $data_user;
+        }
+
         if(isset($post['image']) && !empty($post['image']))
         {
             $data_user = array('imagen' => $post['image']) + $data_user;

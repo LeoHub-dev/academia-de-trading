@@ -28,18 +28,22 @@ class Clases extends LH_Controller {
 		{
 			redirect('/auth' ,'refresh');
 		}
-		else
-		{
-			if(!$this->Auth_model->estaPago())
-        	{
-        		redirect('/pago' ,'refresh');
-        	}
-		}
+
 	}
 
 
 	public function index()
 	{
+		if(!$this->Auth_model->estaPago())
+    	{
+    		//redirect('/pago' ,'refresh');
+    		$this->scope['usuario_pago'] = 0;
+    	}
+    	else
+    	{
+    		$this->scope['usuario_pago'] = 1;
+    	}
+
 		$this->scope['titulo'] = "Clases";
 		
 		$this->load->view('Clases_view',$this->scope);

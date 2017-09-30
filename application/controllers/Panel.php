@@ -47,6 +47,7 @@ class Panel extends LH_Controller {
 
 		$this->scope['lista_usuarios_admin'] = $this->Panel_model->obtenerUsuarios();
 		$this->scope['lista_ganancias_admin'] = $this->Panel_model->obtenerGanancias();
+		$this->scope['lista_indicios_admin'] = $this->Academia_model->obtenerIndicios();
 		
 		$this->load->view('Panel_view',$this->scope);
 		
@@ -146,90 +147,74 @@ class Panel extends LH_Controller {
 		}
 	}
 
-	public function generarPrueba()
+	public function agregarIndicio()
 	{
-		set_time_limit(100);
-            ini_set('max_execution_time', 100);
 
-		$this->Matriz_model->agregarFactura(1);
+		if($this->input->server('REQUEST_METHOD') == 'POST')
+		{
 
-		$n = 2;
 
-		$usuario = array(
-			'nombre' => 'leonard'.$n,
-			'apellido' => 'jimen'.$n,
-			'fecha_nacimiento' => NULL,
-			'email' => 'admin1@circulo.com'.$n,
-			'telefono' => '000000',
-			'usuario' => 'leonard'.$n,
-			'password' => 'leonard'.$n,
-			'referido' => 1,
-			'tipo' => 0
-		);
 
-		$this->Auth_model->registrar($usuario);
-		$this->Matriz_model->agregarFactura($n);
-		$this->Matriz_model->agregarCuenta($n);
-        
-
-		for ($n=3; $n < 30; $n++) { 
+			if($this->Panel_model->agregarIndicio($this->input->post()))
+			{
+				echo response_good('Correcto','Señal agregada');
+        	}
+        	else
+        	{
+        		echo response_bad('Error - intente mas tarde');
+        	}
 
 			
-
-			$usuario = array(
-				'nombre' => 'leonard'.$n,
-				'apellido' => 'jimen'.$n,
-				'fecha_nacimiento' => NULL,
-				'email' => 'admin1@circulo.com'.$n,
-				'telefono' => '000000',
-				'usuario' => 'leonard'.$n,
-				'password' => 'leonard'.$n,
-				'referido' => 1,
-				'tipo' => 0
-			);
-
-			$this->Auth_model->registrar($usuario);
-			$this->Matriz_model->agregarFactura($n);
-			$this->Matriz_model->agregarCuenta($n);
-            
 		}
+		else
+	    {
+	    	echo response_bad('Error - Fallo sistema');
+	    }
+	
+	}
+
+	public function eliminarIndicio()
+	{
+
+		if($this->input->server('REQUEST_METHOD') == 'POST')
+		{
+
+			$this->Panel_model->eliminarIndicio($this->input->post('id'));
+
+			echo response_good('Correcto','Eliminada');
+
+	        return;
+	    }
 		
-
-
 	}
 
-	public function generarPrueba2()
+	public function uploadimg()
 	{
-		set_time_limit(100);
-            ini_set('max_execution_time', 100);
-		for ($n=162; $n < 300; $n++) { 
 
-			
+		$config['upload_path']          = './assets/images/indicios/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['max_size']             = 500;
+        $config['max_width']            = 1500;
+        $config['max_height']           = 1500;
+        $config['file_ext_tolower'] = TRUE;
+        $config['encrypt_name'] = TRUE;
 
-			$usuario = array(
-				'nombre' => 'leonard'.$n,
-				'apellido' => 'jimen'.$n,
-				'fecha_nacimiento' => NULL,
-				'email' => 'admin1@circulo.com'.$n,
-				'telefono' => '000000',
-				'usuario' => 'leonard'.$n,
-				'password' => 'leonard'.$n,
-				'referido' => 1,
-				'tipo' => 0
-			);
+        $this->load->library('upload', $config);
 
-			$this->Auth_model->registrar($usuario);
-			$this->Matriz_model->agregarFactura($n);
-			$this->Matriz_model->agregarCuenta($n);
-            
-		}
-	}
+        if ( ! $this->upload->do_upload('imgPerfil'))
+        {
+                $error = array('error' => $this->upload->display_errors());
 
-	public function init()
-	{
-		//$this->Auth_model->activarUsuarioPago(1);
-        $this->Matriz_model->agregarFactura(1,1);
-        //$this->Matriz_model->agregarCuenta(1);
+
+      
+            echo json_encode($error);
+        }
+        else
+        {
+                $data = array('upload_data' => $this->upload->data());
+
+                echo json_encode($data['upload_data']['file_name']);
+        }
 	}
 
 	public function activar($id = 1)

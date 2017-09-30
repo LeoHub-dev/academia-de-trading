@@ -28,22 +28,58 @@ class Indicios extends LH_Controller {
 		{
 			redirect('/auth' ,'refresh');
 		}
-		else
-		{
-			if(!$this->Auth_model->estaPago())
-        	{
-        		redirect('/pago' ,'refresh');
-        	}
-		}
+
 	}
 
 
 	public function index()
 	{
+		$this->scope['lista_indicios'] = $this->Academia_model->obtenerIndicios();
+
+		if($this->Auth_model->tienePase($this->scope['info_usuario']['data']->id_usuario))
+		{
+			$this->scope['tienePase'] = 1;
+
+			if(!$this->Auth_model->paseActivo($this->scope['info_usuario']['data']->id_usuario))
+			{
+				//redirect('/home' ,'refresh');
+				$this->scope['paseTerminado'] = 1;
+			}
+			else
+			{
+				$this->scope['paseTerminado'] = 0;
+			}
+		}
+		else
+		{
+			$this->scope['tienePase'] = 0;
+		}
+
 		$this->scope['titulo'] = "Indicios";
 		
 		$this->load->view('Indicios_view',$this->scope);
 		
+		
+	}
+
+	public function activar_temporal()
+	{
+		if($this->Auth_model->estaPago())
+    	{
+    		redirect('/indicios' ,'refresh');
+    	}
+    	else
+    	{
+    		if($this->Auth_model->tienePase($this->scope['info_usuario']['data']->id_usuario))
+    		{
+    			redirect('/indicios' ,'refresh');
+    		}
+    		else
+    		{
+    			$this->Auth_model->crearPase($this->scope['info_usuario']['data']->id_usuario);
+    			redirect('/indicios' ,'refresh');
+    		}
+    	}
 	}
 
 	

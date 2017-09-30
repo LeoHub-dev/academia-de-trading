@@ -31,7 +31,7 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <?php if($info_usuario['data']->pago == 1) : ?>
+                    <?php if($info_usuario['data']->pago == 1) : ?>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
                             <i class="material-icons">pie_chart</i>
@@ -46,6 +46,7 @@
                             </li>
                         </ul>
                     </li>
+                    <?php endif; ?>
 
                     <li>
                         <a href="<?= site_url('indicios'); ?>">
@@ -68,7 +69,7 @@
                         </a>
                     </li>
 
-
+                    <?php if($info_usuario['data']->pago == 1) : ?>
                     <li>
                         <a href="<?= site_url('referido'); ?>">
                             <i class="material-icons">people</i>
@@ -81,15 +82,14 @@
                             <span>Ganancias</span>
                         </a>
                     </li>
-
-
-                    <?php if($info_usuario['data']->mineria == 0): ?>
-                    <li>
-                        <a href="<?= site_url('mineria'); ?>">
-                            <i class="material-icons col-light-blue">account_circle</i>
-                            <span>Cuenta en Mineria</span>
-                        </a>
-                    </li>
+                        <?php if($info_usuario['data']->mineria == 0): ?>
+                        <li>
+                            <a href="<?= site_url('mineria'); ?>">
+                                <i class="material-icons col-light-blue">account_circle</i>
+                                <span>Cuenta en Mineria</span>
+                            </a>
+                        </li>
+                        <?php endif; ?>
                     <?php endif; ?>
 
                     <?php if($info_usuario['data']->tipo == 1): ?>
@@ -100,14 +100,32 @@
                         </a>
                     </li>
                     <?php endif; ?>
-                <?php else : ?>
+                
+                    <?php if($info_usuario['data']->pago == 0) : ?>
                     <li>
                         <a href="<?= site_url('pago'); ?>">
-                            <i class="material-icons">attach_money</i>
+                            <i class="material-icons col-light-blue">attach_money</i>
                             <span>Donar entrada</span>
                         </a>
                     </li>
-                <?php endif; ?>
+                    <?php endif; ?>
+
+
+                    
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">pie_chart</i>
+                            <span>Canales</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="https://t.me/joinchat/F4Z0XwyjP08YO8vSnj4TDw" target="_blank" class="waves-effect waves-block">Telegram</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
             </ul>
         </div>
         <!-- #Menu -->

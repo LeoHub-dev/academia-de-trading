@@ -265,6 +265,80 @@ class Auth_model extends CI_Model {
 
     }
 
+    public function tienePase($id_usuario = NULL)
+    {
+        $this->db->where('id_usuario',$id_usuario);
+        $this->db->or_where('ip', $_SERVER['REMOTE_ADDR']);
+
+        $query = $this->db->get('indicios_temporal');
+
+        if($query->num_rows() > 0 )
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+
+    }
+
+    public function paseActivo($id_usuario = NULL)
+    {
+        $this->db->where('id_usuario',$id_usuario);
+        $this->db->or_where('ip', $_SERVER['REMOTE_ADDR']);
+
+        $query = $this->db->get('indicios_temporal');
+
+        if($query->num_rows() > 0 )
+        {
+            foreach ($query->result() as $inf)
+            {
+                $fecha_hoy_data = new DateTime(NULL, new DateTimeZone(TIMEZONE));
+                $fecha_hoy = $fecha_hoy_data->format("Y-m-d");
+
+                $fecha_inicial_data = new DateTime($inf->fecha_inicio, new DateTimeZone(TIMEZONE));
+                $fecha_inicial_data->modify('+7 day');
+                $fecha_inicial = $fecha_inicial_data->format("Y-m-d");
+
+                if($fecha_inicial >= $fecha_hoy)
+                {
+                    return TRUE;
+                }
+                else
+                {
+                    return FALSE;
+                }
+
+            }
+        }
+    }
+
+    public function crearPase($id_usuario = NULL)
+    {
+
+        $fecha_hoy_data = new DateTime(NULL, new DateTimeZone(TIMEZONE));
+        $fecha_hoy = $fecha_hoy_data->format("Y-m-d");
+
+        $pase = array(
+           'id_usuario' => $id_usuario,
+           'ip' => $_SERVER['REMOTE_ADDR'],
+           'fecha_inicio' => $fecha_hoy
+        );
+
+        $query = $this->db->insert('indicios_temporal',$pase); 
+
+        if($query)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+
+    }
+
     
 }
 ?>

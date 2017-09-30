@@ -177,4 +177,58 @@ $(function () {
 
     })
 
+    $('.admin-agregar-indicio').on('submit', function(e){
+
+        e.preventDefault();
+        e.stopImmediatePropagation();   
+
+        var form = $(this);
+
+        $.post($(this).attr('action'), $(this).serialize(), function(data) {
+            console.log(data);
+            if(data.response == true){  swal(data.response_title, data.response_text, "success"); } else {  swal({title:'Error', type: "error", html: data.errors});    }
+
+        },"json").fail(function(xhr, status, error) {
+            console.log(error);
+            console.log(xhr.responseText);
+            console.log(status);
+        });
+
+
+    })
+
+    $("*").on("click",".eliminar_indicio",function(e){
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        if (confirm('Desea eliminar esta señal?')) {
+            
+          } else {
+            return;
+          }
+
+        var td = $(this).parent();
+
+        $.post(base_url+'panel/eliminarindicio', {id : $(this).attr('data-id')}, function(data) {
+            console.log(data);
+            if(data.response == true)
+            {   
+                swal(data.response_title, data.response_text, "success");
+                td.html('Eliminada');
+
+            }
+            if(data.response == false)
+            { 
+                swal({title:'Error', type: "error", text: data.errors, html: true});  
+            }
+
+        },'json').fail(function(xhr, status, error) {
+            console.log(error);
+            console.log(xhr.responseText);
+            console.log(status);
+        });
+
+    })
+
 });

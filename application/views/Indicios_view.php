@@ -44,68 +44,111 @@
 
     <section class="content">
         <div class="container-fluid">
-          
 
-           <div class="row clearfix center-block">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center-block" style="float: none">
-                    <div class="card">
-                        <div class="header text-center">
-                            <h2>
-                                SEÑALES Y ALERTAS
-                                <!--<small>Don't use <code>data-parent</code> attributes</small>-->
-                            </h2>
-                            
-                        </div>
-                        <div class="body">
-                            <div class="row clearfix">
 
-                                <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12" >
-                                    <div class="panel-group " id="accordion_19" role="tablist" aria-multiselectable="true">
+            <?php if($info_usuario['data']->pago == 1 || ($tienePase == 1 && $paseTerminado == 0)) : ?>
+                <div class="row clearfix center-block">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center-block" style="float: none">
+                        <div class="card">
+                            <div class="header text-center">
+                                <h2>
+                                    SEÑALES Y ALERTAS
+                                    <!--<small>Don't use <code>data-parent</code> attributes</small>-->
+                                </h2>
+                                
+                            </div>
+                            <div class="body">
+                                <div class="row clearfix">
 
-                                        <div class="panel panel-col-cyan">
-                                            <div class="panel-heading" role="tab" id="headingTwo_19">
-                                                <h4 class="panel-title">
-                                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo_19" aria-expanded="false" aria-controls="collapseTwo_19">
-                                                        <i class="material-icons">show_chart</i> Señal 25 Septiembre
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseTwo_19" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo_19">
-                                                <div class="panel-body">
-                                                    <img src="<?= asset_url(); ?>images/indicios/25sep.jpg" class="img-responsive">
+                                    <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12" >
+
+
+                                        <div class="panel-group " id="accordion_19" role="tablist" aria-multiselectable="true">
+
+                                            <?php $n = 0; foreach((array) $lista_indicios as $indicio) : ?>
+                                            <?php  $factura_final = new DateTime($indicio->fecha, new DateTimeZone(TIMEZONE));
+                                                setlocale(LC_TIME,"ES");
+                                                $f = strftime("%d de %B",  $factura_final->getTimestamp());  ?>
+                                                <div class="panel panel-col-cyan">
+                                                    <div class="panel-heading" role="tab" id="headingTwo_19">
+                                                        <h4 class="panel-title">
+                                                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo_<?= $n; ?>" aria-expanded="false" aria-controls="collapseTwo_19">
+                                                                <i class="material-icons">show_chart</i> Señal <?= $f ?>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseTwo_<?= $n; ?>" class="panel-collapse collapse <?php if($n == 0) { echo 'in'; } ?>" role="tabpanel" aria-labelledby="headingTwo_19">
+                                                        <div class="panel-body">
+                                                            <img src="<?= asset_url(); ?>images/indicios/<?= $indicio->imagen; ?>" class="img-responsive">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            <?php $n++; endforeach; ?>
+
+
                                         </div>
-
-
-                                        <div class="panel panel-col-cyan">
-                                            <div class="panel-heading" role="tab" id="headingOne_19">
-                                                <h4 class="panel-title">
-                                                    <a role="button" data-toggle="collapse" href="#collapseOne_19" aria-expanded="true" aria-controls="collapseOne_19">
-                                                        <i class="material-icons">show_chart</i> Señal 19 Septiembre
-                                                    </a>
-                                                </h4>
-                                            </div>
-                                            <div id="collapseOne_19" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne_19">
-                                                <div class="panel-body text-center">
-                                                    <img src="<?= asset_url(); ?>images/indicios/19sep.png" class="img-responsive">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        
-                                        
-
                                     </div>
+
+
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php else : ?>
 
+
+                <?php if($tienePase == 0) : ?>
+
+
+                <div class="row clearfix center-block">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                        <div class="card">
+                            <div class="header text-center">
+                                <h2>
+                                    PASE TEMPORAL - 7 DIAS
+                                </h2>
+                                
+                            </div>
+                            <div class="body">
+                                <div class="row clearfix">
+
+                                <a href="<?= site_url('indicios/activar_temporal'); ?>" class="btn btn-primary m-t-15 waves-effect btn-block">ACTIVAR PASE TEMPORAL (7 DIAS)</a>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <?php elseif($paseTerminado == 1) : ?>
+          
+                
+
+                    <div class="row clearfix center-block">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                            <div class="card">
+                                <div class="header text-center">
+                                    <h2>
+                                        PASE TERMINADO
+                                    </h2>
+                                    
+                                </div>
+                                <div class="body">
+                                    
+
+                                        <p><span class="font-bold col-pink">TU PASE HA TERMINADO</span> - PUEDES REALIZAR <a href="<?= site_url('pago'); ?>">LA DONACION INICIAL</a> PARA TENER ACCESO A TODAS LAS SEÑALES</p>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <?php endif; ?>
+
+            <?php endif; ?>
             
 
             

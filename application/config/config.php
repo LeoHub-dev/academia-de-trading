@@ -24,8 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'http://academiadetradring.com/';
-//$config['base_url'] = 'http://192.168.1.2/circulo/';
-$config['base_url'] = 'http://localhost/circulo/';
+$config['base_url'] = 'http://192.168.1.2/circulo/';
 
 /*
 |--------------------------------------------------------------------------

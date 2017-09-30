@@ -82,6 +82,9 @@
                         </div>
                     </div>
                 </div>-->
+
+
+                
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-orange hover-expand-effect">
                         <div class="icon">
@@ -93,6 +96,27 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="info-box bg-light-blue hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">access_alarm</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">Donación mensual <?php if($debePagar == 1) : ?> (<?php $fecha_1 = new DateTime($factura->fecha_inicial, new DateTimeZone(TIMEZONE)); $fecha_inicial = $fecha_1->format("m-d-Y"); echo $fecha_inicial; ?> - <?php $fecha_2 = new DateTime($factura->fecha_final, new DateTimeZone(TIMEZONE)); $fecha_final = $fecha_2->format("m-d-Y"); echo $fecha_final; ?>) <?php endif; ?></div>
+                            <div class="number" >
+                                <?php if($debePagar == 0) : ?>
+                                    Adquirida
+                                <?php else: ?>
+
+                                Referidos faltantes : <?= $factura->monto/5; ?>
+
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="row clearfix">

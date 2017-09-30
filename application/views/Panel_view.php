@@ -183,7 +183,6 @@
                                     <h2 class="card-inside-title">Password</h2>
                                     <div class="row clearfix">
                                         <div class="col-sm-12">
-
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <input type="password" name="password" class="form-control" placeholder="Password" value="">
@@ -194,7 +193,6 @@
                                     <h2 class="card-inside-title">Nombre</h2>
                                     <div class="row clearfix">
                                         <div class="col-sm-12">
-
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <input type="text" name="nombre" class="form-control" placeholder="Nombre" value="">
@@ -446,9 +444,119 @@
                 </div>
             </div>
 
-            
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Agrega una Señal
+                            </h2>
+                            
+                        </div>
+                        <div class="body">
+                            <form action="<?= site_url('panel/agregarIndicio'); ?>" class="admin-agregar-indicio">
+   
+                                    <h2 class="card-inside-title">Titulo</h2>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" name="titulo" class="form-control" placeholder="Titulo" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2 class="card-inside-title">Fecha</h2>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="date" name="fecha" class="form-control" value="<?php echo date('Y-m-d'); ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h2 class="card-inside-title">Info Adicional</h2>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" name="info" class="form-control" placeholder="Info" value="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   <h2 class="card-inside-title">Imagen de la señal</h2>
+                                    <div class="row clearfix">
+                                        <div class="form-group">
+                                            <div class="col-md-12 clearfix">
+                                              <label>Agregar imagen</label>
+                                              <div id="imageupload">Subir</div>
+                                              <input type="hidden" name="imagen" id="image_input" value="" required>
+                                            </div>
+                                        </div>
+                                    </div>
 
-            
+                                    <div class="row clearfix"><p class="img_upload_error" style="color: red"></p></div>
+
+                                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">Agregar</button>
+
+                                </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Lista señales
+                            </h2>
+                            
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                                <table class="table table-bordered table-striped table-hover dataTable js-ganancias-total" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th>#</th>
+                                            <th>Titulo</th>
+                                            <th>Imagen</th>
+                                            <th>Fecha</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Titulo</th>
+                                            <th>Imagen</th>
+                                            <th>Fecha</th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                    <?php $n = 0; foreach((array) $lista_indicios_admin as $indicio) : ?>
+                                        <tr role="row">
+                                            <td><?= $n; ?></td>
+                                            <td><?= $indicio->titulo; ?></td>
+                                            <td><a href="<?= asset_url(); ?>images/indicios/<?= $indicio->imagen; ?>" target="_blank">Imagen</a></td>
+                                            <td><?= $indicio->fecha; ?></td>
+                                            <td><a href="javascript:void(0)" class="btn btn-primary eliminar_indicio" data-id="<?= $indicio->id_indicio; ?>">Eliminar</a></td>
+                                        </tr>
+                                    <?php $n++; endforeach; ?>
+
+                                    </tbody>
+                                </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             
         </div>
@@ -464,7 +572,7 @@
     <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
     <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
     <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>\
+    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
     <script src="<?= asset_url(); ?>js/panel.js"></script>
 
     <script type="text/javascript">
@@ -495,6 +603,49 @@
             
         });
     </script>
+
+    <script>
+
+        $("#imageupload").uploadFile({
+          url:"panel/uploadimg/",
+          dragDropStr: "<span><b>Arrastra & Suelta tu Imagen</b></span>",
+          uploadStr:"Subir",
+          fileName:"imgPerfil",
+          showPreview:true,
+          maxFileCount:1,
+          previewHeight: "100px",
+          previewWidth: "100px",
+          acceptFiles:"image/*",
+          showDelete: true,
+          deleteCallback: function (data, pd) {
+            $("#image_input").val('<?= $info_usuario['data']->imagen; ?>');
+          },
+          onSuccess:function(files,data,xhr,pd)
+          {
+
+            console.log(data);
+
+            var error = JSON.parse(data);
+            console.log(error);
+
+            if(error.error)
+            {
+
+                $(".img_upload_error").html(error.error)
+            }
+            else
+            {
+                var img = JSON.parse(data);
+                $(".img_upload_error").html("");
+                $("#image_input").val(img);
+                //$(".imagen_perfil").attr('src','<?= asset_url(); ?>images/perfil/'+img);
+            }
+            
+
+            
+          }
+        });
+      </script>
 
 
 </body>

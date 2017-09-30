@@ -213,6 +213,35 @@ class Panel_model extends CI_Model
         }
     }
 
+    public function agregarIndicio($data)
+    {
+
+        $data = array(
+           'titulo' => $data['titulo'],
+           'imagen' => $data['imagen'],
+           'fecha' => $data['fecha'],
+           'info' => $data['info']
+        );
+
+        $query = $this->db->insert('indicios',$data);
+
+        if($query)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+        
+    }
+
+    public function eliminarIndicio($id)
+    {
+        $this->db->delete('indicios', array('id_indicio' => $id));
+    }
+
+
     public function __get($var)
     {
         return get_instance()->$var;

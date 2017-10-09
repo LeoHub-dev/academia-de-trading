@@ -57,7 +57,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Donación Inicial <small>Realiza tu donación de 25$ para obtener acceso a tu circulo</small>
+                                Pago mensual <small>Realiza tu pago de 20$ para obtener acceso a la academia</small>
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">

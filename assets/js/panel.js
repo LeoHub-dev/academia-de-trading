@@ -1,6 +1,6 @@
 $(function () {
 
-    var base_url = window.location.protocol + "//" + window.location.host + "/";
+    var base_url = window.location.protocol + "//" + window.location.host + "/circulo/";
 
     $('*').on('click', '.cargar-usuario', function(e){
 
@@ -186,7 +186,16 @@ $(function () {
 
         $.post($(this).attr('action'), $(this).serialize(), function(data) {
             console.log(data);
-            if(data.response == true){  swal(data.response_title, data.response_text, "success"); } else {  swal({title:'Error', type: "error", html: data.errors});    }
+            if(data.response == true){  swal(data.response_title, data.response_text, "success"); 
+
+            $('#tabla_indicios').find('tbody').prepend('<tr role="row">\
+                            <td>'+data.id_indicio+'</td>\
+                            <td>'+data.indicio.titulo+'</td>\
+                            <td><a href="'+base_url+'assets/images/indicios/'+data.indicio.imagen+'" target="_blank">Imagen</a></td>\
+                            <td>'+data.indicio.fecha+'</td>\
+                            <td>'+$('.admin-agregar-indicio').find(":selected").text()+'</td>\
+                            <td><a href="javascript:void(0)" class="btn btn-primary eliminar_indicio" data-id="'+data.id_indicio+'">Eliminar</a></td>\
+                        </tr>');} else {  swal({title:'Error', type: "error", html: data.errors});    }
 
         },"json").fail(function(xhr, status, error) {
             console.log(error);

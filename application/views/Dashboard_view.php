@@ -85,37 +85,40 @@
 
 
                 
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <?php if($info_usuario['data']->pago == 0) : ?>
+
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                     <div class="info-box bg-orange hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">person_add</i>
                         </div>
                         <div class="content">
-                            <div class="text">REFERIDOS</div>
-                            <div class="number count-to" data-from="0" data-to="<?= count($cantidad_referidos); ?>" data-speed="1" data-fresh-interval="20"><?= count($cantidad_referidos); ?></div>
+                            <div class="text">REFERIDOS RECOLECTADOS PARA MES GRATIS</div>
+                            <div class="number " data-from="0" data-to="<?= $cantidad_referidos; ?>" data-speed="1" data-fresh-interval="20"><?= $cantidad_referidos; ?> / 3</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="info-box bg-light-blue hover-expand-effect">
+                <?php else: ?>
+
+
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <div class="info-box bg-orange hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">access_alarm</i>
                         </div>
                         <div class="content">
-                            <div class="text">Donación mensual <?php if($debePagar == 1) : ?> (<?php $fecha_1 = new DateTime($factura->fecha_inicial, new DateTimeZone(TIMEZONE)); $fecha_inicial = $fecha_1->format("m-d-Y"); echo $fecha_inicial; ?> - <?php $fecha_2 = new DateTime($factura->fecha_final, new DateTimeZone(TIMEZONE)); $fecha_final = $fecha_2->format("m-d-Y"); echo $fecha_final; ?>) <?php endif; ?></div>
-                            <div class="number" >
-                                <?php if($debePagar == 0) : ?>
-                                    Adquirida
-                                <?php else: ?>
-
-                                Referidos faltantes : <?= $factura->monto/5; ?>
-
-                                <?php endif; ?>
-                            </div>
+                            <div class="text">FECHA FINAL DE MENSUALIDAD</div>
+                            <div class="number " data-speed="1" data-fresh-interval="20"><?php 
+                            $factura_final = new DateTime( $factura->fecha_inicial, new DateTimeZone(TIMEZONE));
+                            echo $factura_final->format("Y-m-d"); ?></div>
                         </div>
                     </div>
                 </div>
+
+                <?php endif; ?>
+
+                
 
             </div>
 
@@ -145,6 +148,19 @@
                                 <?= ($key == "wallet" && $value == NULL) ? '<div class="alert alert-info"><strong>No</strong> tienes una Wallet asignada en tu perfil <a href="'.site_url('perfil').'" class="alert-link">Click aqui para editar tu perfil</a></div>' : ''; ?>
                                 
                             <?php endforeach ?>
+
+                            <?php if($info_usuario['data']->pago == 0) : ?>
+
+                                <div class="alert alert-danger">Su <strong>cuenta</strong> se encuentra inactiva. Puede invitar a 3 referidos con <a role="button" data-toggle="collapse" href="#refLink" aria-expanded="true" aria-controls="refLink" class="alert-link">Tu Link de referido</a> o realizar el pago de 20$ <a href="<?= site_url('pago'); ?>" class="alert-link">AQUI</a></div>
+
+                                <div class="collapse" id="refLink">
+                                    <div class="well">
+                                        <?= site_url('api/c/'.$info_usuario['data']->id_usuario); ?>
+                                    </div>
+                                </div>
+
+                            <?php endif; ?>
+
                         </div>
                     </div>
                 </div>

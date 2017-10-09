@@ -36,11 +36,11 @@ class Indicios extends LH_Controller {
 	{
 		$this->scope['lista_indicios'] = $this->Academia_model->obtenerIndicios();
 
-		if($this->Auth_model->tienePase($this->scope['info_usuario']['data']->id_usuario))
+		if($this->Academia_model->tienePase($this->scope['info_usuario']['data']->id_usuario))
 		{
 			$this->scope['tienePase'] = 1;
 
-			if(!$this->Auth_model->paseActivo($this->scope['info_usuario']['data']->id_usuario))
+			if(!$this->Academia_model->paseActivo($this->scope['info_usuario']['data']->id_usuario))
 			{
 				//redirect('/home' ,'refresh');
 				$this->scope['paseTerminado'] = 1;
@@ -64,19 +64,19 @@ class Indicios extends LH_Controller {
 
 	public function activar_temporal()
 	{
-		if($this->Auth_model->estaPago())
+		if($this->Academia_model->estaPago())
     	{
     		redirect('/indicios' ,'refresh');
     	}
     	else
     	{
-    		if($this->Auth_model->tienePase($this->scope['info_usuario']['data']->id_usuario))
+    		if($this->Academia_model->tienePase($this->scope['info_usuario']['data']->id_usuario))
     		{
     			redirect('/indicios' ,'refresh');
     		}
     		else
     		{
-    			$this->Auth_model->crearPase($this->scope['info_usuario']['data']->id_usuario);
+    			$this->Academia_model->crearPase($this->scope['info_usuario']['data']->id_usuario);
     			redirect('/indicios' ,'refresh');
     		}
     	}

@@ -58,7 +58,7 @@
                            
                         </div>
                         <div class="body">
-                            <iframe src="https://player.vimeo.com/video/234070411?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                            <iframe src="https://player.vimeo.com/video/234070411?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                            
                         </div>
                         <div class="body">
-                            <iframe src="https://player.vimeo.com/video/234117054?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                            <iframe src="https://player.vimeo.com/video/234117054?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                            
                         </div>
                         <div class="body">
-                            <iframe src="https://player.vimeo.com/video/234148702?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                            <iframe src="https://player.vimeo.com/video/234148702?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                            
                         </div>
                         <div class="body">
-                            <iframe src="https://player.vimeo.com/video/234244776?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                            <iframe src="https://player.vimeo.com/video/234244776?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                            
                         </div>
                         <div class="body">
-                            <iframe src="https://player.vimeo.com/video/234245739?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                            <iframe src="https://player.vimeo.com/video/234245739?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                            
                         </div>
                         <div class="body">
-                            <iframe src="https://player.vimeo.com/video/234274531?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                            <iframe src="https://player.vimeo.com/video/234274531?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                            
                         </div>
                         <div class="body">
-                            <iframe src="https://player.vimeo.com/video/234275357?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="360" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                            <iframe src="https://player.vimeo.com/video/234275357?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>

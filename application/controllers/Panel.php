@@ -46,7 +46,6 @@ class Panel extends LH_Controller {
 		$this->scope['titulo'] = "Panel";
 
 		$this->scope['lista_usuarios_admin'] = $this->Panel_model->obtenerUsuarios();
-		$this->scope['lista_ganancias_admin'] = $this->Panel_model->obtenerGanancias();
 		$this->scope['lista_indicios_admin'] = $this->Academia_model->obtenerIndicios();
 		
 		$this->load->view('Panel_view',$this->scope);
@@ -155,9 +154,9 @@ class Panel extends LH_Controller {
 
 
 
-			if($this->Panel_model->agregarIndicio($this->input->post()))
+			if($info = $this->Panel_model->agregarIndicio($this->input->post()))
 			{
-				echo response_good('Correcto','Señal agregada');
+				echo response_good('Correcto','Señal agregada',array('indicio' => $this->input->post(), 'id_indicio' => $info));
         	}
         	else
         	{
@@ -222,5 +221,10 @@ class Panel extends LH_Controller {
 		$this->Auth_model->activarUsuarioPago($id);
         $this->Matriz_model->agregarFactura($id,1);
         $this->Matriz_model->agregarCuenta($id);
+	}
+
+	public function nuevosistema()
+	{
+		$this->Academia_model->prepararNuevoSistema();
 	}
 }

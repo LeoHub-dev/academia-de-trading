@@ -15,18 +15,11 @@ class LH_Controller extends CI_Controller
                 $this->scope['info_usuario'] = $this->Auth_model->obtenerUsuarioID($this->session->userdata('id_usuario'));
             }
 
+            $this->scope['factura'] = $this->Academia_model->obtenerFactura($this->session->userdata('id_usuario'));
+
             if($this->scope['info_usuario']['data']->pago == 1)
             {
-                $this->scope['factura'] = $this->Matriz_model->obtenerFactura($this->scope['info_usuario']['data']->id_usuario);
-
-                if($this->Matriz_model->debePagar($this->Matriz_model->obtenerMatrizActiva($this->scope['info_usuario']['data']->id_usuario)->id_matriz))
-                {
-                    $this->scope['debePagar'] = 1;
-                }
-                else
-                {
-                    $this->scope['debePagar'] = 0;
-                }
+                
             }
 
 

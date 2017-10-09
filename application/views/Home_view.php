@@ -39,6 +39,13 @@
 		<meta property="og:description" content="Bienvenidos a Academia de trading"/>
 
 									<meta property="og:image" content="<?= asset_url(); ?>images/logo.png"/>
+
+									<!-- Bootstrap Core Css -->
+<link href="<?= asset_url(); ?>plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
 							
 		<style type="text/css">
 img.wp-smiley,
@@ -284,7 +291,7 @@ lsjQuery("#layerslider_1").layerSlider({sliderVersion: '6.5.8', type: 'fullwidth
 					</div>
 				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_3_5  fusion-three-fifth fusion-column-last 3_5"  style='margin-top:0px;margin-bottom:20px;width:60%;width:calc(60% - ( ( 4% ) * 0.6 ) );'>
 					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
-						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src="//www.youtube.com/embed/IBIbR_1BW7k?rel=0&amp;jsapi=1" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" class="embed-responsive-item"></iframe></div><div class="fusion-clearfix"></div>
+						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><!--<div class='embed-container'><iframe src="//www.youtube.com/embed/IBIbR_1BW7k?rel=0&amp;jsapi=1" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" class="embed-responsive-item"></iframe></div>--><div class="fusion-clearfix"></div>
 
 					</div>
 				</div></div></div>
@@ -294,24 +301,24 @@ lsjQuery("#layerslider_1").layerSlider({sliderVersion: '6.5.8', type: 'fullwidth
 
 				<div id="opportunity" class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth"  style='background-color: #f5f5f5;background-position: center center;background-repeat: no-repeat;padding-top:20px;padding-right:30px;padding-left:30px;'><div class="fusion-builder-row fusion-row "><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1"  style='margin-top:0px;margin-bottom:20px;'>
 					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
-						<div class="fusion-title title fusion-title-center fusion-title-size-two" style="margin-top:30px;margin-bottom:31px;"><div class="title-sep-container title-sep-container-left"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div><h2 class="title-heading-center"><p style="text-align: center; font-size: 1.6em;"><strong>PLAN DE COMPENSACIÓN</strong></p></h2><div class="title-sep-container title-sep-container-right"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div></div><div class="fusion-clearfix"></div>
+						<div class="fusion-title title fusion-title-center fusion-title-size-two" style="margin-top:30px;margin-bottom:31px;"><div class="title-sep-container title-sep-container-left"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div><h2 class="title-heading-center"><p style="text-align: center; font-size: 1.6em;"><strong>¿ COMO FUNCIONA ?</strong></p></h2><div class="title-sep-container title-sep-container-right"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div></div><div class="fusion-clearfix"></div>
 
 					</div>
 				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-first 1_2"  style='margin-top:0px;margin-bottom:20px;width:50%;width:calc(50% - ( ( 4% ) * 0.5 ) );margin-right: 4%;'>
 					<div class="fusion-column-wrapper" style="padding: 0px 0px 5px 0px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
 						<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
-						<div class="imageframe-align-center"><span class="fusion-imageframe imageframe-none imageframe-1 hover-type-none"><img src="http://usitech.io/wp-content/uploads/2017/04/graphimg.png" width="" height="" alt="" title="" class="img-responsive"></span></div><div class="fusion-clearfix"></div>
+						<div class="imageframe-align-center"><span class="fusion-imageframe imageframe-none imageframe-1 hover-type-none"><img src="http://abogadooficio.com/wp-content/uploads/2015/06/ChicaPC-520x307.png" width="" height="" alt="" title="" class="img-responsive"></span></div><div class="fusion-clearfix"></div>
 
 					</div><div class="fusion-clearfix"></div>
 
 					</div>
 				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-last 1_2"  style='margin-top:0px;margin-bottom:20px;width:50%;width:calc(50% - ( ( 4% ) * 0.5 ) );'>
 					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
-						<h1 style="margin-top: 0;"><strong>¿ Como funciona ?</strong></h1>
-<p>Paga tu membresia mensual de $25 dólares al mes la cual incluye nuestro curso de trading y una señal al dia con ganancia del 6% al 10 % de tu inversión.</p>
-<p>Invita a 5 personas a nuestra Academia de Trading y tu membresia mensual es gratis.</p>
-<p>Llena tu segundo círculo con 25 personas ya sea por derrame o por trabajo en equipo.</p>
-<p>Ayuda a tus invitados a llenar su segundo círculo y gánate el 100% la misma cantidad que ellos ganen todos los meses.</p>
+						<h1 style="margin-top: 0;"><strong><!--¿ Como funciona ?--></strong></h1>
+<p>Te enseñaremos a hacer trading.</p>
+<p>Te regalaremos Señales por una (1) semana.</p>
+<p>Una vez obtengas ganancias te puedes hacer miembro con tan solo 20 dolares al mes.</p>
+<p>Si invitas a 3 personas, tu mensualidad es gratis.</p>
 
 <div class="fusion-clearfix"></div>
 
@@ -336,7 +343,7 @@ lsjQuery("#layerslider_1").layerSlider({sliderVersion: '6.5.8', type: 'fullwidth
 
 			<div id="about" class="fusion-fullwidth fullwidth-box fusion-parallax-up nonhundred-percent-fullwidth bg-parallax-parent" style="background-color: rgba(255, 255, 255, 0); background-image: none; background-position: center center; background-repeat: no-repeat; padding: 20px 30px 10px; background-size: cover; position: relative; overflow: hidden; z-index: 1;"><div class="parallax-inner" style="pointer-events: none; width: 1663px; height: 813.2px; position: absolute; z-index: -1; top: 0px; left: 0px; opacity: 1; background-position: center center; background-repeat: no-repeat; background-size: cover; background-image: url(&quot;http://usitech.io/wp-content/uploads/2017/04/aboutusbg.png&quot;); min-height: 150px; transform: translate3d(0px, -53.599px, 0px);"></div><div class="fusion-builder-row fusion-row "><div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:20px;">
 					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
-						<div class="fusion-title title fusion-title-center fusion-title-size-two" style="margin-top:30px;margin-bottom:31px;"><div class="title-sep-container title-sep-container-left"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div><h2 class="title-heading-center" data-fontsize="18" data-lineheight="27"><p style="text-align: center; font-size: 1.6em;"><strong>PAQUETES</strong></p></h2><div class="title-sep-container title-sep-container-right"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div></div><div class="fusion-clearfix"></div>
+						<div class="fusion-title title fusion-title-center fusion-title-size-two" style="margin-top:30px;margin-bottom:31px;"><div class="title-sep-container title-sep-container-left"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div><h2 class="title-heading-center" data-fontsize="18" data-lineheight="27"><p style="text-align: center; font-size: 1.6em;"><strong>Inversiones</strong></p></h2><div class="title-sep-container title-sep-container-right"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div></div><div class="fusion-clearfix"></div>
 
 					</div>
 				</div>
@@ -371,6 +378,143 @@ lsjQuery("#layerslider_1").layerSlider({sliderVersion: '6.5.8', type: 'fullwidth
 
 					</div>
 				</div></div></div>
+
+
+				<div id="" class="fusion-fullwidth fullwidth-box fusion-parallax-up nonhundred-percent-fullwidth bg-parallax-parent" style="background-color: rgba(255, 255, 255, 0); background-image: none; background-position: center center; background-repeat: no-repeat; padding: 20px 30px 10px; background-size: cover; position: relative; overflow: hidden; z-index: 1;"><div class="parallax-inner" style="pointer-events: none; width: 1663px; height: 813.2px; position: absolute; z-index: -1; top: 0px; left: 0px; opacity: 1; background-position: center center; background-repeat: no-repeat; background-size: cover; min-height: 150px; transform: translate3d(0px, -53.599px, 0px);"></div><div class="fusion-builder-row fusion-row "><div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:20px;">
+					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
+						<div class="fusion-title title fusion-title-center fusion-title-size-two" style="margin-top:30px;margin-bottom:31px;"><div class="title-sep-container title-sep-container-left"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div><h2 class="title-heading-center" data-fontsize="18" data-lineheight="27"><p style="text-align: center; font-size: 1.6em;"><strong>TEAM</strong></p></h2><div class="title-sep-container title-sep-container-right"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div></div><div class="fusion-clearfix"></div>
+
+					</div>
+				</div>
+
+
+				<div class="at-grid" data-column="3">
+    <div class="at-column">
+      <div class="at-user">
+        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_adrian.png"/></div>
+        <div class="at-user__name">Adrian Alvarez</div>
+        <div class="at-user__title">CEO & Fundador</div>
+
+      </div>
+    </div>
+
+    <div class="at-column">
+      <div class="at-user">
+        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_ernesto.png"/></div>
+        <div class="at-user__name">Ernesto Rodriguez</div>
+        <div class="at-user__title">Marketing</div>
+
+      </div>
+    </div>
+
+    
+
+    <div class="at-column">
+      <div class="at-user">
+        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_pedro.png"/></div>
+        <div class="at-user__name">Pedro Bencomo</div>
+        <div class="at-user__title">Community manager</div>
+        
+      </div>
+    </div>
+
+   
+    
+    <div class="at-column">
+      <div class="at-user">
+        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_layton.png"/></div>
+        <div class="at-user__name">Layton Cisneros</div>
+        <div class="at-user__title">Master Trader</div>
+ 
+      </div>
+    </div>
+    <div class="at-column">
+      <div class="at-user">
+        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_bernabe.png"/></div>
+        <div class="at-user__name">Bernabe Flores</div>
+        <div class="at-user__title">Master Trader</div>
+
+      </div>
+    </div>
+    
+    <div class="at-column">
+      <div class="at-user">
+        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_gerson.png"/></div>
+        <div class="at-user__name">Gerson</div>
+        <div class="at-user__title">Master Trader</div>
+ 
+      </div>
+    </div>
+     <div class="at-column">
+      <div class="at-user">
+        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_liangely.png"/></div>
+        <div class="at-user__name">Liangely sanchez</div>
+        <div class="at-user__title">Customer Service</div>
+ 
+      </div>
+    </div>
+
+    <div class="at-column">
+      <div class="at-user">
+        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_sugey.png"/></div>
+        <div class="at-user__name">Sugey Reyes</div>
+        <div class="at-user__title">Customer Service</div>
+ 
+      </div>
+    </div>
+
+  </div>
+
+			</div></div>
+
+
+			<div id="opportunity" class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth" style="background-color: #f5f5f5;background-position: center center;background-repeat: no-repeat;padding-top:20px;padding-right:30px;padding-left:30px;"><div class="fusion-builder-row fusion-row "><div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:20px;">
+					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
+						<div class="fusion-title title fusion-title-center fusion-title-size-two" style="margin-top:30px;margin-bottom:31px;"><div class="title-sep-container title-sep-container-left"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div><h2 class="title-heading-center" data-fontsize="18" data-lineheight="27"><p style="text-align: center; font-size: 1.6em;"><strong>SEÑALES CUMPLIDAS</strong></p></h2><div class="title-sep-container title-sep-container-right"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div></div><div class="fusion-clearfix"></div>
+
+					</div>
+				</div><div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-last 1_2" style="margin-top:0px;margin-bottom:20px;width:100%;">
+					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
+						<h1 style="margin-top: 0;" data-fontsize="34" data-lineheight="47"><div class="panel-group " id="accordion_19" role="tablist" aria-multiselectable="true">
+
+                                            <?php $n = 0; foreach((array) $lista_indicios as $indicio) : if($indicio->seccion == 1) continue;?>
+                                            <?php  $factura_final = new DateTime($indicio->fecha, new DateTimeZone(TIMEZONE));
+                                                setlocale(LC_TIME,"es_ES");
+                                                $f = strftime("%d de %B",  $factura_final->getTimestamp());  ?>
+                                                <div class="panel panel-col-cyan">
+                                                    <div class="panel-heading" role="tab" id="headingTwo_19">
+                                                        <h4 class="panel-title" style="background-color: #2e93d1 !important;color: #fff;">
+                                                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo_<?= $n; ?>" data-parent="#accordion_19" aria-expanded="false" aria-controls="collapseTwo_19">
+                                                                <i class="material-icons">show_chart</i> Señal <?= $f ?>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseTwo_<?= $n; ?>" class="panel-collapse collapse <?php if($n == 0) { echo 'in'; } ?>" role="tabpanel" aria-labelledby="headingTwo_19">
+                                                        <div class="panel-body text-center">
+                                                            <img src="<?= asset_url(); ?>images/indicios/<?= $indicio->imagen; ?>" class="img-responsive" style="display: inline;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php $n++; endforeach; ?>
+
+
+                                        </div>
+
+<div class="fusion-clearfix"></div>
+
+					</div>
+				</div>
+
+
+
+
+
+
+
+
+
+
+			</div></div>
 
 				
 
@@ -519,4 +663,202 @@ function insertAfter(referenceNode, newNode) {
 
 
 </script>
+<style type="text/css">
+	.at-section__title {
+  margin: 0 0 70px;
+  color: #000;
+  font-family: 'Roboto', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 2.625rem;
+  text-align: center;
+}
+.at-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: #FFF;
+  border: 1px solid #E2E9ED;
+}
+.at-grid[data-column="1"] .at-column {
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+}
+.at-grid[data-column="2"] .at-column {
+  width: 50%;
+  max-width: 50%;
+  min-width: 50%;
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+}
+.at-grid[data-column="3"] .at-column {
+  width: 33.33333%;
+  max-width: 33.33333%;
+  min-width: 33.33333%;
+  -ms-flex-preferred-size: 33.33333%;
+      flex-basis: 33.33333%;
+}
+.at-grid[data-column="4"] .at-column {
+  width: 25%;
+  max-width: 25%;
+  min-width: 25%;
+  -ms-flex-preferred-size: 25%;
+      flex-basis: 25%;
+}
+.at-grid[data-column="5"] .at-column {
+  width: 20%;
+  max-width: 20%;
+  min-width: 20%;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+}
+.at-grid[data-column="6"] .at-column {
+  width: 16.66667%;
+  max-width: 16.66667%;
+  min-width: 16.66667%;
+  -ms-flex-preferred-size: 16.66667%;
+      flex-basis: 16.66667%;
+}
+.at-grid[data-column="7"] .at-column {
+  width: 14.28571%;
+  max-width: 14.28571%;
+  min-width: 14.28571%;
+  -ms-flex-preferred-size: 14.28571%;
+      flex-basis: 14.28571%;
+}
+.at-grid[data-column="8"] .at-column {
+  width: 12.5%;
+  max-width: 12.5%;
+  min-width: 12.5%;
+  -ms-flex-preferred-size: 12.5%;
+      flex-basis: 12.5%;
+}
+.at-grid[data-column="9"] .at-column {
+  width: 11.11111%;
+  max-width: 11.11111%;
+  min-width: 11.11111%;
+  -ms-flex-preferred-size: 11.11111%;
+      flex-basis: 11.11111%;
+}
+.at-column {
+  z-index: 0;
+  position: relative;
+  background: #FFF;
+  box-shadow: 0 0 0 1px #E2E9ED;
+  padding: 10px;
+  box-sizing: border-box;
+  -webkit-transition: box-shadow 0.2s ease, z-index 0s 0.2s ease, -webkit-transform 0.2s ease;
+  transition: box-shadow 0.2s ease, z-index 0s 0.2s ease, -webkit-transform 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, z-index 0s 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, z-index 0s 0.2s ease, -webkit-transform 0.2s ease;
+}
+.at-column:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.at-column:hover {
+  z-index: 1;
+  box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: box-shadow 0.2s ease, z-index 0s 0s ease, -webkit-transform 0.2s ease;
+  transition: box-shadow 0.2s ease, z-index 0s 0s ease, -webkit-transform 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, z-index 0s 0s ease;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, z-index 0s 0s ease, -webkit-transform 0.2s ease;
+}
+.at-column:hover .at-social {
+  margin: 16px 0 0;
+  opacity: 1;
+}
+@media (max-width: 800px) {
+  .at-column {
+    width: 50% !important;
+    max-width: 50% !important;
+    min-width: 50% !important;
+    -ms-flex-preferred-size: 50% !important;
+        flex-basis: 50% !important;
+  }
+}
+@media (max-width: 600px) {
+  .at-column {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    -ms-flex-preferred-size: 100% !important;
+        flex-basis: 100% !important;
+  }
+}
+.at-user {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  text-align: center;
+}
+.at-user__avatar {
+  width: 98px;
+  height: 98px;
+  border-radius: 100%;
+  margin: 0 auto 20px;
+  overflow: hidden;
+}
+.at-user__avatar img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+.at-user__name {
+  color: #313435;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 2.625rem;
+}
+.at-user__title {
+  color: #6F808A;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.875rem;
+  line-height: 2.375rem;
+}
+.at-social {
+  margin: 0 0 -18px;
+  opacity: 0;
+  -webkit-transition: margin 0.2s ease, opacity 0.2s ease;
+  transition: margin 0.2s ease, opacity 0.2s ease;
+}
+.at-social__item {
+  display: inline-block;
+  margin: 0 10px;
+}
+.at-social__item a {
+  display: block;
+}
+.at-social__item svg {
+  fill: #515F65;
+  display: block;
+  height: 18px;
+  -webkit-transition: fill 0.2s ease;
+  transition: fill 0.2s ease;
+}
+.at-social__item svg:hover {
+  fill: #788D96;
+}
+
+
+</style>
 <script src="<?= asset_url(); ?>js/script.js"></script>
+
+<!-- Bootstrap Core Js -->
+<script src="<?= asset_url(); ?>plugins/bootstrap/js/bootstrap.js"></script>

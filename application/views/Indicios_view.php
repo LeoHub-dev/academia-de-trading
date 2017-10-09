@@ -65,9 +65,9 @@
 
                                         <div class="panel-group " id="accordion_19" role="tablist" aria-multiselectable="true">
 
-                                            <?php $n = 0; foreach((array) $lista_indicios as $indicio) : ?>
+                                            <?php $n = 0; foreach((array) $lista_indicios as $indicio) : if($indicio->seccion == 2) continue; ?>
                                             <?php  $factura_final = new DateTime($indicio->fecha, new DateTimeZone(TIMEZONE));
-                                                setlocale(LC_TIME,"ES");
+                                                setlocale(LC_TIME,"es_ES");
                                                 $f = strftime("%d de %B",  $factura_final->getTimestamp());  ?>
                                                 <div class="panel panel-col-cyan">
                                                     <div class="panel-heading" role="tab" id="headingTwo_19">

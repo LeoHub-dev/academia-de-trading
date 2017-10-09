@@ -30,10 +30,10 @@ class Dashboard extends LH_Controller {
 		}
 		else
 		{
-			if(!$this->Auth_model->estaPago())
+			/*if(!$this->Auth_model->estaPago())
         	{
         		redirect('/pago' ,'refresh');
-        	}
+        	}*/
 		}
 	}
 
@@ -42,7 +42,7 @@ class Dashboard extends LH_Controller {
 	{
 		$this->scope['titulo'] = "Dashboard";
 
-		$this->scope['cantidad_referidos'] = $this->Auth_model->obtenerReferidos($this->scope['info_usuario']['data']->id_usuario);
+		$this->scope['cantidad_referidos'] = $this->Academia_model->cantidadReferidosAccesibles($this->scope['info_usuario']['data']->id_usuario);
 		
 		$this->load->view('Dashboard_view',$this->scope);
 		

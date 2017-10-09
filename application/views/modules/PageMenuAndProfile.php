@@ -31,23 +31,7 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
-                    <?php if($info_usuario['data']->pago == 1) : ?>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                            <i class="material-icons">pie_chart</i>
-                            <span>Circulos</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="<?= site_url('circulo'); ?>" class=" waves-effect waves-block">Vista Basica</a>
-                            </li>
-                            <li>
-                                <a href="<?= site_url('circulo/avanzado'); ?>" class=" waves-effect waves-block">Vista General</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <?php endif; ?>
-
+                    
                     <li>
                         <a href="<?= site_url('indicios'); ?>">
                             <i class="material-icons">trending_up</i>
@@ -76,20 +60,7 @@
                             <span>Referidos</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="<?= site_url('ganancias'); ?>">
-                            <i class="material-icons">attach_money</i>
-                            <span>Ganancias</span>
-                        </a>
-                    </li>
-                        <?php if($info_usuario['data']->mineria == 0): ?>
-                        <li>
-                            <a href="<?= site_url('mineria'); ?>">
-                                <i class="material-icons col-light-blue">account_circle</i>
-                                <span>Cuenta en Mineria</span>
-                            </a>
-                        </li>
-                        <?php endif; ?>
+
                     <?php endif; ?>
 
                     <?php if($info_usuario['data']->tipo == 1): ?>
@@ -105,7 +76,7 @@
                     <li>
                         <a href="<?= site_url('pago'); ?>">
                             <i class="material-icons col-light-blue">attach_money</i>
-                            <span>Donar entrada</span>
+                            <span>Pagar mensualidad</span>
                         </a>
                     </li>
                     <?php endif; ?>
@@ -122,7 +93,12 @@
                             <li>
                                 <a href="https://t.me/joinchat/F4Z0XwyjP08YO8vSnj4TDw" target="_blank" class="waves-effect waves-block">Telegram</a>
                             </li>
+                            <li>
+                                <a href="https://www.facebook.com/Academiadetrading-496295420749430" target="_blank" class="waves-effect waves-block">Facebook</a>
+                            </li>
                         </ul>
+
+                        
                     </li>
 
 

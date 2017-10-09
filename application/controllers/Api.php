@@ -51,23 +51,8 @@ class Api extends LH_Controller {
 	public function admin_usuario($id_usuario)
 	{
 		$usuario = $this->Auth_model->obtenerUsuarioID($id_usuario);
-		$id_matriz = $this->Matriz_model->obtenerMatrizActiva($id_usuario);
-		if($id_matriz == NULL) 
-		{ 
-			$ganancias = NULL; 
-			$circulo_1 = NULL;
-			$circulo_2 = NULL;
-		} 
-		else 
-		{
-			$ganancias = $this->Matriz_model->obtenerGananciasTotal($id_matriz->id_matriz);
-			$circulo_1 = $this->Matriz_model->obtenerListaCirculo1($id_usuario);
-			$circulo_2 = $this->Matriz_model->obtenerListaCirculo2($id_usuario);
-		}
 
-		
-
-		$array = array('response' => true, 'usuario' => $usuario['data'], 'id_matriz' => $id_matriz, 'ganancias' => $ganancias, 'circulo_1' => $circulo_1, 'circulo_2' => $circulo_2);
+		$array = array('response' => true, 'usuario' => $usuario['data']);
 
 		echo json_encode($array);
 
@@ -98,6 +83,11 @@ class Api extends LH_Controller {
 			echo response_bad('Error al verificar');
 		}
 
+	}
+
+	public function verificar_mensualidad()
+	{
+		$this->Academia_model->verificarMensualidad();
 	}
 
 

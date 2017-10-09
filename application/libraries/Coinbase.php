@@ -90,17 +90,20 @@ class Coinbase
     public function createCoinBaseInvoice()
     {
 
+        $factura = $this->Academia_model->obtenerFactura($this->id_user);
 
         $coinbase_invoice = array(
            'id_user' => $this->id_user,
            'tipo' => 1,
-           'total_to_pay' => $this->usdToBtc(20)
+           'total_to_pay' => $this->usdToBtc(20),
+           'id_factura' => $factura->id_factura
         );
         
 
         $coinbase_invoice_search = array(
             'id_user' => $this->id_user,
             'tipo' => 1,
+            'id_factura' => $factura->id_factura
         );
 
 
@@ -236,9 +239,9 @@ class Coinbase
                 $this->db->where('id_invoice', $invoice_data->id_invoice);
                 $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
                 //AgregarCuentaAlSistema
-                $this->Auth_model->activarUsuarioPago($invoice_data->id_user);
-                $this->Matriz_model->agregarFactura($invoice_data->id_user,1);
-                $this->Matriz_model->agregarCuenta($invoice_data->id_user);
+                $this->Auth_model->activarUsuario($invoice_data->id_user);
+                $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
+                $this->Academia_model->verificarMensualidad();
                 
                 
             }
@@ -308,9 +311,10 @@ class Coinbase
             $this->db->where('id_invoice', $invoice_data->id_invoice);
             $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
 
-            $this->Auth_model->activarUsuarioPago($invoice_data->id_user);
-            $this->Matriz_model->agregarFactura($invoice_data->id_user,1);
-            $this->Matriz_model->agregarCuenta($invoice_data->id_user);
+            //AgregarCuentaAlSistema
+                $this->Auth_model->activarUsuario($invoice_data->id_user);
+                $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
+                $this->Academia_model->verificarMensualidad();
 
 
             return $total_paid;

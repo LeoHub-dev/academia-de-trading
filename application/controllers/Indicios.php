@@ -64,7 +64,7 @@ class Indicios extends LH_Controller {
 
 	public function activar_temporal()
 	{
-		if($this->Academia_model->estaPago())
+		if($this->Auth_model->estaPago())
     	{
     		redirect('/indicios' ,'refresh');
     	}

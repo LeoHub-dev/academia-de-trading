@@ -92,19 +92,39 @@ class Coinbase
 
         $factura = $this->Academia_model->obtenerFactura($this->id_user);
 
-        $coinbase_invoice = array(
-           'id_user' => $this->id_user,
-           'tipo' => 1,
-           'total_to_pay' => $this->usdToBtc(20),
-           'id_factura' => $factura->id_factura
-        );
-        
+        if($this->tipo == 1)
+        {
 
-        $coinbase_invoice_search = array(
-            'id_user' => $this->id_user,
-            'tipo' => 1,
-            'id_factura' => $factura->id_factura
-        );
+            $coinbase_invoice = array(
+               'id_user' => $this->id_user,
+               'tipo' => $this->tipo,
+               'total_to_pay' => $this->usdToBtc(20),
+               'id_factura' => $factura->id_factura
+            );
+            
+
+            $coinbase_invoice_search = array(
+                'id_user' => $this->id_user,
+                'tipo' => $this->tipo,
+                'id_factura' => $factura->id_factura
+            );
+        }
+        else if($this->tipo == 2)
+        {
+            $coinbase_invoice = array(
+               'id_user' => $this->id_user,
+               'tipo' => $this->tipo,
+               'total_to_pay' => $this->usdToBtc(150),
+               'id_factura' => $factura->id_factura
+            );
+            
+
+            $coinbase_invoice_search = array(
+                'id_user' => $this->id_user,
+                'tipo' => $this->tipo,
+                'id_factura' => $factura->id_factura
+            );
+        }
 
 
         $this->db->where($coinbase_invoice_search);

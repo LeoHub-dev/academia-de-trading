@@ -161,6 +161,8 @@
 
                             <?php endif; ?>
 
+                            <img src="<?= asset_url(); ?>images/academia_calendario.jpg" class="img-responsive">
+
                         </div>
                     </div>
                 </div>

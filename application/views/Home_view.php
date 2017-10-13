@@ -299,21 +299,21 @@ lsjQuery("#layerslider_1").layerSlider({sliderVersion: '6.5.8', type: 'fullwidth
 
 				
 
-				<div id="opportunity" class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth"  style='background-color: #f5f5f5;background-position: center center;background-repeat: no-repeat;padding-top:20px;padding-right:30px;padding-left:30px;'><div class="fusion-builder-row fusion-row "><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1"  style='margin-top:0px;margin-bottom:20px;'>
+				<div class="fusion-bg-parallax"  data-bg-align="left left" data-direction="up" data-mute="false" data-opacity="100" data-velocity="-0.3" data-mobile-enabled="true" data-break_parents="0" data-bg-image="https://i.imgur.com/Evuayfy.png" data-bg-repeat="false" data-bg-height="" data-bg-width=""></div><div id="opportunity" class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth"  style='background-color: rgba(255,255,255,0);background-image: url("wp-content/uploads/2017/04/sliderimg2.png");background-position: center center;background-repeat: no-repeat;padding-top:60px;padding-right:30px;padding-bottom:80px;padding-left:30px;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-attachment:up;'><div class="fusion-builder-row fusion-row "><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1"  style='margin-top:0px;margin-bottom:20px;'>
 					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
 						<div class="fusion-title title fusion-title-center fusion-title-size-two" style="margin-top:30px;margin-bottom:31px;"><div class="title-sep-container title-sep-container-left"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div><h2 class="title-heading-center"><p style="text-align: center; font-size: 1.6em;"><strong>¿ COMO FUNCIONA ?</strong></p></h2><div class="title-sep-container title-sep-container-right"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div></div><div class="fusion-clearfix"></div>
 
 					</div>
 				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-first 1_2"  style='margin-top:0px;margin-bottom:20px;width:50%;width:calc(50% - ( ( 4% ) * 0.5 ) );margin-right: 4%;'>
-					<div class="fusion-column-wrapper" style="padding: 0px 0px 5px 0px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
+					<!--<div class="fusion-column-wrapper" style="padding: 0px 0px 5px 0px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
 						<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
 						<div class="imageframe-align-center"><span class="fusion-imageframe imageframe-none imageframe-1 hover-type-none"><img src="http://abogadooficio.com/wp-content/uploads/2015/06/ChicaPC-520x307.png" width="" height="" alt="" title="" class="img-responsive"></span></div><div class="fusion-clearfix"></div>
 
-					</div><div class="fusion-clearfix"></div>
+					</div>--><div class="fusion-clearfix"></div>
 
 					</div>
 				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-last 1_2"  style='margin-top:0px;margin-bottom:20px;width:50%;width:calc(50% - ( ( 4% ) * 0.5 ) );'>
-					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
+					<div class="fusion-column-wrapper text-center" style="background-color: rgba(255,255,255,0.8);padding:60px 10px 60px 10px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
 						<h1 style="margin-top: 0;"><strong><!--¿ Como funciona ?--></strong></h1>
 <p>Te enseñaremos a hacer trading.</p>
 <p>Te regalaremos Señales por una (1) semana.</p>
@@ -323,8 +323,107 @@ lsjQuery("#layerslider_1").layerSlider({sliderVersion: '6.5.8', type: 'fullwidth
 <div class="fusion-clearfix"></div>
 
 					</div>
+				</div>
+
+
+
+
+
+
+
+
+
+
+			</div></div>
+
+			<div id="opportunity" class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth"  style='background-color: #f5f5f5;background-position: center center;background-repeat: no-repeat;padding-top:20px;padding-right:30px;padding-left:30px;'><div class="fusion-builder-row fusion-row "><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1"  style='margin-top:0px;margin-bottom:20px;'>
+					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
+						<div class="fusion-clearfix"></div>
+
+					</div>
 				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1"  style='margin-top:0px;margin-bottom:0px;'>
 					<div class="fusion-column-wrapper" style="padding: 0px 0px 0px 0px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
+						<div class="container">
+    <div class="row">
+    
+        <div class="col-xs-12 col-sm-6 col-md-4"> 
+            <!-- Price Table Item -->
+            <div class="price-table text-center">
+                <div class="price-table-heading">
+                    <h4 class="title">PLAN GRATIS</h4>
+                </div>
+                <div class="price-table-body">
+                    <p class="value">$0<small>/mes</small></p>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> Aprende a trading basico</li>
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> 7 Dias de senales gratis</li>
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> Se parte de la comunidad</li>
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> 3 referidos (Activos) = GRATIS</li>
+                </ul>
+                <div class="price-table-footer"> <a class="btn btn-lg btn-success" href="<?= site_url('auth/'); ?>#registro">COMPRAR AHORA</a> </div>
+            </div>
+            <!-- END Price Table Item -->
+        
+            <!-- START: Will be visible in tablet and mobile devices to make gap between tow price items -->
+            <div class="col-xs-12 col-sm-12 margin-bottom-20"></div>
+            <!-- END: Will be visible in tablet and mobile devices to make gap between tow price items -->
+        </div>
+        
+        <div class="col-xs-12 col-sm-6 col-md-4"> 
+            <!-- Price Table Item -->
+            <div class="price-table text-center">
+                <div class="price-table-heading">
+                    <h4 class="title">PLAN BASICO</h4>
+                </div>
+                <div class="price-table-body">
+                    <p class="value">$20<small>/mes</small></p>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> Aprende a trading basico</li>
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> 1 a 3 señales por dia</li>
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> Apoyo por Skype o Telegram</li>
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> Se parte de la comunidad</li>
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> 3 referidos (Activos) = GRATIS</li>
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> Acceso a las grabaciones de Mastermind de trading.</li>
+                </ul>
+                <div class="price-table-footer"> <a class="btn btn-lg btn-success" href="<?= site_url('auth/'); ?>#registro">COMPRAR AHORA</a> </div>
+            </div>
+            <!-- END Price Table Item -->
+        
+            <!-- START: Will be visible in tablet and mobile devices to make gap between tow price items -->
+            <div class="col-xs-12 col-sm-12 margin-bottom-20"></div>
+            <!-- END: Will be visible in tablet and mobile devices to make gap between tow price items -->
+        </div>
+        
+        <div class="col-xs-12 col-sm-6 col-md-4"> 
+            <!-- Price Table Item -->
+            <div class="price-table text-center">
+                <div class="price-table-heading">
+                    <h4 class="title">PLAN VIP</h4>
+                </div>
+                <div class="price-table-body">
+                    <p class="value">$150<small></small></p>
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> Acceso a todo en el paquete de $20</li>
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> Senales inlimitadas todo el dia</li>
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> Clases de analisis tecnico</li>
+                    <li class="list-group-item"><i class="icon-ok text-success"></i> Curso de trading fundamental</li>
+                </ul>
+                <div class="price-table-footer"> <a class="btn btn-lg btn-success" href="<?= site_url('auth/'); ?>#registro">COMPRAR AHORA</a> </div>
+            </div>
+            <!-- END Price Table Item -->
+        
+            <!-- START: Will be visible in tablet and mobile devices to make gap between tow price items -->
+            <div class="col-xs-12 col-sm-12 margin-bottom-20"></div>
+            <!-- END: Will be visible in tablet and mobile devices to make gap between tow price items -->
+        </div>
+        
+       
+          
+    </div>
+</div>
 						<div class="imageframe-align-center"><span class="fusion-imageframe imageframe-none imageframe-2 hover-type-none"><img src="<?= asset_url(); ?>home/wp-content/uploads/2017/04/operbotmimg.jpg" width="" height="" alt="" title="" class="img-responsive"/></span></div><div class="fusion-clearfix"></div>
 
 					</div>
@@ -856,6 +955,91 @@ function insertAfter(referenceNode, newNode) {
   fill: #788D96;
 }
 
+body {
+    font-family: 'Lato', sans-serif;
+	font-size: 16px;
+	line-height: 28px;
+}
+.main-title {
+	font-weight: 700;
+	text-align: center;
+	margin: 50px 0;
+}
+.margin-bottom-20 {
+	margin-bottom: 20px;
+}
+.margin-bottom-50 {
+	margin-bottom: 50px;
+}
+
+
+/* =================================
+Price Table
+================================= */ 
+.price-table {
+	background: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	border: 7px solid #eeeeee;
+	-moz-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+}
+.price-table:hover {
+	background: rgba(0,0,0, .03);
+	border-color: #0093DD;
+}
+.price-table .price-table-heading {
+	color: #333333;
+	background: #f9f9f9;
+	padding: 10px 0;
+	margin: 0;
+}
+.price-table .price-table-heading .title {
+	color: #333333;
+	font-weight: 900;
+	letter-spacing: 1px;
+}
+.price-table > .price-table-body {
+	color: #FFFFFF;
+	background: #0093DD;
+	padding: 50px 0 30px;
+	-moz-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+}
+.price-table > .price-table-body .value {
+	font-size: 66px;
+	font-weight: 300;
+	color: #FFFFFF;
+	padding: 0;
+}
+.price-table > .price-table-body .value small {
+	font-size: 16px;
+}
+.price-table > .list-group {
+	color: #333;
+	font-weight: 400;
+	margin-bottom: 0;
+}
+.price-table > .list-group .list-group-item {
+	color: #333;
+	font-weight: 400;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;	
+}
+.price-table .btn {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-weight: 700;
+}
+.price-table-footer {
+	background: #eeeeee;
+	padding: 15px 0;
+}
 
 </style>
 <script src="<?= asset_url(); ?>js/script.js"></script>

@@ -190,6 +190,18 @@ class Auth_model extends CI_Model {
         return FALSE;
     }
 
+    public function vipUsuario($id_usuario)
+    {
+        $status = $this->db->update('usuarios_data', array('pago' => 1, 'tipo' => 2), array('id_usuario' => $id_usuario));
+
+        if($status)
+        {
+            return TRUE;
+        }
+
+        return FALSE;
+    }
+
     public function obtenerReferidos($id_usuario)
     {
         $lista_referidos = NULL;

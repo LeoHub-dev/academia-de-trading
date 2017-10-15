@@ -102,19 +102,37 @@
                 <?php else: ?>
 
 
-                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                    <div class="info-box bg-orange hover-expand-effect">
-                        <div class="icon">
-                            <i class="material-icons">access_alarm</i>
-                        </div>
-                        <div class="content">
-                            <div class="text">FECHA FINAL DE MENSUALIDAD</div>
-                            <div class="number " data-speed="1" data-fresh-interval="20"><?php 
-                            $factura_final = new DateTime( $factura->fecha_inicial, new DateTimeZone(TIMEZONE));
-                            echo $factura_final->format("Y-m-d"); ?></div>
+                    <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1) : ?>
+
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                        <div class="info-box bg-orange hover-expand-effect">
+                            <div class="icon">
+                                <i class="material-icons">verified_user</i>
+                            </div>
+                            <div class="content">
+                                <div class="text">BIENVENIDO</div>
+                                <div class="number " data-speed="1" data-fresh-interval="20">VIP</div>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                    <?php else: ?>
+
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                        <div class="info-box bg-orange hover-expand-effect">
+                            <div class="icon">
+                                <i class="material-icons">access_alarm</i>
+                            </div>
+                            <div class="content">
+                                <div class="text">FECHA FINAL DE MENSUALIDAD</div>
+                                <div class="number " data-speed="1" data-fresh-interval="20"><?php 
+                                $factura_final = new DateTime( $factura->fecha_inicial, new DateTimeZone(TIMEZONE));
+                                echo $factura_final->format("Y-m-d"); ?></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php endif; ?>
 
                 <?php endif; ?>
 

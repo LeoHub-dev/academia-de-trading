@@ -218,9 +218,8 @@ class Panel extends LH_Controller {
 
 	public function activar($id = 1)
 	{
-		$this->Auth_model->activarUsuarioPago($id);
-        $this->Matriz_model->agregarFactura($id,1);
-        $this->Matriz_model->agregarCuenta($id);
+		$this->Academia_model->marcarPagadoFactura($id);
+        $this->Academia_model->verificarMensualidad();
 	}
 
 	public function nuevosistema()

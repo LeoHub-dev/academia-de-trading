@@ -65,6 +65,7 @@ class Pago extends LH_Controller {
 				$this->load->library('Coinbase');
 
 				$this->coinbase->setIdUser($this->session->userdata('id_usuario'));
+				$this->coinbase->setTipo($this->input->post('tipo'));
 
 				$payment_info_address = $this->coinbase->coinBaseAddress();
 

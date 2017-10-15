@@ -256,12 +256,42 @@ class Coinbase
 
             if(floatval($invoice_data->total_to_pay) <= floatval($total_paid))
             {
-                $this->db->where('id_invoice', $invoice_data->id_invoice);
-                $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
-                //AgregarCuentaAlSistema
-                $this->Auth_model->activarUsuario($invoice_data->id_user);
-                $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
-                $this->Academia_model->verificarMensualidad();
+                if($invoice_data->status == 0)
+                {
+
+                    if($invoice_data->tipo == 1)
+                    {
+                        $this->db->where('id_invoice', $invoice_data->id_invoice);
+                        $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
+                        //AgregarCuentaAlSistema
+                        $this->Auth_model->activarUsuario($invoice_data->id_user);
+                        $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
+                        $this->Academia_model->verificarMensualidad();
+                    }
+                    else if($invoice_data->tipo == 2)
+                    {
+                        $usuario = $this->Auth_model->obtenerUsuarioID($invoice_data->id_user)['data'];
+
+                        $this->Academia_model->vipAgregarReferido($invoice_data->id_user,$usuario->referido);
+
+                        $cant_referidos = $this->Academia_model->vipCantidadReferidos($usuario->referido);
+
+                        if($cant_referidos == 3)
+                        {
+                            $this->Academia_model->vipAgregarGanancia($usuario->referido,50);
+                        }
+                        else if($cant_referidos > 3)
+                        {
+                            $this->Academia_model->vipAgregarGanancia($usuario->referido,100);
+                        }
+
+                        $this->db->where('id_invoice', $invoice_data->id_invoice);
+                        $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
+
+                        $this->Auth_model->vipUsuario($invoice_data->id_user);
+                    }
+
+                }
                 
                 
             }
@@ -328,13 +358,42 @@ class Coinbase
         if(floatval($invoice_data->total_to_pay) <= floatval($total_paid))
         {
 
-            $this->db->where('id_invoice', $invoice_data->id_invoice);
-            $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
+            if($invoice_data->status == 0)
+            {
 
-            //AgregarCuentaAlSistema
-                $this->Auth_model->activarUsuario($invoice_data->id_user);
-                $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
-                $this->Academia_model->verificarMensualidad();
+                if($invoice_data->tipo == 1)
+                {
+                    $this->db->where('id_invoice', $invoice_data->id_invoice);
+                    $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
+                    //AgregarCuentaAlSistema
+                    $this->Auth_model->activarUsuario($invoice_data->id_user);
+                    $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
+                    $this->Academia_model->verificarMensualidad();
+                }
+                else if($invoice_data->tipo == 2)
+                {
+                    $usuario = $this->Auth_model->obtenerUsuarioID($invoice_data->id_user)['data'];
+
+                    $this->Academia_model->vipAgregarReferido($invoice_data->id_user,$usuario->referido);
+
+                    $cant_referidos = $this->Academia_model->vipCantidadReferidos($usuario->referido);
+
+                    if($cant_referidos == 3)
+                    {
+                        $this->Academia_model->vipAgregarGanancia($usuario->referido,50);
+                    }
+                    else if($cant_referidos > 3)
+                    {
+                        $this->Academia_model->vipAgregarGanancia($usuario->referido,100);
+                    }
+
+                    $this->db->where('id_invoice', $invoice_data->id_invoice);
+                    $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
+
+                    $this->Auth_model->vipUsuario($invoice_data->id_user);
+                }
+
+            }
 
 
             return $total_paid;

@@ -73,7 +73,6 @@ class Academia_model extends CI_Model
                     if($this->cantidadReferidosAccesibles($inf->id_usuario) >= 3)
                     {
 
-
                         $this->Auth_model->activarUsuario($inf->id_usuario);
                         $this->marcarPagadoFactura($inf->id_usuario);
                     }
@@ -118,6 +117,10 @@ class Academia_model extends CI_Model
 
     public function debePagar($id_usuario)
     {
+        if($this->scope['info_usuario']['data']->tipo == 2)
+        {
+            return FALSE;
+        }
 
         $factura = $this->obtenerFactura($id_usuario);
 
@@ -148,6 +151,88 @@ class Academia_model extends CI_Model
             return FALSE;
         }
 
+    }
+
+    public function vipAgregarReferido($id_usuario,$referido)
+    {
+
+        $data = array(
+           'id_usuario' => $id_usuario,
+           'referido' => $referido
+        );
+
+        $query = $this->db->insert('vip_referidos',$data);
+
+        if($query)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+        
+        
+    }
+
+    public function vipAgregarGanancia($id_usuario,$cantidad)
+    {
+
+        $data = array(
+           'id_usuario' => $id_usuario,
+           'cantidad' => $cantidad
+        );
+
+        $query = $this->db->insert('vip_ganancias',$data);
+
+        if($query)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+        
+        
+    }
+
+    public function vipGanancias($id_usuario)
+    {
+        $lista_ganancias = NULL;
+
+        $this->db->where('id_usuario',$id_usuario);
+
+        $query = $this->db->get('vip_ganancias');
+
+        if($query->num_rows() > 0 )
+        {
+            foreach ($query->result() as $inf)
+            {
+                $lista_ganancias[] = $inf;
+            }
+        }
+
+        return $lista_ganancias;
+    }
+
+    public function vipCantidadReferidos($id_usuario)
+    {
+        $cantidad_referidos = 0;
+
+        $this->db->where('referido',$id_usuario);
+
+        $query = $this->db->get('vip_referidos');
+
+        if($query->num_rows() > 0 )
+        {
+            foreach ($query->result() as $inf)
+            {
+                $cantidad_referidos++;
+            }
+        }
+
+        return $cantidad_referidos;
     }
 
     public function agregarFactura($id_usuario,$pagada = 0)

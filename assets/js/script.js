@@ -1,6 +1,6 @@
 $(function () {
 
-    var base_url = window.location.protocol + "//" + window.location.host + "/circulo/";
+    var base_url = window.location.protocol + "//" + window.location.host + "/";
 
 	$('#login-form-link').click(function(e) {
         $("#login-form").delay(100).fadeIn(100);
@@ -113,7 +113,7 @@ $(function () {
         
         divLoadingStatus(panel_body);
 
-        $.post(base_url+'pago/get_coinbase_hash', function(data) {
+        $.post(base_url+'pago/get_coinbase_hash',  {tipo: $(this).attr('id-tipo')}, function(data) {
             console.log(data);
             if(data.response == true) { 
 

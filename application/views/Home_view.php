@@ -291,7 +291,7 @@ lsjQuery("#layerslider_1").layerSlider({sliderVersion: '6.5.8', type: 'fullwidth
 					</div>
 				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_3_5  fusion-three-fifth fusion-column-last 3_5"  style='margin-top:0px;margin-bottom:20px;width:60%;width:calc(60% - ( ( 4% ) * 0.6 ) );'>
 					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
-						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><!--<div class='embed-container'><iframe src="//www.youtube.com/embed/IBIbR_1BW7k?rel=0&amp;jsapi=1" scrolling="no" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen="" class="embed-responsive-item"></iframe></div>--><div class="fusion-clearfix"></div>
+						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src="https://player.vimeo.com/video/238181071?title=0&amp;byline=0&amp;portrait=0;autoplay=1" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div><div class="fusion-clearfix"></div>
 
 					</div>
 				</div></div></div>
@@ -343,7 +343,7 @@ lsjQuery("#layerslider_1").layerSlider({sliderVersion: '6.5.8', type: 'fullwidth
 					</div>
 				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1"  style='margin-top:0px;margin-bottom:0px;'>
 					<div class="fusion-column-wrapper" style="padding: 0px 0px 0px 0px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
-						<div class="container">
+						<div class="">
     <div class="row">
     
         <div class="col-xs-12 col-sm-6 col-md-4"> 

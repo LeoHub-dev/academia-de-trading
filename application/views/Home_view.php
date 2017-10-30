@@ -1,1048 +1,749 @@
 <!DOCTYPE html>
-<html class="" lang="en-US" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# og: http://ogp.me/ns#">
-
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<html>
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Academia de Trading</title>
-<link rel="alternate" hreflang="en-us" href="index.html" />
-<link rel="alternate" hreflang="es-es" href="es/index.html" />
-<link rel="alternate" hreflang="ja" href="ja/index.html" />
-<link rel="alternate" hreflang="pt-br" href="pt-br/index.html" />
+    <title>Academia de Trading</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Academia de trading">
+    <meta name="keywords" content="Academia de trading">
+    <meta name="author" content="Adrian Alvarez"/>
+    <meta property="og:title" content="Academia de Trading" />
+    <meta property="og:description" content="Academia para aprender Trading y generar tu propio ingreso" />
+    <meta property="og:image" content="<?= asset_url(); ?>/home/img/banner-social.jpg" />      
+    <meta property="og:url" content="http://academiadetrading.net/" />
 
-<!-- This site is optimized with the Yoast SEO plugin v5.4 - https://yoast.com/wordpress/plugins/seo/ -->
-<meta name="description" content="Academia de trading."/>
-<link rel="canonical" href="index.html" />
-<meta property="og:locale" content="en_US" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Academia de trading" />
-<meta property="og:description" content="Academia de trading." />
-<meta property="og:url" content="index.html" />
-<meta property="og:site_name" content="USI Tech Global Team" />
-<meta property="og:image" content="wp-content/uploads/2017/04/usi_tech_presentation_yt_lightbox.jpg" />
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,600i" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>/home/css/social-icons.css">
+    <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>/home/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>/home/css/style.css">
 
-<!-- / Yoast SEO plugin. -->
-
-<link rel='dns-prefetch' href='http://s0.wp.com/' />
-<link rel='dns-prefetch' href='http://s.gravatar.com/' />
-<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
-<link rel='dns-prefetch' href='http://s.w.org/' />
-<link rel="alternate" type="application/rss+xml" title="USI Tech Global Team &raquo; Feed" href="feed/index.html" />
-			<link rel="shortcut icon" href="<?= asset_url(); ?>images/logo.png" type="image/x-icon" />
-		
-		<meta property="og:title" content="Academia de Trading"/>
-		<meta property="og:type" content="article"/>
-		<meta property="og:url" content="http://academiadetradring.com/"/>
-		<meta property="og:site_name" content="Academia de trading"/>
-		<meta property="og:description" content="Bienvenidos a Academia de trading"/>
-
-									<meta property="og:image" content="<?= asset_url(); ?>images/logo.png"/>
-
-									<!-- Bootstrap Core Css -->
-<link href="<?= asset_url(); ?>plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-
-							
-		<style type="text/css">
-img.wp-smiley,
-img.emoji {
-	display: inline !important;
-	border: none !important;
-	box-shadow: none !important;
-	height: 1em !important;
-	width: 1em !important;
-	margin: 0 .07em !important;
-	vertical-align: -0.1em !important;
-	background: none !important;
-	padding: 0 !important;
-}
-</style>
-<script src="https://use.fontawesome.com/a7fd4b808d.js"></script>
-<!-- Custom Css -->
-<link href="<?= asset_url(); ?>css/style.css" rel="stylesheet">
-<link rel='stylesheet' id='layerslider-css'  href='<?= asset_url(); ?>home/wp-content/plugins/LayerSlider/static/layerslider/css/layerslider069c.css?ver=6.5.8' type='text/css' media='all' />
-<link rel='stylesheet' id='ls-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Montserrat:regular,700&amp;subset=latin%2Clatin-ext' type='text/css' media='all' />
-<link rel='stylesheet' id='wpml-legacy-dropdown-0-css'  href='<?= asset_url(); ?>home/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/style68b3.css?ver=1' type='text/css' media='all' />
-<style id='wpml-legacy-dropdown-0-inline-css' type='text/css'>
-.wpml-ls-statics-shortcode_actions{background-color:#ffffff;}.wpml-ls-statics-shortcode_actions, .wpml-ls-statics-shortcode_actions .wpml-ls-sub-menu, .wpml-ls-statics-shortcode_actions a {border-color:#cdcdcd;}.wpml-ls-statics-shortcode_actions a {color:#444444;background-color:#ffffff;}.wpml-ls-statics-shortcode_actions a:hover,.wpml-ls-statics-shortcode_actions a:focus {color:#000000;background-color:#eeeeee;}.wpml-ls-statics-shortcode_actions .wpml-ls-current-language>a {color:#444444;background-color:#ffffff;}.wpml-ls-statics-shortcode_actions .wpml-ls-current-language:hover>a, .wpml-ls-statics-shortcode_actions .wpml-ls-current-language>a:focus {color:#000000;background-color:#eeeeee;}
-</style>
-<link rel='stylesheet' id='wpml-legacy-horizontal-list-0-css'  href='<?= asset_url(); ?>home/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-list-horizontal/style68b3.css?ver=1' type='text/css' media='all' />
-<style id='wpml-legacy-horizontal-list-0-inline-css' type='text/css'>
-.wpml-ls-statics-footer{background-color:#e5e5e5;}.wpml-ls-statics-footer, .wpml-ls-statics-footer .wpml-ls-sub-menu, .wpml-ls-statics-footer a {border-color:#cdcdcd;}.wpml-ls-statics-footer a {color:#222222;background-color:#e5e5e5;}.wpml-ls-statics-footer a:hover,.wpml-ls-statics-footer a:focus {color:#000000;background-color:#eeeeee;}.wpml-ls-statics-footer .wpml-ls-current-language>a {color:#222222;background-color:#eeeeee;}.wpml-ls-statics-footer .wpml-ls-current-language:hover>a, .wpml-ls-statics-footer .wpml-ls-current-language>a:focus {color:#000000;background-color:#eeeeee;}
-</style>
-<link rel='stylesheet' id='wpml-menu-item-0-css'  href='<?= asset_url(); ?>home/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/menu-item/style68b3.css?ver=1' type='text/css' media='all' />
-<link rel='stylesheet' id='wpml-cms-nav-css-css'  href='<?= asset_url(); ?>home/wp-content/plugins/wpml-cms-nav/res/css/navigation13ac.css?ver=1.4.21' type='text/css' media='all' />
-<link rel='stylesheet' id='cms-navigation-style-base-css'  href='<?= asset_url(); ?>home/wp-content/plugins/wpml-cms-nav/res/css/cms-navigation-base13ac.css?ver=1.4.21' type='text/css' media='screen' />
-<link rel='stylesheet' id='cms-navigation-style-css'  href='<?= asset_url(); ?>home/wp-content/plugins/wpml-cms-nav/res/css/cms-navigation13ac.css?ver=1.4.21' type='text/css' media='screen' />
-<link rel='stylesheet' id='avada-stylesheet-css'  href='<?= asset_url(); ?>home/wp-content/themes/Avada/assets/css/style.minbb49.css?ver=5.2.2' type='text/css' media='all' />
-<!--[if lte IE 9]>
-<link rel='stylesheet' id='avada-IE-fontawesome-css'  href='<?= asset_url(); ?>home/wp-content/themes/Avada/includes/lib/assets/fonts/fontawesome/font-awesome.css?ver=5.2.2' type='text/css' media='all' />
-<![endif]-->
-<!--[if IE]>
-<link rel='stylesheet' id='avada-IE-css'  href='<?= asset_url(); ?>home/wp-content/themes/Avada/assets/css/ie.css?ver=5.2.2' type='text/css' media='all' />
-<![endif]-->
-<link rel='stylesheet' id='fusion-dynamic-css-css'  href='<?= asset_url(); ?>home/wp-content/uploads/fusion-styles/fusion-2d38c.css?timestamp=1504902479&amp;ver=4.8.1' type='text/css' media='all' />
-<link rel='stylesheet' id='jetpack_css-css'  href='<?= asset_url(); ?>home/wp-content/plugins/jetpack/css/jetpackde54.css?ver=5.3' type='text/css' media='all' />
-<script type='text/javascript' src='<?= asset_url(); ?>home/wp-includes/js/jquery/jqueryb8ff.js?ver=1.12.4'></script>
-<script type='text/javascript' src='<?= asset_url(); ?>home/wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1'></script>
-<script type='text/javascript' src='<?= asset_url(); ?>home/wp-content/plugins/sitepress-multilingual-cms/res/js/jquery.cookie9e95.js?ver=3.8.0'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var wpml_cookies = {"_icl_current_language":{"value":"en","expires":1,"path":"\/"}};
-var wpml_cookies = {"_icl_current_language":{"value":"en","expires":1,"path":"\/"}};
-/* ]]> */
-</script>
-<script type='text/javascript' src='<?= asset_url(); ?>home/wp-content/plugins/sitepress-multilingual-cms/res/js/cookies/language-cookiea288.js?ver=4.8.1'></script>
-<script type='text/javascript'>
-/* <![CDATA[ */
-var LS_Meta = {"v":"6.5.8"};
-/* ]]> */
-</script>
-<script type='text/javascript' data-cfasync="false" src='<?= asset_url(); ?>home/wp-content/plugins/LayerSlider/static/layerslider/js/greensockb3a6.js?ver=1.19.0'></script>
-<script type='text/javascript' data-cfasync="false" src='<?= asset_url(); ?>home/wp-content/plugins/LayerSlider/static/layerslider/js/layerslider.kreaturamedia.jquery069c.js?ver=6.5.8'></script>
-<script type='text/javascript' data-cfasync="false" src='<?= asset_url(); ?>home/wp-content/plugins/LayerSlider/static/layerslider/js/layerslider.transitions069c.js?ver=6.5.8'></script>
-<script type='text/javascript' src='<?= asset_url(); ?>home/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-dropdown/script68b3.js?ver=1'></script>
-<meta name="generator" content="Powered by LayerSlider 6.5.8 - Multi-Purpose, Responsive, Parallax, Mobile-Friendly Slider Plugin for WordPress." />
-<!-- LayerSlider updates and docs at: https://layerslider.kreaturamedia.com -->
-<link rel='https://api.w.org/' href='wp-json/index.html' />
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" /> 
-<meta name="generator" content="WordPress 4.8.1" />
-
-
-<script type="text/javascript">document.documentElement.className += " js";</script>
-<meta name="generator" content="WPML ver:3.8.0 stt:1,28,29,43,2;" />
-<!-- Copyright protection script by daveligthart.com -->
-<meta http-equiv="imagetoolbar" content="no">
-
-<script type="text/javascript">
-/*<![CDATA[*/
-document.onselectstart=function(){
-	if (event.srcElement.type != "text" && event.srcElement.type != "textarea" && event.srcElement.type != "password") {
-		return false;
-	}
-	else {
-	 	return true;
-	}
-};
-if (window.sidebar) {
-	document.onmousedown=function(e){
-		var obj=e.target;
-		if (obj.tagName.toUpperCase() == 'SELECT'
-			|| obj.tagName.toUpperCase() == "INPUT" 
-			|| obj.tagName.toUpperCase() == "TEXTAREA" 
-			|| obj.tagName.toUpperCase() == "PASSWORD") {
-			return true;
-		}
-		else {
-			return false;
-		}
-	};
-}
-document.body.style.webkitTouchCallout='none';
-/*]]>*/
-</script>
-<script type="text/javascript" language="JavaScript1.1">
-/*<![CDATA[*/
-if (parent.frames.length > 0) { top.location.replace(document.location); }
-/*]]>*/
-</script>
-<script language="Javascript">
-/*<![CDATA[*/
-document.ondragstart = function(){return false;};
-/*]]>*/
-</script>
-<style type="text/css">
-<!—-
-    * {
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-    }
-     
-    img {
-	    -webkit-touch-callout: none;
-        -webkit-user-select: none;
-    }
--->
-</style>
-<!-- End Copyright protection script by daveligthart.com -->
-
-<!-- :-) -->
-
-<style type='text/css'>img#wpstats{display:none}</style>
-		
-	<script type="text/javascript">
-		var doc = document.documentElement;
-		doc.setAttribute('data-useragent', navigator.userAgent);
-	</script>
-
+    <link rel="icon" type="image/png" href="<?= asset_url(); ?>/home/img/logo.png" />
 </head>
 
-<body class="home page-template page-template-100-width page-template-100-width-php page page-id-2 fusion-image-hovers fusion-body ltr no-mobile-slidingbar mobile-logo-pos-left layout-wide-mode fusion-top-header menu-text-align-center mobile-menu-design-modern fusion-show-pagination-text">
-	
-
-			<div id="wrapper" class="">
-		<div id="home" style="position:relative;top:-1px;"></div>
-				
-		
-			<header class="fusion-header-wrapper fusion-header-shadow">
-				<div class="fusion-header-v2 fusion-logo-left fusion-sticky-menu- fusion-sticky-logo- fusion-mobile-logo- fusion-mobile-menu-design-modern ">
-					
-<div class="fusion-secondary-header" style="border-top-color: white;">
-	<div class="fusion-row">
-					<div id="top-header" style=""></div>
-			</div>
-</div>
-<div class="fusion-header-sticky-height"></div>
-<div class="fusion-header">
-	<div class="fusion-row">
-		<div class="fusion-logo" data-margin-top="10px" data-margin-bottom="10px" data-margin-left="0px" data-margin-right="0px">
-				<a class="fusion-logo-link" href="<?= site_url(); ?>">
-						<img src="<?= asset_url(); ?>images/logo.png" style="max-height: 52px; height: auto;" width="161" height="52" alt="Academia de trading" class="fusion-logo-1x fusion-standard-logo" />
-
-															<img src="<?= asset_url(); ?>images/logo.png" width="161" height="52" alt="Academia de Trading" style="max-height: 52px; height: auto;" class="fusion-standard-logo fusion-logo-2x" />
-			
-			<!-- mobile logo -->
-			
-			<!-- sticky header logo -->
-					</a>
-		</div>		<nav class="fusion-main-menu" aria-label="Main Menu"><ul role="menubar" id="menu-main-menu" class="fusion-menu"><li role="menuitem"  id="menu-item-170"  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-170"  ><a  title="" href="#home" class="fusion-arrow-highlight"><span class="menu-text">Inicio<span class="fusion-arrow-svg"><svg height="12px" width="23px">
-						<path d="M0 0 L11.5 12 L23 0 Z" fill="#ffffff" stroke="rgba(71,71,71,0)" stroke-width="1"/>
-						</svg></span></span></a></li>
-
-
-<li role="menuitem"  id="menu-item-170"  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-170"  ><a  title="" target="_blank" href="<?= asset_url(); ?>trading_plan.pdf" class="fusion-arrow-highlight"><span class="menu-text">Plan<span class="fusion-arrow-svg"><svg height="12px" width="23px">
-						<path d="M0 0 L11.5 12 L23 0 Z" fill="#ffffff" stroke="rgba(71,71,71,0)" stroke-width="1"/>
-						</svg></span></span></a></li>
-
-						<li role="menuitem"  id="menu-item-170"  class="menu-item menu-item-type-custom menu-item-object-custom menu-item-170"  ><a  title="" href="<?= site_url('auth/'); ?>" class="fusion-arrow-highlight"><span class="menu-text">Login<span class="fusion-arrow-svg"><svg height="12px" width="23px">
-						<path d="M0 0 L11.5 12 L23 0 Z" fill="#ffffff" stroke="rgba(71,71,71,0)" stroke-width="1"/>
-						</svg></span></span></a></li>
-
-
-
-						<li role="menuitem" id="menu-item-11" class="btnRegister menu-item menu-item-type-custom menu-item-object-custom menu-item-11 fusion-menu-item-button fusion-last-menu-item" data-classes="btnRegister"><a title="Register for FREE" href="<?= site_url('auth/'); ?>#registro" class="fusion-arrow-highlight"><span class="menu-text fusion-button button-default button-medium">Registro</span></a></li></ul></nav>		<div class="fusion-mobile-menu-icons">
-							<a href="#" class="fusion-icon fusion-icon-bars" aria-label="Toggle mobile menu"></a>
-		
-		
-			</div>
-
-<nav class="fusion-mobile-nav-holder fusion-mobile-menu-text-align-left"></nav>
-
+<div id="loaderDiv">
+  	<div id="loaderNoImage">
+  		<div class="cssload-thecube">
+			<div class="cssload-cube cssload-c1"></div>
+			<div class="cssload-cube cssload-c2"></div>
+			<div class="cssload-cube cssload-c4"></div>
+			<div class="cssload-cube cssload-c3"></div>
+		</div>
 	</div>
 </div>
-				</div>
-				<div class="fusion-clearfix"></div>
-			</header>
-					
-		<div id="sliders-container">
-			<style type="text/css">
-	#layerslider-container{max-width:1280;}
-</style>
-<div id="layerslider-container">
-	<div id="layerslider-wrapper">
-				<script data-cfasync="false" type="text/javascript">var lsjQuery = jQuery;</script><script data-cfasync="false" type="text/javascript">
-lsjQuery(document).ready(function() {
-if(typeof lsjQuery.fn.layerSlider == "undefined") {
-if( window._layerSlider && window._layerSlider.showNotice) { 
-window._layerSlider.showNotice('layerslider_1','jquery');
-}
-} else {
-lsjQuery("#layerslider_1").layerSlider({sliderVersion: '6.5.8', type: 'fullwidth', responsiveUnder: 1280, allowFullscreen: false, slideBGSize: 'auto', parallaxScrollReverse: true, hideUnder: 0, hideOver: 100000, skin: 'v5', globalBGColor: '#f2f2f2', globalBGSize: 'auto', thumbnailNavigation: 'disabled', popupWidth: 640, popupHeight: 360, allowRestartOnResize: true, skinsPath: 'http://www.usitech.io/wp-content/plugins/LayerSlider/static/layerslider/skins/'});
-}
-});
-</script><div id="layerslider_1" class="ls-wp-container fitvidsignore" style="width:1280px;height:600px;margin:0 auto;margin-bottom: 0px;"><div class="ls-slide" data-ls="bgsize:cover;duration:4000;kenburnsscale:1.2;parallaxevent:scroll;"><img width="1867" height="594" src="<?= asset_url(); ?>home/wp-content/uploads/2017/04/banner-4-1.jpg" class="ls-bg" alt="" srcset="http://www.usitech.io/wp-content/uploads/2017/04/banner-4-1-200x64.jpg 200w, http://www.usitech.io/wp-content/uploads/2017/04/banner-4-1-300x95.jpg 300w, http://www.usitech.io/wp-content/uploads/2017/04/banner-4-1-400x127.jpg 400w, http://www.usitech.io/wp-content/uploads/2017/04/banner-4-1-600x191.jpg 600w, http://www.usitech.io/wp-content/uploads/2017/04/banner-4-1-768x244.jpg 768w, http://www.usitech.io/wp-content/uploads/2017/04/banner-4-1-800x255.jpg 800w, http://www.usitech.io/wp-content/uploads/2017/04/banner-4-1-1024x326.jpg 1024w, http://www.usitech.io/wp-content/uploads/2017/04/banner-4-1-1200x382.jpg 1200w, http://www.usitech.io/wp-content/uploads/2017/04/banner-4-1.jpg 1867w" sizes="(max-width: 1867px) 100vw, 1867px" /><p style="overflow:hidden;font-family:Montserrat;font-size:62px;color:#000000;top:82px;left:38px;" class="ls-l" data-ls="offsetyin:-300;durationin:1200;delayin:300;easingin:easeOutQuint;offsetxout:-80;durationout:400;parallax:true;parallaxlevel:1;"><span style="font-weight: 600;">ACADEMIA</span> DE TRADING</p><p style="letter-spacing:0.2em;overflow:hidden;font-family:Montserrat;font-size:25px;color:#46cbf7;top:158px;left:44px;" class="ls-l" data-ls="offsetyin:-300;durationin:1300;delayin:200;easingin:easeOutQuint;offsetxout:-80;durationout:400;parallax:true;parallaxlevel:1;"><!--Welcome to United Software Intelligence--></p><p style="white-space: normal;width:693px;font-family:Montserrat;font-size:23px;line-height:32px;color:#484848;top:235px;left:40px;wordwrap:on;" class="ls-l" data-ls="offsetyin:-300;durationin:1400;delayin:100;easingin:easeOutQuint;offsetxout:-80;durationout:400;parallax:true;parallaxlevel:1;">TRANSFORMAMOS EMPRENDEDORES EN TRADERS PROFESIONALES.</p>
 
-<p style="white-space: normal;font-family:Montserrat;font-size:23px;line-height:33px;color:#484848;top:502px;left:95px;wordwrap:on;" class="ls-l" data-ls="offsetyin:-300;durationin:1400;easingin:easeOutQuint;offsetxout:-80;durationout:400;parallax:true;parallaxlevel:1;"><!--It's 100% FREE to Register!--></p>
+<body>
 
-<img width="603" height="605" src="<?= asset_url(); ?>home/wp-content/uploads/2017/04/bitcoin_gold.png" class="ls-l" alt="" srcset="http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-66x66.png 66w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-150x150.png 150w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-200x201.png 200w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-300x300.png 300w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-400x401.png 400w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-600x602.png 600w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold.png 603w" sizes="(max-width: 603px) 100vw, 603px" style="top:363px;left:659px;text-align:initial;font-weight:400;font-style:normal;text-decoration:none;wordwrap:false;opacity:1;width:312px;height:313px;" data-ls="showinfo:1;offsetxin:-30;delayin:800;rotatein:-30;parallax:true;parallaxlevel:3;"><img width="603" height="605" src="<?= asset_url(); ?>home/wp-content/uploads/2017/04/bitcoin_gold.png" class="ls-l" alt="" srcset="http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-66x66.png 66w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-150x150.png 150w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-200x201.png 200w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-300x300.png 300w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-400x401.png 400w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-600x602.png 600w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold.png 603w" sizes="(max-width: 603px) 100vw, 603px" style="top:363px;left:572px;text-align:initial;font-weight:400;font-style:normal;text-decoration:none;wordwrap:false;opacity:1;width:312px;height:313px;" data-ls="showinfo:1;offsetxin:-30;delayin:700;rotatein:-30;parallax:true;parallaxlevel:2;"><img width="603" height="605" src="<?= asset_url(); ?>home/wp-content/uploads/2017/04/bitcoin_gold.png" class="ls-l" alt="" srcset="http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-66x66.png 66w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-150x150.png 150w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-200x201.png 200w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-300x300.png 300w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-400x401.png 400w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold-600x602.png 600w, http://www.usitech.io/wp-content/uploads/2017/04/bitcoin_gold.png 603w" sizes="(max-width: 603px) 100vw, 603px" style="top:363px;left:461px;text-align:initial;font-weight:400;font-style:normal;text-decoration:none;wordwrap:false;opacity:1;width:312px;height:313px;" data-ls="showinfo:1;offsetxin:-30;delayin:600;rotatein:-30;parallax:true;parallaxlevel:1;"><img width="343" height="700" src="<?= asset_url(); ?>home/wp-content/uploads/2017/04/iphone-updown1-compressor.png" class="ls-l" alt="" srcset="http://www.usitech.io/wp-content/uploads/2017/04/iphone-updown1-compressor-147x300.png 147w, http://www.usitech.io/wp-content/uploads/2017/04/iphone-updown1-compressor-200x408.png 200w, http://www.usitech.io/wp-content/uploads/2017/04/iphone-updown1-compressor.png 343w" sizes="(max-width: 343px) 100vw, 343px" style="top:16px;left:884px;" data-ls="offsetyin:50;durationin:1500;delayin:500;easingin:easeOutExpo;offsetxout:-80;durationout:400;parallax:true;parallaxlevel:10;"><div style="letter-spacing:0.2em; box-shadow: 3px 3px 6px rgba(0,0,0,.3);padding-right:25px;padding-left:25px;font-family:Montserrat;font-size:28px;line-height:78px;color:#ffffff;background:#46cbf7;border-radius:21px;top:413px;left:38px;" class="ls-l" data-ls="offsetyin:-300;durationin:1500;easingin:easeOutQuint;durationout:400;hover:true;hoveropacity:1;hoverscalex:1.1;hoverscaley:1.1;parallax:true;parallaxlevel:1;"><center><a id="registerurl" style="color: #fff;" href="<?= site_url('auth'); ?>#_registro" target="_self" >INSCRIBETE AHORA</a></center>
-</div></div></div>			</div>
-</div>
-		</div>
-						
-							
+	
+
+	<header id="header">
 		
+		<!-- Section title -->
+		<h1 class="sr-only">Academia de Trading | Home page</h1>
 		
-						<main id="main" role="main" class="clearfix width-100" style="padding-left:30px;padding-right:30px">
-			<div class="fusion-row" style="max-width:100%;">
-<section id="content" class="full-width">
-			<div id="post-2" class="post-2 page type-page status-publish hentry">
+		<nav id="main-navigation" class="navbar navbar-default navbar-fixed-top">
+
+			<div id="top-header" style=""></div>
+		  <!-- Section title -->
+		  <h1 class="sr-only">Main navigation</h1>
+
+		  <div class="">
+
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="sr-only">Toggle navigation</span>
+		      </button>
+		      <a id="brand-mobile" class="navbar-brand navbar-brand-center smoothScroll" href="#home">
+		        <img alt="Academia De Trading" src="<?= asset_url(); ?>/home/img/logo.png">
+		      </a>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="main-navbar">
+			  <ul class="nav navbar-nav">
+		        <li class="active"><a class="smoothScroll" href="#home">Home <span class="sr-only">(current)</span></a></li>
+		        <li><a class="smoothScroll" href="#explicacion">Explicación</a></li>
+		        <li><a class="smoothScroll" href="#planes">Planes</a></li>
+		        <li><a class="smoothScroll" href="#equipo">Equipo</a></li>
+		      	<li id="brand-desktop">
+					<a class="navbar-brand smoothScroll" href="#home">
+						<img alt="Academia De Trading" src="<?= asset_url(); ?>/home/img/logo.png">
+					</a>
+		      	</li>
+		      	<li><a class="smoothScroll" href="#inversiones">Inversiones</a></li>
+		        <li><a class="smoothScroll" href="#senales">Señales</a></li>
+		        <li class="active"><a class="" href="<?= site_url('auth'); ?>">Login</a></li>
+		        <li class="active"><a class="" href="<?= site_url('auth'); ?>#_registro">Registro</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container -->
+		</nav>
+
+	</header>
+
+	<main>
+
+		<section id="home">
+
+			<!-- Section title -->
+			<h1 class="sr-only">Home</h1>
+
+			<div id="carousel-hero" class="carousel slide" data-ride="carousel">
+
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-hero" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-hero" data-slide-to="1"></li>
+					<li data-target="#carousel-hero" data-slide-to="2"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
 			
-			<span class="entry-title rich-snippet-hidden">
-			</span>
-	
-			<span class="vcard rich-snippet-hidden">
-			<span class="fn">
-			</span>
-		</span>
-	
-			<span class="updated rich-snippet-hidden"></span>
-	
-						<div class="post-content">
-				<div class="fusion-bg-parallax"  data-bg-align="center center" data-direction="up" data-mute="false" data-opacity="100" data-velocity="-0.3" data-mobile-enabled="true" data-break_parents="0" data-bg-image="http://usitech.io/wp-content/uploads/2017/04/sliderimg2.png" data-bg-repeat="false" data-bg-height="" data-bg-width=""></div><div  class="fusion-fullwidth fullwidth-box fusion-parallax-up nonhundred-percent-fullwidth"  style='background-color: rgba(255,255,255,0);background-image: url("wp-content/uploads/2017/04/sliderimg2.png");background-position: center center;background-repeat: no-repeat;padding-top:25px;padding-right:30px;padding-bottom:10px;padding-left:30px;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-attachment:up;'><div class="fusion-builder-row fusion-row "><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_2_5  fusion-two-fifth fusion-column-first 2_5"  style='margin-top:0px;margin-bottom:20px;width:40%;width:calc(40% - ( ( 4% ) * 0.4 ) );margin-right: 4%;'>
-					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
-						<div class="fusion-title title fusion-title-size-two" style="margin-top:25px;margin-bottom:31px;"><h2 class="title-heading-left"><h2 style="text-align: left; font-size: 1.5em;"><span style="color: #ffffff;">EL CURSO EN LÍNEA QUE CAMBIARÁ TU VIDA ECONÓMICA</em></span></h2></h2><div class="title-sep-container"><div class="title-sep sep-single sep-solid" style="border-color:#e0dede;"></div></div></div><p><span style="color: #ffffff;">Nuestro amplio curso en línea desarrollado por traders para traders consta de más de 20 clases de video que cubren todo, desde lo básico a las estrategias avanzadas de comercio criptográfico. Estudia desde la comodidad de tu casa a tu propio ritmo y en tu propio horario con nuestras clases pregrabadas a las cuales tendrás acceso dentro de nuestro portal web..</span></p>
-<ul class="fusion-checklist fusion-checklist-1" style="font-size:17px;line-height:28.9px;"><li class="fusion-li-item"><span style="background-color:#46cbf7;font-size:14.96px;height:28.9px;width:28.9px;margin-right:11.9px;" class="icon-wrapper circle-yes"><i class="fusion-li-icon fa fa-check" style="color:#ffffff;"></i></span><div class="fusion-li-item-content" style="margin-left:40.8px;"><span style="color: #ffffff;">Puedes hacer trading desde casa y generar de $25 a 40 dolares por día.</span></div></li><li class="fusion-li-item"><span style="background-color:#46cbf7;font-size:14.96px;height:28.9px;width:28.9px;margin-right:11.9px;" class="icon-wrapper circle-yes"><i class="fusion-li-icon fa fa-check" style="color:#ffffff;"></i></span><div class="fusion-li-item-content" style="margin-left:40.8px;"><span style="color: #ffffff;">No importa la edad que tengas ni con cuanto dinero decidas comenzar.</span></div></li><li class="fusion-li-item"><span style="background-color:#46cbf7;font-size:14.96px;height:28.9px;width:28.9px;margin-right:11.9px;" class="icon-wrapper circle-yes"><i class="fusion-li-icon fa fa-check" style="color:#ffffff;"></i></span><div class="fusion-li-item-content" style="margin-left:40.8px;"><span style="color: #ffffff;">No necesitas ser un experto para comenzar a ganar.</span></div></li></ul><div class="fusion-clearfix"></div>
+					<div   class="item active bg-1">
+
+						<div class="overlay"></div>
+
+						<div class="carousel-caption">
+										
+							<!--<span class="h3">Bienvenido a la <span class="text-yellow">Academia De Trading</span></span>
+
+							<!--<span class="h1">Brands</span>
+
+							<p>TRANSFORMAMOS EMPRENDEDORES EN TRADERS PROFESIONALES.</p>-->
+							<p style=""><img src="<?= asset_url(); ?>/home/img/logofull.png" class="img-responsive" style="max-height:200px; display: initial;"></p>
+
+							<!--<a href="<?= site_url('auth'); ?>#_registro" class="btn btn-default white-yellow">Inscribete</a>-->
+
+						</div>
+
+					</div> <!-- /.item -->
+
+					<div class="item bg-2">
+
+						<div class="overlay"></div>
+
+						<div class="carousel-caption">
+										
+							<!--<span class="h4">Hello,we are <span class="text-yellow">Academia De Trading</span>, and we create</span>-->
+
+							<span class="h1">Tutoriales</span>
+
+							<p>Dentro de nuestro sistema podras aprender a como tradear y poder generar tu propio ingreso.</p>
+
+							<a href="<?= site_url('auth'); ?>#_registro" class="btn btn-default white-yellow">Inscribete</a>
+
+						</div>
+
+					</div> <!-- /.item -->
+
+					<div class="item bg-3">
+
+						<div class="overlay"></div>
+
+						<div class="carousel-caption">
+
+							<span class="h1">Señales</span>
+
+							<p>Tendras acceso a una amplia opcion de señales para ayudarte a tu trading.</p>
+
+							<a href="<?= site_url('auth'); ?>#_registro" class="btn btn-default white-yellow">Inscribete</a>
+
+						</div>
+
+					</div> <!-- /.item -->
+				
+				</div> <!-- /.carousel-inner -->
+
+				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel-hero" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#carousel-hero" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+
+			</div> <!-- /.carousel -->
+
+		</section>
+
+
+
+		<section id="explicacion">
+
+
+
+			<div class="container">
+
+				<div class="row">
+					
+					<div class="col-md-8 col-md-offset-2">
+
+						<div class="title-content">
+							
+							<h2 class="section-title">¿ COMO FUNCIONA ?</h2>
+
+							
+
+						</div>
 
 					</div>
-				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_3_5  fusion-three-fifth fusion-column-last 3_5"  style='margin-top:0px;margin-bottom:20px;width:60%;width:calc(60% - ( ( 4% ) * 0.6 ) );'>
-					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
-						<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src="https://player.vimeo.com/video/238181071?title=0&amp;byline=0&amp;portrait=0;autoplay=1" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe></div><div class="fusion-clearfix"></div>
 
-					</div>
-				</div></div></div>
-
+				</div>
+				<div class="services-container">
 
 				
-
-				<div class="fusion-bg-parallax"  data-bg-align="left left" data-direction="up" data-mute="false" data-opacity="100" data-velocity="-0.3" data-mobile-enabled="true" data-break_parents="0" data-bg-image="https://i.imgur.com/Evuayfy.png" data-bg-repeat="false" data-bg-height="" data-bg-width=""></div><div id="opportunity" class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth"  style='background-color: rgba(255,255,255,0);background-image: url("wp-content/uploads/2017/04/sliderimg2.png");background-position: center center;background-repeat: no-repeat;padding-top:60px;padding-right:30px;padding-bottom:80px;padding-left:30px;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-attachment:up;'><div class="fusion-builder-row fusion-row "><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1"  style='margin-top:0px;margin-bottom:20px;'>
-					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
-						<div class="fusion-title title fusion-title-center fusion-title-size-two" style="margin-top:30px;margin-bottom:31px;"><div class="title-sep-container title-sep-container-left"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div><h2 class="title-heading-center"><p style="text-align: center; font-size: 1.6em;"><strong>¿ COMO FUNCIONA ?</strong></p></h2><div class="title-sep-container title-sep-container-right"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div></div><div class="fusion-clearfix"></div>
-
-					</div>
-				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-first 1_2"  style='margin-top:0px;margin-bottom:20px;width:50%;width:calc(50% - ( ( 4% ) * 0.5 ) );margin-right: 4%;'>
-					<!--<div class="fusion-column-wrapper" style="padding: 0px 0px 5px 0px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
-						<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
-						<div class="imageframe-align-center"><span class="fusion-imageframe imageframe-none imageframe-1 hover-type-none"><img src="http://abogadooficio.com/wp-content/uploads/2015/06/ChicaPC-520x307.png" width="" height="" alt="" title="" class="img-responsive"></span></div><div class="fusion-clearfix"></div>
-
-					</div>--><div class="fusion-clearfix"></div>
-
-					</div>
-				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-last 1_2"  style='margin-top:0px;margin-bottom:20px;width:50%;width:calc(50% - ( ( 4% ) * 0.5 ) );'>
-					<div class="fusion-column-wrapper text-center" style="background-color: rgba(255,255,255,0.8);padding:60px 10px 60px 10px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
-						<h1 style="margin-top: 0;"><strong><!--¿ Como funciona ?--></strong></h1>
-<p>Te enseñaremos a hacer trading.</p>
-<p>Te regalaremos Señales por una (1) semana.</p>
-<p>Una vez obtengas ganancias te puedes hacer miembro con tan solo 20 dolares al mes.</p>
-<p>Si invitas a 3 personas, tu mensualidad es gratis.</p>
-
-<div class="fusion-clearfix"></div>
-
-					</div>
+		
+						<div class="row text-center">
+							<p>Te enseñaremos a hacer trading.</p>
+							<p>Te regalaremos Señales por una (1) semana.</p>
+							<p>Una vez obtengas ganancias te puedes hacer miembro con tan solo 20 dolares al mes.</p>
+							<p>Si invitas a 3 personas, tu mensualidad es gratis.</p>
+						</div>
 				</div>
 
-
-
-
-
-
-
-
-
-
-			</div></div>
-
-			<div id="opportunity" class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth"  style='background-color: #f5f5f5;background-position: center center;background-repeat: no-repeat;padding-top:20px;padding-right:30px;padding-left:30px;'><div class="fusion-builder-row fusion-row "><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1"  style='margin-top:0px;margin-bottom:20px;'>
-					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
-						<div class="fusion-clearfix"></div>
-
-					</div>
-				</div><div  class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1"  style='margin-top:0px;margin-bottom:0px;'>
-					<div class="fusion-column-wrapper" style="padding: 0px 0px 0px 0px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;"  data-bg-url="">
-						<div class="">
-    <div class="row">
-    
-        <div class="col-xs-12 col-sm-6 col-md-4"> 
-            <!-- Price Table Item -->
-            <div class="price-table text-center">
-                <div class="price-table-heading">
-                    <h4 class="title">PLAN GRATIS</h4>
-                </div>
-                <div class="price-table-body">
-                    <p class="value">$0<small>/mes</small></p>
-                </div>
-                <ul class="list-group">
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> Aprende a trading basico</li>
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> 7 Dias de senales gratis</li>
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> Se parte de la comunidad</li>
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> 3 referidos (Activos) = GRATIS</li>
-                </ul>
-                <div class="price-table-footer"> <a class="btn btn-lg btn-success" href="<?= site_url('auth/'); ?>#registro">COMPRAR AHORA</a> </div>
-            </div>
-            <!-- END Price Table Item -->
-        
-            <!-- START: Will be visible in tablet and mobile devices to make gap between tow price items -->
-            <div class="col-xs-12 col-sm-12 margin-bottom-20"></div>
-            <!-- END: Will be visible in tablet and mobile devices to make gap between tow price items -->
-        </div>
-        
-        <div class="col-xs-12 col-sm-6 col-md-4"> 
-            <!-- Price Table Item -->
-            <div class="price-table text-center">
-                <div class="price-table-heading">
-                    <h4 class="title">PLAN BASICO</h4>
-                </div>
-                <div class="price-table-body">
-                    <p class="value">$20<small>/mes</small></p>
-                </div>
-                <ul class="list-group">
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> Aprende a trading basico</li>
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> 1 a 3 señales por dia</li>
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> Apoyo por Skype o Telegram</li>
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> Se parte de la comunidad</li>
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> 3 referidos (Activos) = GRATIS</li>
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> Acceso a las grabaciones de Mastermind de trading.</li>
-                </ul>
-                <div class="price-table-footer"> <a class="btn btn-lg btn-success" href="<?= site_url('auth/'); ?>#registro">COMPRAR AHORA</a> </div>
-            </div>
-            <!-- END Price Table Item -->
-        
-            <!-- START: Will be visible in tablet and mobile devices to make gap between tow price items -->
-            <div class="col-xs-12 col-sm-12 margin-bottom-20"></div>
-            <!-- END: Will be visible in tablet and mobile devices to make gap between tow price items -->
-        </div>
-        
-        <div class="col-xs-12 col-sm-6 col-md-4"> 
-            <!-- Price Table Item -->
-            <div class="price-table text-center">
-                <div class="price-table-heading">
-                    <h4 class="title">PLAN VIP</h4>
-                </div>
-                <div class="price-table-body">
-                    <p class="value">$150<small></small></p>
-                </div>
-                <ul class="list-group">
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> Acceso a todo en el paquete de $20</li>
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> Senales inlimitadas todo el dia</li>
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> Clases de analisis tecnico</li>
-                    <li class="list-group-item"><i class="icon-ok text-success"></i> Curso de trading fundamental</li>
-                </ul>
-                <div class="price-table-footer"> <a class="btn btn-lg btn-success" href="<?= site_url('auth/'); ?>#registro">COMPRAR AHORA</a> </div>
-            </div>
-            <!-- END Price Table Item -->
-        
-            <!-- START: Will be visible in tablet and mobile devices to make gap between tow price items -->
-            <div class="col-xs-12 col-sm-12 margin-bottom-20"></div>
-            <!-- END: Will be visible in tablet and mobile devices to make gap between tow price items -->
-        </div>
-        
-       
-          
-    </div>
-</div>
-						<div class="imageframe-align-center"><span class="fusion-imageframe imageframe-none imageframe-2 hover-type-none"><img src="<?= asset_url(); ?>home/wp-content/uploads/2017/04/operbotmimg.jpg" width="" height="" alt="" title="" class="img-responsive"/></span></div><div class="fusion-clearfix"></div>
-
-					</div>
-				</div>
-
-
-
-
-
-
-
-
-
-
-			</div></div>
-
-			<div id="about" class="fusion-fullwidth fullwidth-box fusion-parallax-up nonhundred-percent-fullwidth bg-parallax-parent" style="background-color: rgba(255, 255, 255, 0); background-image: none; background-position: center center; background-repeat: no-repeat; padding: 20px 30px 10px; background-size: cover; position: relative; overflow: hidden; z-index: 1;"><div class="parallax-inner" style="pointer-events: none; width: 1663px; height: 813.2px; position: absolute; z-index: -1; top: 0px; left: 0px; opacity: 1; background-position: center center; background-repeat: no-repeat; background-size: cover; background-image: url(&quot;http://usitech.io/wp-content/uploads/2017/04/aboutusbg.png&quot;); min-height: 150px; transform: translate3d(0px, -53.599px, 0px);"></div><div class="fusion-builder-row fusion-row "><div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:20px;">
-					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
-						<div class="fusion-title title fusion-title-center fusion-title-size-two" style="margin-top:30px;margin-bottom:31px;"><div class="title-sep-container title-sep-container-left"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div><h2 class="title-heading-center" data-fontsize="18" data-lineheight="27"><p style="text-align: center; font-size: 1.6em;"><strong>Inversiones</strong></p></h2><div class="title-sep-container title-sep-container-right"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div></div><div class="fusion-clearfix"></div>
-
-					</div>
-				</div>
-
-
-				<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:20px;">
-					<div class="fusion-column-wrapper" style="padding: 20px 0px 0px 0px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;text-align: center" data-bg-url="">
-						<p>¡ Puedes aprender trading, pero mientras aprendes, aprovecha nuestros paquetes para empezar a GANAR !</p>
-<div class="fusion-clearfix"></div>
-
-					</div>
-				</div>
-
-				<div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_3  fusion-one-third fusion-column-first fusion-blend-mode rounded 1_3" style="text-align:center;margin-top:0px;margin-bottom:0px;width:46%;margin-right: 4%;">
-					<div class="fusion-column-wrapper" style="background-color:rgba(0,0,0,0.08);padding: 20px 10px 10px 10px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
-						<div class="aligncenter"><i class="fa fontawesome-icon fa-codiepie circle-yes" style="border-color:rgba(51,51,51,0);background-color:#46cbf7;font-size:44px;line-height:88px;height:88px;width:88px;margin-left:0;margin-right:0;color:#ffffff;"></i></div><div class="fusion-sep-clear"></div><div class="fusion-separator fusion-full-width-sep sep-none" style="margin-left: auto;margin-right: auto;margin-top:;margin-bottom:10px;"></div><h2 style="text-align: center;" data-fontsize="18" data-lineheight="27"><strong>Paquete de 500$</strong></h2>
-<p style="text-align: center;"><ul class="fusion-checklist fusion-checklist-1" style="font-size:17px;line-height:28.9px;"><li class="fusion-li-item"><span style="background-color:#46cbf7;font-size:14.96px;height:28.9px;width:28.9px;margin-right:11.9px;" class="icon-wrapper circle-yes"><i class="fusion-li-icon fa fa-check" style="color:#ffffff;"></i></span><div class="fusion-li-item-content" style="margin-left:40.8px;"><span> En 90 dias habiles te regresamos 800$</span></div></li><li class="fusion-li-item"><span style="background-color:#46cbf7;font-size:14.96px;height:28.9px;width:28.9px;margin-right:11.9px;" class="icon-wrapper circle-yes"><i class="fusion-li-icon fa fa-check" style="color:#ffffff;"></i></span><div class="fusion-li-item-content" style="margin-left:40.8px;"><span>Una ganancia de mas del 60%</span></div></li></ul>
-
-
-<a class="fusion-button button-flat fusion-button-round button-large button-default button-1" target="_self" href="#"><span class="fusion-button-text">ADQUIRIR</span></a></p>
-<div class="fusion-clearfix"></div>
-
-					</div>
-				</div><div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_3  fusion-one-third fusion-blend-mode rounded 1_3" style="text-align:center;margin-top:0px;margin-bottom:0px;width:46%;margin-right: 4%;">
-					<div class="fusion-column-wrapper" style="background-color:rgba(0,0,0,0.08);padding: 20px 10px 10px 10px;background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
-						<div class="aligncenter"><i class="fa fontawesome-icon fa-bar-chart circle-yes" style="border-color:rgba(51,51,51,0);background-color:#46cbf7;font-size:44px;line-height:88px;height:88px;width:88px;margin-left:0;margin-right:0;color:#ffffff;"></i></div><div class="fusion-sep-clear"></div><div class="fusion-separator fusion-full-width-sep sep-none" style="margin-left: auto;margin-right: auto;margin-top:;margin-bottom:10px;"></div><h2 style="text-align: center;" data-fontsize="18" data-lineheight="27"><strong>Paquete de 1000$</strong></h2>
-<p style="text-align: center;"><ul class="fusion-checklist fusion-checklist-1" style="font-size:17px;line-height:28.9px;"><li class="fusion-li-item"><span style="background-color:#46cbf7;font-size:14.96px;height:28.9px;width:28.9px;margin-right:11.9px;" class="icon-wrapper circle-yes"><i class="fusion-li-icon fa fa-check" style="color:#ffffff;"></i></span><div class="fusion-li-item-content" style="margin-left:40.8px;"><span> En 90 dias habiles te regresamos 1600$</span></div></li><li class="fusion-li-item"><span style="background-color:#46cbf7;font-size:14.96px;height:28.9px;width:28.9px;margin-right:11.9px;" class="icon-wrapper circle-yes"><i class="fusion-li-icon fa fa-check" style="color:#ffffff;"></i></span><div class="fusion-li-item-content" style="margin-left:40.8px;"><span>Una ganancia de mas del 60%</span></div></li></ul>
-
-
-<a class="fusion-button button-flat fusion-button-round button-large button-default button-1" target="_self" href="#"><span class="fusion-button-text">ADQUIRIR</span></a></p>
-<div class="fusion-clearfix"></div>
-
-					</div>
-				</div></div></div>
-
-
-				<div id="" class="fusion-fullwidth fullwidth-box fusion-parallax-up nonhundred-percent-fullwidth bg-parallax-parent" style="background-color: rgba(255, 255, 255, 0); background-image: none; background-position: center center; background-repeat: no-repeat; padding: 20px 30px 10px; background-size: cover; position: relative; overflow: hidden; z-index: 1;"><div class="parallax-inner" style="pointer-events: none; width: 1663px; height: 813.2px; position: absolute; z-index: -1; top: 0px; left: 0px; opacity: 1; background-position: center center; background-repeat: no-repeat; background-size: cover; min-height: 150px; transform: translate3d(0px, -53.599px, 0px);"></div><div class="fusion-builder-row fusion-row "><div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:20px;">
-					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
-						<div class="fusion-title title fusion-title-center fusion-title-size-two" style="margin-top:30px;margin-bottom:31px;"><div class="title-sep-container title-sep-container-left"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div><h2 class="title-heading-center" data-fontsize="18" data-lineheight="27"><p style="text-align: center; font-size: 1.6em;"><strong>TEAM</strong></p></h2><div class="title-sep-container title-sep-container-right"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div></div><div class="fusion-clearfix"></div>
-
-					</div>
-				</div>
-
-
-				<div class="at-grid" data-column="3">
-    <div class="at-column">
-      <div class="at-user">
-        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_adrian.png"/></div>
-        <div class="at-user__name">Adrian Alvarez</div>
-        <div class="at-user__title">CEO & Fundador</div>
-
-      </div>
-    </div>
-
-    <div class="at-column">
-      <div class="at-user">
-        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_ernesto.png"/></div>
-        <div class="at-user__name">Ernesto Rodriguez</div>
-        <div class="at-user__title">Marketing</div>
-
-      </div>
-    </div>
-
-    
-
-    <div class="at-column">
-      <div class="at-user">
-        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_pedro.png"/></div>
-        <div class="at-user__name">Pedro Bencomo</div>
-        <div class="at-user__title">Community manager</div>
-        
-      </div>
-    </div>
-
-   
-    
-    <div class="at-column">
-      <div class="at-user">
-        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_layton.png"/></div>
-        <div class="at-user__name">Layton Cisneros</div>
-        <div class="at-user__title">Master Trader</div>
- 
-      </div>
-    </div>
-    <div class="at-column">
-      <div class="at-user">
-        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_bernabe.png"/></div>
-        <div class="at-user__name">Bernabe Flores</div>
-        <div class="at-user__title">Master Trader</div>
-
-      </div>
-    </div>
-    
-    <div class="at-column">
-      <div class="at-user">
-        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_gerson.png"/></div>
-        <div class="at-user__name">Gerson</div>
-        <div class="at-user__title">Master Trader</div>
- 
-      </div>
-    </div>
-     <div class="at-column">
-      <div class="at-user">
-        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_liangely.png"/></div>
-        <div class="at-user__name">Liangely sanchez</div>
-        <div class="at-user__title">Customer Service</div>
- 
-      </div>
-    </div>
-
-    <div class="at-column">
-      <div class="at-user">
-        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_sugey.png"/></div>
-        <div class="at-user__name">Sugey Reyes</div>
-        <div class="at-user__title">Customer Service</div>
- 
-      </div>
-    </div>
-
-  </div>
-
-			</div></div>
-
-
-			<div id="opportunity" class="fusion-fullwidth fullwidth-box nonhundred-percent-fullwidth" style="background-color: #f5f5f5;background-position: center center;background-repeat: no-repeat;padding-top:20px;padding-right:30px;padding-left:30px;"><div class="fusion-builder-row fusion-row "><div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1  fusion-one-full fusion-column-first fusion-column-last 1_1" style="margin-top:0px;margin-bottom:20px;">
-					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
-						<div class="fusion-title title fusion-title-center fusion-title-size-two" style="margin-top:30px;margin-bottom:31px;"><div class="title-sep-container title-sep-container-left"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div><h2 class="title-heading-center" data-fontsize="18" data-lineheight="27"><p style="text-align: center; font-size: 1.6em;"><strong>SEÑALES CUMPLIDAS</strong></p></h2><div class="title-sep-container title-sep-container-right"><div class="title-sep sep-double" style="border-color:#2e93d1;"></div></div></div><div class="fusion-clearfix"></div>
-
-					</div>
-				</div><div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_2  fusion-one-half fusion-column-last 1_2" style="margin-top:0px;margin-bottom:20px;width:100%;">
-					<div class="fusion-column-wrapper" style="background-position:left top;background-repeat:no-repeat;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;" data-bg-url="">
-						<h1 style="margin-top: 0;" data-fontsize="34" data-lineheight="47"><div class="panel-group " id="accordion_19" role="tablist" aria-multiselectable="true">
-
-                                            <?php $n = 0; foreach((array) $lista_indicios as $indicio) : if($indicio->seccion == 1) continue;?>
-                                            <?php  $factura_final = new DateTime($indicio->fecha, new DateTimeZone(TIMEZONE));
-                                                setlocale(LC_TIME,"es_ES");
-                                                $f = strftime("%d de %B",  $factura_final->getTimestamp());  ?>
-                                                <div class="panel panel-col-cyan">
-                                                    <div class="panel-heading" role="tab" id="headingTwo_19">
-                                                        <h4 class="panel-title" style="background-color: #2e93d1 !important;color: #fff;">
-                                                            <a class="collapsed" role="button" data-toggle="collapse" href="#collapseTwo_<?= $n; ?>" data-parent="#accordion_19" aria-expanded="false" aria-controls="collapseTwo_19">
-                                                                <i class="material-icons">show_chart</i> Señal <?= $f ?>
-                                                            </a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapseTwo_<?= $n; ?>" class="panel-collapse collapse <?php if($n == 0) { echo 'in'; } ?>" role="tabpanel" aria-labelledby="headingTwo_19">
-                                                        <div class="panel-body text-center">
-                                                            <img src="<?= asset_url(); ?>images/indicios/<?= $indicio->imagen; ?>" class="img-responsive" style="display: inline;">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <?php $n++; endforeach; ?>
-
-
-                                        </div>
-
-<div class="fusion-clearfix"></div>
-
-					</div>
-				</div>
-
-
-
-
-
-
-
-
-
-
-			</div></div>
-
+	
 				
+			</div> <!-- /.container -->
+
+			<div class="we-make-section">
+
+				<div class="overlay_soft"></div>
+				
+				<div class="container">
+					
+					<div class="row reorder-sm">
+						
+						<div class="col-md-5">
+
+							<div class="embed-responsive embed-responsive-16by9">
+								<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/238181071?title=0&amp;byline=0&amp;portrait=0;autoplay=0" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+							  <!--<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yeiYJ57DrH4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+							</div>
+							
+						</div> <!-- /.col -->
+
+						<div class="col-md-7">
+
+							<div class="features-container">
+
+								<h3>EL CURSO EN LÍNEA QUE CAMBIARÁ TU VIDA ECONÓMICA</h3>
+
+								<p>Nuestro amplio curso en línea desarrollado por traders para traders consta de más de 20 clases de video que cubren todo, desde lo básico a las estrategias avanzadas de comercio criptográfico. Estudia desde la comodidad de tu casa a tu propio ritmo y en tu propio horario con nuestras clases pregrabadas a las cuales tendrás acceso dentro de nuestro portal web.</p>
+
+								<ul class="features-list">
+									<li>Puedes hacer trading desde casa y generar de $25 a 40 dolares por día.</li>
+									<li>No importa la edad que tengas ni con cuanto dinero decidas comenzar.</li>
+									<li>No necesitas ser un experto para comenzar a ganar.</li>
+								</ul>
+
+							</div> <!-- /.features-container -->
+							
+						</div> <!-- /.col -->
+
+					</div> <!-- /.row -->
+
+				</div> <!-- /.container -->
+
+			</div> <!-- /.we-make-section -->
+
+			<div class="services-cta-container">
+
+				<a href="<?= site_url('auth'); ?>#_registro" class="btn btn-default white-yellow">Iniciar Ahora</a>
+
+			</div>
+
+		</section>
 
 
+		<section id="planes">
+
+			<div class="container">
+
+				<div class="row">
+					
+					<div class="col-md-8 col-md-offset-2">
+
+						<div class="title-content">
+							
+							<h2 class="section-title">Planes</h2>
+
+							
+
+						</div>
+
+					</div>
+
+				</div> <!-- /.row -->
+
+				<div class="row about-team">
+
+					<div class="wn-plan col-xs-12 wn-plan--success wn-plan--first col-md-4 col-sm-6">
+		                <div class="wn-plan__box">
+		                    <div class="wn-plan__header">
+		                        <div class="wn-header wn-header--reduce wn-header--center wn-header--wysiwyg">
+		                            <h3 class="wn-header__text">Plan Gratis</h3>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__number">
+		                        <div class="wn-number wn-number--price">
+		                            <div class="wn-number__num">
+		                                <div class="wn-number__group">
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">0</span>
+		                                </div>
+		                            </div>
+		                            <div class="wn-number__caption">por mes</div>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__details">
+		                    	<ul>
+			                    	<li><strong>Aprende</strong> el trading basico</li>
+			                    	<li><strong>7 Dias</strong> de señales gratis</li>
+			                    	<li>Se parte de la <strong>comunidad</strong></li>
+			                    	<li>Membresia <strong>gratis</strong> con 3 referidos (Pagos)</li>
+		                    	</ul>
+		                    </div>
+		                    <div class="wn-plan__buttons">
+		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite col-md-4 col-sm-6">
+		                <div class="wn-plan__box">
+		                    <div class="wn-plan__header">
+		                        <div class="wn-header wn-header--reduce wn-header--center wn-header--wysiwyg">
+		                            <h3 class="wn-header__text">Plan Basico</h3>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__number">
+		                        <div class="wn-number wn-number--price">
+		                            <div class="wn-number__num">
+		                                <div class="wn-number__group">
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">20</span>
+		                                </div>
+		                            </div>
+		                            <div class="wn-number__caption">por mes</div>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__details"><ul>
+			                    	<li><strong>Aprende</strong> el trading basico</li>
+			                    	<li><strong>1 a 3</strong> señales por dia</li>
+			                    	<li>Apoyo por <strong>Skype o Telegram</strong></li>
+			                    	<li>Se parte de la <strong>comunidad</strong></li>
+			                    	<li>Membresia <strong>gratis</strong> con 3 referidos (Pagos)</li>
+		                    	</ul></div>
+		                    <div class="wn-plan__buttons">
+		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--last col-md-4 col-sm-6">
+		                <div class="wn-plan__box">
+		                    <div class="wn-plan__header">
+		                        <div class="wn-header wn-header--reduce wn-header--center wn-header--wysiwyg">
+		                            <h3 class="wn-header__text">ENTERPRISE</h3>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__number">
+		                        <div class="wn-number wn-number--price">
+		                            <div class="wn-number__num">
+		                                <div class="wn-number__group">
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">150</span>
+		                                </div>
+		                            </div>
+		                            <div class="wn-number__caption"><small style="text-decoration: line-through;"><font color="red">$250 </font></small></div>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__details"><ul>
+			                    	<li>Un <strong>SOLO</strong> pago</li>
+			                    	<li>Acceso a <strong>todo</strong> el paquete basico</li>
+			                    	<li>Señales <strong>ilimitadas</strong> todo el dia</li>
+			                    	<li><strong>Clases</strong> de analisis tecnico</li>
+			                    	<li>Curso de trading <strong>fundamental</strong></li>
+		                    	</ul></div>
+		                    <div class="wn-plan__buttons">
+		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
+		                    </div>
+		                </div>
+		            </div>
+
+				</div> <!-- /.row -->
 
 
+			</div> <!-- /.container -->
 
+			
 
+			<div class="business-section">
+
+				<div class="container">
+
+					<div class="row">
+
+						<h3>Academia De Trading es perfecto para aprender</h3>
+
+						<p><i>Entra a nuestra plataforma y aprende todo sobre trading.</i></p>
+
+						<a href="#" class="btn btn-default white-yellow">Entrar AHora</a>
+
+					</div> <!-- /.row -->
+
+					<div class="row">
+
+						<div class="col-md-10 col-md-offset-1">
+
+							<div class="img-container">
+
+								<img src="<?= asset_url(); ?>/home/img/meeting-peoples.png" alt="Browsers image">
 
 							</div>
-												</div>
-	</section>
+
+						</div>
+
+					</div> <!-- /.row -->
+
+				</div><!-- /.container -->
+
+			</div> <!-- /.business-section -->
+
+		</section>
+
+		<section id="equipo">
+
+			<div class="container">
+
+				<div class="row">
 					
-				</div>  <!-- fusion-row -->
-			</main>  <!-- #main --><div class="wpml-ls-statics-footer wpml-ls wpml-ls-legacy-list-horizontal" id="lang_sel_footer" style="margin: 0; text-align: center;">
-	Academia de Trading
-</div>
+					<div class="col-md-8 col-md-offset-2">
+
+						<div class="title-content">
+							
+							<h2 class="section-title">Equipo</h2>
+
+						</div>
+
+					</div>
+
+				</div> <!-- /.row -->
+
+			</div> <!-- /.container -->
+
+			<div class="container" style="margin-top: 89px">
+
+				<div class="row">
+					
+					<div class="col-md-8 col-md-offset-2">
+
+						<div class="at-grid" data-column="3">
+						    <div class="at-column">
+						      <div class="at-user">
+						        <div class="at-user__avatar"><img src="http://academiadetrading.net/assets/images/team_adrian.png"></div>
+						        <div class="at-user__name">Adrian Alvarez</div>
+						        <div class="at-user__title">CEO &amp; Fundador</div>
+
+						      </div>
+						    </div>
+
+						    <div class="at-column">
+						      <div class="at-user">
+						        <div class="at-user__avatar"><img src="http://academiadetrading.net/assets/images/team_ernesto.png"></div>
+						        <div class="at-user__name">Ernesto Rodriguez</div>
+						        <div class="at-user__title">Master Trader</div>
+
+						      </div>
+						    </div>
+
+						   
+						    <div class="at-column">
+						      <div class="at-user">
+						        <div class="at-user__avatar"><img src="http://academiadetrading.net/assets/images/team_gerson.png"></div>
+						        <div class="at-user__name">Gerson</div>
+						        <div class="at-user__title">Master Trader</div>
+						 
+						      </div>
+						    </div>
+
+
+						    
+
+
+						     <div class="at-column">
+						      <div class="at-user">
+						        <div class="at-user__avatar"><img src="http://academiadetrading.net/assets/images/team_liangely.png"></div>
+						        <div class="at-user__name">Liangely sanchez</div>
+						        <div class="at-user__title">Customer Service</div>
+						 
+						      </div>
+						    </div>
+
+						    <div class="at-column">
+						      <div class="at-user">
+						        <div class="at-user__avatar"><img src="http://academiadetrading.net/assets/images/team_sugey.png"></div>
+						        <div class="at-user__name">Sugey Reyes</div>
+						        <div class="at-user__title">Customer Service</div>
+						 
+						      </div>
+						    </div>
+
+					  	</div>
+
+					</div>
+
+				</div> <!-- /.row -->
+
+			</div> <!-- /.container -->
+
 			
 			
+
+			<div class="services-cta-container">
+
+				<a href="<?= site_url('auth'); ?>#_registro" class="btn btn-default white-yellow">Iniciar Ahora</a>
+
+			</div>
+
+		</section>
+
+		<section id="inversiones">
+
+			<div class="container">
+
+				<div class="row">
+					
+					<div class="col-md-8 col-md-offset-2">
+
+						<div class="title-content">
+							
+							<h2 class="section-title">Inversiones</h2>
+
+							
+
+						</div>
+
+					</div>
+
+				</div> <!-- /.row -->
+
+				<div class="row about-team">
+
+					<div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite wn-plan--first col-md-6 col-sm-6">
+		                <div class="wn-plan__box">
+		                    <div class="wn-plan__header">
+		                        <div class="wn-header wn-header--reduce wn-header--center wn-header--wysiwyg">
+		                            <h3 class="wn-header__text">Paquete de</h3>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__number">
+		                        <div class="wn-number wn-number--price">
+		                            <div class="wn-number__num">
+		                                <div class="wn-number__group">
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">500</span>
+		                                </div>
+		                            </div>
+		                            <div class="wn-number__caption"></div>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__details">
+		                    	<ul>
+			                    	<li>En 90 dias habiles te regresamos <strong>$800</strong></li>
+			                    	<li>Una ganancia de mas del <strong>60%</strong></li>
+		                    	</ul>
+		                    </div>
+		                    <div class="wn-plan__buttons">
+		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite col-md-6 col-sm-6">
+		                <div class="wn-plan__box">
+		                    <div class="wn-plan__header">
+		                        <div class="wn-header wn-header--reduce wn-header--center wn-header--wysiwyg">
+		                            <h3 class="wn-header__text">Paquete de</h3>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__number">
+		                        <div class="wn-number wn-number--price">
+		                            <div class="wn-number__num">
+		                                <div class="wn-number__group">
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">1000</span>
+		                                </div>
+		                            </div>
+		                            <div class="wn-number__caption"></div>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__details"><ul>
+			                    	<li>En 90 dias habiles te regresamos <strong>$1600</strong></li>
+			                    	<li>Una ganancia de mas del <strong>60%</strong></li>
+		                    	</ul></div>
+		                    <div class="wn-plan__buttons">
+		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
+		                    </div>
+		                </div>
+		            </div>
+		           
+
+				</div> <!-- /.row -->
+
+
+			</div> <!-- /.container -->
+
+
+
+		</section>
+
+		<section id="senales">
+
+			<div class="container">
+
+				<div class="row">
+					
+					<div class="col-md-8 col-md-offset-2">
+
+						<div class="title-content">
+							
+							<h2 class="section-title">Señales</h2>
+
+							<p>Aqui todas nuestras señales que se cumplieron.</p>
+
+
+
+						</div>
+
+					</div>
+
+				</div> <!-- /.row -->
+
+
+
+			</div> <!-- /.container -->
+
+			<div class="container">
+
+				<div class="panel-group" id="accordion1">
+
+					<?php 
+
+						$lista_senal = NULL;
+
+						foreach((array) $lista_indicios as $indicio) : 
+
+						if($indicio->seccion == 1) continue;
+
+						$factura_final = new DateTime($indicio->fecha, new DateTimeZone(TIMEZONE));
+                        setlocale(LC_TIME,"es_ES");
+                        $f = strftime("%d de %B",  $factura_final->getTimestamp());  
+
+                        $lista_senal[$indicio->fecha]["fecha"] = $f;
+                        $lista_senal[$indicio->fecha]["imagenes"][] = $indicio->imagen;
+
+                        endforeach;
+                    ?>
+       
+          
+                    
+
+
+                    <?php $n = 0; foreach((array) $lista_senal as $indicio) : ?>
+
+			        <div class="panel panel-default">
+			          <div class="panel-heading">
+			            <h5 class="panel-title">
+			              <a class="accordion-toggle <?php if($n != 0) { echo 'collapsed'; } ?>" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_<?= $n; ?>"><?= $indicio['fecha']; ?> - Cantidad de señales : <?= count($indicio['imagenes']); ?></a>
+			            </h5>
+			          </div>
+			          <div id="accordion1_<?= $n; ?>" class="panel-collapse collapse <?php if($n == 0) { echo 'in'; } ?>">
+			            <div class="panel-body">
+			            	<?php foreach((array) $indicio['imagenes'] as $imagen) : ?>
+			             	<a href="<?= asset_url(); ?>images/indicios/<?= $imagen; ?>" target="_blank"><img src="<?= asset_url(); ?>images/indicios/<?= $imagen; ?>" class="img-responsive" style="height: 400px; margin-bottom:5px; display: inline;"></a>
+			             	<?php endforeach; ?>
+			            </div>
+			          </div>
+			        </div>
+			        <?php $n++; endforeach; ?>
+
+			        
+		      	</div>
+
 			
+				
+
+			</div> <!-- /.container -->
+
+		</section>
+
+	</main>
+
+	<footer id="footer">
+
+		<div class="container">
 			
-			
-					</div> <!-- wrapper -->
+			<div class="row">
+				
+				<div class="col-md-6 col-md-offset-3">
 
-								<a class="fusion-one-page-text-link fusion-page-load-link"></a>
-
-			<div style="display:none">
-	</div>
-				<script type="text/javascript">
-				jQuery( document ).ready( function() {
-					var ajaxurl = 'wp-admin/admin-ajax.html';
-					if ( 0 < jQuery( '.fusion-login-nonce' ).length ) {
-						jQuery.get( ajaxurl, { 'action': 'fusion_login_nonce' }, function( response ) {
-							jQuery( '.fusion-login-nonce' ).html( response );
-						});
-					}
-				});
-				</script>
-<link rel='stylesheet' id='formidable-css'  href='<?= asset_url(); ?>home/wp-content/uploads/formidable/css/formidablepro6907.css?ver=7182230' type='text/css' media='all' />
-
-<script type='text/javascript'>
-/* <![CDATA[ */
-var WPGroHo = {"my_hash":""};
-/* ]]> */
-</script>
-<script type='text/javascript' src='<?= asset_url(); ?>home/wp-content/plugins/jetpack/modules/wpgrohoa288.js?ver=4.8.1'></script>
-<!--[if IE 9]>
-<script type='text/javascript' src='<?= asset_url(); ?>home/wp-content/themes/Avada/includes/lib/assets/min/js/general/fusion-ie9.js?ver=1'></script>
-<![endif]-->
-<script type='text/javascript' src='<?= asset_url(); ?>home/wp-content/plugins/page-links-to/js/new-tab.min4315.js?ver=2.9.8'></script>
-<script type='text/javascript' src='<?= asset_url(); ?>home/wp-content/uploads/fusion-scripts/b5584a4a5dfd6aabf0f9bd35624320a3d6e3.js?timestamp=1504986701'></script>
-<script type='text/javascript' src='<?= asset_url(); ?>home/wp-includes/js/wp-embed.mina288.js?ver=4.8.1'></script>
-<script type='text/javascript' src='<?= asset_url(); ?>home/wp-content/plugins/formidable/js/jquery/jquery.placeholder.min254d.js?ver=2.3.1'></script>
-
-<script type='text/javascript' src='<?= asset_url(); ?>home/wp-content/plugins/formidable/js/formidable.min4e85.js?ver=2.04.01'></script>
+					<p class="mail">admin@academiadetrading.net</p>
 
 
-	</body>
+					<ul class="social-list">
+						<li><a href="https://www.facebook.com/Academia-De-Trading-496295420749430/?fref=ts"><i class="si social-facebook" aria-hidden="true"></i></a></li>
+					</ul>
 
-</html>
+					<p class="copyright"> © Copyright <span id="year">2017</span> <span class="text-yellow">Academia De Trading</span>. All Rights Reserved</p>
 
-<!-- Jquery Core Js -->
-<script>
-	// --------------------------------------------------------------------------------------------------
-    // Cambia aqui las moneditas
-    // Las monedas se muestran en el orden en que esten aqui de izquierda a derecha
-    // --------------------------------------------------------------------------------------------------
-    var currencies = "BTC,ETH,BCH,XRP,LTC,MIOTA,XEM,DASH,NEO,ETC,XMR,STRAT,ZEC";
-
-    var xmlhttp = new XMLHttpRequest();
-    var url = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" + currencies + "&tsyms=USD,BTC";
-
-    xmlhttp.onreadystatechange = function () {
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        myFunction(xmlhttp.responseText);
-      }
-    }
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
-    
-function myFunction(response) {
-  var coinList = JSON.parse(response).DISPLAY;
-  var coin;
-  var el = document.createElement('div');
-  el.setAttribute("class", "home__markets-bar");
-  
-  var usd = new Array();
-  var out = '<div class="markets-bar">';
-  out += '<div class="markets-bar-marquee"><div class="markets-bar-collection">';
-  
-  var i=0;
-  for (coin in coinList) {
-    usd[i] = "<div class='markets-bar-item'>";
-    usd[i] += "<div class='markets-bar-story'><span class='markets-bar-item__link'><strong> " 
-      + coin + ": </strong> " 
-
-      + coinList[coin].USD.PRICE + arrow(coinList[coin].USD.CHANGEPCT24HOUR) + " / " + coinList[coin].BTC.PRICE + arrow(coinList[coin].BTC.CHANGEPCT24HOUR);
+				</div>
  
-    usd[i] += "</span></div></div>";
-    i++;
-  }
+			</div> <!-- /.row -->
 
-  for (i = 0; i < usd.length; i++) {
-    out += usd[i];
-  }
-  for (i = 0; i < usd.length; i++) {
-    out += usd[i];
-  }
-  out += '</div></div></div></div>';
-  el.innerHTML = out;
-  var div = document.getElementById("top-header");
-  insertAfter(div, el);
-}
+		</div> <!-- /.container -->
 
-function arrow(change24Bitcoin){
-    var indicadorBitcoin =""; 
-  var color ="";
-  var porcentajeBitcoinCambio = "";
-  
-  if (change24Bitcoin.indexOf('-') != -1)
-    {
-        //Cuando el precio baja
-        indicadorBitcoin = "&#9660;&nbsp";
-        color = "down";
-    }
-    else
-    {
-        //Cuando el precio sube
-        indicadorBitcoin = "&#9650;&nbsp;";
-        color = "up";
-    }
+	</footer>
 
-    porcentajeBitcoinCambio = indicadorBitcoin + change24Bitcoin;
-    porcentajeBitcoinCambio = ' <span class="change ' + color + ' " >' + porcentajeBitcoinCambio + '%</span>';
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="<?= asset_url(); ?>/home/js/smooth-scroll.min.js"></script>
+	<script type="text/javascript" src="<?= asset_url(); ?>/home/js/modernizr.mq.js"></script>
+	<script type="text/javascript" src="<?= asset_url(); ?>/home/js/mixitup.min.js"></script>
+	<script type="text/javascript" src="<?= asset_url(); ?>/home/js/slick.min.js"></script>
+	<script src="<?= asset_url(); ?>/home/js/wow.js"></script>
 
-return porcentajeBitcoinCambio
-}
+	<style type="text/css">
+		
+	</style>
 
-function round(value, decimals) {
-  return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
-}
+	<script src="http://matthew.wagerfield.com/parallax/deploy/jquery.parallax.js"></script>
 
-function insertAfter(referenceNode, newNode) {
-  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-}
+	<script type="text/javascript">
+		var scene = $('#scene');
+		scene.parallax();
+		
+	</script>
 
+	<!-- Latest compiled and minified JavaScript Bootstrap-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<!-- Custom JS -->
+	<script src="<?= asset_url(); ?>/home/js/custom.js"></script>
 
-</script>
-<style type="text/css">
-	.at-section__title {
-  margin: 0 0 70px;
-  color: #000;
-  font-family: 'Roboto', sans-serif;
-  font-size: 3.5rem;
-  font-weight: 300;
-  line-height: 2.625rem;
-  text-align: center;
-}
-.at-grid {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  background: #FFF;
-  border: 1px solid #E2E9ED;
-}
-.at-grid[data-column="1"] .at-column {
-  width: 100%;
-  max-width: 100%;
-  min-width: 100%;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-}
-.at-grid[data-column="2"] .at-column {
-  width: 50%;
-  max-width: 50%;
-  min-width: 50%;
-  -ms-flex-preferred-size: 50%;
-      flex-basis: 50%;
-}
-.at-grid[data-column="3"] .at-column {
-  width: 33.33333%;
-  max-width: 33.33333%;
-  min-width: 33.33333%;
-  -ms-flex-preferred-size: 33.33333%;
-      flex-basis: 33.33333%;
-}
-.at-grid[data-column="4"] .at-column {
-  width: 25%;
-  max-width: 25%;
-  min-width: 25%;
-  -ms-flex-preferred-size: 25%;
-      flex-basis: 25%;
-}
-.at-grid[data-column="5"] .at-column {
-  width: 20%;
-  max-width: 20%;
-  min-width: 20%;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
-}
-.at-grid[data-column="6"] .at-column {
-  width: 16.66667%;
-  max-width: 16.66667%;
-  min-width: 16.66667%;
-  -ms-flex-preferred-size: 16.66667%;
-      flex-basis: 16.66667%;
-}
-.at-grid[data-column="7"] .at-column {
-  width: 14.28571%;
-  max-width: 14.28571%;
-  min-width: 14.28571%;
-  -ms-flex-preferred-size: 14.28571%;
-      flex-basis: 14.28571%;
-}
-.at-grid[data-column="8"] .at-column {
-  width: 12.5%;
-  max-width: 12.5%;
-  min-width: 12.5%;
-  -ms-flex-preferred-size: 12.5%;
-      flex-basis: 12.5%;
-}
-.at-grid[data-column="9"] .at-column {
-  width: 11.11111%;
-  max-width: 11.11111%;
-  min-width: 11.11111%;
-  -ms-flex-preferred-size: 11.11111%;
-      flex-basis: 11.11111%;
-}
-.at-column {
-  z-index: 0;
-  position: relative;
-  background: #FFF;
-  box-shadow: 0 0 0 1px #E2E9ED;
-  padding: 10px;
-  box-sizing: border-box;
-  -webkit-transition: box-shadow 0.2s ease, z-index 0s 0.2s ease, -webkit-transform 0.2s ease;
-  transition: box-shadow 0.2s ease, z-index 0s 0.2s ease, -webkit-transform 0.2s ease;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, z-index 0s 0.2s ease;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, z-index 0s 0.2s ease, -webkit-transform 0.2s ease;
-}
-.at-column:before {
-  content: "";
-  display: block;
-  padding-top: 100%;
-}
-.at-column:hover {
-  z-index: 1;
-  box-shadow: 0 8px 50px rgba(0, 0, 0, 0.2);
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
-  -webkit-transition: box-shadow 0.2s ease, z-index 0s 0s ease, -webkit-transform 0.2s ease;
-  transition: box-shadow 0.2s ease, z-index 0s 0s ease, -webkit-transform 0.2s ease;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, z-index 0s 0s ease;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, z-index 0s 0s ease, -webkit-transform 0.2s ease;
-}
-.at-column:hover .at-social {
-  margin: 16px 0 0;
-  opacity: 1;
-}
-@media (max-width: 800px) {
-  .at-column {
-    width: 50% !important;
-    max-width: 50% !important;
-    min-width: 50% !important;
-    -ms-flex-preferred-size: 50% !important;
-        flex-basis: 50% !important;
-  }
-}
-@media (max-width: 600px) {
-  .at-column {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 100% !important;
-    -ms-flex-preferred-size: 100% !important;
-        flex-basis: 100% !important;
-  }
-}
-.at-user {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-  text-align: center;
-}
-.at-user__avatar {
-  width: 98px;
-  height: 98px;
-  border-radius: 100%;
-  margin: 0 auto 20px;
-  overflow: hidden;
-}
-.at-user__avatar img {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-}
-.at-user__name {
-  color: #313435;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 2.625rem;
-}
-.at-user__title {
-  color: #6F808A;
-  font-family: 'Roboto', sans-serif;
-  font-size: 0.875rem;
-  line-height: 2.375rem;
-}
-.at-social {
-  margin: 0 0 -18px;
-  opacity: 0;
-  -webkit-transition: margin 0.2s ease, opacity 0.2s ease;
-  transition: margin 0.2s ease, opacity 0.2s ease;
-}
-.at-social__item {
-  display: inline-block;
-  margin: 0 10px;
-}
-.at-social__item a {
-  display: block;
-}
-.at-social__item svg {
-  fill: #515F65;
-  display: block;
-  height: 18px;
-  -webkit-transition: fill 0.2s ease;
-  transition: fill 0.2s ease;
-}
-.at-social__item svg:hover {
-  fill: #788D96;
-}
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108152284-1"></script>
+	<script>
+	  	window.dataLayer = window.dataLayer || [];
+	  	function gtag(){dataLayer.push(arguments);}
+	  	gtag('js', new Date());
 
-body {
-    font-family: 'Lato', sans-serif;
-	font-size: 16px;
-	line-height: 28px;
-}
-.main-title {
-	font-weight: 700;
-	text-align: center;
-	margin: 50px 0;
-}
-.margin-bottom-20 {
-	margin-bottom: 20px;
-}
-.margin-bottom-50 {
-	margin-bottom: 50px;
-}
+	  	gtag('config', 'UA-108152284-1');
+	</script>
 
-
-/* =================================
-Price Table
-================================= */ 
-.price-table {
-	background: none;
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-	border-radius: 0;
-	border: 7px solid #eeeeee;
-	-moz-transition: all .3s ease;
-	-o-transition: all .3s ease;
-	-webkit-transition: all .3s ease;
-}
-.price-table:hover {
-	background: rgba(0,0,0, .03);
-	border-color: #0093DD;
-}
-.price-table .price-table-heading {
-	color: #333333;
-	background: #f9f9f9;
-	padding: 10px 0;
-	margin: 0;
-}
-.price-table .price-table-heading .title {
-	color: #333333;
-	font-weight: 900;
-	letter-spacing: 1px;
-}
-.price-table > .price-table-body {
-	color: #FFFFFF;
-	background: #0093DD;
-	padding: 50px 0 30px;
-	-moz-transition: all .3s ease;
-	-o-transition: all .3s ease;
-	-webkit-transition: all .3s ease;
-}
-.price-table > .price-table-body .value {
-	font-size: 66px;
-	font-weight: 300;
-	color: #FFFFFF;
-	padding: 0;
-}
-.price-table > .price-table-body .value small {
-	font-size: 16px;
-}
-.price-table > .list-group {
-	color: #333;
-	font-weight: 400;
-	margin-bottom: 0;
-}
-.price-table > .list-group .list-group-item {
-	color: #333;
-	font-weight: 400;
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-	border-radius: 0;	
-}
-.price-table .btn {
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	font-weight: 700;
-}
-.price-table-footer {
-	background: #eeeeee;
-	padding: 15px 0;
-}
-
-</style>
-<script src="<?= asset_url(); ?>js/script.js"></script>
-
-<!-- Bootstrap Core Js -->
-<script src="<?= asset_url(); ?>plugins/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

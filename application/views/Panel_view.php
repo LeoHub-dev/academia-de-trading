@@ -52,6 +52,7 @@
                 </ol>
             </div>
 
+            <?php if ($info_usuario['data']->id_usuario == 1 || $info_usuario['data']->id_usuario == 100) : ?>
 
             <div class="row clearfix">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -264,6 +265,8 @@
                 </div>
             </div>
 
+            <?php endif; ?>
+
             <div class="row clearfix">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                     <div class="card">
@@ -353,8 +356,9 @@
                                             <th>#</th>
                                             <th>Titulo</th>
                                             <th>Imagen</th>
-                                            <th>Seccion</th>
+                                            
                                             <th>Fecha</th>
+                                            <th>Seccion</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -363,8 +367,9 @@
                                             <th>#</th>
                                             <th>Titulo</th>
                                             <th>Imagen</th>
-                                            <th>Seccion</th>
+                                            
                                             <th>Fecha</th>
+                                            <th>Seccion</th>
                                             <th></th>
                                         </tr>
                                     </tfoot>
@@ -389,6 +394,42 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Editar imagen de calendario
+                            </h2>
+                            
+                        </div>
+                        <div class="body">
+                            <form action="<?= site_url('panel/editarCalendario'); ?>" class="admin-editar-calendario">
+   
+                                    
+                                   <h2 class="card-inside-title">Imagen de calendario</h2>
+                                    <div class="row clearfix">
+                                        <div class="form-group">
+                                            <div class="col-md-12 clearfix">
+                                              <label>Agregar imagen</label>
+                                              <div id="imagecalendario">Subir</div>
+                                              <input type="hidden" name="imagen" id="image_calendario" value="" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row clearfix"><p class="img_upload_error" style="color: red"></p></div>
+
+                                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">Agregar</button>
+
+                                </form>
+                        </div>
+                    </div>
+                </div>
+
+                
             </div>
 
             
@@ -427,7 +468,7 @@
             $('.js-ganancias-total').DataTable({
                 dom: 'Bfrtip',
                 responsive: true,
-                "order": [[ 4, "asc" ]],
+                "order": [[ 3, "desc" ]],
                 buttons: [
                     'excel', 'pdf', 'print'
                 ]
@@ -451,7 +492,7 @@
           acceptFiles:"image/*",
           showDelete: true,
           deleteCallback: function (data, pd) {
-            $("#image_input").val('<?= $info_usuario['data']->imagen; ?>');
+            $("#image_input").val('');
           },
           onSuccess:function(files,data,xhr,pd)
           {
@@ -471,6 +512,46 @@
                 var img = JSON.parse(data);
                 $(".img_upload_error").html("");
                 $("#image_input").val(img);
+                //$(".imagen_perfil").attr('src','<?= asset_url(); ?>images/perfil/'+img);
+            }
+            
+
+            
+          }
+        });
+
+        $("#imagecalendario").uploadFile({
+          url:"panel/uploadcalendario/",
+          dragDropStr: "<span><b>Arrastra & Suelta tu Imagen</b></span>",
+          uploadStr:"Subir",
+          fileName:"imgCalendario",
+          showPreview:true,
+          maxFileCount:1,
+          previewHeight: "100px",
+          previewWidth: "100px",
+          acceptFiles:"image/*",
+          showDelete: true,
+          deleteCallback: function (data, pd) {
+            $("#image_calendario").val('');
+          },
+          onSuccess:function(files,data,xhr,pd)
+          {
+
+            console.log(data);
+
+            var error = JSON.parse(data);
+            console.log(error);
+
+            if(error.error)
+            {
+
+                $(".img_upload_error").html(error.error)
+            }
+            else
+            {
+                var img = JSON.parse(data);
+                $(".img_upload_error").html("");
+                $("#image_calendario").val(img);
                 //$(".imagen_perfil").attr('src','<?= asset_url(); ?>images/perfil/'+img);
             }
             

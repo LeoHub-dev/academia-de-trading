@@ -148,6 +148,28 @@ class Panel_model extends CI_Model
         
     }
 
+    public function agregarCalendario($data)
+    {
+        $this->db->truncate('calendarios');
+        
+        $data = array(
+           'imagen' => $data['imagen']
+        );
+
+        $query = $this->db->insert('calendarios',$data);
+
+        if($query)
+        {
+            return $this->db->insert_id();
+        }
+        else
+        {
+            return FALSE;
+        }
+        
+    }
+
+
     public function eliminarIndicio($id)
     {
         $this->db->delete('indicios', array('id_indicio' => $id));

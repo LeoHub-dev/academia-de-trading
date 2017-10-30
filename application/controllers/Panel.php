@@ -216,6 +216,61 @@ class Panel extends LH_Controller {
         }
 	}
 
+	public function editarCalendario()
+	{
+
+		if($this->input->server('REQUEST_METHOD') == 'POST')
+		{
+
+
+
+			if($info = $this->Panel_model->agregarCalendario($this->input->post()))
+			{
+				echo response_good('Correcto','Calendario Cambiado');
+        	}
+        	else
+        	{
+        		echo response_bad('Error - intente mas tarde');
+        	}
+
+			
+		}
+		else
+	    {
+	    	echo response_bad('Error - Fallo sistema');
+	    }
+	
+	}
+
+	public function uploadcalendario()
+	{
+
+		$config['upload_path']          = './assets/images/calendarios/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['max_size']             = 500;
+        $config['max_width']            = 1500;
+        $config['max_height']           = 1500;
+        $config['file_ext_tolower'] = TRUE;
+        $config['encrypt_name'] = TRUE;
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('imgCalendario'))
+        {
+                $error = array('error' => $this->upload->display_errors());
+
+
+      
+            echo json_encode($error);
+        }
+        else
+        {
+                $data = array('upload_data' => $this->upload->data());
+
+                echo json_encode($data['upload_data']['file_name']);
+        }
+	}
+
 	public function activar($id = 1)
 	{
 		$this->Academia_model->marcarPagadoFactura($id);

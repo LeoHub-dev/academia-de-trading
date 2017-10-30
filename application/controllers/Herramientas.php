@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends LH_Controller {
+class Herramientas extends LH_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -30,24 +30,20 @@ class Dashboard extends LH_Controller {
 		}
 		else
 		{
-			/*if(!$this->Auth_model->estaPago())
+			if(!$this->Auth_model->estaPago())
         	{
         		redirect('/pago' ,'refresh');
-        	}*/
+        	}
 		}
 	}
 
 
 	public function index()
 	{
-		$this->scope['titulo'] = "Dashboard";
-
-		$this->scope['cantidad_referidos'] = $this->Academia_model->cantidadReferidosAccesibles($this->scope['info_usuario']['data']->id_usuario);
-		$this->scope['calendario'] = $this->Academia_model->obtenerCalendario();
-		
-		$this->load->view('Dashboard_view',$this->scope);
-		
+		$this->scope['titulo'] = "Herramientas";
+		$this->load->view('Herramientas_view',$this->scope);
 	}
 
-	
+
+
 }

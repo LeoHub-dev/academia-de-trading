@@ -179,7 +179,8 @@
 
                             <?php endif; ?>
 
-                            <img src="<?= asset_url(); ?>images/academia_calendario.jpg" class="img-responsive">
+                            <div class="text-center"><img src="<?= asset_url(); ?>images/calendarios/<?= $calendario->imagen; ?>" style="display: initial;" class="img-responsive">
+                            <img src="<?= asset_url(); ?>images/mastermind.jpeg" style="display: initial;" class="img-responsive"></div>
 
                         </div>
                     </div>

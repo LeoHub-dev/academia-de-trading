@@ -117,7 +117,7 @@ class Academia_model extends CI_Model
 
     public function debePagar($id_usuario)
     {
-        if($this->scope['info_usuario']['data']->tipo == 2)
+        if($this->scope['info_usuario']['data']->tipo == 2 || $this->scope['info_usuario']['data']->tipo == 1)
         {
             return FALSE;
         }
@@ -368,6 +368,26 @@ class Academia_model extends CI_Model
             }
 
             return $indicios;
+        }
+        else
+        {
+            return NULL;
+        }
+    }
+
+    public function obtenerCalendario()
+    {
+
+        $query = $this->db->get('calendarios');
+        
+        if($query->num_rows() > 0)
+        {
+            foreach ($query->result() as $calendario)
+            {
+                return $calendario;
+            }
+
+            //return $indicios;
         }
         else
         {

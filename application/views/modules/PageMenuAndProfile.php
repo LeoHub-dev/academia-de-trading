@@ -45,6 +45,14 @@
                             <span>Clases</span>
                         </a>
                     </li>
+                    <?php if($info_usuario['data']->pago == 1) : ?>
+                    <li>
+                        <a href="<?= site_url('herramientas'); ?>">
+                            <i class="material-icons">extension</i>
+                            <span>Herramientas</span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
 
                     <li>
                         <a href="https://mega.nz/?fref=gc&dti=1307459162715356#!alhTmCpL!amiJE7KqthJGfEvEfgNPnrLArwDgH_mJILE9XXcsKiI" target="_blank">

@@ -32,12 +32,14 @@
                     </a>
                 </li>
                     
+                    <?php if($info_usuario['data']->pago == 1) : ?>
                     <li>
                         <a href="<?= site_url('indicios'); ?>">
                             <i class="material-icons">trending_up</i>
                             <span>Señales</span>
                         </a>
                     </li>
+                    <?php endif; ?>
 
                     <li>
                         <a href="<?= site_url('clases'); ?>">

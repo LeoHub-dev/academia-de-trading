@@ -169,7 +169,7 @@
 
                             <?php if($info_usuario['data']->pago == 0) : ?>
 
-                                <div class="alert alert-danger">Su <strong>cuenta</strong> se encuentra inactiva. Puede invitar a 3 referidos con <a role="button" data-toggle="collapse" href="#refLink" aria-expanded="true" aria-controls="refLink" class="alert-link">Tu Link de referido</a> o realizar el pago de 20$ <a href="<?= site_url('pago'); ?>" class="alert-link">AQUI</a></div>
+                                <div class="alert alert-danger">Su <strong>cuenta</strong> se encuentra inactiva. Puede invitar a 4 referidos con <a role="button" data-toggle="collapse" href="#refLink" aria-expanded="true" aria-controls="refLink" class="alert-link">Tu Link de referido</a> o realizar el pago de 20$ <a href="<?= site_url('pago'); ?>" class="alert-link">AQUI</a></div>
 
                                 <div class="collapse" id="refLink">
                                     <div class="well">

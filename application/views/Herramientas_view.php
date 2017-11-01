@@ -154,7 +154,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="input-group">
-                                            <span class="input-group-addon">Precio del BTC :</span>
+                                            <span class="input-group-addon">Precio del BTC ($) :</span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control calc-btc precio-btc" value="6000">
                                             </div>
@@ -162,7 +162,7 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="input-group">
-                                            <span class="input-group-addon">Total :</span>
+                                            <span class="input-group-addon">Total ($) :</span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control calc-btc total" value="0">
                                             </div>
@@ -184,8 +184,32 @@
     <?php include_once 'modules/Scripts.php' ; ?>
     <script type="text/javascript">
 
+        /*var currencies = "BTC";
+
+        var xmlhttp = new XMLHttpRequest();
+        var url = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=" + currencies + "&tsyms=USD,BTC";
+
+        xmlhttp.onreadystatechange = function () {
+          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+ 
+            var coinList = JSON.parse(xmlhttp.responseText).RAW;
+            $('.precio-btc').val(coinList["BTC"].USD.PRICE);
+            calcularBtc(1);
+            console.log(coinList);
+          }
+        }
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();*/
+
+        $.get('https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD,BTC', function(response) {
+            var coinList = response.RAW;
+            $('.precio-btc').val(coinList["BTC"].USD.PRICE);
+            calcularBtc(1);
+        });
+
         calcularGanancias();
-        calcularBtc(1);
+        
 
         $('.calc-ganancia').on('input', function(e) { 
 
@@ -231,11 +255,11 @@
 
             var cantidad_stop = (monto_a_comprar - (monto_a_comprar*(porcentaje_stop_loss/100)));
             var cantidad_stop = (isNaN(cantidad_stop) ? '0' : cantidad_stop);
-            $(".stop-limit-cantidad").val(cantidad_stop);
+            $(".stop-limit-cantidad").val(cantidad_stop.toFixed(8));
 
             $('.ganancia-porcentaje-estatico').each(function(i)
             {
-                $(this).val(monto_a_comprar + (monto_a_comprar *(parseFloat($(this).attr('percent')/100))));
+                $(this).val((monto_a_comprar + (monto_a_comprar *(parseFloat($(this).attr('percent')/100)))).toFixed(8));
             })
 
             var porcentaje_ganancia = $('.ganancia-peroncentaje-personalizado').val().replace(",",".");
@@ -245,7 +269,7 @@
             porcentaje_ganancia = parseFloat(porcentaje_ganancia);
             var cantidad_ganancia = (monto_a_comprar + (monto_a_comprar*(porcentaje_ganancia/100)));
             var cantidad_ganancia = (isNaN(cantidad_ganancia) ? '0' : cantidad_ganancia);
-            $(".cantidad-porcentaje-personalizado").val(cantidad_ganancia);
+            $(".cantidad-porcentaje-personalizado").val(cantidad_ganancia.toFixed(8));
         }
 
         function calcularBtc(j)

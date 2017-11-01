@@ -114,7 +114,7 @@ class Coinbase
             $coinbase_invoice = array(
                'id_user' => $this->id_user,
                'tipo' => $this->tipo,
-               'total_to_pay' => $this->usdToBtc(150),
+               'total_to_pay' => $this->usdToBtc(200),
                'id_factura' => $factura->id_factura
             );
             

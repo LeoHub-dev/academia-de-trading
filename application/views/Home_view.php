@@ -289,37 +289,8 @@
 
 				<div class="row about-team">
 
-					<div class="wn-plan col-xs-12 wn-plan--success wn-plan--first col-md-4 col-sm-6">
-		                <div class="wn-plan__box">
-		                    <div class="wn-plan__header">
-		                        <div class="wn-header wn-header--reduce wn-header--center wn-header--wysiwyg">
-		                            <h3 class="wn-header__text">Plan Gratis</h3>
-		                        </div>
-		                    </div>
-		                    <div class="wn-plan__number">
-		                        <div class="wn-number wn-number--price">
-		                            <div class="wn-number__num">
-		                                <div class="wn-number__group">
-		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">0</span>
-		                                </div>
-		                            </div>
-		                            <div class="wn-number__caption">por mes</div>
-		                        </div>
-		                    </div>
-		                    <div class="wn-plan__details">
-		                    	<ul>
-			                    	<li><strong>Aprende</strong> el trading basico</li>
-			                    	<li><strong>7 Dias</strong> de señales gratis</li>
-			                    	<li>Se parte de la <strong>comunidad</strong></li>
-			                    	<li>Membresia <strong>gratis</strong> con 3 referidos (Pagos)</li>
-		                    	</ul>
-		                    </div>
-		                    <div class="wn-plan__buttons">
-		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite col-md-4 col-sm-6">
+
+		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite col-md-6 col-sm-6">
 		                <div class="wn-plan__box">
 		                    <div class="wn-plan__header">
 		                        <div class="wn-header wn-header--reduce wn-header--center wn-header--wysiwyg">
@@ -348,7 +319,7 @@
 		                    </div>
 		                </div>
 		            </div>
-		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--last col-md-4 col-sm-6">
+		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite wn-plan--last col-md-6 col-sm-6">
 		                <div class="wn-plan__box">
 		                    <div class="wn-plan__header">
 		                        <div class="wn-header wn-header--reduce wn-header--center wn-header--wysiwyg">
@@ -359,7 +330,7 @@
 		                        <div class="wn-number wn-number--price">
 		                            <div class="wn-number__num">
 		                                <div class="wn-number__group">
-		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">150</span>
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">200</span>
 		                                </div>
 		                            </div>
 		                            <div class="wn-number__caption"><small style="text-decoration: line-through;"><font color="red">$250 </font></small></div>

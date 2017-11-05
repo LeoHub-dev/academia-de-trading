@@ -67,7 +67,7 @@ class Academia_model extends CI_Model
         {
             foreach ($query->result() as $inf)
             {
-                if($this->debePagar($inf->id_usuario))
+                if($this->debePagar($inf))
                 {
 
                     if($this->cantidadReferidosAccesibles($inf->id_usuario) >= 4)
@@ -115,14 +115,14 @@ class Academia_model extends CI_Model
     }
 
 
-    public function debePagar($id_usuario)
+    public function debePagar($usuario)
     {
-        if($this->scope['info_usuario']['data']->tipo == 2 || $this->scope['info_usuario']['data']->tipo == 1)
+        if($usuario->tipo == 2 || $usuario->tipo == 1)
         {
             return FALSE;
         }
 
-        $factura = $this->obtenerFactura($id_usuario);
+        $factura = $this->obtenerFactura($usuario->id_usuario);
 
         $data_fecha_hoy = new DateTime(NULL, new DateTimeZone(TIMEZONE));
         $fecha_actual = $data_fecha_hoy->format("Y-m-d");

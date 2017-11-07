@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Herramientas extends LH_Controller {
+class Calculadora extends LH_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -40,8 +40,8 @@ class Herramientas extends LH_Controller {
 
 	public function index()
 	{
-		$this->scope['titulo'] = "Herramientas";
-		$this->load->view('Herramientas_view',$this->scope);
+		$this->scope['titulo'] = "Calculadoras";
+		$this->load->view('Calculadoras_view',$this->scope);
 	}
 
 

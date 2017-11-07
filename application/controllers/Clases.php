@@ -28,6 +28,13 @@ class Clases extends LH_Controller {
 		{
 			redirect('/auth' ,'refresh');
 		}
+		else
+		{
+			if(!$this->Auth_model->estaPago())
+        	{
+        		redirect('/pago' ,'refresh');
+        	}
+		}
 
 	}
 

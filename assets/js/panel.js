@@ -27,6 +27,8 @@ $(function () {
 
                 $('.usuario_label').html(data.usuario.usuario);
 
+                $('.opcion-id-usuario').attr('id_usuario',data.usuario.id_usuario);
+
                 $.each( data.usuario, function( key, value ) {
                   $(panel_body).find('input[name='+key+']').val(value);
                   $(panel_body).find('input[name='+key+'_default]').val(value);
@@ -162,6 +164,45 @@ $(function () {
             {   
                 swal(data.response_title, data.response_text, "success");
                 td.html('Pagado');
+
+            }
+            if(data.response == false)
+            { 
+                swal({title:'Error', type: "error", text: data.errors, html: true});  
+            }
+
+        },'json').fail(function(xhr, status, error) {
+            console.log(error);
+            console.log(xhr.responseText);
+            console.log(status);
+        });
+
+    })
+
+    $("*").on("click",".activar-usuario",function(e){
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        if (confirm('Desea activar este usuario?')) {
+            
+          } else {
+            return;
+          }
+
+        var id_usuario_td = $(this).attr('id_usuario');
+
+
+        $.post(base_url+'panel/activar_cuenta', {id_usuario : $(this).attr('id_usuario'), tipo: $(this).attr('tipo')}, function(data) {
+            console.log(data);
+            if(data.response == true)
+            {   
+
+                $('.id-usuario-'+id_usuario_td).children('td:nth-child(4)').html("*"+data.response_title);
+
+
+                swal(data.response_title, data.response_text, "success");
+
 
             }
             if(data.response == false)

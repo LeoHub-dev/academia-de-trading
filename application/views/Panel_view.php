@@ -77,7 +77,7 @@
                         <div class="body">
                             <div class="table-responsive">
                                 <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable-usuarios" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                     <thead>
                                         <tr role="row">
                                             <th>#</th>
@@ -98,7 +98,7 @@
                                     </tfoot>
                                     <tbody>
 
-                                    <?php $n = 0; foreach((array) $lista_usuarios_admin['usuario'] as $usuario) : ?>
+                                    <?php $n = 0; foreach((array) $lista_usuarios_admin['usuario'] as $usuario) : $lista_usuarios_backup[$usuario->id_usuario] = $usuario; ?>
                                         <tr role="row" class="id-usuario-<?= $usuario->id_usuario; ?>">
                                             <td><?= $usuario->id_usuario; ?></td>
                                             <td><?= $usuario->usuario; ?></td>
@@ -126,6 +126,7 @@
                                 Info usuario : <div class="usuario_label">*Seleccione un usuario*</div>
                                 <ul class="nav nav-tabs tab-nav-right" role="tablist">
                                     <li role="presentation" class="active"><a href="#perfil" data-toggle="tab" aria-expanded="true">Perfil</a></li>
+                                    <li role="presentation"><a href="#opciones" data-toggle="tab" aria-expanded="true">Opciones</a></li>
                                 </ul>
                             </h2>
                             <ul class="header-dropdown m-r--5">
@@ -254,6 +255,13 @@
 
                                     </form>
                                 </div>
+
+                                <div role="tabpanel" class="tab-pane fade" id="opciones">
+                                    
+                                    <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="1">Activar</a>
+                                    
+                                
+                                </div>
                                 
        
                              
@@ -266,6 +274,8 @@
             </div>
 
             <?php endif; ?>
+
+           
 
             <div class="row clearfix">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
@@ -432,6 +442,49 @@
                 
             </div>
 
+            <?php if ($info_usuario['data']->id_usuario == 1 || $info_usuario['data']->id_usuario == 100) : ?>
+
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Pagos por Api
+                            </h2>
+                            
+                        </div>
+                        <div class="body">
+                             <?php foreach ((array) $lista_pagos_admin as $pago) : ?>
+                                    <?php if($pago['pagos'] != NULL) : ?>
+                                    <p class="lead">Invoice #<?= $pago['data']->id_invoice; ?></p>
+                                    <ul>
+                                    <li>Address : <?= $pago['data']->address; ?></li>
+                                    <li>Id Usuario : <?= (array_key_exists($pago['data']->id_user, $lista_usuarios_backup)) ? $lista_usuarios_backup[$pago['data']->id_user]->usuario." (".$lista_usuarios_backup[$pago['data']->id_user]->nombre.")" : "Usuario no existente"; ?></li>
+                                    <li>Total a pagar : <?= $pago['data']->total_to_pay; ?></li>
+                                    </ul>
+                                    
+                                    <p class="lead">Pago recibidos :</p>
+                                    <ol>
+                                    <?php foreach ((array) $pago['pagos'] as $pago_recibido) : ?>
+                                        <li> Monto : <?= $pago_recibido->amount; ?> btc</li>
+                                    <?php endforeach; ?>
+                                    </ol>
+                                    <hr> 
+                                    <?php endif; ?>
+
+                                       
+                                <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <?php endif; ?>
+
+
+
             
         </div>
     </section>
@@ -459,6 +512,16 @@
             $('.js-exportable').DataTable({
                 dom: 'Bfrtip',
                 responsive: true,
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ]
+            });
+
+            //Exportable table
+            $('.js-exportable-usuarios').DataTable({
+                dom: 'Bfrtip',
+                responsive: true,
+                "order": [[ 0, "desc" ]],
                 buttons: [
                     'copy', 'csv', 'excel', 'pdf', 'print'
                 ]

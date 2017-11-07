@@ -46,6 +46,7 @@ class Panel extends LH_Controller {
 		$this->scope['titulo'] = "Panel";
 
 		$this->scope['lista_usuarios_admin'] = $this->Panel_model->obtenerUsuarios();
+		$this->scope['lista_pagos_admin'] = $this->Panel_model->listaPagos();
 		$this->scope['lista_indicios_admin'] = $this->Academia_model->obtenerIndicios();
 		
 		$this->load->view('Panel_view',$this->scope);
@@ -101,49 +102,53 @@ class Panel extends LH_Controller {
 
 	public function activar_cuenta()
 	{
-		if($this->Auth_model->isLoggedIn() && $this->scope['info_usuario']->tipo == 1)
+
+		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
-			if($this->input->server('REQUEST_METHOD') == 'POST')
+
+
+			if($this->input->post('tipo') == 1)
 			{
+			 	$this->Auth_model->activarUsuario($this->input->post('id_usuario'));
+                $this->Academia_model->marcarPagadoFactura($this->input->post('id_usuario'));
 
-				$this->db->select('*');
-		        $this->db->where('coinbase_invoice.id_invoice',$this->input->post('id_invoice'));
-		        $this->db->from('coinbase_invoice');
-		        $this->db->join('coinbase_address', 'coinbase_invoice.id_invoice = coinbase_address.id_invoice', 'left');
+                $this->Academia_model->verificarMensualidad();
+                echo response_good('Activado','Pagada');
 
-		        $query_coinbase = $this->db->get();
+	        	return;
+            }
+            else if($this->input->post('tipo') == 2)
+            {
+                $usuario = $this->Auth_model->obtenerUsuarioID($this->input->post('id_usuario'))['data'];
 
-		        $invoice_data = FALSE;
+                $this->Academia_model->vipAgregarReferido($this->input->post('id_usuario'),$usuario->referido);
 
-		        if($query_coinbase->num_rows() > 0)
-		        {
-		            foreach ($query_coinbase->result() as $coinbase_invoice)
-		            {
-		                $invoice_data = $coinbase_invoice;
-		            }
+                $cant_referidos = $this->Academia_model->vipCantidadReferidos($usuario->referido);
 
-		            $this->db->where('id_invoice', $invoice_data->id_invoice);
-		            $query_activeuser = $this->db->update('coinbase_invoice', array('estado' => 1));
+                if($cant_referidos == 3)
+                {
+                    $this->Academia_model->vipAgregarGanancia($usuario->referido,50);
+                }
+                else if($cant_referidos > 3)
+                {
+                    $this->Academia_model->vipAgregarGanancia($usuario->referido,100);
+                }
 
-		            //AgregarCuentaAlSistema
+                $this->Auth_model->vipUsuario($this->input->post('id_usuario'));
 
-		            $this->Cuenta_model->AgregarCuentaAlSistema($invoice_data->id_usuario,$invoice_data->usuario_codigo);
+                echo response_good('Activado','Pagada');
 
-		            $this->Matriz_model->AgregarCuentaAMatriz($invoice_data->usuario_codigo,$invoice_data->id_usuario);
+	        	return;
 
-		            response_good('Correcto','Pagada');
-
-		            return;
-		        }
-
-		        response_bad('No se encontro el invoice');
-
-
-				
+            }
 
 
-			}
+	        echo response_bad('Error');
+	        return;
+
+
 		}
+
 	}
 
 	public function agregarIndicio()

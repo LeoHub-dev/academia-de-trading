@@ -18,6 +18,43 @@ class Panel_model extends CI_Model
         parent::__construct();
     }
 
+    public function listaPagos()
+    {
+        $lista_pagos = NULL;
+
+        $this->db->join('coinbase_invoice', 'coinbase_invoice.id_invoice = coinbase_address.id_invoice', 'left');
+
+        $query = $this->db->get('coinbase_address');
+
+        if($query->num_rows() > 0)
+        {
+            foreach ($query->result() as $coinbase_address)
+            {
+                $lista_pagos[$coinbase_address->id_invoice]['data'] = $coinbase_address;
+
+                $this->db->where('address',$coinbase_address->address);
+
+                $query_payments = $this->db->get('coinbase_payments');
+
+                $lista_pagos[$coinbase_address->id_invoice]['pagos'] = NULL;
+
+                if($query_payments->num_rows() > 0)
+                {
+                    foreach ($query_payments->result() as $payment)
+                    {
+
+                        $lista_pagos[$coinbase_address->id_invoice]['pagos'][] = $payment;
+
+                    }
+                }
+            }
+        }
+
+        return $lista_pagos;
+
+
+    }
+
     public function obtenerUsuarios()
     {
 

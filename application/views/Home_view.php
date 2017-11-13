@@ -22,7 +22,7 @@
     <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>/home/css/social-icons.css">
     <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>/home/css/slick.css">
     <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>/home/css/style.css">
-
+    <script src="https://use.fontawesome.com/a7fd4b808d.js"></script>
     <link rel="icon" type="image/png" href="<?= asset_url(); ?>/home/img/logo.png" />
 </head>
 
@@ -228,7 +228,7 @@
 						<div class="col-md-5">
 
 							<div class="embed-responsive embed-responsive-16by9">
-								<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/238181071?title=0&amp;byline=0&amp;portrait=0;autoplay=0" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+								<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/241783117?title=0&amp;byline=0&amp;portrait=0;autoplay=0" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
 							  <!--<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yeiYJ57DrH4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
 							</div>
 							
@@ -266,6 +266,81 @@
 
 		</section>
 
+		<section class="business-section" id="equipo">
+			<div class="container">
+
+				<div class="row">
+					
+					<div class="col-md-8 col-md-offset-2">
+
+						<div class="title-content">
+							
+							<h2 class="section-title" style="color: white;">SEÑALES Y ALERTAS TRADING POLONIEX Y BITTREX</h2>
+
+							
+
+						</div>
+
+					</div>
+
+				</div>
+				<div class="services-container clearfix">
+
+					<div class="col-md-4 benefits-box">
+		
+						<div class="row text-center">
+							<h2><i class="fa fa-check-square" aria-hidden="true"></i> INCREMENTE SU INVERSIÓN</h2>
+							<p>A través de las señales puede ganar al menos el 4% diario.</p>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+		
+						<div class="row text-center benefits-box">
+							<h2><i class="fa fa-check-square" aria-hidden="true"></i> NOTIFICACIONES AL INSTANTE</h2>
+							<p>La información la recibirá al momento de ser emitida, garantizando así pueda hacer su operación.</p>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+		
+						<div class="row text-center benefits-box">
+							<h2><i class="fa fa-check-square" aria-hidden="true"></i> USTED MANEJA SU DINERO</h2>
+							<p>Bajo ningún motivo recibimos inversiones de clientes, usted mismo maneja su dinero y operaciones.</p>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+		
+						<div class="row text-center benefits-box">
+							<h2><i class="fa fa-check-square" aria-hidden="true"></i> ANÁLISIS PROPIOS</h2>
+							<p>Garantizamos la información gracias a que los análisis son realizados por el Staff.</p>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+		
+						<div class="row text-center benefits-box">
+							<h2><i class="fa fa-check-square" aria-hidden="true"></i> NO OPERE A CIEGAS</h2>
+							<p>Usted mismo puede colocar la información en su cuenta de Poloniex o Bittrex , sin depender de un sistema automatizado.</p>
+						</div>
+					</div>
+
+					<div class="col-md-4">
+		
+						<div class="row text-center benefits-box">
+							<h2><i class="fa fa-check-square" aria-hidden="true"></i> ACOMPAÑAMIENTO</h2>
+							<p>Siempre tendrá nuestro acompañamiento y ayuda de todos los otros miembros a través de nuestro Chat.</p>
+						</div>
+					</div>
+
+
+				</div>
+
+	
+				
+			</div> <!-- /.container -->
+		</section>
 
 		<section id="planes">
 
@@ -389,6 +464,8 @@
 			</div> <!-- /.business-section -->
 
 		</section>
+
+
 
 		<section id="equipo">
 

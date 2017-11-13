@@ -31,6 +31,8 @@
                         <span>Dashboard</span>
                     </a>
                 </li>
+
+                    
                     
                     <?php if($info_usuario['data']->pago == 1) : ?>
                     <li>
@@ -41,20 +43,42 @@
                     </li>
                     <?php endif; ?>
 
+                    <?php if($info_usuario['data']->pago == 1) : ?>
                     <li>
                         <a href="<?= site_url('clases'); ?>">
                             <i class="material-icons">local_library</i>
                             <span>Clases</span>
                         </a>
                     </li>
-                    <?php if($info_usuario['data']->pago == 1) : ?>
+                    <?php endif; ?>
+
+                    <?php if($info_usuario['data']->pago == 1 && $info_usuario['data']->tipo == 1) : ?>
                     <li>
-                        <a href="<?= site_url('herramientas'); ?>">
-                            <i class="material-icons">extension</i>
-                            <span>Herramientas</span>
+                        <a href="<?= site_url('mercado'); ?>">
+                            <i class="material-icons">store</i>
+                            <span>Mercado</span>
                         </a>
                     </li>
                     <?php endif; ?>
+                    
+                    <?php if($info_usuario['data']->pago == 1) : ?>
+                    <li>
+                        <a href="<?= site_url('calculadora'); ?>">
+                            <i class="material-icons">extension</i>
+                            <span>Calculadora</span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+
+                    <?php if($info_usuario['data']->pago == 1) : ?>
+                    <li>
+                        <a href="<?= site_url('mastermind'); ?>">
+                            <i class="material-icons">record_voice_over</i>
+                            <span>Mastermind</span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+
 
                     <li>
                         <a href="https://mega.nz/?fref=gc&dti=1307459162715356#!alhTmCpL!amiJE7KqthJGfEvEfgNPnrLArwDgH_mJILE9XXcsKiI" target="_blank">
@@ -76,10 +100,11 @@
                     <?php if($info_usuario['data']->tipo == 1): ?>
                     <li>
                         <a href="<?= site_url('panel'); ?>">
-                            <i class="material-icons col-light-blue">people</i>
+                            <i class="material-icons col-light-blue">settings</i>
                             <span>Panel</span>
                         </a>
                     </li>
+
                     <?php endif; ?>
                 
                     <?php if($info_usuario['data']->pago == 0) : ?>
@@ -91,26 +116,19 @@
                     </li>
                     <?php endif; ?>
 
-
-                    
-
                     <li>
-                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                            <i class="material-icons">pie_chart</i>
-                            <span>Canales</span>
+                        <a href="https://t.me/joinchat/F4Z0XwyjP08YO8vSnj4TDw" target="_blank" class="waves-effect waves-block">
+                            <i class="material-icons fa fa-telegram" style="font-size: 22px;" aria-hidden="true"></i>
+                            <span>Telegram</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="https://t.me/joinchat/F4Z0XwyjP08YO8vSnj4TDw" target="_blank" class="waves-effect waves-block">Telegram</a>
-                            </li>
-                            <li>
-                                <a href="https://www.facebook.com/Academiadetrading-496295420749430" target="_blank" class="waves-effect waves-block">Facebook</a>
-                            </li>
-                        </ul>
-
-                        
                     </li>
 
+                    <li>
+                        <a href="https://www.facebook.com/Academiadetrading-496295420749430" target="_blank" class="waves-effect waves-block">
+                            <i style="font-size: 22px;" class="material-icons fa fa-facebook-official" aria-hidden="true"></i>
+                            <span>Facebook</span>
+                        </a>
+                    </li>
 
             </ul>
         </div>

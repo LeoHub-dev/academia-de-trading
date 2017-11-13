@@ -25,6 +25,4 @@
 
 <script src="<?= asset_url(); ?>js/pages/examples/sign-in.js"></script>
 
-
-
 <script src="<?= asset_url(); ?>js/script.js"></script>

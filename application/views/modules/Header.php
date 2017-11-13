@@ -29,3 +29,5 @@
 <link href="<?= asset_url(); ?>css/themes/all-themes.css" rel="stylesheet" />
 
 <link href="<?= asset_url(); ?>css/uploadfile.css" rel="stylesheet">
+
+<script src="https://use.fontawesome.com/a7fd4b808d.js"></script>

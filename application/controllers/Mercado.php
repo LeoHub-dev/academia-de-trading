@@ -106,7 +106,7 @@ class Mercado extends LH_Controller {
 		$apisecret = '6d7e3bf940c4486f8c85c156ee39a0b2';
 
 		$nonce = time();
-		$uri = 'https://bittrex.com/api/v2.0/pub/markets/GetMarketSummaries?apikey='.$apikey.'&nonce='.$nonce;
+		$uri = 'https://bittrex.com/api/v2.0/pub/markets/GetMarketSummaries?marketName=BTC-&apikey='.$apikey.'&nonce='.$nonce;
 		$sign = hash_hmac('sha512',$uri,$apisecret);
 		$ch = curl_init($uri);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('apisign:'.$sign));
@@ -131,6 +131,9 @@ class Mercado extends LH_Controller {
 
 	public function api_tick($moneda)
 	{
+		set_time_limit(600);
+        ini_set('max_execution_time', 600);
+        
 		$apikey = '60c37ee6710a4c72821e9f642869e66e';
 		$apisecret = '6d7e3bf940c4486f8c85c156ee39a0b2';
 

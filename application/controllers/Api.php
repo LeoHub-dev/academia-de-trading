@@ -40,7 +40,7 @@ class Api extends LH_Controller {
 	            $this->session->set_userdata('ref',$cuenta);
 	        }
 	        
-			redirect('/auth#_registro' ,'refresh');
+			redirect('' ,'refresh');
 		}
 		else
 		{

@@ -76,7 +76,7 @@ class Auth extends LH_Controller {
 		        	{
 		        		echo response_good('Has ingresado','Bienvenido');
 
-		        		redirect('/dashboard' ,'refresh');
+		        		//redirect('/dashboard' ,'refresh');
 		        	}
 		        	else
 		        	{
@@ -84,10 +84,14 @@ class Auth extends LH_Controller {
 		        	}
 	        	}
 	        }
+	        else
+		    {
+		    	redirect('/dashboard' ,'refresh');
+		    }
 	    }
 	    else
 	    {
-	    	redirect('/dashboard' ,'refresh');
+	    	echo response_good('Has ingresado','Bienvenido');
 	    }
 
 	}

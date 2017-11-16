@@ -156,7 +156,9 @@
 
                 $.get('https://min-api.cryptocompare.com/data/histominute?fsym='+$moneda[1]+'&tsym='+$moneda[0]+'&limit=600&aggregate=5&e=BitTrex', function(response) {
 
-                    if(response.Type === 99 || response.Response == "Error" || response.Aggregated == false) { return false; }
+                    if(response.Type === 99 || response.Response == "Error") { return false; }
+
+                    console.log(response);
 
                     limite_monedas++;
 
@@ -174,7 +176,7 @@
                     var total_volume_5min = 0;
                     var high_price_5min = [];
 
-                    for (var j = 0; j <= 287; j++) {
+                    for (var j = 0; j <= 265; j++) {
                         total_volume_5min = total_volume_5min + tickList[j].volumeto;
                         high_price_5min.push(tickList[j].high);
                            
@@ -184,7 +186,7 @@
                     var total_volume_10min = 0;
                     var high_price_10min = [];
 
-                    for (var j = 1; j <= 288; j++) {
+                    for (var j = 1; j <= 266; j++) {
                         total_volume_10min = total_volume_10min + tickList[j].volumeto;
                         high_price_10min.push(tickList[j].high);
                         
@@ -193,7 +195,7 @@
                     var total_volume_15min = 0;
                     var high_price_15min = [];
 
-                    for (var j = 2; j <= 289; j++) {
+                    for (var j = 2; j <= 267; j++) {
                         total_volume_15min = total_volume_15min + tickList[j].volumeto;
                         high_price_15min.push(tickList[j].high);
                         
@@ -202,7 +204,7 @@
                     var total_volume_30min = 0;
                     var high_price_30min = [];
 
-                    for (var j = 5; j <= 293; j++) {
+                    for (var j = 5; j <= 270; j++) {
                         total_volume_30min = total_volume_30min + tickList[j].volumeto;
                         high_price_30min.push(tickList[j].high);
                         
@@ -211,7 +213,7 @@
                     var total_volume_1h = 0;
                     var high_price_1h = [];
 
-                    for (var j = 11; j <= 299; j++) {
+                    for (var j = 11; j <= 276; j++) {
                         total_volume_1h = total_volume_1h + tickList[j].volumeto;
                          high_price_1h.push(tickList[j].high);
                         
@@ -220,7 +222,7 @@
                     var total_volume_2h = 0;
                     var high_price_2h = [];
 
-                    for (var j = 23; j <= 311; j++) {
+                    for (var j = 23; j <= 288; j++) {
                         total_volume_2h = total_volume_2h + tickList[j].volumeto;
                         high_price_2h.push(tickList[j].high);
                         
@@ -229,7 +231,7 @@
                     var total_volume_4h = 0;
                     var high_price_4h = [];
 
-                    for (var j = 47; j <= 335; j++) {
+                    for (var j = 47; j <= 313; j++) {
                         total_volume_4h = total_volume_4h + tickList[j].volumeto;
                         high_price_4h.push(tickList[j].high);
                         
@@ -279,25 +281,21 @@
 
                 });
 
-                $.get('https://min-api.cryptocompare.com/data/histominute?fsym='+$moneda[1]+'&tsym='+$moneda[0]+'&limit=300&aggregate=5&e=BitTrex', function(response) {
+                $.get('https://min-api.cryptocompare.com/data/histohour?fsym='+$moneda[1]+'&tsym='+$moneda[0]+'&limit=24&aggregate=1&e=BitTrex', function(response) {
 
-                    if(response.Type === 99 || response.Response == "Error" || response.Aggregated == false) { return false; }
+                   if(response.Type === 99 || response.Response == "Error") { return false; }
 
-                    console.log(response)
+                    
+                   
                     var tickList = response.Data;
 
                     var total_volume_1d = 0;
                     var high_price_1d = [];
 
-                    for (var j = 0; j <= 288; j++) {
+                    for (var j = 0; j <= 24; j++) {
                         total_volume_1d = total_volume_1d + tickList[j].volumeto;
                         high_price_1d.push(tickList[j].high);
                     }
-
-
-
-                    
-                   console.log(total_volume_1d);
 
 
                     $('.moneda-volumen-'+coinList[i].Market.MarketName).append(calculoPorcentajeVariacion(coinList[i].Summary.BaseVolume,total_volume_1d));
@@ -319,16 +317,12 @@
                 }
 
                 
-
-                //return false;
+                return false;
                 
 
             })
 
 
-
-            
-            console.log(coinList);
 
 
         },"json").fail(function(xhr, status, error) {

@@ -24,6 +24,20 @@
     <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>/home/css/style.css">
     <script src="https://use.fontawesome.com/a7fd4b808d.js"></script>
     <link rel="icon" type="image/png" href="<?= asset_url(); ?>/home/img/logo.png" />
+
+    <!--Start of Tawk.to Script-->
+	<script type="text/javascript">
+	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+	(function(){
+	var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+	s1.async=true;
+	s1.src='https://embed.tawk.to/5a0d036dbb0c3f433d4c97be/default';
+	s1.charset='UTF-8';
+	s1.setAttribute('crossorigin','*');
+	s0.parentNode.insertBefore(s1,s0);
+	})();
+	</script>
+	<!--End of Tawk.to Script-->
 </head>
 
 <div id="loaderDiv">
@@ -700,10 +714,9 @@
        
           
                     
-
+                    <div class="col-md-6">
 
                     <?php $n = 0; foreach((array) $lista_senal as $indicio) : ?>
-
 			        <div class="panel panel-default">
 			          <div class="panel-heading">
 			            <h5 class="panel-title">
@@ -718,7 +731,15 @@
 			            </div>
 			          </div>
 			        </div>
+
+			        <?php if(round((count((array) $lista_senal)/2)) == $n): ?>
+			        	</div>
+			        	<div class="col-md-6">
+		        	<?php endif; ?>
+
+
 			        <?php $n++; endforeach; ?>
+			    </div>
 
 			        
 		      	</div>
@@ -744,7 +765,7 @@
 
 
 					<ul class="social-list">
-						<li><a href="https://www.facebook.com/Academia-De-Trading-496295420749430/?fref=ts"><i class="si social-facebook" aria-hidden="true"></i></a></li>
+						<li><a href="https://www.facebook.com/Academia-De-Trading-496295420749430/?fref=ts" target="_blank"><i class="si social-facebook" aria-hidden="true"></i></a></li>
 					</ul>
 
 					<p class="copyright"> © Copyright <span id="year">2017</span> <span class="text-yellow">Academia De Trading</span>. All Rights Reserved</p>

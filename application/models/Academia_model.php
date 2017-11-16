@@ -303,8 +303,9 @@ class Academia_model extends CI_Model
         {
             foreach ($query->result() as $cuenta)
             {
-                return $cuenta;
+                $f = $cuenta;
             }
+            return $f;
         }
         else
         {
@@ -338,7 +339,7 @@ class Academia_model extends CI_Model
 
 
 
-        $status = $this->db->update('facturas', array('pagada' => 1), array('id_factura' => $factura->id_factura));
+        $status = $this->db->update('facturas', array('pagada' => 1), array('id_usuario' => $id_usuario));
 
         $this->Auth_model->activarUsuario($id_usuario);
 

@@ -305,7 +305,7 @@
             else
             {
                 $('.total').val(precio_btc*cantidad_btc);
-                $('.cantidad-btc').val((total/precio_btc));
+                //$('.cantidad-btc').val((total/precio_btc));
             }
         }
     </script>

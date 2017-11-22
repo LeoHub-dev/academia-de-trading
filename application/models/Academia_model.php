@@ -70,7 +70,7 @@ class Academia_model extends CI_Model
                 if($this->debePagar($inf))
                 {
 
-                    if($this->cantidadReferidosAccesibles($inf->id_usuario) >= 4)
+                    if($this->cantidadReferidosAccesibles($inf->id_usuario) >= 3)
                     {
 
                         $this->Auth_model->activarUsuario($inf->id_usuario);

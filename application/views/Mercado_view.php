@@ -2,7 +2,14 @@
 <html>
 
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <?php include_once 'modules/Header.php' ; ?>
+    <style type="text/css">
+        .market-content {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 12px;
+        }
+    </style>
 </head>
 
 <body class="theme-blue">
@@ -69,11 +76,36 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="title">Cargando ... Esto puede demorar hasta 10 minutos o mas</div>
+                                <div class="title">Cargando ... Esto puede demorar hasta 3 minutos</div>
+                            </div>
+                            <div class="body">
+                                <div class="row clearfix">
+                                    <div class="col-md-4">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">Buscar :</span>
+                                            <div class="form-line">
+                                                <input type="text" id="search-moneda" class="form-control" placeholder="Buscar" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="col-md-12">
+                                        <h2 class="card-inside-title">Ordernar tabla por :</h2>
+                                        <div class="demo-radio-button">
+                                            <input name="acomodar-tabla" type="radio" id="radio-normal" value="normal" checked="">
+                                            <label for="radio-normal">Por defecto</label>
+                                            <input name="acomodar-tabla" type="radio" id="radio-mayor-variacion" value="mayor">
+                                            <label for="radio-mayor-variacion">Mayor Variacion</label>
+                                            <input name="acomodar-tabla" type="radio" id="radio-menor-variacion" value="menor">
+                                            <label for="radio-menor-variacion">Menor Variacion</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row clearfix">
 
-                                <table class="table table-bordered">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="monitor-table">
                                     <thead>
                                         <tr>
                                             <th>Market</th>
@@ -90,28 +122,7 @@
                                     </thead>
                                     <tbody class="market-content">
 
-                                        <!--<tr>
-                                            <th scope="row" rowspan="2">BTC-XMR</th>
-                                            <td>Volumen</td>
-                                            <td>Vol 5min</td>
-                                            <td>Vol 15min</td>
-                                            <td>Vol 30min</td>
-                                            <td>Vol 1h</td>
-                                            <td>Vol 2h</td>
-                                            <td>Vol 4h</td>
-                                            <td>Vol 1dia</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Precio</th>
-                                            <td>Prec 5min</td>
-                                            <td>Prec 15min</td>
-                                            <td>Prec 30min</td>
-                                            <td>Prec 1h</td>
-                                            <td>Prec 2h</td>
-                                            <td>Prec 4h</td>
-                                            <td>Prec 1dia</td>
-                                        </tr>-->
-                                        
+                      
                                     </tbody>
                                 </table>
                             </div>
@@ -119,208 +130,194 @@
                     </div>
                 </div>
             </div>
-
-
-
-            
             
         </div>
     </section>
 
     <?php include_once 'modules/Scripts.php' ; ?>
 
-
+    <!-- Jquery DataTable Plugin Js -->
+    <script src="<?= asset_url(); ?>plugins/jquery-datatable/jquery.dataTables.js"></script>
+    <script src="<?= asset_url(); ?>plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
     <script type="text/javascript">
 
-        
+        var tabla_normal = "";
 
-        var mostrar_contenido = 0;
-
-
-        $.get('http://192.168.1.2/circulo/mercado/api_coins', function(response) {
-            var coinList = response.result;
-
-            //console.log(coinList);
-
-            var limite_monedas = 0;
-            var contador_monedas = 0;
-
-            $.each(coinList, function(i){
-
-                if(coinList[i].Market.MarketName.substring(0, 3) != 'BTC'){ return true; }
-
-                if(coinList[i].Summary.BaseVolume < 50){ return true; }
-
-                $moneda = coinList[i].Market.MarketName.split("-");
-
-                $.get('https://min-api.cryptocompare.com/data/histominute?fsym='+$moneda[1]+'&tsym='+$moneda[0]+'&limit=600&aggregate=5&e=BitTrex', function(response) {
-
-                    if(response.Type === 99 || response.Response == "Error") { return false; }
-
-                    console.log(response);
-
-                    limite_monedas++;
-
-                    $('.market-content').append('<tr class="moneda-volumen-'+coinList[i].Market.MarketName+'">\
-                        <th scope="row" rowspan="2">'+coinList[i].Market.MarketName+'</th>\
-                        <td>Volumen<br>'+coinList[i].Summary.BaseVolume+' BTC</td>\
-                    </tr>\
-                    <tr class="moneda-precio-'+coinList[i].Market.MarketName+'">\
-                        <td>Precio<br>'+coinList[i].Summary.Last.toFixed(10)+' BTC</th>\
-                    </tr>');
-
-                    
-                    var tickList = response.Data;
-
-                    var total_volume_5min = 0;
-                    var high_price_5min = [];
-
-                    for (var j = 0; j <= 265; j++) {
-                        total_volume_5min = total_volume_5min + tickList[j].volumeto;
-                        high_price_5min.push(tickList[j].high);
-                           
-                        
-                    }
-
-                    var total_volume_10min = 0;
-                    var high_price_10min = [];
-
-                    for (var j = 1; j <= 266; j++) {
-                        total_volume_10min = total_volume_10min + tickList[j].volumeto;
-                        high_price_10min.push(tickList[j].high);
-                        
-                    }
-
-                    var total_volume_15min = 0;
-                    var high_price_15min = [];
-
-                    for (var j = 2; j <= 267; j++) {
-                        total_volume_15min = total_volume_15min + tickList[j].volumeto;
-                        high_price_15min.push(tickList[j].high);
-                        
-                    }
-
-                    var total_volume_30min = 0;
-                    var high_price_30min = [];
-
-                    for (var j = 5; j <= 270; j++) {
-                        total_volume_30min = total_volume_30min + tickList[j].volumeto;
-                        high_price_30min.push(tickList[j].high);
-                        
-                    }
-
-                    var total_volume_1h = 0;
-                    var high_price_1h = [];
-
-                    for (var j = 11; j <= 276; j++) {
-                        total_volume_1h = total_volume_1h + tickList[j].volumeto;
-                         high_price_1h.push(tickList[j].high);
-                        
-                    }
-
-                    var total_volume_2h = 0;
-                    var high_price_2h = [];
-
-                    for (var j = 23; j <= 288; j++) {
-                        total_volume_2h = total_volume_2h + tickList[j].volumeto;
-                        high_price_2h.push(tickList[j].high);
-                        
-                    }
-
-                    var total_volume_4h = 0;
-                    var high_price_4h = [];
-
-                    for (var j = 47; j <= 313; j++) {
-                        total_volume_4h = total_volume_4h + tickList[j].volumeto;
-                        high_price_4h.push(tickList[j].high);
-                        
-                    }
-
-                    /*console.log(high_price_5min);
-                    console.log(high_price_10min);
-                    console.log(high_price_15min);
-                    console.log(high_price_30min);
-                    console.log(high_price_1h);
-                    console.log(high_price_2h);
-                    console.log(high_price_4h);
-
-                    console.log(total_volume_5min);
-                    console.log(total_volume_10min);
-                    console.log(total_volume_15min);
-                    console.log(total_volume_30min);
-                    console.log(total_volume_1h);
-                    console.log(total_volume_2h);
-                    console.log(total_volume_4h);*/
-
-                    $('.moneda-volumen-'+coinList[i].Market.MarketName).append(calculoPorcentajeVariacion(coinList[i].Summary.BaseVolume,total_volume_5min));
-                    $('.moneda-volumen-'+coinList[i].Market.MarketName).append(calculoPorcentajeVariacion(coinList[i].Summary.BaseVolume,total_volume_10min));
-                    $('.moneda-volumen-'+coinList[i].Market.MarketName).append(calculoPorcentajeVariacion(coinList[i].Summary.BaseVolume,total_volume_15min));
-                    $('.moneda-volumen-'+coinList[i].Market.MarketName).append(calculoPorcentajeVariacion(coinList[i].Summary.BaseVolume,total_volume_30min));
-                    $('.moneda-volumen-'+coinList[i].Market.MarketName).append(calculoPorcentajeVariacion(coinList[i].Summary.BaseVolume,total_volume_1h));
-                    $('.moneda-volumen-'+coinList[i].Market.MarketName).append(calculoPorcentajeVariacion(coinList[i].Summary.BaseVolume,total_volume_2h));
-                    $('.moneda-volumen-'+coinList[i].Market.MarketName).append(calculoPorcentajeVariacion(coinList[i].Summary.BaseVolume,total_volume_4h));
-
-                    $('.moneda-precio-'+coinList[i].Market.MarketName).append(calculoPrecioVariacion(coinList[i].Summary.Last,calcularMedia(high_price_5min)));
-                    $('.moneda-precio-'+coinList[i].Market.MarketName).append(calculoPrecioVariacion(coinList[i].Summary.Last,calcularMedia(high_price_10min)));
-                    $('.moneda-precio-'+coinList[i].Market.MarketName).append(calculoPrecioVariacion(coinList[i].Summary.Last,calcularMedia(high_price_15min)));
-                    $('.moneda-precio-'+coinList[i].Market.MarketName).append(calculoPrecioVariacion(coinList[i].Summary.Last,calcularMedia(high_price_30min)));
-                    $('.moneda-precio-'+coinList[i].Market.MarketName).append(calculoPrecioVariacion(coinList[i].Summary.Last,calcularMedia(high_price_1h)));
-                    $('.moneda-precio-'+coinList[i].Market.MarketName).append(calculoPrecioVariacion(coinList[i].Summary.Last,calcularMedia(high_price_2h)));
-                    $('.moneda-precio-'+coinList[i].Market.MarketName).append(calculoPrecioVariacion(coinList[i].Summary.Last,calcularMedia(high_price_4h)));
-
-                    
+        $('input[type=radio][name=acomodar-tabla]').change(function() {
 
 
+            var array_tabla = [];
 
+            $('#monitor-table > tbody > tr').each(function(i){
 
-                },"json").fail(function(xhr, status, error) {
-                    
-                    console.log(error);
-                    console.log(xhr.responseText);
-
-                });
-
-                $.get('https://min-api.cryptocompare.com/data/histohour?fsym='+$moneda[1]+'&tsym='+$moneda[0]+'&limit=24&aggregate=1&e=BitTrex', function(response) {
-
-                   if(response.Type === 99 || response.Response == "Error") { return false; }
-
-                    
-                   
-                    var tickList = response.Data;
-
-                    var total_volume_1d = 0;
-                    var high_price_1d = [];
-
-                    for (var j = 0; j <= 24; j++) {
-                        total_volume_1d = total_volume_1d + tickList[j].volumeto;
-                        high_price_1d.push(tickList[j].high);
-                    }
-
-
-                    $('.moneda-volumen-'+coinList[i].Market.MarketName).append(calculoPorcentajeVariacion(coinList[i].Summary.BaseVolume,total_volume_1d));
-                    $('.moneda-precio-'+coinList[i].Market.MarketName).append(calculoPrecioVariacion(coinList[i].Summary.Last,calcularMedia(high_price_1d)));
-
-
-
-
-                },"json").fail(function(xhr, status, error) {
-                    
-                    console.log(error);
-                    console.log(xhr.responseText);
-
-                });
-
-                if(limite_monedas == $('.market-content').find('tr').length)
+                if((i+1)%2)
                 {
-                    $('#monitor-body').removeClass('__loading');
-                }
+                    var data = [];
+                    data['linea'] = $(this)[0].outerHTML + $('#monitor-table > tbody > tr').eq(i+1)[0].outerHTML;
+                    
 
+                    var total_variacion = 0;
+                    $(this).find('td').each(function(j){
+                        if(j <= 2) { return true; }
+                        total_variacion = total_variacion + parseFloat($(this).attr('moneda-variacion'));
+                    })
+
+                    $('#monitor-table > tbody > tr').eq(i+1).find('td').each(function(j){
+                        if(j <= 2) { return true; }
+                        total_variacion = total_variacion + parseFloat($(this).attr('moneda-variacion'));
+                    })
+
+                    data['variacion'] = total_variacion;
+
+                    array_tabla.push(data);
+                }
                 
-                return false;
                 
 
             })
+
+            if($(this).val() == "normal")
+            {
+                array_tabla = null;
+                $('.market-content').html(tabla_normal);
+            }
+
+            if($(this).val() == "mayor")
+            {
+
+                $('.market-content').html("");
+                
+
+                for (var i = 0; i < array_tabla.length; i++) {
+                    for (var j = i+1; j < array_tabla.length; j++) {
+                        if(array_tabla[i]['variacion'] < array_tabla[j]['variacion'])
+                        {
+                            var aux = array_tabla[i];
+                            array_tabla[i] = array_tabla[j];
+                            array_tabla[j] = aux;
+                        }
+                    }
+                }
+
+            }
+
+            if($(this).val() == "menor")
+            {
+                $('.market-content').html("");
+
+                for (var i = 0; i < array_tabla.length; i++) {
+                    for (var j = i+1; j < array_tabla.length; j++) {
+                        if(array_tabla[i]['variacion'] > array_tabla[j]['variacion'])
+                        {
+                            var aux = array_tabla[i];
+                            array_tabla[i] = array_tabla[j];
+                            array_tabla[j] = aux;
+                        }
+                    }
+                }
+            }
+
+
+            $.each(array_tabla, function(i){
+                $('.market-content').append(array_tabla[i]['linea']);
+            })
+
+
+
+        });
+
+        
+        $('#search-moneda').on('input', function(e) { 
+
+
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            var coin_search = $(this).val();
+
+            var coin_search = new RegExp("("+coin_search+")","gi"); 
+
+            if($(this).val() == "")
+            {
+                $('#monitor-table > tbody > tr').each(function(){
+
+                    $(this).removeClass('hidden');
+    
+                })
+            }
+   
+
+            $('#monitor-table > tbody > tr').each(function(){
+
+                
+                if ( $(this).attr('moneda-nombre').match(coin_search) ) {
+                  $(this).removeClass('hidden');
+                } else {
+                  $(this).addClass('hidden');
+                } 
+            })
+
+            
+        });
+
+        var carga_monedas = $.get('http://academiadetrading.net/mercado/api_coins', function(response) 
+        {
+            $.each(response, function(i){
+
+                
+
+                if(response[i].Actual.Summary.MarketName.substring(0, 3) != 'BTC'){ return true; }
+
+                if(response[i].Actual.Summary.BaseVolume < 50){ return true; }
+
+                if(response[i].OneDay == null){ return true; }
+
+                var moneda_split = response[i].Actual.Market.MarketName.split("-");
+
+                $('.market-content').append('<tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" class="moneda-volumen-'+response[i].Actual.Market.MarketName+'">\
+                    <th scope="row" rowspan="2"><div class="btn-group">\
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">\
+                                        '+response[i].Actual.Market.MarketName+' <span class="caret"></span>\
+                                    </button>\
+                                    <ul class="dropdown-menu">\
+                                        <li><a href="https://www.tradingview.com/chart/?symbol=BITTREX%3A'+moneda_split[1]+moneda_split[0]+'" target="_blank" class="waves-effect waves-block">Trading View Chart</a></li>\
+                                        <li><a href="https://bittrex.com/Market/Index?MarketName='+response[i].Actual.Market.MarketName+'" target="_blank" class=" waves-effect waves-block">Ver en Bittrex</a></li>\
+                                    </ul>\
+                                </div></th>\
+                    <td>Volumen<br>'+response[i].Actual.Summary.BaseVolume+' BTC</td>\
+                </tr>\
+                <tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" class="moneda-precio-'+response[i].Actual.Market.MarketName+'">\
+                    <td>Precio<br>'+response[i].Actual.Summary.Last.toFixed(10)+' BTC</th>\
+                </tr>');
+
+                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FiveMin.Summary.BaseVolume));
+                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].TenMin.Summary.BaseVolume));
+                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FifteenMin.Summary.BaseVolume));
+                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].ThirtyMin.Summary.BaseVolume));
+                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].OneHour.Summary.BaseVolume));
+                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].TwoHour.Summary.BaseVolume));
+                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FourHour.Summary.BaseVolume));
+                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].OneDay.Summary.BaseVolume));
+
+                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FiveMin.Summary.Last));
+                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].TenMin.Summary.Last));
+                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FifteenMin.Summary.Last));
+                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].ThirtyMin.Summary.Last));
+                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].OneHour.Summary.Last));
+                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].TwoHour.Summary.Last));
+                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FourHour.Summary.Last));
+                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].OneDay.Summary.Last));
+            })
+
+            
 
 
 
@@ -330,6 +327,11 @@
             console.log(error);
             console.log(xhr.responseText);
 
+        });
+
+        carga_monedas.done(function() {
+            $('#monitor-body').removeClass('__loading');
+            tabla_normal = $('.market-content').html();
         });
 
         
@@ -364,7 +366,7 @@
             }
 
 
-            if(porcentaje >= 1)
+            if(porcentaje > 0)
             {
                 var color = "rgba(124, 252, 0, 0.38)";
             }
@@ -376,10 +378,14 @@
 
             if(porcentaje < 0)
             {
-                var color = "rgba(255, 0, 0, 0.56)";
+                var color = "rgba(255, 0, 0, 0.5)";
             }
 
-            return '<td style="color: black;background-color: '+color+';">Volumen: '+despues.toFixed(2)+' BTC<br>Variación: '+resultado['variacion']+'%<br>'+cambio+': '+resultado['diferencia']+' BTC</td>';
+            if(porcentaje < -5)            {
+                var color = "rgba(255, 0, 0, 0.75)";
+            }
+
+            return '<td moneda-variacion="'+resultado['variacion']+'" style="color: black;background-color: '+color+';">Volumen: '+despues.toFixed(2)+' BTC<br>Variación: '+resultado['variacion']+'%<br>'+cambio+': '+resultado['diferencia']+' BTC</td>';
         }
 
         function calculoPrecioVariacion(antes, despues)
@@ -404,14 +410,14 @@
 
             var resultado = [];
             resultado['diferencia'] = diferencia.toFixed(10);
-            resultado['variacion'] = porcentaje.toFixed(10);
+            resultado['variacion'] = porcentaje.toFixed(2);
 
             if(!isFinite(porcentaje))
             {
                 resultado['variacion'] = 0;
             }
 
-            if(porcentaje >= 1)
+            if(porcentaje > 0)
             {
                 var color = "rgba(124, 252, 0, 0.38)";
             }
@@ -420,12 +426,17 @@
             {
                 var color = "lawngreen";
             }
-            else if(porcentaje < 0)
+            
+            if(porcentaje < 0)
             {
-                var color = "rgba(255, 0, 0, 0.56)";
+                var color = "rgba(255, 0, 0, 0.5)";
             }
 
-            return '<td style="color: black;background-color: '+color+'">Precio: '+despues.toFixed(10)+' BTC<br>Variación: '+resultado['variacion']+'%<br>'+cambio+': '+resultado['diferencia']+' BTC</td>';
+            if(porcentaje < -5)            {
+                var color = "rgba(255, 0, 0, 0.75)";
+            }
+
+            return '<td moneda-variacion="'+resultado['variacion']+'" style="color: black;background-color: '+color+'">Precio: '+despues.toFixed(10)+' BTC<br>Variación: '+resultado['variacion']+'%<br>'+cambio+': '+resultado['diferencia']+' BTC</td>';
         }
 
         function calcularMedia(lista)
@@ -442,30 +453,6 @@
 
         
 
-
-
-        
-
-
-
-
-
-
-
-        /*var xmlhttp = new XMLHttpRequest();
-        var url = "https://bittrex.com/api/v1.1/public/getmarketsummaries";
-
-        xmlhttp.onreadystatechange = function () {
-          if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
- 
-            var coinList = xmlhttp.responseText.result;
-
-            console.log(coinList);
-          }
-        }
-
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();*/
 
       
     </script>

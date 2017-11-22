@@ -192,6 +192,21 @@
 
 		</section>
 
+		<section>
+
+
+
+				<a href="<?= site_url('auth'); ?>#_registro"><img src="https://i.imgur.com/O6qGKsc.jpg" class="img-responsive"></a>
+				
+
+			<div class="services-cta-container">
+
+				<a href="<?= site_url('auth'); ?>#_registro" class="btn btn-default white-yellow">Iniciar Ahora</a>
+
+			</div>
+
+		</section>
+
 
 
 		<section id="explicacion">
@@ -221,7 +236,6 @@
 		
 						<div class="row text-center">
 							<p>Te enseñaremos a hacer trading.</p>
-							<p>Te regalaremos Señales por una (1) semana.</p>
 							<p>Una vez obtengas ganancias te puedes hacer miembro con tan solo 20 dolares al mes.</p>
 							<p>Si invitas a 3 personas, tu mensualidad es gratis.</p>
 						</div>
@@ -356,6 +370,22 @@
 			</div> <!-- /.container -->
 		</section>
 
+		<section>
+
+
+
+				<a href="<?= site_url('auth'); ?>#_registro"><img src="https://i.imgur.com/O6qGKsc.jpg" class="img-responsive"></a>
+				
+
+			<div class="services-cta-container">
+
+				<a href="<?= site_url('auth'); ?>#_registro" class="btn btn-default white-yellow">Iniciar Ahora</a>
+
+			</div>
+
+		</section>
+
+
 		<section id="planes">
 
 			<div class="container">
@@ -393,7 +423,7 @@
 		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">20</span>
 		                                </div>
 		                            </div>
-		                            <div class="wn-number__caption">por mes</div>
+		                            <div class="wn-number__caption">Por Mes <font color="red"><b>(Oferta de lanzamiento)</b></font><br><br><small style="text-decoration: line-through;"><font color="red">$30 / Mes </font></small></div>
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>
@@ -419,10 +449,10 @@
 		                        <div class="wn-number wn-number--price">
 		                            <div class="wn-number__num">
 		                                <div class="wn-number__group">
-		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">200</span>
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">200</span> 
 		                                </div>
 		                            </div>
-		                            <div class="wn-number__caption"><small style="text-decoration: line-through;"><font color="red">$250 </font></small></div>
+		                            <div class="wn-number__caption"><font color="red"><b>(Oferta de lanzamiento)</b></font><br><br><small style="text-decoration: line-through;"><font color="red">$250 </font></small></div>
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>

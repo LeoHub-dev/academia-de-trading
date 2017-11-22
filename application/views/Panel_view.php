@@ -259,6 +259,7 @@
                                 <div role="tabpanel" class="tab-pane fade" id="opciones">
                                     
                                     <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="1">Activar</a>
+                                    <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="1">Activar como VIP</a>
                                     
                                 
                                 </div>

@@ -44,112 +44,108 @@ class Mercado extends LH_Controller {
 		$this->load->view('Mercado_view',$this->scope);
 	}
 
-	/*public function api_coins()
+	public function index2()
 	{
-		set_time_limit(600);
-        ini_set('max_execution_time', 600);
-
-
-		$lista_monedas = NULL;
-	    $apikey = '60c37ee6710a4c72821e9f642869e66e';
-		$apisecret = '6d7e3bf940c4486f8c85c156ee39a0b2';
-
-		$nonce = time();
-		$uri = 'https://bittrex.com/api/v2.0/pub/markets/GetMarketSummaries?apikey='.$apikey.'&nonce='.$nonce;
-		$sign = hash_hmac('sha512',$uri,$apisecret);
-		$ch = curl_init($uri);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('apisign:'.$sign));
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		$execResult = curl_exec($ch);
-		curl_close($ch);
-		$obj = json_decode($execResult);
-
-		//var_dump($obj);
-
-		foreach ($obj->result as $moneda) {
-			$lista_monedas[$moneda->Market->MarketCurrency]['Market'] = $moneda->Market;
-			$lista_monedas[$moneda->Market->MarketCurrency]['Summary'] = $moneda->Summary;
-			$lista_monedas[$moneda->Market->MarketCurrency]['Ticks'] = NULL;
-
-			$uri_moneda = 'https://bittrex.com/Api/v2.0/pub/market/GetTicks?marketName='.$moneda->Market->MarketName.'&tickInterval=fiveMin&apikey='.$apikey.'&nonce='.$nonce;
-
-			$ch_moneda = curl_init($uri_moneda);
-			curl_setopt($ch_moneda, CURLOPT_HTTPHEADER, array('apisign:'.$sign));
-			curl_setopt($ch_moneda, CURLOPT_RETURNTRANSFER, TRUE);
-			$tickResult = curl_exec($ch_moneda);
-			curl_close($ch_moneda);
-			$ticks = json_decode($tickResult);
-			$lista_monedas[$moneda->Market->MarketCurrency]['Ticks'] = $ticks;
-
-		}
-
-		
-
-		//echo $execResult;
-
-		echo json_encode($lista_monedas);
-
-		//https://bittrex.com/Api/v2.0/pub/market/GetTicks?marketName=BTC-WAVES
-
-
-	}*/
+		$this->scope['titulo'] = "Mercado";
+		$this->load->view('Mercado2_view',$this->scope);
+	}
 
 
 	public function api_coins()
 	{
-		set_time_limit(600);
-        ini_set('max_execution_time', 600);
+		$data_fecha_hoy = new DateTime(NULL, new DateTimeZone(TIMEZONE));
+        $fecha_actual = $data_fecha_hoy->format("Y-m-d_H-i");
 
+        //$datos['actual'] = json_decode(file_get_contents("bittrex/".$fecha_actual.".json"))->result;
 
-		$lista_monedas = NULL;
-	    $apikey = '60c37ee6710a4c72821e9f642869e66e';
-		$apisecret = '6d7e3bf940c4486f8c85c156ee39a0b2';
+        foreach (json_decode(file_get_contents("bittrex/".$fecha_actual.".json"))->result as $moneda) {
+        	$datos[$moneda->Summary->MarketName]['Actual'] = $moneda;
+        }
 
-		$nonce = time();
-		$uri = 'https://bittrex.com/api/v2.0/pub/markets/GetMarketSummaries?marketName=BTC-&apikey='.$apikey.'&nonce='.$nonce;
-		$sign = hash_hmac('sha512',$uri,$apisecret);
-		$ch = curl_init($uri);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('apisign:'.$sign));
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		$execResult = curl_exec($ch);
-		curl_close($ch);
-		$obj = json_decode($execResult);
+        $data_fecha_5min = new DateTime("-5 minutes", new DateTimeZone(TIMEZONE));
+        $fecha_5min = $data_fecha_5min->format("Y-m-d_H-i");
 
-		//var_dump($obj);
+        //$datos['5min'] = json_decode(file_get_contents("bittrex/".$fecha_5min.".json"))->result;
 
+        foreach (json_decode(file_get_contents("bittrex/".$fecha_5min.".json"))->result as $moneda) {
+        	$datos[$moneda->Summary->MarketName]['FiveMin'] = $moneda;
+        }
 
+        $data_fecha_10min = new DateTime("-10 minutes", new DateTimeZone(TIMEZONE));
+        $fecha_10min = $data_fecha_10min->format("Y-m-d_H-i");
 
-		echo $execResult;
+        //$datos['10min'] = json_decode(file_get_contents("bittrex/".$fecha_10min.".json"))->result;
 
-		//echo json_encode($lista_monedas);
+        foreach (json_decode(file_get_contents("bittrex/".$fecha_10min.".json"))->result as $moneda) {
+        	$datos[$moneda->Summary->MarketName]['TenMin'] = $moneda;
+        }
 
-		//https://bittrex.com/Api/v2.0/pub/market/GetTicks?marketName=BTC-WAVES
+        $data_fecha_15min = new DateTime("-15 minutes", new DateTimeZone(TIMEZONE));
+        $fecha_15min = $data_fecha_15min->format("Y-m-d_H-i");
+
+        //$datos['15min'] = json_decode(file_get_contents("bittrex/".$fecha_15min.".json"))->result;
+
+        foreach (json_decode(file_get_contents("bittrex/".$fecha_15min.".json"))->result as $moneda) {
+        	$datos[$moneda->Summary->MarketName]['FifteenMin'] = $moneda;
+        }
+
+        $data_fecha_30min = new DateTime("-30 minutes", new DateTimeZone(TIMEZONE));
+        $fecha_30min = $data_fecha_30min->format("Y-m-d_H-i");
+
+        //$datos['30min'] = json_decode(file_get_contents("bittrex/".$fecha_30min.".json"))->result;
+
+        foreach (json_decode(file_get_contents("bittrex/".$fecha_30min.".json"))->result as $moneda) {
+        	$datos[$moneda->Summary->MarketName]['ThirtyMin'] = $moneda;
+        }
+
+        $data_fecha_1h = new DateTime("-1 hour", new DateTimeZone(TIMEZONE));
+        $fecha_1h = $data_fecha_1h->format("Y-m-d_H-i");
+
+        //$datos['1h'] = json_decode(file_get_contents("bittrex/".$fecha_1h.".json"))->result;
+
+        foreach (json_decode(file_get_contents("bittrex/".$fecha_1h.".json"))->result as $moneda) {
+        	$datos[$moneda->Summary->MarketName]['OneHour'] = $moneda;
+        }
+
+        $data_fecha_2h = new DateTime("-2 hour", new DateTimeZone(TIMEZONE));
+        $fecha_2h = $data_fecha_2h->format("Y-m-d_H-i");
+
+        //$datos['2h'] = json_decode(file_get_contents("bittrex/".$fecha_2h.".json"))->result;
+
+        foreach (json_decode(file_get_contents("bittrex/".$fecha_2h.".json"))->result as $moneda) {
+        	$datos[$moneda->Summary->MarketName]['TwoHour'] = $moneda;
+        }
+
+        $data_fecha_4h = new DateTime("-4 hour", new DateTimeZone(TIMEZONE));
+        $fecha_4h = $data_fecha_4h->format("Y-m-d_H-i");
+
+        //$datos['4h'] = json_decode(file_get_contents("bittrex/".$fecha_4h.".json"))->result;
+
+        foreach (json_decode(file_get_contents("bittrex/".$fecha_4h.".json"))->result as $moneda) {
+        	$datos[$moneda->Summary->MarketName]['FourHour'] = $moneda;
+        }
+
+        $data_fecha_1d = new DateTime("-1 day", new DateTimeZone(TIMEZONE));
+        $fecha_1d = $data_fecha_1d->format("Y-m-d_H-i");
+
+        //$datos['1d'] = json_decode(file_get_contents("bittrex/".$fecha_1d.".json"))->result;
+
+        foreach (json_decode(file_get_contents("bittrex/".$fecha_1d.".json"))->result as $moneda) {
+        	$datos[$moneda->Summary->MarketName]['OneDay'] = $moneda;
+        }
+
+        echo json_encode($datos);
+
+       	//var_dump($datos);
+
 
 
 	}
 
 
-	public function api_tick($moneda)
-	{
-		set_time_limit(600);
-        ini_set('max_execution_time', 600);
-        
-		$apikey = '60c37ee6710a4c72821e9f642869e66e';
-		$apisecret = '6d7e3bf940c4486f8c85c156ee39a0b2';
 
-		$nonce = time();
 
-		$uri_moneda = 'https://bittrex.com/Api/v2.0/pub/market/GetTicks?marketName='.$moneda.'&tickInterval=fiveMin&apikey='.$apikey.'&nonce='.$nonce;
-		$sign = hash_hmac('sha512',$uri_moneda,$apisecret);
-		$ch_moneda = curl_init($uri_moneda);
-		curl_setopt($ch_moneda, CURLOPT_HTTPHEADER, array('apisign:'.$sign));
-		curl_setopt($ch_moneda, CURLOPT_RETURNTRANSFER, TRUE);
-		$tickResult = curl_exec($ch_moneda);
-		curl_close($ch_moneda);
-		$ticks = json_decode($tickResult);
-		
-		echo $tickResult;
-	}
+
 
 
 

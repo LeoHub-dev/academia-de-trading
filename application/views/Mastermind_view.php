@@ -59,6 +59,8 @@
 
                             <div class="row container clearfix">
 
+
+
                                 <span class="label label-primary">Audio del 11/10/2017</span>
                                 <hr>
                                 <div class="media-wrapper">
@@ -139,6 +141,27 @@
                                 </div>
 
                                 <hr>
+
+                                <span class="label label-primary">Audio del 07/11/2017</span>
+                                <hr>
+                                <div class="media-wrapper">
+                                    <audio id="player2" preload="none" controls style="width:100%;">
+                                        <source src="https://drive.google.com/uc?export=download&id=1V-_1xFZDlQr5ytC10AKiCa9qEim4ywLd" type="audio/mp3">
+                                    </audio>
+                                </div>
+                                
+
+                                <hr>
+
+                                <span class="label label-primary">Audio del 08/11/2017</span>
+                                <hr>
+                                <div class="media-wrapper">
+                                    <audio id="player2" preload="none" controls style="width:100%;">
+                                        <source src="https://drive.google.com/uc?export=download&id=1Nb-9Tkrs020acmJihPh1Z6JE31UypItM" type="audio/mp3">
+                                    </audio>
+                                </div>
+
+                                
                                 
 
                             </div>

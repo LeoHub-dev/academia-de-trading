@@ -52,14 +52,14 @@
                     </li>
                     <?php endif; ?>
 
-                    <?php if($info_usuario['data']->pago == 1 && $info_usuario['data']->tipo == 1) : ?>
+                    
                     <li>
                         <a href="<?= site_url('mercado'); ?>">
                             <i class="material-icons">store</i>
                             <span>Mercado</span>
                         </a>
                     </li>
-                    <?php endif; ?>
+                    
                     
                     <?php if($info_usuario['data']->pago == 1) : ?>
                     <li>
@@ -81,7 +81,7 @@
 
 
                     <li>
-                        <a href="https://mega.nz/?fref=gc&dti=1307459162715356#!alhTmCpL!amiJE7KqthJGfEvEfgNPnrLArwDgH_mJILE9XXcsKiI" target="_blank">
+                        <a href="https://mega.nz/#!BIwSGT7a!2lNFSo_sngO8FG_2U4aCOEduNKWrKKs1fmVJFFS1a2M" target="_blank">
                             <i class="material-icons col-amber">book</i>
                             <span>Libro Gratis</span>
                         </a>
@@ -111,13 +111,13 @@
                     <li>
                         <a href="<?= site_url('pago'); ?>">
                             <i class="material-icons col-light-blue">attach_money</i>
-                            <span>Pagar mensualidad</span>
+                            <span>Activar Membresia</span>
                         </a>
                     </li>
                     <?php endif; ?>
 
                     <li>
-                        <a href="https://t.me/joinchat/F4Z0XwyjP08YO8vSnj4TDw" target="_blank" class="waves-effect waves-block">
+                        <a href="https://t.me/joinchat/F4Z0X0QgDsqhs4WUlEbUxw" target="_blank" class="waves-effect waves-block">
                             <i class="material-icons fa fa-telegram" style="font-size: 22px;" aria-hidden="true"></i>
                             <span>Telegram</span>
                         </a>

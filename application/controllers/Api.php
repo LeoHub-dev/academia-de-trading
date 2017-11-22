@@ -90,6 +90,79 @@ class Api extends LH_Controller {
 		$this->Academia_model->verificarMensualidad();
 	}
 
+	public function save_logs()
+	{
+		set_time_limit(600);
+        ini_set('max_execution_time', 600);
+
+
+		$lista_monedas = NULL;
+	    $apikey = '60c37ee6710a4c72821e9f642869e66e';
+		$apisecret = '6d7e3bf940c4486f8c85c156ee39a0b2';
+
+		$nonce = time();
+		$uri = 'https://bittrex.com/api/v2.0/pub/markets/GetMarketSummaries?marketName=BTC-&apikey='.$apikey.'&nonce='.$nonce;
+		$sign = hash_hmac('sha512',$uri,$apisecret);
+		$ch = curl_init($uri);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('apisign:'.$sign));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		$execResult = curl_exec($ch);
+		curl_close($ch);
+		//$obj = json_decode($execResult);
+
+		//var_dump($obj);
+
+		$data_fecha_hoy = new DateTime(NULL, new DateTimeZone(TIMEZONE));
+        $fecha_actual = $data_fecha_hoy->format("Y-m-d_H-i");
+
+        if (!file_exists('bittrex/')) {
+		    mkdir('bittrex/', 0777, true);
+		}
+
+		$file = $fecha_actual.'.json';
+		file_put_contents("bittrex/".$file, $execResult);
+
+		//echo json_encode($lista_monedas);
+
+		//https://bittrex.com/Api/v2.0/pub/market/GetTicks?marketName=BTC-WAVES
+
+
+	}
+
+	public function get_logs($time)
+	{
+		$datos_clientes = file_get_contents("bittrex/".$time.".json");
+		//$json_clientes = json_decode($datos_clientes, true);
+		echo $datos_clientes;
+	}
+
+	public function remove_old()
+	{
+		$data_fecha_hoy = new DateTime(NULL, new DateTimeZone(TIMEZONE));
+        $fecha_actual = $data_fecha_hoy->format("Y-m-d_H-i");
+
+        $data_fecha_hoy->modify('-1 day');
+        $data_fecha_hoy->modify('-1 hour');
+
+        try {
+        	if (!file_exists("bittrex/".$data_fecha_hoy->format("Y-m-d_H-i").".json")) {
+			    throw new Exception('No mas archivos');
+			}
+        	while(unlink("bittrex/".$data_fecha_hoy->format("Y-m-d_H-i").".json")){
+	        	$data_fecha_hoy->modify('-1 minute');
+	        	if (!file_exists("bittrex/".$data_fecha_hoy->format("Y-m-d_H-i").".json")) {
+				    throw new Exception('No mas archivos');
+				}
+	        }
+        }
+        catch (Exception $e) {
+		    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+		}
+        
+
+	}
+
+
 
 	
 }

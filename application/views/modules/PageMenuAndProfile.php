@@ -70,6 +70,20 @@
                     </li>
                     <?php endif; ?>
 
+                    <li>
+                        <a href="https://t.me/joinchat/F4Z0X0QgDsqhs4WUlEbUxw" target="_blank" class="waves-effect waves-block">
+                            <i class="material-icons fa fa-telegram" style="font-size: 22px;" aria-hidden="true"></i>
+                            <span>Telegram</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.facebook.com/Academiadetrading-496295420749430" target="_blank" class="waves-effect waves-block">
+                            <i style="font-size: 22px;" class="material-icons fa fa-facebook-official" aria-hidden="true"></i>
+                            <span>Facebook</span>
+                        </a>
+                    </li>
+
                     <?php if($info_usuario['data']->pago == 1) : ?>
                     <li>
                         <a href="<?= site_url('mastermind'); ?>">
@@ -116,19 +130,7 @@
                     </li>
                     <?php endif; ?>
 
-                    <li>
-                        <a href="https://t.me/joinchat/F4Z0X0QgDsqhs4WUlEbUxw" target="_blank" class="waves-effect waves-block">
-                            <i class="material-icons fa fa-telegram" style="font-size: 22px;" aria-hidden="true"></i>
-                            <span>Telegram</span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="https://www.facebook.com/Academiadetrading-496295420749430" target="_blank" class="waves-effect waves-block">
-                            <i style="font-size: 22px;" class="material-icons fa fa-facebook-official" aria-hidden="true"></i>
-                            <span>Facebook</span>
-                        </a>
-                    </li>
+                    
 
             </ul>
         </div>

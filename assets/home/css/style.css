@@ -2,6 +2,21 @@
 DEFAULT
 ***********************/
 
+.round {
+	float: right;
+                border-radius: 50%;
+                overflow: hidden;
+                width: 150px;
+                height: 150px;
+            }
+            .round img {
+                display: block;
+            /* Stretch 
+                  height: 100%;
+                  width: 100%; */
+            min-width: 100%;
+            min-height: 100%;
+            }
 
 /* loader */
 #loaderDiv {
@@ -510,8 +525,8 @@ BUTTONS
 ***********************/
 
 .btn-default {
-	padding: 9px 0;
-	width: 150px;
+	padding: 9px 10px;
+	/*width: 150px;*/
 	letter-spacing: 0.025em;
 	text-transform: uppercase;
 	font-size: 15px;
@@ -1188,7 +1203,7 @@ SERVICES SECTION
 }
 
 .we-make-section {
-	background: url(../img/bg-parallax-1.png) center center no-repeat;
+	background: url(../img/bg-parallax-1.jpg) center center no-repeat;
 	background-size: cover;
 	position: relative;
 	padding: 78px 0 0;
@@ -1208,20 +1223,20 @@ SERVICES SECTION
 	color: #ffffff;
 }
 
-.we-make-section .features-list {
+.features-list {
 	margin: 44px 0 30px 28px;
 	color: #ffffff;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 }
 
-.we-make-section .features-list li {
+.features-list li {
 	position: relative;
 	line-height: 30px;
 	margin-left: 60px;
 	margin-bottom: 10px;
 }
 
-.we-make-section .features-list li:before {
+.features-list li:before {
 	content: '';
 	display: block;
 	position: absolute;
@@ -1401,7 +1416,7 @@ ABOUT US SECTION
 
 .about-team .team-member h4, 
 .about-team .team-member .h4 {
-	margin-top: 64px;
+	/*margin-top: 64px;*/
 	font-size: 25px;
 	font-weight: 600;
 	color: #0091ff;
@@ -1911,7 +1926,7 @@ RESPONSIVE
 	***********************/
 
 	h2.section-title {
-		font-size: 50px;
+		font-size: 40px;
 	}
 	
 	/**********************
@@ -1942,7 +1957,7 @@ RESPONSIVE
 	HOME SECTION
 	***********************/
 	.carousel-caption .h1 {
-		font-size: 55px;
+		font-size: 38px;
 	}
 
 	/**********************

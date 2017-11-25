@@ -192,21 +192,20 @@
 
 		</section>
 
-		<section>
+		<!--<section>
 
 
 
-				<a href="<?= site_url('auth'); ?>#_registro"><img src="https://i.imgur.com/O6qGKsc.jpg" class="img-responsive"></a>
+				<a href="<?= site_url('auth'); ?>#_registro"><img src="https://i.imgur.com/UCt2I6P.jpg" class="img-responsive"></a>
 				
 
 			<div class="services-cta-container">
 
-				<a href="<?= site_url('auth'); ?>#_registro" class="btn btn-default white-yellow">Iniciar Ahora</a>
+				<a class="smoothScroll" href="#planes" class="btn btn-default white-yellow">Iniciar Ahora</a>
 
 			</div>
 
-		</section>
-
+		</section>-->
 
 
 		<section id="explicacion">
@@ -217,11 +216,12 @@
 
 				<div class="row">
 					
-					<div class="col-md-8 col-md-offset-2">
+					<div class="col-md-12">
 
 						<div class="title-content">
 							
-							<h2 class="section-title">¿ COMO FUNCIONA ?</h2>
+							<h2 class="section-title">9 de Cada 10 de Nuestros Estudiantes de Trading Están Ganando Dinero DIARIAMENTE</h2>
+							<h3 style="margin-top: 10px">Aún Sin Tener Experiencia, Lograrás Maximizar Tus Ganancias Mientras Minimizas los Riesgos de Inversión en Trading de Criptomonedas</h3>
 
 							
 
@@ -235,15 +235,31 @@
 				
 		
 						<div class="row text-center">
-							<p>Te enseñaremos a hacer trading.</p>
-							<p>Una vez obtengas ganancias te puedes hacer miembro con tan solo 20 dolares al mes.</p>
-							<p>Si invitas a 3 personas, tu mensualidad es gratis.</p>
+							<h2>¿Qué disfrutarás al ser parte de nuestra Academia de Trading?</h2>
+							<div class="features-container">
+								<ul class="features-list" style="color: #637988;text-align: justify;
+  margin: 15px auto;
+  width: 80%;">
+									<li>-	Te ayudaremos a tomar control de tus inversiones en Criptomonedas haciendo Trading en Poloniex y Bittrex.</li>
+									<li>-	Siempre sentirás el apoyo de nuestro equipo de expertos y otros miembros de la comunidad. Nunca estarás solo en el camino.</li>
+									<li>-	Invertirás tu dinero con la seguridad de obtener ganancias gracias al análisis de nuestro staff de expertos que minimizan todo riesgo de inversión.</li>
+									<li>-	Recibirás señales y alertas sobre oportunidades de inversión en vivo y directo, que te ayudarán a multiplicar tus ingresos.</li>
+									<li>-	No necesitarás tener experiencia para aprender a generar buenos ingresos haciendo trading.</li>
+								</ul>
+							</div>
+							
+							
+							
+							
+							
 						</div>
 				</div>
 
 	
 				
 			</div> <!-- /.container -->
+
+			
 
 			<div class="we-make-section">
 
@@ -266,14 +282,17 @@
 
 							<div class="features-container">
 
-								<h3>EL CURSO EN LÍNEA QUE CAMBIARÁ TU VIDA ECONÓMICA</h3>
+								<h3>¿Qué encontrarás en Academia de Trading?</h3>
 
-								<p>Nuestro amplio curso en línea desarrollado por traders para traders consta de más de 20 clases de video que cubren todo, desde lo básico a las estrategias avanzadas de comercio criptográfico. Estudia desde la comodidad de tu casa a tu propio ritmo y en tu propio horario con nuestras clases pregrabadas a las cuales tendrás acceso dentro de nuestro portal web.</p>
+								<!--<p>Nuestro amplio curso en línea desarrollado por traders para traders consta de más de 20 clases de video que cubren todo, desde lo básico a las estrategias avanzadas de comercio criptográfico. Estudia desde la comodidad de tu casa a tu propio ritmo y en tu propio horario con nuestras clases pregrabadas a las cuales tendrás acceso dentro de nuestro portal web.</p>-->
 
 								<ul class="features-list">
-									<li>Puedes hacer trading desde casa y generar de $25 a 40 dolares por día.</li>
-									<li>No importa la edad que tengas ni con cuanto dinero decidas comenzar.</li>
-									<li>No necesitas ser un experto para comenzar a ganar.</li>
+									<li>-	Curso Básico de Trading: ideal para personas que no tienen experiencia en trabajar con trading o Criptomonedas. Aprenderás el idioma de trading, secretos y estrategias de expertos en trading.</li>
+									<li>-	Señales y Alertas de Trading Poloniex y Bittrex: obtendrás en vivo y directo, datos detallados acerca de oportunidades de inversión en trading de Criptomonedas detectadas por nuestro staff de expertos quienes están estudiando las tendencias del mercado las 24 horas del día. Las inversiones las realizarás en las plataformas POLONIEX y BITTREX.</li>
+									<li>-	Acceso a Soporte por Skype o Telegram: diariamente recibirás ayuda e información valiosa, oportuna y privilegiada que te harán multiplicar tus ingresos. Además, podrás intercambiar experiencias con otros miembros de nuestra comunidad.</li>
+									<li>-	Clases de Análisis Técnico: aprenderás con mayor profundidad cómo analizar el mercado de Criptomonedas para maximizar tus ganancias y minimizar los riesgos de inversión.</li>
+									<li>-	Acceso a Herramientas Avanzadas: tendrás acceso a nuestra calculadora de ganancias y monitor del mercado que te permitirán monitorear el comportamiento de varias Criptomonedas de manera simultánea y calcular los márgenes de ganancias para reducir al máximo todo riesgo de inversión.</li>
+									<li>-	Y mucho más…</li>
 								</ul>
 
 							</div> <!-- /.features-container -->
@@ -288,9 +307,79 @@
 
 			<div class="services-cta-container">
 
-				<a href="<?= site_url('auth'); ?>#_registro" class="btn btn-default white-yellow">Iniciar Ahora</a>
+				<a href="#planes" class="btn btn-default white-yellow smoothScroll">Aprender Trading AHORA</a>
 
 			</div>
+
+		</section>
+
+		<section style="margin-top: 10px; margin-bottom: 40px;">
+
+			<div class="row">
+					
+				<div class="col-md-8 col-md-offset-2">
+
+					<div class="title-content">
+						
+						<h2 class="section-title">Testimonios</h2>
+
+						
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="about-team slider-container">
+
+				<div class="team-member grabbable">
+
+					<div class="container">
+
+						<div class="row" style="display: flex;align-items: center;justify-content: center;">
+
+							<div class="col-md-4">
+
+								<div class="img-container">	
+									<!--<img src="https://i.imgur.com/J1mOynB.jpg" alt="Alfredo Gutierrez Uzcanga" class="circle-img">-->
+									<div class="round">
+							            <img src="https://i.imgur.com/J1mOynB.jpg" />
+							        </div>
+								</div>
+
+							</div>
+
+							<div class="col-md-8">
+
+								<div class="description">
+
+									<span class="h4">Alfredo Gutierrez Uzcanga</span>
+
+
+									<div class="biography">
+
+										<p>Estoy en una plataforma dónde estoy a prendiendo hacer trading y lo mejor que tenemos un gran equipo de amigos que nos ayudan air mejorando paso a paso y que uno mismo tiene la responsabilidad de manejar su propio dinero.     </p>
+
+
+									</div>
+
+					
+
+								</div> <!-- /.desctiption -->
+
+							</div>
+
+						</div> <!-- /.row -->
+
+					</div> <!-- /.container -->
+
+				</div> <!-- /.team-member -->
+
+				
+				
+			</div> <!-- /.about-team -->
+
 
 		</section>
 
@@ -370,20 +459,6 @@
 			</div> <!-- /.container -->
 		</section>
 
-		<section>
-
-
-
-				<a href="<?= site_url('auth'); ?>#_registro"><img src="https://i.imgur.com/O6qGKsc.jpg" class="img-responsive"></a>
-				
-
-			<div class="services-cta-container">
-
-				<a href="<?= site_url('auth'); ?>#_registro" class="btn btn-default white-yellow">Iniciar Ahora</a>
-
-			</div>
-
-		</section>
 
 
 		<section id="planes">
@@ -452,7 +527,7 @@
 		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">200</span> 
 		                                </div>
 		                            </div>
-		                            <div class="wn-number__caption"><font color="red"><b>(Oferta de lanzamiento)</b></font><br><br><small style="text-decoration: line-through;"><font color="red">$250 </font></small></div>
+		                            <div class="wn-number__caption"><font color="red"><b>(Oferta de Lanzamiento)</b></font><br><br><small style="text-decoration: line-through;"><font color="red">$250 </font></small></div>
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>
@@ -485,7 +560,7 @@
 
 						<p><i>Entra a nuestra plataforma y aprende todo sobre trading.</i></p>
 
-						<a href="#" class="btn btn-default white-yellow">Entrar AHora</a>
+						<a href="#planes" class="btn btn-default white-yellow smoothScroll">Quiero ser Trader YA</a>
 
 					</div> <!-- /.row -->
 

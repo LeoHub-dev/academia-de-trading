@@ -249,21 +249,33 @@
             {
                 $('#monitor-table > tbody > tr').each(function(){
 
-                    $(this).removeClass('hidden');
+                    if(parseInt($(this).attr('ocultar-siempre')) == 0)
+                    {
+                        $(this).removeClass('hidden');
+                    }
+                    else
+                    {
+                        $(this).addClass('hidden');
+                    }
+                    
     
+                })
+            }
+            else
+            {
+                $('#monitor-table > tbody > tr').each(function(){
+
+                
+                    if ( $(this).attr('moneda-nombre').match(coin_search) ) {
+                      $(this).removeClass('hidden');
+                    } else {
+                      $(this).addClass('hidden');
+                    } 
                 })
             }
    
 
-            $('#monitor-table > tbody > tr').each(function(){
-
-                
-                if ( $(this).attr('moneda-nombre').match(coin_search) ) {
-                  $(this).removeClass('hidden');
-                } else {
-                  $(this).addClass('hidden');
-                } 
-            })
+            
 
             
         });
@@ -276,45 +288,86 @@
 
                 if(response[i].Actual.Summary.MarketName.substring(0, 3) != 'BTC'){ return true; }
 
-                if(response[i].Actual.Summary.BaseVolume < 50){ return true; }
+                if(response[i].Actual.Summary.BaseVolume < 50){ var ocultar = 1; } else { var ocultar = 0; }
 
                 if(response[i].OneDay == null){ return true; }
 
                 var moneda_split = response[i].Actual.Market.MarketName.split("-");
 
-                $('.market-content').append('<tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" class="moneda-volumen-'+response[i].Actual.Market.MarketName+'">\
-                    <th scope="row" rowspan="2"><div class="btn-group">\
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">\
-                                        '+response[i].Actual.Market.MarketName+' <span class="caret"></span>\
-                                    </button>\
-                                    <ul class="dropdown-menu">\
-                                        <li><a href="https://www.tradingview.com/chart/?symbol=BITTREX%3A'+moneda_split[1]+moneda_split[0]+'" target="_blank" class="waves-effect waves-block">Trading View Chart</a></li>\
-                                        <li><a href="https://bittrex.com/Market/Index?MarketName='+response[i].Actual.Market.MarketName+'" target="_blank" class=" waves-effect waves-block">Ver en Bittrex</a></li>\
-                                    </ul>\
-                                </div></th>\
-                    <td>Volumen<br>'+response[i].Actual.Summary.BaseVolume+' BTC</td>\
-                </tr>\
-                <tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" class="moneda-precio-'+response[i].Actual.Market.MarketName+'">\
-                    <td>Precio<br>'+response[i].Actual.Summary.Last.toFixed(10)+' BTC</th>\
-                </tr>');
+                if(ocultar == 1)
+                {
+                    $('.market-content').append('<tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" ocultar-siempre="1" class="moneda-volumen-'+response[i].Actual.Market.MarketName+' hidden">\
+                        <th scope="row" rowspan="2"><div class="btn-group">\
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">\
+                                            '+response[i].Actual.Market.MarketName+' <span class="caret"></span>\
+                                        </button>\
+                                        <ul class="dropdown-menu">\
+                                            <li><a href="https://www.tradingview.com/chart/?symbol=BITTREX%3A'+moneda_split[1]+moneda_split[0]+'" target="_blank" class="waves-effect waves-block">Trading View Chart</a></li>\
+                                            <li><a href="https://bittrex.com/Market/Index?MarketName='+response[i].Actual.Market.MarketName+'" target="_blank" class=" waves-effect waves-block">Ver en Bittrex</a></li>\
+                                        </ul>\
+                                    </div></th>\
+                        <td>Volumen<br>'+response[i].Actual.Summary.BaseVolume+' BTC</td>\
+                    </tr>\
+                    <tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" ocultar-siempre="1" class="moneda-precio-'+response[i].Actual.Market.MarketName+' hidden">\
+                        <td>Precio<br>'+response[i].Actual.Summary.Last.toFixed(10)+' BTC</th>\
+                    </tr>');
 
-                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FiveMin.Summary.BaseVolume));
-                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].TenMin.Summary.BaseVolume));
-                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FifteenMin.Summary.BaseVolume));
-                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].ThirtyMin.Summary.BaseVolume));
-                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].OneHour.Summary.BaseVolume));
-                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].TwoHour.Summary.BaseVolume));
-                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FourHour.Summary.BaseVolume));
-                $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].OneDay.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FiveMin.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].TenMin.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FifteenMin.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].ThirtyMin.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].OneHour.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].TwoHour.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FourHour.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].OneDay.Summary.BaseVolume));
 
-                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FiveMin.Summary.Last));
-                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].TenMin.Summary.Last));
-                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FifteenMin.Summary.Last));
-                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].ThirtyMin.Summary.Last));
-                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].OneHour.Summary.Last));
-                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].TwoHour.Summary.Last));
-                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FourHour.Summary.Last));
-                $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].OneDay.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FiveMin.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].TenMin.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FifteenMin.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].ThirtyMin.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].OneHour.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].TwoHour.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FourHour.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].OneDay.Summary.Last));
+                }
+                else
+                {
+                    $('.market-content').append('<tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" ocultar-siempre="0" class="moneda-volumen-'+response[i].Actual.Market.MarketName+'">\
+                        <th scope="row" rowspan="2"><div class="btn-group">\
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">\
+                                            '+response[i].Actual.Market.MarketName+' <span class="caret"></span>\
+                                        </button>\
+                                        <ul class="dropdown-menu">\
+                                            <li><a href="https://www.tradingview.com/chart/?symbol=BITTREX%3A'+moneda_split[1]+moneda_split[0]+'" target="_blank" class="waves-effect waves-block">Trading View Chart</a></li>\
+                                            <li><a href="https://bittrex.com/Market/Index?MarketName='+response[i].Actual.Market.MarketName+'" target="_blank" class=" waves-effect waves-block">Ver en Bittrex</a></li>\
+                                        </ul>\
+                                    </div></th>\
+                        <td>Volumen<br>'+response[i].Actual.Summary.BaseVolume+' BTC</td>\
+                    </tr>\
+                    <tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" ocultar-siempre="0" class="moneda-precio-'+response[i].Actual.Market.MarketName+'">\
+                        <td>Precio<br>'+response[i].Actual.Summary.Last.toFixed(10)+' BTC</th>\
+                    </tr>');
+
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FiveMin.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].TenMin.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FifteenMin.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].ThirtyMin.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].OneHour.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].TwoHour.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FourHour.Summary.BaseVolume));
+                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].OneDay.Summary.BaseVolume));
+
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FiveMin.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].TenMin.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FifteenMin.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].ThirtyMin.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].OneHour.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].TwoHour.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FourHour.Summary.Last));
+                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].OneDay.Summary.Last));
+                }
+
+                
             })
 
             

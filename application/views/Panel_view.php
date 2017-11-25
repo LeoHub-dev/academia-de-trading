@@ -55,7 +55,7 @@
             <?php if ($info_usuario['data']->id_usuario == 1 || $info_usuario['data']->id_usuario == 100) : ?>
 
             <div class="row clearfix">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
@@ -84,6 +84,8 @@
                                             <th>Usuario</th>
                                             <th>Nombre</th>
                                             <th>Pago/Activo</th>
+                                            <th>Fecha</th>
+                                            <th>Tipo</th>
                                             <th>Ver</th>
                                         </tr>
                                     </thead>
@@ -93,6 +95,8 @@
                                             <th>Usuario</th>
                                             <th>Nombre</th>
                                             <th>Pago/Activo</th>
+                                            <th>Fecha</th>
+                                            <th>Tipo</th>
                                             <th>Ver</th>
                                         </tr>
                                     </tfoot>
@@ -104,6 +108,8 @@
                                             <td><?= $usuario->usuario; ?></td>
                                             <td><?= $usuario->nombre; ?> <?= $usuario->apellido; ?></td>
                                             <td><?= ($usuario->pago == 0) ? "Inactivo" : "Activo"; ?></td>
+                                            <td><?= $usuario->fecha_creacion; ?></td>
+                                            <td><?php if($usuario->tipo == 1){ echo "Admin"; }else if($usuario->tipo == 2)  { echo "Pago por Vida"; } else { echo "Mensual"; }?></td>
                                             <td><button type="button" class="btn bg-blue btn-circle waves-effect waves-circle waves-float cargar-usuario" id-usuario="<?= $usuario->id_usuario; ?>"><i class="material-icons">search</i></button></td>
                                         </tr>
                                     <?php $n++; endforeach; ?>
@@ -119,7 +125,7 @@
                 
 
                 
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
@@ -259,7 +265,7 @@
                                 <div role="tabpanel" class="tab-pane fade" id="opciones">
                                     
                                     <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="1">Activar</a>
-                                    <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="1">Activar como VIP</a>
+                                    <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="2">Activar como VIP</a>
                                     
                                 
                                 </div>
@@ -279,7 +285,7 @@
            
 
             <div class="row clearfix">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
@@ -350,7 +356,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>

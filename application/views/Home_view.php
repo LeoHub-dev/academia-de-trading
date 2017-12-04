@@ -340,7 +340,7 @@
 
 		
 
-		<section style="margin-top: 30px; margin-bottom: 40px;">
+		<section style="margin-top: 30px; margin-bottom: 40px; overflow: hidden;">
 
 			<div class="row">
 					
@@ -430,6 +430,136 @@
 									<div class="biography">
 
 										<p>El mejor trabajo en equipo, ayuda y orentación en el mercado de trading de cryptomonedas.</p>
+
+
+									</div>
+
+					
+
+								</div> <!-- /.desctiption -->
+
+							</div>
+
+						</div> <!-- /.row -->
+
+					</div> <!-- /.container -->
+
+				</div> <!-- /.team-member -->
+
+
+				<div class="team-member grabbable">
+
+					<div class="container">
+
+						<div class="row" style="display: flex;align-items: center;justify-content: center;">
+
+							<div class="col-md-4">
+
+								<div class="img-container">	
+									<!--<img src="https://i.imgur.com/J1mOynB.jpg" alt="Alfredo Gutierrez Uzcanga" class="circle-img">-->
+									<div class="round">
+							            <img src="https://i.imgur.com/FVnXGd5.jpg" />
+							        </div>
+								</div>
+
+							</div>
+
+							<div class="col-md-8">
+
+								<div class="description">
+
+									<span class="h4">Gerardo Sanchez</span>
+
+
+									<div class="biography">
+
+										<p>Mi experiencia  es esta gran academia de trading que gracias a Dios conocí, me a dado tanto en aprendisaje que la verdad no sabria como pagarles. Este camino a sido de gran bendicion y crecimiento  como en el tranding como personal. Me a enseñado a pensar en grande a soñar y perseguir mis sueños a un que es un logro pequeño pero gigante para mi.</p>
+
+
+									</div>
+
+					
+
+								</div> <!-- /.desctiption -->
+
+							</div>
+
+						</div> <!-- /.row -->
+
+					</div> <!-- /.container -->
+
+				</div> <!-- /.team-member -->
+
+				<div class="team-member grabbable">
+
+					<div class="container">
+
+						<div class="row" style="display: flex;align-items: center;justify-content: center;">
+
+							<div class="col-md-4">
+
+								<div class="img-container">	
+									<!--<img src="https://i.imgur.com/J1mOynB.jpg" alt="Alfredo Gutierrez Uzcanga" class="circle-img">-->
+									<div class="round">
+							            <img src="https://i.imgur.com/F9b0jky.png" />
+							        </div>
+								</div>
+
+							</div>
+
+							<div class="col-md-8">
+
+								<div class="description">
+
+									<span class="h4">Osmel Cedeño</span>
+
+
+									<div class="biography">
+
+										<p>Si todas las Academias de Trading fueran como este, creo que menos gente perdería dinero en los mercados. Definitivamente mi operativa ha mejorado y apenas llevo 2 semanas. Entrar a la Academia me ayudo a establecer unas bases más solidad a las que tenía. Pensé que me las sabía todas y no tenía por qué pagar 20$ pero definitivamente esto fue lo mejor que hice pase en poco tiempo de perdedor a ganador.</p>
+
+
+									</div>
+
+					
+
+								</div> <!-- /.desctiption -->
+
+							</div>
+
+						</div> <!-- /.row -->
+
+					</div> <!-- /.container -->
+
+				</div> <!-- /.team-member -->
+
+				<div class="team-member grabbable">
+
+					<div class="container">
+
+						<div class="row" style="display: flex;align-items: center;justify-content: center;">
+
+							<div class="col-md-4">
+
+								<div class="img-container">	
+									<!--<img src="https://i.imgur.com/J1mOynB.jpg" alt="Alfredo Gutierrez Uzcanga" class="circle-img">-->
+									<div class="round">
+							            <img src="https://i.imgur.com/k05RZcp.jpg" />
+							        </div>
+								</div>
+
+							</div>
+
+							<div class="col-md-8">
+
+								<div class="description">
+
+									<span class="h4">Angel Guerrero</span>
+
+
+									<div class="biography">
+
+										<p>Estoy muy contento de haber ingresado a la academia son muy profesionales y están atentos en ayudar.... Vamos por más gracias amigos.</p>
 
 
 									</div>

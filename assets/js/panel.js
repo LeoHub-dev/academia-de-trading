@@ -1,6 +1,6 @@
 $(function () {
 
-    var base_url = window.location.protocol + "//" + window.location.host + "/circulo/";
+    var base_url = window.location.protocol + "//" + window.location.host + "/";
 
     $('*').on('click', '.cargar-usuario', function(e){
 

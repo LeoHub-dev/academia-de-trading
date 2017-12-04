@@ -120,8 +120,7 @@ class Auth extends LH_Controller {
 						'telefono' => $this->input->post('telefono'),
 						'usuario' => $this->input->post('usuario'),
 						'password' => myHash($this->input->post('password')),
-						'referido' => $this->input->post('referido'),
-						'tipo' => 0
+						'referido' => $this->input->post('referido')
 					);
 
 
@@ -162,6 +161,17 @@ class Auth extends LH_Controller {
 				if($this->form_validation->esUnEmailUnico($user['email']))
 				{
 
+					$referido = $this->session->userdata('ref');
+
+					if(isset($referido))
+					{
+						$referido = $this->session->userdata('ref');
+					}
+					else
+					{
+						$referido = 1;
+					}
+
 					$usuario = array(
 						'nombre' => $user['first_name'],
 						'apellido' => $user['last_name'],
@@ -170,8 +180,7 @@ class Auth extends LH_Controller {
 						'telefono' => NULL,
 						'usuario' => $user['first_name'].$user['last_name'].$user['id'],
 						'password' => myHash('fbpw'.$user['email'].myHash('fb_login_lh').myHash($user['id'])),
-						'referido' => 1,
-						'tipo' => 1
+						'referido' => $referido
 					);
 
 					if($this->Auth_model->registrar($usuario))

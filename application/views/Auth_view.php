@@ -78,10 +78,14 @@
                         <div class="col-xs-4">
                             <button class="btn btn-block bg-pink waves-effect" type="submit">LOGIN</button>
                         </div>
+
                     </div>
                     <div class="row m-t-15 m-b--20">
                         <div class="col-xs-6">
                             <a id="register-form-link" href="javascript:void(0)">Registrate!</a>
+                        </div>
+                         <div class="col-md-12">
+                            <a href="javascript:void(0)" onclick="loginFb()"><img src="https://www.thenerdmag.com/wp-content/uploads/facebook-login.png" class="img-responsive"></a>
                         </div>
                         <!--<div class="col-xs-6 align-right">
                             <a href="forgot-password.html">Forgot Password?</a>
@@ -224,7 +228,7 @@ function loginFb()
 function responseFb(data)
 {
 	data = JSON.parse(data);
-	if(data.response == true){ location.reload(); } else { console.log(data.errors); }
+	if(data.response == true){ location.reload(); } else { alert(data.errors); }
 }
 
 $(function () {

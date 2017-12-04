@@ -150,7 +150,7 @@ $(function () {
         e.preventDefault();
         e.stopImmediatePropagation();
 
-        if (confirm('Desea confirmar el pago de este usuario?')) {
+        if (confirm('Desea confirmar que se le pago a este usuario?')) {
             
           } else {
             return;

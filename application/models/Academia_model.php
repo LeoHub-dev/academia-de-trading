@@ -14,47 +14,6 @@ class Academia_model extends CI_Model
         parent::__construct();
     }
 
-    public function prepararNuevoSistema()
-    {
-        $this->db->empty_table('facturas');
-
-        //$this->db->where('pago',1);
-        $this->db->join('usuarios_personas', 'usuarios_data.id_persona = usuarios_personas.id_persona', 'left');
-
-        $query = $this->db->get('usuarios_data');
-
-        if($query->num_rows() > 0 )
-        {
-            foreach ($query->result() as $inf)
-            {
-
-                if($inf->pago == 1)
-                {
-                    $this->db->set('pago', 1);
-        
-                    $this->db->where('id_usuario',$inf->id_usuario);
-
-                    $this->db->update('usuarios_data');
-
-                    $this->agregarFactura($inf->id_usuario,1);
-                }
-                else
-                {
-                    $this->db->set('pago', 0);
-        
-                    $this->db->where('id_usuario',$inf->id_usuario);
-
-                    $this->db->update('usuarios_data');
-
-                    $this->agregarFactura($inf->id_usuario);
-                }
-            }
-        }
-
-        $this->verificarMensualidad();
-
-                
-    }
 
     public function verificarMensualidad()
     {
@@ -153,15 +112,16 @@ class Academia_model extends CI_Model
 
     }
 
-    public function vipAgregarReferido($id_usuario,$referido)
+    public function agregarGanancia($id_usuario,$cantidad,$razon = "Sin asignar")
     {
 
         $data = array(
            'id_usuario' => $id_usuario,
-           'referido' => $referido
+           'cantidad' => $cantidad,
+           'razon' => $razon
         );
 
-        $query = $this->db->insert('vip_referidos',$data);
+        $query = $this->db->insert('ganancias',$data);
 
         if($query)
         {
@@ -175,35 +135,13 @@ class Academia_model extends CI_Model
         
     }
 
-    public function vipAgregarGanancia($id_usuario,$cantidad)
-    {
-
-        $data = array(
-           'id_usuario' => $id_usuario,
-           'cantidad' => $cantidad
-        );
-
-        $query = $this->db->insert('vip_ganancias',$data);
-
-        if($query)
-        {
-            return TRUE;
-        }
-        else
-        {
-            return FALSE;
-        }
-        
-        
-    }
-
-    public function vipGanancias($id_usuario)
+    public function listaGanancias($id_usuario)
     {
         $lista_ganancias = NULL;
 
         $this->db->where('id_usuario',$id_usuario);
 
-        $query = $this->db->get('vip_ganancias');
+        $query = $this->db->get('ganancias');
 
         if($query->num_rows() > 0 )
         {
@@ -216,24 +154,6 @@ class Academia_model extends CI_Model
         return $lista_ganancias;
     }
 
-    public function vipCantidadReferidos($id_usuario)
-    {
-        $cantidad_referidos = 0;
-
-        $this->db->where('referido',$id_usuario);
-
-        $query = $this->db->get('vip_referidos');
-
-        if($query->num_rows() > 0 )
-        {
-            foreach ($query->result() as $inf)
-            {
-                $cantidad_referidos++;
-            }
-        }
-
-        return $cantidad_referidos;
-    }
 
     public function agregarFactura($id_usuario,$pagada = 0)
     {
@@ -341,7 +261,7 @@ class Academia_model extends CI_Model
 
         $status = $this->db->update('facturas', array('pagada' => 1), array('id_usuario' => $id_usuario));
 
-        $this->Auth_model->activarUsuario($id_usuario);
+        //$this->Auth_model->activarUsuario($id_usuario);
 
         if($status)
         {

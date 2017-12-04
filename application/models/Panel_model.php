@@ -55,6 +55,23 @@ class Panel_model extends CI_Model
 
     }
 
+    public function listaGanancias()
+    {
+        $lista_ganancias = NULL;
+
+        $query = $this->db->get('ganancias');
+
+        if($query->num_rows() > 0 )
+        {
+            foreach ($query->result() as $inf)
+            {
+                $lista_ganancias[] = $inf;
+            }
+        }
+
+        return $lista_ganancias;
+    }
+
     public function obtenerUsuarios()
     {
 
@@ -204,6 +221,20 @@ class Panel_model extends CI_Model
             return FALSE;
         }
         
+    }
+
+    public function marcarPagado($id_ganancia)
+    {
+        $status = $this->db->update('ganancias', array('pagada' => 1), array('id_ganancia' => $id_ganancia));
+
+        if($status)
+        {
+
+
+            return TRUE;
+        }
+
+        return FALSE;
     }
 
 

@@ -116,10 +116,10 @@
                                             </tr>
                                             <tr>
                                                 <td><div class="col-md-5" style="margin:0; padding: 0;"><div class="input-group">
-                                            <div class="form-line"><input type="text" placeholder="% Personalizado" class="form-control calc-ganancia ganancia-peroncentaje-personalizado" value="10"></div>
+                                            <div class="form-line"><input type="text" placeholder="% Personalizado" class="form-control calc-ganancia ganancia-porcentaje-personalizado" value="10"></div>
                                             <span class="input-group-addon">% (Editable)</span>
                                         </div></div></td>
-                                                <td><input type="text" class="form-control calc-ganancia cantidad-porcentaje-personalizado" readonly="true" value="0"></td>
+                                                <td><input type="text" class="form-control cantidad-porcentaje-personalizado" value="0"></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -232,7 +232,23 @@
                 calcularBtc(3);
             }
 
-            
+        });
+
+        $('.cantidad-porcentaje-personalizado').on('input', function(e) { 
+
+            var monto_a_comprar = $('.monto-compra').val().replace(",",".");
+            monto_a_comprar =  monto_a_comprar.replace(/[^0-9.,]*/g, '');
+            $('.monto-compra').val(monto_a_comprar);
+            monto_a_comprar = parseFloat(monto_a_comprar);
+            monto_a_comprar = (isNaN(monto_a_comprar) ? '0' : monto_a_comprar);
+
+
+            var cantidad_ganancia = $(".cantidad-porcentaje-personalizado").val().replace(",",".");
+
+            $('.ganancia-porcentaje-personalizado').val((((cantidad_ganancia*100) / monto_a_comprar) - 100).toFixed(2));
+
+
+
             
         });
 
@@ -262,9 +278,9 @@
                 $(this).val((monto_a_comprar + (monto_a_comprar *(parseFloat($(this).attr('percent')/100)))).toFixed(8));
             })
 
-            var porcentaje_ganancia = $('.ganancia-peroncentaje-personalizado').val().replace(",",".");
+            var porcentaje_ganancia = $('.ganancia-porcentaje-personalizado').val().replace(",",".");
             porcentaje_ganancia = porcentaje_ganancia.replace(/[^0-9.,]*/g, '');
-            $('.ganancia-peroncentaje-personalizado').val(porcentaje_ganancia);
+            $('.ganancia-porcentaje-personalizado').val(porcentaje_ganancia);
 
             porcentaje_ganancia = parseFloat(porcentaje_ganancia);
             var cantidad_ganancia = (monto_a_comprar + (monto_a_comprar*(porcentaje_ganancia/100)));

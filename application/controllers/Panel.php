@@ -48,6 +48,7 @@ class Panel extends LH_Controller {
 		$this->scope['lista_usuarios_admin'] = $this->Panel_model->obtenerUsuarios();
 		$this->scope['lista_pagos_admin'] = $this->Panel_model->listaPagos();
 		$this->scope['lista_indicios_admin'] = $this->Academia_model->obtenerIndicios();
+		$this->scope['lista_ganancias_admin'] = $this->Panel_model->listaGanancias();
 		
 		$this->load->view('Panel_view',$this->scope);
 		
@@ -111,7 +112,6 @@ class Panel extends LH_Controller {
 			{
 			 	$this->Auth_model->activarUsuario($this->input->post('id_usuario'));
                 $this->Academia_model->marcarPagadoFactura($this->input->post('id_usuario'));
-
                 $this->Academia_model->verificarMensualidad();
                 echo response_good('Activado','Pagada');
 
@@ -119,20 +119,6 @@ class Panel extends LH_Controller {
             }
             else if($this->input->post('tipo') == 2)
             {
-                $usuario = $this->Auth_model->obtenerUsuarioID($this->input->post('id_usuario'))['data'];
-
-                $this->Academia_model->vipAgregarReferido($this->input->post('id_usuario'),$usuario->referido);
-
-                $cant_referidos = $this->Academia_model->vipCantidadReferidos($usuario->referido);
-
-                if($cant_referidos == 3)
-                {
-                    $this->Academia_model->vipAgregarGanancia($usuario->referido,50);
-                }
-                else if($cant_referidos > 3)
-                {
-                    $this->Academia_model->vipAgregarGanancia($usuario->referido,100);
-                }
 
                 $this->Auth_model->vipUsuario($this->input->post('id_usuario'));
 

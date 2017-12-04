@@ -90,19 +90,31 @@ class Coinbase
     public function createCoinBaseInvoice()
     {
 
-        $factura = $this->Academia_model->obtenerFactura($this->id_user);
+        $factura = $this->Academia_model->obtenerFactura();
+        $usuario = $this->Auth_model->obtenerUsuarioID($this->id_user)['data'];
 
         if($this->tipo == 1)
         {
+            if($usuario->tipo == 0)
+            {
+                $coinbase_invoice = array(
+                    'id_user' => $this->id_user,
+                   'tipo' => $this->tipo,
+                   'total_to_pay' => $this->usdToBtc(20),
+                   'id_factura' => $factura->id_factura
+                );
+            }
+            else
+            {
+                $coinbase_invoice = array(
+                    'id_user' => $this->id_user,
+                   'tipo' => $this->tipo,
+                   'total_to_pay' => $this->usdToBtc(40),
+                   'id_factura' => $factura->id_factura
+                );
+            }
 
-            $coinbase_invoice = array(
-               'id_user' => $this->id_user,
-               'tipo' => $this->tipo,
-               'total_to_pay' => $this->usdToBtc(20),
-               'id_factura' => $factura->id_factura
-            );
             
-
             $coinbase_invoice_search = array(
                 'id_user' => $this->id_user,
                 'tipo' => $this->tipo,
@@ -270,21 +282,6 @@ class Coinbase
                     }
                     else if($invoice_data->tipo == 2)
                     {
-                        $usuario = $this->Auth_model->obtenerUsuarioID($invoice_data->id_user)['data'];
-
-                        $this->Academia_model->vipAgregarReferido($invoice_data->id_user,$usuario->referido);
-
-                        $cant_referidos = $this->Academia_model->vipCantidadReferidos($usuario->referido);
-
-                        if($cant_referidos == 3)
-                        {
-                            $this->Academia_model->vipAgregarGanancia($usuario->referido,50);
-                        }
-                        else if($cant_referidos > 3)
-                        {
-                            $this->Academia_model->vipAgregarGanancia($usuario->referido,100);
-                        }
-
                         $this->db->where('id_invoice', $invoice_data->id_invoice);
                         $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
 
@@ -372,21 +369,6 @@ class Coinbase
                 }
                 else if($invoice_data->tipo == 2)
                 {
-                    $usuario = $this->Auth_model->obtenerUsuarioID($invoice_data->id_user)['data'];
-
-                    $this->Academia_model->vipAgregarReferido($invoice_data->id_user,$usuario->referido);
-
-                    $cant_referidos = $this->Academia_model->vipCantidadReferidos($usuario->referido);
-
-                    if($cant_referidos == 3)
-                    {
-                        $this->Academia_model->vipAgregarGanancia($usuario->referido,50);
-                    }
-                    else if($cant_referidos > 3)
-                    {
-                        $this->Academia_model->vipAgregarGanancia($usuario->referido,100);
-                    }
-
                     $this->db->where('id_invoice', $invoice_data->id_invoice);
                     $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
 

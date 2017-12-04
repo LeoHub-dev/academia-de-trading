@@ -109,7 +109,7 @@
                                             <td><?= $usuario->nombre; ?> <?= $usuario->apellido; ?></td>
                                             <td><?= ($usuario->pago == 0) ? "Inactivo" : "Activo"; ?></td>
                                             <td><?= $usuario->fecha_creacion; ?></td>
-                                            <td><?php if($usuario->tipo == 1){ echo "Admin"; }else if($usuario->tipo == 2)  { echo "Pago por Vida"; } else { echo "Mensual"; }?></td>
+                                            <td><?php if($usuario->tipo == 1){ echo "Admin"; }else if($usuario->tipo == 2)  { echo "Pago por Vida"; } else if($usuario->pago == 0){ echo "Inactivo"; } else { echo "Mensual"; }?></td>
                                             <td><button type="button" class="btn bg-blue btn-circle waves-effect waves-circle waves-float cargar-usuario" id-usuario="<?= $usuario->id_usuario; ?>"><i class="material-icons">search</i></button></td>
                                         </tr>
                                     <?php $n++; endforeach; ?>
@@ -275,6 +275,62 @@
                             </div>
                             
                             
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row clearfix">
+                
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Lista ganancias
+                            </h2>
+                            
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                                <table class="table table-bordered table-striped table-hover dataTable js-ganancias-total" id="tabla_indicios" role="grid" aria-describedby="DataTables_Table_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th>#</th>
+                                            <th>Usuario</th>
+                                            <th>Cantidad</th>
+                                            <th>Razon</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Usuario</th>
+                                            <th>Cantidad</th>
+                                            <th>Razon</th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                    <?php $n = 0; foreach((array) $lista_ganancias_admin as $ganancia) : ?>
+                                        <tr role="row">
+                                            <td><?= $n; ?></td>
+                                            <td><?= $lista_usuarios_backup[$ganancia->id_usuario]->usuario; ?></td>
+                                            <td><?= $ganancia->cantidad; ?></td>
+                                            <td><?= $ganancia->razon; ?></td>
+                                            <td><?php if($ganancia->pagada == 0) { ?><a href="javascript:void(0)" class="btn btn-primary marcar-pagado" id-ganancia="<?= $ganancia->id_ganancia; ?>">Marcar como pagado</a><?php } else { ?> Pagada <?php } ?></td>
+                                        </tr>
+                                    <?php $n++; endforeach; ?>
+
+                                    </tbody>
+                                </table>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -488,6 +544,9 @@
                 
             </div>
 
+
+
+
             <?php endif; ?>
 
 
@@ -538,7 +597,7 @@
             $('.js-ganancias-total').DataTable({
                 dom: 'Bfrtip',
                 responsive: true,
-                "order": [[ 3, "desc" ]],
+                "order": [[ 4, "asc" ]],
                 buttons: [
                     'excel', 'pdf', 'print'
                 ]

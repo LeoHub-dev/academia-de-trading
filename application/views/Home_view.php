@@ -106,6 +106,62 @@
 
 	<main>
 
+		
+
+		<!--<section>
+
+
+
+				<a href="<?= site_url('auth'); ?>#_registro"><img src="https://i.imgur.com/UCt2I6P.jpg" class="img-responsive"></a>
+				
+
+			<div class="services-cta-container">
+
+				<a class="smoothScroll" href="#planes" class="btn btn-default white-yellow">Iniciar Ahora</a>
+
+			</div>
+
+		</section>-->
+
+
+		<section id="explicacion">
+
+
+
+			<div class="container">
+
+				<div class="row">
+					
+			
+
+					<div class="title-content clearfix">
+
+						<div class="row" style="display: flex;align-items: center;justify-content: center;">
+							<div class="col-md-8">
+								<div class="embed-responsive embed-responsive-16by9">
+									<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/244774711?title=0&amp;byline=0&amp;portrait=0;autoplay=1" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+								  <!--<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yeiYJ57DrH4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+								</div>
+								
+							</div> <!-- /.col -->
+							<div class="col-md-4">
+								<h2 id="home-title" class="section-title clearfix">9 de Cada 10 de Nuestros Estudiantes de Trading Están Ganando Dinero DIARIAMENTE</h2>
+							</div> <!-- /.col -->
+						</div>
+						
+
+						
+
+					</div>
+
+					<h3 class="clearfix" style="margin-top: 40px; margin-bottom: 40px;text-align: center">Aún Sin Tener Experiencia, Lograrás Maximizar Tus Ganancias Mientras Minimizas los Riesgos de Inversión en Trading de Criptomonedas</h3>
+
+					
+
+				</div>
+			</div>
+		</section>
+
 		<section id="home">
 
 			<!-- Section title -->
@@ -134,7 +190,7 @@
 							<!--<span class="h1">Brands</span>
 
 							<p>TRANSFORMAMOS EMPRENDEDORES EN TRADERS PROFESIONALES.</p>-->
-							<p style=""><img src="<?= asset_url(); ?>/home/img/logofull.png" class="img-responsive" style="max-height:200px; display: initial;"></p>
+							<p style=""><img src="<?= asset_url(); ?>/home/img/logofull.png" class="img-responsive" style="max-height:100px; display: initial;"></p>
 
 							<!--<a href="<?= site_url('auth'); ?>#_registro" class="btn btn-default white-yellow">Inscribete</a>-->
 
@@ -192,61 +248,28 @@
 
 		</section>
 
-		<!--<section>
-
-
-
-				<a href="<?= site_url('auth'); ?>#_registro"><img src="https://i.imgur.com/UCt2I6P.jpg" class="img-responsive"></a>
-				
-
-			<div class="services-cta-container">
-
-				<a class="smoothScroll" href="#planes" class="btn btn-default white-yellow">Iniciar Ahora</a>
-
-			</div>
-
-		</section>-->
-
-
-		<section id="explicacion">
-
-
-
+		<section id="">
 			<div class="container">
-
-				<div class="row">
-					
-					<div class="col-md-12">
-
-						<div class="title-content">
-							
-							<h2 class="section-title">9 de Cada 10 de Nuestros Estudiantes de Trading Están Ganando Dinero DIARIAMENTE</h2>
-							<h3 style="margin-top: 10px">Aún Sin Tener Experiencia, Lograrás Maximizar Tus Ganancias Mientras Minimizas los Riesgos de Inversión en Trading de Criptomonedas</h3>
-
-							
-
-						</div>
-
-					</div>
-
-				</div>
-				<div class="services-container">
+				<div class="services-container" style="margin-bottom: 0px;margin-top:80px;">
 
 				
 		
 						<div class="row text-center">
-							<h2>¿Qué disfrutarás al ser parte de nuestra Academia de Trading?</h2>
-							<div class="features-container">
-								<ul class="features-list" style="color: #637988;text-align: justify;
-  margin: 15px auto;
-  width: 80%;">
-									<li>-	Te ayudaremos a tomar control de tus inversiones en Criptomonedas haciendo Trading en Poloniex y Bittrex.</li>
-									<li>-	Siempre sentirás el apoyo de nuestro equipo de expertos y otros miembros de la comunidad. Nunca estarás solo en el camino.</li>
-									<li>-	Invertirás tu dinero con la seguridad de obtener ganancias gracias al análisis de nuestro staff de expertos que minimizan todo riesgo de inversión.</li>
-									<li>-	Recibirás señales y alertas sobre oportunidades de inversión en vivo y directo, que te ayudarán a multiplicar tus ingresos.</li>
-									<li>-	No necesitarás tener experiencia para aprender a generar buenos ingresos haciendo trading.</li>
-								</ul>
+							<div class="services-container" style="margin-bottom: 40px; margin-top: 0px"><h2>Herramientas Avanzadas que disfrutaras al ser parte de nuestra Academia</h2></div>
+							<div class="col-md-6">
+								<img src="https://i.imgur.com/kK0ZN4T.png" class="img-responsive">
 							</div>
+							<div class="col-md-6">
+								<div class="col-md-12">
+									<h3>Monitor de Mercado</h3>
+									<a href="https://i.imgur.com/6EhuWlE.png" target="_blank"><img src="https://i.imgur.com/6EhuWlE.png" class="img-responsive"></a>
+								</div>
+								<div class="col-md-12">
+									<h3>Calculadora de Ganancias</h3>
+									<a href="https://i.imgur.com/ZQCQ9qd.png" target="_blank"><img src="https://i.imgur.com/ZQCQ9qd.png" class="img-responsive"></a>
+								</div>
+							</div>
+
 							
 							
 							
@@ -259,7 +282,11 @@
 				
 			</div> <!-- /.container -->
 
-			
+		</section>
+
+		
+
+		<section id="">
 
 			<div class="we-make-section">
 
@@ -269,16 +296,8 @@
 					
 					<div class="row reorder-sm">
 						
-						<div class="col-md-5">
-
-							<div class="embed-responsive embed-responsive-16by9">
-								<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/241783117?title=0&amp;byline=0&amp;portrait=0;autoplay=0" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-							  <!--<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yeiYJ57DrH4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
-							</div>
-							
-						</div> <!-- /.col -->
-
-						<div class="col-md-7">
+						
+						<div class="col-md-12">
 
 							<div class="features-container">
 
@@ -292,7 +311,13 @@
 									<li>-	Acceso a Soporte por Skype o Telegram: diariamente recibirás ayuda e información valiosa, oportuna y privilegiada que te harán multiplicar tus ingresos. Además, podrás intercambiar experiencias con otros miembros de nuestra comunidad.</li>
 									<li>-	Clases de Análisis Técnico: aprenderás con mayor profundidad cómo analizar el mercado de Criptomonedas para maximizar tus ganancias y minimizar los riesgos de inversión.</li>
 									<li>-	Acceso a Herramientas Avanzadas: tendrás acceso a nuestra calculadora de ganancias y monitor del mercado que te permitirán monitorear el comportamiento de varias Criptomonedas de manera simultánea y calcular los márgenes de ganancias para reducir al máximo todo riesgo de inversión.</li>
+									<li>-	Te ayudaremos a tomar control de tus inversiones en Criptomonedas haciendo Trading en Poloniex y Bittrex.</li>
+									<li>-	Siempre sentirás el apoyo de nuestro equipo de expertos y otros miembros de la comunidad. Nunca estarás solo en el camino.</li>
+									<li>-	Invertirás tu dinero con la seguridad de obtener ganancias gracias al análisis de nuestro staff de expertos que minimizan todo riesgo de inversión.</li>
+									<li>-	Recibirás señales y alertas sobre oportunidades de inversión en vivo y directo, que te ayudarán a multiplicar tus ingresos.</li>
+									<li>-	No necesitarás tener experiencia para aprender a generar buenos ingresos haciendo trading.</li>
 									<li>-	Y mucho más…</li>
+
 								</ul>
 
 							</div> <!-- /.features-container -->
@@ -313,7 +338,9 @@
 
 		</section>
 
-		<section style="margin-top: 10px; margin-bottom: 40px;">
+		
+
+		<section style="margin-top: 30px; margin-bottom: 40px;">
 
 			<div class="row">
 					
@@ -360,6 +387,49 @@
 									<div class="biography">
 
 										<p>Estoy en una plataforma dónde estoy a prendiendo hacer trading y lo mejor que tenemos un gran equipo de amigos que nos ayudan air mejorando paso a paso y que uno mismo tiene la responsabilidad de manejar su propio dinero.     </p>
+
+
+									</div>
+
+					
+
+								</div> <!-- /.desctiption -->
+
+							</div>
+
+						</div> <!-- /.row -->
+
+					</div> <!-- /.container -->
+
+				</div> <!-- /.team-member -->
+
+				<div class="team-member grabbable">
+
+					<div class="container">
+
+						<div class="row" style="display: flex;align-items: center;justify-content: center;">
+
+							<div class="col-md-4">
+
+								<div class="img-container">	
+									<!--<img src="https://i.imgur.com/J1mOynB.jpg" alt="Alfredo Gutierrez Uzcanga" class="circle-img">-->
+									<div class="round">
+							            <img src="https://i.imgur.com/vpIgPlC.jpg" />
+							        </div>
+								</div>
+
+							</div>
+
+							<div class="col-md-8">
+
+								<div class="description">
+
+									<span class="h4">Jose Rondon</span>
+
+
+									<div class="biography">
+
+										<p>El mejor trabajo en equipo, ayuda y orentación en el mercado de trading de cryptomonedas.</p>
 
 
 									</div>
@@ -498,7 +568,7 @@
 		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">20</span>
 		                                </div>
 		                            </div>
-		                            <div class="wn-number__caption">Por Mes <font color="red"><b>(Oferta de lanzamiento)</b></font><br><br><small style="text-decoration: line-through;"><font color="red">$30 / Mes </font></small></div>
+		                            <div class="wn-number__caption">Por Mes <font color="red"><b>(Oferta de lanzamiento)</b></font><br><br><small style="text-decoration: line-through;"><font color="red">$40 / Mes </font></small></div>
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>
@@ -506,7 +576,8 @@
 			                    	<li><strong>1 a 3</strong> señales por dia</li>
 			                    	<li>Apoyo por <strong>Skype o Telegram</strong></li>
 			                    	<li>Se parte de la <strong>comunidad</strong></li>
-			                    	<li>Membresia <strong>gratis</strong> con 3 referidos (Pagos)</li>
+			                    	<li>Acceso a las <strong>herramientas</strong> de la pagina</li>
+			                    	<li>Invita <strong>3 referidos (Activos)</strong> y obten el mes gratis</li>
 		                    	</ul></div>
 		                    <div class="wn-plan__buttons">
 		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
@@ -524,10 +595,10 @@
 		                        <div class="wn-number wn-number--price">
 		                            <div class="wn-number__num">
 		                                <div class="wn-number__group">
-		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">200</span> 
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">250</span> 
 		                                </div>
 		                            </div>
-		                            <div class="wn-number__caption"><font color="red"><b>(Oferta de Lanzamiento)</b></font><br><br><small style="text-decoration: line-through;"><font color="red">$250 </font></small></div>
+		                            <div class="wn-number__caption">Pago Unico<br><br><small style="text-decoration: line-through;"><font color="red">$497</font></small></div>
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>
@@ -536,6 +607,7 @@
 			                    	<li>Señales <strong>ilimitadas</strong> todo el dia</li>
 			                    	<li><strong>Clases</strong> de analisis tecnico</li>
 			                    	<li>Curso de trading <strong>fundamental</strong></li>
+			                    	<li>Acceso a las <strong>herramientas</strong> de la pagina</li>
 		                    	</ul></div>
 		                    <div class="wn-plan__buttons">
 		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
@@ -659,6 +731,15 @@
 						        <div class="at-user__avatar"><img src="http://academiadetrading.net/assets/images/team_sugey.png"></div>
 						        <div class="at-user__name">Sugey Reyes</div>
 						        <div class="at-user__title">Customer Service</div>
+						 
+						      </div>
+						    </div>
+
+						    <div class="at-column">
+						      <div class="at-user">
+						        <div class="at-user__avatar"><img src="https://i.imgur.com/TeBUVNI.png"></div>
+						        <div class="at-user__name">Willy Tirado</div>
+						        <div class="at-user__title">Master Trader / Republica Dominicana</div>
 						 
 						      </div>
 						    </div>
@@ -874,6 +955,7 @@
 					</ul>
 
 					<p class="copyright"> © Copyright <span id="year">2017</span> <span class="text-yellow">Academia De Trading</span>. All Rights Reserved</p>
+					<p class="copyright"> <a href="<?= site_url('legal'); ?>">Terminos & Condiciones </a></p>
 
 				</div>
  
@@ -890,17 +972,98 @@
 	<script type="text/javascript" src="<?= asset_url(); ?>/home/js/mixitup.min.js"></script>
 	<script type="text/javascript" src="<?= asset_url(); ?>/home/js/slick.min.js"></script>
 	<script src="<?= asset_url(); ?>/home/js/wow.js"></script>
+	<script src="<?= asset_url(); ?>/home/js/bootstrap-notify.min.js"></script>
 
-	<style type="text/css">
-		
-	</style>
+
+
+	
 
 	<script src="http://matthew.wagerfield.com/parallax/deploy/jquery.parallax.js"></script>
+
+	<style type="text/css">
+		.alert-minimalist {
+			background-color: rgb(0, 126, 255);
+			/*border-color: rgba(149, 149, 149, 0.3);*/
+			border-color: rgba(0, 0, 0, 0.3);
+			border-radius: 3px;
+			color: rgb(149, 149, 149);
+			padding: 10px;
+		}
+		.alert-minimalist > [data-notify="icon"] {
+			height: 50px;
+			margin-right: 12px;
+		}
+		.alert-minimalist > [data-notify="title"] {
+			color: white;
+			display: block;
+			font-weight: bold;
+			margin-bottom: 5px;
+			text-transform: capitalize;
+		}
+		.alert-minimalist > [data-notify="message"] {
+			font-size: 80%;
+			color: white;
+		}
+	</style>
 
 	<script type="text/javascript">
 		var scene = $('#scene');
 		scene.parallax();
-		
+		/*$.notify('I will not close until my delay is up.', {
+			allow_dismiss: false,
+			placement: {
+				from: 'bottom',
+				align: 'left'
+			},
+			type: 'success'
+		});*/
+
+	 	window.setInterval(function(){
+	        $.get('https://randomuser.me/api/', null, function(person) {
+
+	        	console.log(person.results[0]);
+
+                $.notify({
+					icon: person.results[0].picture.thumbnail,
+					title: person.results[0].name.first+" "+person.results[0].name.last,
+					message: 'Se ha unido a la academia !'
+				},{
+					type: 'minimalist',
+					delay: 5000,
+					icon_type: 'image',
+					placement: {
+						from: 'bottom',
+						align: 'left'
+					},
+					template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+						'<img data-notify="icon" class="img-circle pull-left">' +
+						'<span data-notify="title">{1}</span>' +
+						'<span data-notify="message">{2}</span>' +
+					'</div>'
+				});
+
+	            },"json").fail(function(xhr, status, error) {
+	            console.log(error);
+	            console.log(xhr.responseText);
+	            console.log(status);
+	        });
+	    }, 30000);
+
+		/*$.notify({
+			icon: 'https://randomuser.me/api/portraits/med/men/77.jpg',
+			title: 'Byron Morgan',
+			message: 'Momentum reduce child mortality effectiveness incubation empowerment connect.'
+		},{
+			type: 'minimalist',
+			delay: 5000,
+			icon_type: 'image',
+			template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+				'<img data-notify="icon" class="img-circle pull-left">' +
+				'<span data-notify="title">{1}</span>' +
+				'<span data-notify="message">{2}</span>' +
+			'</div>'
+		});*/
+				
 	</script>
 
 	<!-- Latest compiled and minified JavaScript Bootstrap-->

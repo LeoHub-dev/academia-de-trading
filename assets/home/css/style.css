@@ -4,19 +4,19 @@ DEFAULT
 
 .round {
 	float: right;
-                border-radius: 50%;
-                overflow: hidden;
-                width: 150px;
-                height: 150px;
-            }
-            .round img {
-                display: block;
-            /* Stretch 
-                  height: 100%;
-                  width: 100%; */
-            min-width: 100%;
-            min-height: 100%;
-            }
+    border-radius: 50%;
+    overflow: hidden;
+    width: 150px;
+    height: 150px;
+}
+.round img {
+    display: block;
+/* Stretch 
+      height: 100%;
+      width: 100%; */
+min-width: 100%;
+min-height: 100%;
+}
 
 /* loader */
 #loaderDiv {
@@ -465,6 +465,20 @@ h2.section-title,
 	color: #0d6da5;
 }
 
+#home-title:after{
+	content: none !important;
+	background-image: none !important;
+	display: none !important;
+}
+#home-title:before{
+	content: none !important;
+	background-image: none !important;
+	display: none !important;
+}
+#home-title {
+	font-size: 43px !important;
+}
+
 h2.section-title:after,
 .h2.section-title:after {
 	display: block;
@@ -477,6 +491,15 @@ h2.section-title:after,
 
 .title-content {
 	text-align: center;
+}
+
+.text-content p {
+	margin: 0 0 10px !important;
+}
+
+.text-content h2, .text-content h3 {
+	margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .title-content p {
@@ -1098,7 +1121,7 @@ HOME SECTION
 ***********************/
 
 #home {
-	height: 450px;
+	height: 250px;
 }
 
 .carousel {
@@ -1107,7 +1130,7 @@ HOME SECTION
 }
 
 .carousel .item {
-	height: 450px;
+	height: 250px;
 	background-size: cover;
 }
 
@@ -1125,7 +1148,7 @@ HOME SECTION
 
 .carousel-caption {
 	padding: 0;
-	bottom: 50%;
+	bottom: 60%;
 	transform: translateY(50%);
 }
 
@@ -1134,6 +1157,7 @@ HOME SECTION
 }
 
 .carousel-caption .h1 {
+	font-size: 40px;
 	margin-top: 27px;
 }
 
@@ -1928,6 +1952,11 @@ RESPONSIVE
 	h2.section-title {
 		font-size: 40px;
 	}
+
+	#home-title {
+		font-size: 38px !important;
+	}
+
 	
 	/**********************
 	NAVIGATION

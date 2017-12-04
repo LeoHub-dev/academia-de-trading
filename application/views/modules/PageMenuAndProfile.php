@@ -27,44 +27,46 @@
                 <li class="header">MENU</li>
                 <li class="active">
                     <a href="<?= site_url('dashboard'); ?>">
-                        <i class="material-icons">home</i>
+                        <i class="material-icons col-light-blue">home</i>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
                     
-                    
-                    <?php if($info_usuario['data']->pago == 1) : ?>
-                    <li>
-                        <a href="<?= site_url('indicios'); ?>">
-                            <i class="material-icons">trending_up</i>
-                            <span>Señales</span>
-                        </a>
-                    </li>
-                    <?php endif; ?>
+
 
                     <?php if($info_usuario['data']->pago == 1) : ?>
                     <li>
                         <a href="<?= site_url('clases'); ?>">
-                            <i class="material-icons">local_library</i>
-                            <span>Clases</span>
+                            <i class="material-icons col-light-blue">local_library</i>
+                            <span>Clases Basicas</span>
                         </a>
                     </li>
                     <?php endif; ?>
 
-                    
+                    <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1) : ?>
+                    <li>
+                        <a href="<?= site_url('clases/vip'); ?>">
+                            <i class="material-icons col-amber">local_library</i>
+                            <span>Clases Vip</span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+
+                    <?php if($info_usuario['data']->pago == 1) : ?>
                     <li>
                         <a href="<?= site_url('mercado'); ?>">
-                            <i class="material-icons">store</i>
+                            <i class="material-icons col-red">store</i>
                             <span>Mercado</span>
                         </a>
                     </li>
+                    <?php endif; ?>
                     
                     
                     <?php if($info_usuario['data']->pago == 1) : ?>
                     <li>
                         <a href="<?= site_url('calculadora'); ?>">
-                            <i class="material-icons">extension</i>
+                            <i class="material-icons col-amber">extension</i>
                             <span>Calculadora</span>
                         </a>
                     </li>
@@ -72,14 +74,14 @@
 
                     <li>
                         <a href="https://t.me/joinchat/F4Z0X0QgDsqhs4WUlEbUxw" target="_blank" class="waves-effect waves-block">
-                            <i class="material-icons fa fa-telegram" style="font-size: 22px;" aria-hidden="true"></i>
+                            <i class="material-icons fa fa-telegram col-light-blue" style="font-size: 22px;" aria-hidden="true"></i>
                             <span>Telegram</span>
                         </a>
                     </li>
 
                     <li>
                         <a href="https://www.facebook.com/Academiadetrading-496295420749430" target="_blank" class="waves-effect waves-block">
-                            <i style="font-size: 22px;" class="material-icons fa fa-facebook-official" aria-hidden="true"></i>
+                            <i style="font-size: 22px;" class="material-icons fa fa-facebook-official col-light-blue" aria-hidden="true"></i>
                             <span>Facebook</span>
                         </a>
                     </li>

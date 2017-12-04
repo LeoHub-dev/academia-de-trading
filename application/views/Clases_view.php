@@ -49,11 +49,27 @@
             </div>
 
             <div class="row clearfix">
+
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center-block" style="float: none">
                     <div class="card">
                         <div class="header">
                             <h2>
                                 Clase 1</small>
+                            </h2>
+                           
+                        </div>
+                        <div class="body">
+                            <iframe src="https://player.vimeo.com/video/241778018?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center-block" style="float: none">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Clase 2</small>
                             </h2>
                            
                         </div>
@@ -67,7 +83,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Clase 2</small>
+                                Clase 3</small>
                             </h2>
                            
                         </div>
@@ -81,7 +97,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Clase 3</small>
+                                Clase 4</small>
                             </h2>
                            
                         </div>
@@ -95,7 +111,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Clase 4</small>
+                                Clase 5</small>
                             </h2>
                            
                         </div>
@@ -109,7 +125,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Clase 5</small>
+                                Clase 6</small>
                             </h2>
                            
                         </div>
@@ -123,7 +139,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Clase 6</small>
+                                Clase 7</small>
                             </h2>
                            
                         </div>
@@ -137,7 +153,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Clase 7</small>
+                                Clase 8</small>
                             </h2>
                            
                         </div>
@@ -147,33 +163,8 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center-block" style="float: none">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Clase 8</small>
-                            </h2>
-                           
-                        </div>
-                        <div class="body">
-                            <iframe src="https://player.vimeo.com/video/241778018?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-                </div>
+                
 
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center-block" style="float: none">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Clase 9</small>
-                            </h2>
-                           
-                        </div>
-                        <div class="body">
-                            <iframe src="https://player.vimeo.com/video/243638430?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-                </div>
 
 
 

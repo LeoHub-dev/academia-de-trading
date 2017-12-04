@@ -172,7 +172,7 @@
 
                     <div class="form-group">
                         <input type="checkbox" name="terminos" id="terminos" class="filled-in chk-col-pink">
-                        <label for="terminos">Lei y estoy de acuerdo con los <a href="javascript:void(0);">terminos de uso</a>.</label>
+                        <label for="terminos">Lei y estoy de acuerdo con los <a href="<?= site_url('legal'); ?>" target="_blank">terminos de uso</a>.</label>
                     </div>
 
                     <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>

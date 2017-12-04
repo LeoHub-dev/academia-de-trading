@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Clases extends LH_Controller {
+class Legal extends LH_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -23,45 +23,13 @@ class Clases extends LH_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		
-		if(!$this->Auth_model->estaConectado())
-		{
-			redirect('/auth' ,'refresh');
-		}
-		else
-		{
-			if(!$this->Auth_model->estaPago())
-        	{
-        		redirect('/pago' ,'refresh');
-        	}
-		}
 
 	}
 
 
 	public function index()
 	{
-
-		$this->scope['titulo'] = "Clases";
-		
-		$this->load->view('Clases_view',$this->scope);
-		
+		$this->load->view('Legal_view',$this->scope);
 	}
 
-	public function vip()
-	{
-		if($this->scope['info_usuario']['data']->tipo == 2 || $this->scope['info_usuario']['data']->tipo == 1)
-		{
-			$this->scope['titulo'] = "Clases Vip";
-		
-			$this->load->view('Clases_Vip_view',$this->scope);
-		}
-		else
-		{
-			redirect('/dashboard' ,'refresh');
-		}
-		
-	}
-
-	
 }

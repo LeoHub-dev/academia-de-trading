@@ -172,6 +172,9 @@ class Auth_model extends CI_Model {
 
         if($status)
         {
+            /*$usuario = $this->Auth_model->obtenerUsuarioID($id_usuario)['data'];
+            $this->Academia_model->agregarGanancia($usuario->referido,50,'Usuario : '.$usuario->usuario.' fue activado');*/
+
             return TRUE;
         }
 
@@ -196,6 +199,8 @@ class Auth_model extends CI_Model {
 
         if($status)
         {
+            $usuario = $this->Auth_model->obtenerUsuarioID($id_usuario)['data'];
+            $this->Academia_model->agregarGanancia($usuario->referido,100,'Usuario : '.$usuario->usuario.' fue activado - Pago Unico');
             return TRUE;
         }
 

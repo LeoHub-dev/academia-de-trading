@@ -33,4 +33,5 @@ class Inicio extends LH_Controller {
 		$this->load->view('Home_view',$this->scope);
 	}
 
+
 }

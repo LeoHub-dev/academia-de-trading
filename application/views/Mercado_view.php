@@ -79,14 +79,18 @@
                                 <div class="title">Cargando ... Esto puede demorar hasta 3 minutos</div>
                             </div>
                             <div class="body">
+
                                 <div class="row clearfix">
                                     <div class="col-md-4">
                                         <div class="input-group">
-                                            <span class="input-group-addon">Buscar :</span>
+                                            <span class="input-group-addon">Buscar moneda:</span>
                                             <div class="form-line">
-                                                <input type="text" id="search-moneda" class="form-control" placeholder="Buscar" value="">
+                                                <input type="text" id="search-moneda" class="form-control" placeholder="Nombre de la moneda" value="">
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <p>Actualizacion automatica en : <span id="timer"></span></p>
                                     </div>
                                 </div>
                                 <div class="row clearfix">
@@ -126,6 +130,7 @@
                                     </tbody>
                                 </table>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -133,6 +138,56 @@
             
         </div>
     </section>
+
+    <style type="text/css">
+        .modal {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+    </style>
+
+    
+
+    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content modal-col-blue">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="defaultModalLabel">Cambios importantes (5 min)</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-bordered dataTable js-exportable">
+                                    <thead>
+                                        <tr>
+                                            <th>Moneda</th>
+                                            <th>Cambio</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="alert-content">
+
+                      
+                                    </tbody>
+                                </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">X</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
     <?php include_once 'modules/Scripts.php' ; ?>
 
@@ -148,6 +203,22 @@
     <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
 
     <script type="text/javascript">
+        
+        cargarInfo();
+
+        document.getElementById('timer').innerHTML = 05 + ":" + 00;
+        startTimer();
+
+        window.setInterval(function(){
+            $('.market-content').html('');
+            $('.alert-content').html('');
+            $('#monitor-body').addClass('__loading');
+            cargarInfo();
+            document.getElementById('timer').innerHTML = 05 + ":" + 00;
+            startTimer();
+        }, 300000);
+        
+        //window.setInterval(cargarInfo, 20000);
 
         var tabla_normal = "";
 
@@ -234,6 +305,19 @@
 
         });
 
+        $('*').on('click', '.search-this-moneda', function(e){
+
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            $('#search-moneda').val($(this).attr('moneda-nombre'));
+            $('#search-moneda').trigger("input");
+
+        })
+
+            
+
+
         
         $('#search-moneda').on('input', function(e) { 
 
@@ -280,73 +364,81 @@
             
         });
 
-        var carga_monedas = $.get('http://academiadetrading.net/mercado/api_coins', function(response) 
+
+        function startTimer() {
+            var presentTime = document.getElementById('timer').innerHTML;
+            var timeArray = presentTime.split(/[:]+/);
+            var m = timeArray[0];
+            var s = checkSecond((timeArray[1] - 1));
+            if(s==59){m=m-1}
+            if(m<0){return;}
+          
+            document.getElementById('timer').innerHTML =
+            m + ":" + s;
+            setTimeout(startTimer, 1000);
+        }
+
+        function checkSecond(sec) {
+            if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+            if (sec < 0) {sec = "59"};
+            return sec;
+        }
+
+        function cargarInfo()
         {
-            $.each(response, function(i){
 
-                
+            var carga_monedas = $.get('http://academiadetrading.net/mercado/api_coins', function(response) 
+            {
+                $.each(response, function(i){
 
-                if(response[i].Actual.Summary.MarketName.substring(0, 3) != 'BTC'){ return true; }
+                    if(response[i].Actual.Summary.MarketName.substring(0, 3) != 'BTC'){ return true; }
 
-                if(response[i].Actual.Summary.BaseVolume < 50){ var ocultar = 1; } else { var ocultar = 0; }
+                    if(response[i].Actual.Summary.BaseVolume < 50){ var ocultar = 1; } else { var ocultar = 0; }
 
-                if(response[i].OneDay == null){ return true; }
+                    if(response[i].OneDay == null){ return true; }
 
-                var moneda_split = response[i].Actual.Market.MarketName.split("-");
+                    var moneda_split = response[i].Actual.Market.MarketName.split("-");
 
-                if(ocultar == 1)
-                {
-                    $('.market-content').append('<tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" ocultar-siempre="1" class="moneda-volumen-'+response[i].Actual.Market.MarketName+' hidden">\
-                        <th scope="row" rowspan="2"><div class="btn-group">\
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">\
-                                            '+response[i].Actual.Market.MarketName+' <span class="caret"></span>\
-                                        </button>\
-                                        <ul class="dropdown-menu">\
-                                            <li><a href="https://www.tradingview.com/chart/?symbol=BITTREX%3A'+moneda_split[1]+moneda_split[0]+'" target="_blank" class="waves-effect waves-block">Trading View Chart</a></li>\
-                                            <li><a href="https://bittrex.com/Market/Index?MarketName='+response[i].Actual.Market.MarketName+'" target="_blank" class=" waves-effect waves-block">Ver en Bittrex</a></li>\
-                                        </ul>\
-                                    </div></th>\
-                        <td>Volumen<br>'+response[i].Actual.Summary.BaseVolume+' BTC</td>\
-                    </tr>\
-                    <tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" ocultar-siempre="1" class="moneda-precio-'+response[i].Actual.Market.MarketName+' hidden">\
-                        <td>Precio<br>'+response[i].Actual.Summary.Last.toFixed(10)+' BTC</th>\
-                    </tr>');
+                    if(ocultar == 1)
+                    {
+                        $('.market-content').append('<tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" ocultar-siempre="1" class="moneda-volumen-'+response[i].Actual.Market.MarketName+' hidden">\
+                            <th scope="row" rowspan="2"><div class="btn-group">\
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">\
+                                                '+response[i].Actual.Market.MarketName+' <span class="caret"></span>\
+                                            </button>\
+                                            <ul class="dropdown-menu">\
+                                                <li><a href="https://www.tradingview.com/chart/?symbol=BITTREX%3A'+moneda_split[1]+moneda_split[0]+'" target="_blank" class="waves-effect waves-block">Trading View Chart</a></li>\
+                                                <li><a href="https://bittrex.com/Market/Index?MarketName='+response[i].Actual.Market.MarketName+'" target="_blank" class=" waves-effect waves-block">Ver en Bittrex</a></li>\
+                                            </ul>\
+                                        </div></th>\
+                            <td>Volumen<br>'+response[i].Actual.Summary.BaseVolume+' BTC</td>\
+                        </tr>\
+                        <tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" ocultar-siempre="1" class="moneda-precio-'+response[i].Actual.Market.MarketName+' hidden">\
+                            <td>Precio<br>'+response[i].Actual.Summary.Last.toFixed(10)+' BTC</th>\
+                        </tr>');
 
-                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FiveMin.Summary.BaseVolume));
-                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].TenMin.Summary.BaseVolume));
-                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FifteenMin.Summary.BaseVolume));
-                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].ThirtyMin.Summary.BaseVolume));
-                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].OneHour.Summary.BaseVolume));
-                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].TwoHour.Summary.BaseVolume));
-                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FourHour.Summary.BaseVolume));
-                    $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].OneDay.Summary.BaseVolume));
 
-                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FiveMin.Summary.Last));
-                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].TenMin.Summary.Last));
-                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FifteenMin.Summary.Last));
-                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].ThirtyMin.Summary.Last));
-                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].OneHour.Summary.Last));
-                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].TwoHour.Summary.Last));
-                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FourHour.Summary.Last));
-                    $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].OneDay.Summary.Last));
-                }
-                else
-                {
-                    $('.market-content').append('<tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" ocultar-siempre="0" class="moneda-volumen-'+response[i].Actual.Market.MarketName+'">\
-                        <th scope="row" rowspan="2"><div class="btn-group">\
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">\
-                                            '+response[i].Actual.Market.MarketName+' <span class="caret"></span>\
-                                        </button>\
-                                        <ul class="dropdown-menu">\
-                                            <li><a href="https://www.tradingview.com/chart/?symbol=BITTREX%3A'+moneda_split[1]+moneda_split[0]+'" target="_blank" class="waves-effect waves-block">Trading View Chart</a></li>\
-                                            <li><a href="https://bittrex.com/Market/Index?MarketName='+response[i].Actual.Market.MarketName+'" target="_blank" class=" waves-effect waves-block">Ver en Bittrex</a></li>\
-                                        </ul>\
-                                    </div></th>\
-                        <td>Volumen<br>'+response[i].Actual.Summary.BaseVolume+' BTC</td>\
-                    </tr>\
-                    <tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" ocultar-siempre="0" class="moneda-precio-'+response[i].Actual.Market.MarketName+'">\
-                        <td>Precio<br>'+response[i].Actual.Summary.Last.toFixed(10)+' BTC</th>\
-                    </tr>');
+                    }
+                    else
+                    {
+                        $('.market-content').append('<tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" ocultar-siempre="0" class="moneda-volumen-'+response[i].Actual.Market.MarketName+'">\
+                            <th scope="row" rowspan="2"><div class="btn-group">\
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">\
+                                                '+response[i].Actual.Market.MarketName+' <span class="caret"></span>\
+                                            </button>\
+                                            <ul class="dropdown-menu">\
+                                                <li><a href="https://www.tradingview.com/chart/?symbol=BITTREX%3A'+moneda_split[1]+moneda_split[0]+'" target="_blank" class="waves-effect waves-block">Trading View Chart</a></li>\
+                                                <li><a href="https://bittrex.com/Market/Index?MarketName='+response[i].Actual.Market.MarketName+'" target="_blank" class=" waves-effect waves-block">Ver en Bittrex</a></li>\
+                                            </ul>\
+                                        </div></th>\
+                            <td>Volumen<br>'+response[i].Actual.Summary.BaseVolume+' BTC</td>\
+                        </tr>\
+                        <tr moneda-nombre="'+response[i].Actual.Market.MarketName+'" ocultar-siempre="0" class="moneda-precio-'+response[i].Actual.Market.MarketName+'">\
+                            <td>Precio<br>'+response[i].Actual.Summary.Last.toFixed(10)+' BTC</th>\
+                        </tr>');
+
+                        
+                    }
 
                     $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].FiveMin.Summary.BaseVolume));
                     $('.moneda-volumen-'+response[i].Actual.Market.MarketName).append(calculoPorcentajeVariacion(response[i].Actual.Summary.BaseVolume,response[i].TenMin.Summary.BaseVolume));
@@ -365,27 +457,51 @@
                     $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].TwoHour.Summary.Last));
                     $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].FourHour.Summary.Last));
                     $('.moneda-precio-'+response[i].Actual.Market.MarketName).append(calculoPrecioVariacion(response[i].Actual.Summary.Last,response[i].OneDay.Summary.Last));
-                }
 
+                    var cambio_volumen = calcularPorcentaje(response[i].Actual.Summary.BaseVolume,response[i].FiveMin.Summary.BaseVolume);
+                    var cambio_precio = calcularPorcentaje(response[i].Actual.Summary.Last.toFixed(10),response[i].FiveMin.Summary.Last);
+
+                    if(ocultar == 0)
+                    {
+
+                        if(cambio_volumen > 20)
+                        {
+                            $('.alert-content').append('<tr><td><a href="javascript:void(0)" class="search-this-moneda" style="color: #ffffff;text-decoration: underline;" moneda-nombre="'+response[i].Actual.Market.MarketName+'">'+response[i].Actual.Market.MarketName+'</a></td><td>Cambio en el volumen de un '+cambio_volumen+'%</td></tr>');
+                        }
+
+                    }
+
+                    if(cambio_precio > 3)
+                    {
+                        $('.alert-content').append('<tr><td><a href="javascript:void(0)" class="search-this-moneda" style="color: #ffffff;text-decoration: underline;" moneda-nombre="'+response[i].Actual.Market.MarketName+'">'+response[i].Actual.Market.MarketName+'</a></td><td>Cambio en el precio de un '+cambio_precio+'%</td></tr>');
+                    }
+
+                    
+                })
+
+
+            },"json").fail(function(xhr, status, error) {
                 
-            })
+                console.log(error);
+                console.log(xhr.responseText);
 
-            
+            });
 
+            carga_monedas.done(function() {
+                $('#monitor-body').removeClass('__loading');
+                tabla_normal = $('.market-content').html();
+                if($('.alert-content > tr').length > 0)
+                {
+                    $('#defaultModal').modal('show');
+                    var audio = new Audio('http://academiadetrading.net/assets/alert_1.mp3');
+                    audio.play();
+                }
+                
+                $('#search-moneda').trigger("input");
 
+            });
 
-
-        },"json").fail(function(xhr, status, error) {
-            
-            console.log(error);
-            console.log(xhr.responseText);
-
-        });
-
-        carga_monedas.done(function() {
-            $('#monitor-body').removeClass('__loading');
-            tabla_normal = $('.market-content').html();
-        });
+        }
 
         
 
@@ -502,6 +618,18 @@
             var total = total / lista.length;
 
             return total;
+        }
+
+        function calcularPorcentaje(antes, despues)
+        {
+            /*console.log(antes);
+            console.log(despues);
+            console.log('__________________');*/
+            var porcentaje = ((antes - despues) / despues) * 100;
+
+
+
+            return porcentaje.toFixed(2);
         }
 
         

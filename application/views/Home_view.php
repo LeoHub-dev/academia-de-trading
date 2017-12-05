@@ -136,11 +136,11 @@
 
 					<div class="title-content clearfix">
 
-						<div style="display: flex;align-items: center;justify-content: center;">
-							<div class="col-md-8">
+						<div id="home-video-text">
+							<div class="col-md-8" id="home-video">
 								<div class="embed-responsive embed-responsive-16by9">
-									<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/244774711?title=0&amp;byline=0&amp;portrait=0;autoplay=1" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-								  <!--<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yeiYJ57DrH4?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>-->
+									<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/245812578?title=0&amp;byline=0&amp;portrait=0;autoplay=1" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+								  
 								</div>
 								
 							</div> <!-- /.col -->
@@ -473,7 +473,7 @@
 
 									<div class="biography">
 
-										<p>Mi experiencia  es esta gran academia de trading que gracias a Dios conocí, me a dado tanto en aprendisaje que la verdad no sabria como pagarles. Este camino a sido de gran bendicion y crecimiento  como en el tranding como personal. Me a enseñado a pensar en grande a soñar y perseguir mis sueños a un que es un logro pequeño pero gigante para mi.</p>
+										<p>Mi experiencia en esta gran academia de trading que gracias a Dios conocí, me a dado tanto en aprendisaje que la verdad no sabria como pagarles. Este camino a sido de gran bendicion y crecimiento como en el tranding como personal. Me a enseñado a pensar en grande a soñar y perseguir mis sueños a un que es un logro pequeño pero gigante para mi.</p>
 
 
 									</div>
@@ -698,7 +698,7 @@
 		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">20</span>
 		                                </div>
 		                            </div>
-		                            <div class="wn-number__caption">Por Mes <font color="red"><b>(Oferta de lanzamiento)</b></font><br><br><small style="text-decoration: line-through;"><font color="red">$40 / Mes </font></small></div>
+		                            <div class="wn-number__caption">Por Mes <font color="red"><b>(Oferta de lanzamiento)</b></font><!--<br><br><small style="text-decoration: line-through;"><font color="red">$40 / Mes </font></small>--></div>
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>
@@ -728,7 +728,7 @@
 		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">250</span> 
 		                                </div>
 		                            </div>
-		                            <div class="wn-number__caption">Pago Unico<br><br><small style="text-decoration: line-through;"><font color="red">$497</font></small></div>
+		                            <div class="wn-number__caption">Pago Unico<!--<br><br><small style="text-decoration: line-through;"><font color="red">$497</font></small>--></div>
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>
@@ -992,7 +992,7 @@
 							
 							<h2 class="section-title">Señales</h2>
 
-							<p>Aqui todas nuestras señales que se cumplieron.</p>
+							<h3>Aqui todas nuestras señales que se cumplieron.</h3>
 
 
 
@@ -1008,7 +1008,7 @@
 
 			<div class="container">
 
-				<div class="panel-group" id="accordion1">
+				<div class="services-container clearfix text-center">
 
 					<?php 
 
@@ -1022,46 +1022,48 @@
                         setlocale(LC_TIME,"es_ES");
                         $f = strftime("%d de %B",  $factura_final->getTimestamp());  
 
-                        $lista_senal[$indicio->fecha]["fecha"] = $f;
-                        $lista_senal[$indicio->fecha]["imagenes"][] = $indicio->imagen;
+                         
+
+                        $lista_senal[str_replace(' ', '', $indicio->fecha)]["fecha"] = $f;
+                        $lista_senal[str_replace(' ', '', $indicio->fecha)]["fecha_raw"] = str_replace(' ', '', $indicio->fecha);
+                        $lista_senal[str_replace(' ', '', $indicio->fecha)]["imagenes"][] = $indicio->imagen;
+
+           
 
                         endforeach;
                     ?>
        
-          
-                    
-                    <div class="col-md-6">
+     
 
-                    <?php $n = 0; foreach((array) $lista_senal as $indicio) : ?>
-			        <div class="panel panel-default">
-			          <div class="panel-heading">
-			            <h5 class="panel-title">
-			              <a class="accordion-toggle <?php if($n != 0) { echo 'collapsed'; } ?>" data-toggle="collapse" data-parent="#accordion1" href="#accordion1_<?= $n; ?>"><?= $indicio['fecha']; ?> - Cantidad de señales : <?= count($indicio['imagenes']); ?></a>
-			            </h5>
-			          </div>
-			          <div id="accordion1_<?= $n; ?>" class="panel-collapse collapse <?php if($n == 0) { echo 'in'; } ?>">
-			            <div class="panel-body">
-			            	<?php foreach((array) $indicio['imagenes'] as $imagen) : ?>
-			             	<a href="<?= asset_url(); ?>images/indicios/<?= $imagen; ?>" target="_blank"><img src="<?= asset_url(); ?>images/indicios/<?= $imagen; ?>" class="img-responsive" style="height: 400px; margin-bottom:5px; display: inline;"></a>
-			             	<?php endforeach; ?>
-			            </div>
-			          </div>
-			        </div>
-
-			        <?php if(round((count((array) $lista_senal)/2)) == $n): ?>
-			        	</div>
-			        	<div class="col-md-6">
-		        	<?php endif; ?>
+			      	<?php $n = 0; foreach((array) $lista_senal as $indicio) : ?>
 
 
-			        <?php $n++; endforeach; ?>
-			    </div>
 
-			        
-		      	</div>
+			      	<div class="col-md-4 text-center">
+			      		<div class="col-md-12">
+			      			<?= $indicio['fecha']; ?>
+			      		</div>
+			      		<div class="col-md-12">
+			      			<a href="<?= asset_url(); ?>images/indicios/<?= $indicio['imagenes'][0]; ?>" target="_blank"><img src="<?= asset_url(); ?>images/indicios/<?= $indicio['imagenes'][0]; ?>" class="img-responsive" style="height: 400px; margin-bottom:5px; display: inline;"></a>
+			      		</div>
+			      		<?php if(count($indicio['imagenes']) - 1 > 0) : ?>
+			      		<div class="col-md-12">
+			      			<div class="wn-plan__buttons">
+		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('inicio/ver_indicio/'); ?><?= str_replace(' ', '', $indicio['fecha_raw']); ?>" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Ver mas (<?= count($indicio['imagenes']) - 1; ?>)</a></div>
+		                    </div>
+			      		</div>
+			      		<?php else : ?>
+			      		<div class="col-md-12">
+			      			<div class="wn-plan__buttons">
+		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Ir a la academia</a></div>
+		                    </div>
+			      		</div>
+			      		<?php endif; ?>
+			      	</div>
 
-			
-				
+			      	<?php $n++; endforeach; ?>
+		      </div>
+
 
 			</div> <!-- /.container -->
 

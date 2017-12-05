@@ -18,6 +18,12 @@ min-width: 100%;
 min-height: 100%;
 }
 
+#home-video-text {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* loader */
 #loaderDiv {
     background: #ffffff;
@@ -1826,6 +1832,12 @@ RESPONSIVE
 	/**********************
 	NAVIGATION
 	***********************/
+	#home-video-text {
+		display: block !important;
+	}
+	#home-video {
+		margin-bottom: 20px;
+	}
 	#main-navigation .container {
 		width: 100%;
 	}

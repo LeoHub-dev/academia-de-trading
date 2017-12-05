@@ -83,7 +83,6 @@ class Auth_model extends CI_Model {
                 'usuario' => $data['usuario'],
                 'password' => $data['password'],
                 'id_persona' => $id_persona,
-                'tipo' => $data['tipo'],
                 'referido' => $data['referido']
             );
 

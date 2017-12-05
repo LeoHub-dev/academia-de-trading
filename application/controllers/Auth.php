@@ -178,7 +178,7 @@ class Auth extends LH_Controller {
 						'email' => $user['email'],
 						'fecha_nacimiento' => NULL,
 						'telefono' => NULL,
-						'usuario' => $user['first_name'].$user['last_name'].$user['id'],
+						'usuario' => str_replace(' ', '', $user['first_name'].$user['last_name'].$user['id']),
 						'password' => myHash('fbpw'.$user['email'].myHash('fb_login_lh').myHash($user['id'])),
 						'referido' => $referido
 					);

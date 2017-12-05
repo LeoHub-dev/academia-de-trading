@@ -90,7 +90,7 @@ class Coinbase
     public function createCoinBaseInvoice()
     {
 
-        $factura = $this->Academia_model->obtenerFactura();
+        $factura = $this->Academia_model->obtenerFactura($this->id_user);
         $usuario = $this->Auth_model->obtenerUsuarioID($this->id_user)['data'];
 
         if($this->tipo == 1)

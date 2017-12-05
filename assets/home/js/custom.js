@@ -145,6 +145,7 @@ $(function(){
 		centerMode: true,
 		centerPadding: '100px',
 		variableWidth: true,
+    speed: 3000,
 		responsive: [
 			{
 				breakpoint: 768,

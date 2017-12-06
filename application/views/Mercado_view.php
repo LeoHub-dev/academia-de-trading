@@ -391,6 +391,8 @@
             {
                 $.each(response, function(i){
 
+                    if(response[i].Actual == null){ console.log(response[i]); return true; }
+
                     if(response[i].Actual.Summary.MarketName.substring(0, 3) != 'BTC'){ return true; }
 
                     if(response[i].Actual.Summary.BaseVolume < 50){ var ocultar = 1; } else { var ocultar = 0; }

@@ -148,7 +148,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Pago VIP - Acceso Ilimitado <small>Realiza tu pago de 200$ (Oferta de lanzamiento) para obtener acceso a la academia de forma indefinida</small>
+                                Pago VIP - Acceso Ilimitado <small>Realiza tu pago de 250$ (Oferta de lanzamiento) para obtener acceso a la academia de forma indefinida</small>
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">

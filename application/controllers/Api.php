@@ -69,7 +69,14 @@ class Api extends LH_Controller {
 
 	}
 
-	public function verificar_pago($payment = NULL)
+	public function coinpaymentscallback()
+	{
+		$this->load->library('Coinpayments');
+
+		$this->coinpayments->coinpaymentsCallBack();
+	}
+
+	/*public function verificar_pago($payment = NULL)
 	{
 		$this->load->library('Coinbase');
 		$response = $this->coinbase->verifyPayment($payment);
@@ -83,7 +90,24 @@ class Api extends LH_Controller {
 			echo response_bad('Error al verificar');
 		}
 
+	}*/
+
+	public function verificar_pago($payment = NULL)
+	{
+		$this->load->library('Coinpayments');
+		$response = $this->coinpayments->verifyPayment($payment);
+
+		if($response || $response == 0)
+		{
+			echo response_good(FALSE,FALSE,array('amount_paid' => $response));
+		}
+		else
+		{
+			echo response_bad('Error al verificar');
+		}
 	}
+
+	
 
 	public function verificar_mensualidad()
 	{

@@ -85,7 +85,7 @@
 		    <div class="collapse navbar-collapse" id="main-navbar">
 			  <ul class="nav navbar-nav">
 		        <li class="active"><a class="smoothScroll" href="#home">Home <span class="sr-only">(current)</span></a></li>
-		        <li><a class="smoothScroll" href="#explicacion">Explicación</a></li>
+		        <li><a class="smoothScroll" href="<?= site_url(); ?>tradingcoin/">TradingCoin</a></li>
 		        <li><a class="smoothScroll" href="#planes">Planes</a></li>
 		        <li><a target="_blank" href="https://academiadtrading.blogspot.com/">Blog</a></li>
 		      	<li id="brand-desktop">

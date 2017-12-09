@@ -69,7 +69,7 @@
                         <div id="success_message" class="alert alert-success clearfix" style="display: none;" role="alert">
                             Good
                         </div>
-                      </div>
+                    </div>
                     <div class="row">
                         <div class="col-xs-8 p-t-5">
                             <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">

@@ -31,3 +31,6 @@
 <link href="<?= asset_url(); ?>css/uploadfile.css" rel="stylesheet">
 
 <script src="https://use.fontawesome.com/a7fd4b808d.js"></script>
+
+<!-- Bootstrap Select Css -->
+<link href="<?= asset_url(); ?>plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />

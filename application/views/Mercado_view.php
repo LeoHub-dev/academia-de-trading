@@ -391,7 +391,29 @@
             {
                 $.each(response, function(i){
 
+
+                    var fase1 = 0;
+                    var fase2 = 0;
+                    var fase3 = 0;
+                    var fase4 = 0;
+
                     if(response[i].Actual == null){ console.log(response[i]); return true; }
+
+                    if(response[i].Actual.Summary.BaseVolume > 0 && response[i].Actual.Summary.BaseVolume < 21){
+                        var fase1 = 1;
+                    }
+
+                    if(response[i].Actual.Summary.BaseVolume > 20 && response[i].Actual.Summary.BaseVolume < 50){
+                        var fase2 = 1;
+                    }
+
+                    if(response[i].Actual.Summary.BaseVolume > 49 && response[i].Actual.Summary.BaseVolume < 100){
+                        var fase3 = 1;
+                    }
+
+                    if(response[i].Actual.Summary.BaseVolume > 100){
+                        var fase4 = 1;
+                    }
 
                     if(response[i].Actual.Summary.MarketName.substring(0, 3) != 'BTC'){ return true; }
 
@@ -463,7 +485,27 @@
                     var cambio_volumen = calcularPorcentaje(response[i].Actual.Summary.BaseVolume,response[i].FiveMin.Summary.BaseVolume);
                     var cambio_precio = calcularPorcentaje(response[i].Actual.Summary.Last.toFixed(10),response[i].FiveMin.Summary.Last);
 
-                    if(ocultar == 0)
+                    if(fase1 == 1)
+                    {
+
+                        if(cambio_volumen > 50)
+                        {
+                            $('.alert-content').append('<tr><td><a href="javascript:void(0)" class="search-this-moneda" style="color: #ffffff;text-decoration: underline;" moneda-nombre="'+response[i].Actual.Market.MarketName+'">'+response[i].Actual.Market.MarketName+'</a></td><td>Cambio en el volumen de un '+cambio_volumen+'%</td></tr>');
+                        }
+
+                    }
+
+                    if(fase2 == 1)
+                    {
+
+                        if(cambio_volumen > 30)
+                        {
+                            $('.alert-content').append('<tr><td><a href="javascript:void(0)" class="search-this-moneda" style="color: #ffffff;text-decoration: underline;" moneda-nombre="'+response[i].Actual.Market.MarketName+'">'+response[i].Actual.Market.MarketName+'</a></td><td>Cambio en el volumen de un '+cambio_volumen+'%</td></tr>');
+                        }
+
+                    }
+
+                    if(fase3 == 1)
                     {
 
                         if(cambio_volumen > 20)
@@ -473,10 +515,27 @@
 
                     }
 
-                    if(cambio_precio > 3)
+                    if(fase4 == 1)
                     {
-                        $('.alert-content').append('<tr><td><a href="javascript:void(0)" class="search-this-moneda" style="color: #ffffff;text-decoration: underline;" moneda-nombre="'+response[i].Actual.Market.MarketName+'">'+response[i].Actual.Market.MarketName+'</a></td><td>Cambio en el precio de un '+cambio_precio+'%</td></tr>');
+
+                        if(cambio_volumen > 10)
+                        {
+                            $('.alert-content').append('<tr><td><a href="javascript:void(0)" class="search-this-moneda" style="color: #ffffff;text-decoration: underline;" moneda-nombre="'+response[i].Actual.Market.MarketName+'">'+response[i].Actual.Market.MarketName+'</a></td><td>Cambio en el volumen de un '+cambio_volumen+'%</td></tr>');
+                        }
+
                     }
+
+                    var cambio_drastico_precio = calcularPorcentaje(response[i].Actual.Summary.Last.toFixed(10),response[i].TenMin.Summary.Last);
+
+                    if(cambio_drastico_precio <= 0)
+                    {
+                        if(cambio_precio > 4)
+                        {
+                            $('.alert-content').append('<tr><td><a href="javascript:void(0)" class="search-this-moneda" style="color: #ffffff;text-decoration: underline;" moneda-nombre="'+response[i].Actual.Market.MarketName+'">'+response[i].Actual.Market.MarketName+'</a></td><td>Cambio en el precio de un '+cambio_precio+'%</td></tr>');
+                        }
+                    }
+
+                    
 
                     
                 })

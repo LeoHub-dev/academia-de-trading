@@ -89,8 +89,20 @@
                                 <div class="title">Cargando</div>
                             </div>
                             <div class="row clearfix">
-                                <div class="col-md-12">
-                                    <button type="button" class="btn btn-primary m-t-15 waves-effect pagar-con-btc" id-tipo="1">Donar con BTC</button>
+                                <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;">
+                                   
+                                        <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="1">Pagar con</button>
+                                   
+
+                                        <select class="form-control show-tick" id="moneda_pago">
+                                            <?php foreach ($lista_monedas['result'] as $moneda => $valor): ?>
+                                                <?php if ($valor['accepted'] == 1) : ?>
+                                                <option value="<?= $moneda; ?>"><?= $moneda; ?></option>
+                                                <?php endif; ?>
+                                            <?php endforeach ?>
+                                        </select>
+                                    
+
                                 </div>
                             </div>
                             <form style="display: none">
@@ -103,7 +115,7 @@
                                             <div class="form-line">
                                                 <input type="text" id="donar" class="form-control btc-monto">
                                             </div>
-                                            <span class="input-group-addon">
+                                            <span class="input-group-addon moneda-text">
                                                 BTC
                                             </span>
                                         </div>
@@ -180,8 +192,18 @@
                                 <div class="title">Cargando</div>
                             </div>
                             <div class="row clearfix">
-                                <div class="col-md-12">
-                                    <button type="button" class="btn btn-primary m-t-15 waves-effect pagar-con-btc" id-tipo="2">Donar con BTC</button>
+                     
+                                <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;">
+                                    <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="2">Pagar con</button>
+                                   
+
+                                    <select class="form-control show-tick" id="moneda_pago">
+                                        <?php foreach ($lista_monedas['result'] as $moneda => $valor): ?>
+                                            <?php if ($valor['accepted'] == 1) : ?>
+                                            <option value="<?= $moneda; ?>"><?= $moneda; ?></option>
+                                            <?php endif; ?>
+                                        <?php endforeach ?>
+                                    </select>
                                 </div>
                             </div>
                             <form style="display: none">

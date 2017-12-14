@@ -140,7 +140,7 @@
         <!-- Footer -->
         <div class="legal">
             <div class="copyright">
-                &copy; 2017 <a href="www.adrianalvarez.online">www.AdrianAlvarez.online</a>.
+                &copy; 2017 <a href="http://www.adrianalvarez.net/">www.AdrianAlvarez.net</a>.
             </div>
             <div class="version">
                 <b>Version: </b> 1.0.5

@@ -98,7 +98,7 @@ class Coinpayments
             {
 
                 $req = array(
-                    'amount' => 20.00,
+                    'amount' => 22.00,
                     'currency1' => 'USD',
                     'currency2' => $this->moneda,
                     'address' => '', // send to address in the Coin Acceptance Settings page
@@ -110,7 +110,7 @@ class Coinpayments
             else
             {
                 $req = array(
-                    'amount' => 40.00,
+                    'amount' => 44.00,
                     'currency1' => 'USD',
                     'currency2' => $this->moneda,
                     'address' => '', // send to address in the Coin Acceptance Settings page
@@ -123,7 +123,7 @@ class Coinpayments
         else if($this->tipo == 2)
         {
             $req = array(
-                'amount' => 250.00,
+                'amount' => 258.00,
                 'currency1' => 'USD',
                 'currency2' => $this->moneda,
                 'address' => '', // send to address in the Coin Acceptance Settings page
@@ -290,19 +290,24 @@ class Coinpayments
 
         } */
 
-        $coinpayment_invoice = array(
-           'moneda' => $data_invoice->moneda,
-           'address' => $data_invoice->address,
-           'monto' => $amount2,
-           'id_invoice' => $data_invoice->id_invoice
-        );
+        
     
         
-        $query = $this->db->insert('coinpayments_payments',$coinpayment_invoice); 
+        
        
         if ($status >= 100 || $status == 2) { 
 
-            //
+            
+            $coinpayment_invoice = array(
+               'moneda' => $data_invoice->moneda,
+               'address' => $data_invoice->address,
+               'monto' => $amount2,
+               'id_invoice' => $data_invoice->id_invoice
+            );
+
+            $query = $this->db->insert('coinpayments_payments',$coinpayment_invoice); 
+
+
             $this->verifyPayment($data_invoice->address);
             
 

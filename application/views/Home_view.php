@@ -1087,6 +1087,7 @@
 					</ul>
 
 					<p class="copyright"> © Copyright <span id="year">2017</span> <span class="text-yellow">Academia De Trading</span>. All Rights Reserved</p>
+					<p class="copyright"> <a href="http://www.adrianalvarez.net/">www.AdrianAlvarez.net</a></p>
 					<p class="copyright"> <a href="<?= site_url('legal'); ?>">Terminos & Condiciones </a></p>
 
 				</div>

@@ -58,7 +58,7 @@ class Mercado extends LH_Controller {
 
         //$datos['actual'] = json_decode(file_get_contents("bittrex/".$fecha_actual.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_actual.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_actual.".json"))->result as $moneda) {
         	$datos[$moneda->Summary->MarketName]['Actual'] = $moneda;
         }
 
@@ -67,7 +67,7 @@ class Mercado extends LH_Controller {
 
         //$datos['5min'] = json_decode(file_get_contents("bittrex/".$fecha_5min.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_5min.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_5min.".json"))->result as $moneda) {
         	$datos[$moneda->Summary->MarketName]['FiveMin'] = $moneda;
         }
 
@@ -76,7 +76,7 @@ class Mercado extends LH_Controller {
 
         //$datos['10min'] = json_decode(file_get_contents("bittrex/".$fecha_10min.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_10min.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_10min.".json"))->result as $moneda) {
         	$datos[$moneda->Summary->MarketName]['TenMin'] = $moneda;
         }
 
@@ -85,7 +85,7 @@ class Mercado extends LH_Controller {
 
         //$datos['15min'] = json_decode(file_get_contents("bittrex/".$fecha_15min.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_15min.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_15min.".json"))->result as $moneda) {
         	$datos[$moneda->Summary->MarketName]['FifteenMin'] = $moneda;
         }
 
@@ -94,7 +94,7 @@ class Mercado extends LH_Controller {
 
         //$datos['30min'] = json_decode(file_get_contents("bittrex/".$fecha_30min.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_30min.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_30min.".json"))->result as $moneda) {
         	$datos[$moneda->Summary->MarketName]['ThirtyMin'] = $moneda;
         }
 
@@ -103,7 +103,7 @@ class Mercado extends LH_Controller {
 
         //$datos['1h'] = json_decode(file_get_contents("bittrex/".$fecha_1h.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_1h.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_1h.".json"))->result as $moneda) {
         	$datos[$moneda->Summary->MarketName]['OneHour'] = $moneda;
         }
 
@@ -112,7 +112,7 @@ class Mercado extends LH_Controller {
 
         //$datos['2h'] = json_decode(file_get_contents("bittrex/".$fecha_2h.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_2h.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_2h.".json"))->result as $moneda) {
         	$datos[$moneda->Summary->MarketName]['TwoHour'] = $moneda;
         }
 
@@ -121,7 +121,7 @@ class Mercado extends LH_Controller {
 
         //$datos['4h'] = json_decode(file_get_contents("bittrex/".$fecha_4h.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_4h.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_4h.".json"))->result as $moneda) {
         	$datos[$moneda->Summary->MarketName]['FourHour'] = $moneda;
         }
 
@@ -130,7 +130,7 @@ class Mercado extends LH_Controller {
 
         //$datos['1d'] = json_decode(file_get_contents("bittrex/".$fecha_1d.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_1d.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_1d.".json"))->result as $moneda) {
         	$datos[$moneda->Summary->MarketName]['OneDay'] = $moneda;
         }
 

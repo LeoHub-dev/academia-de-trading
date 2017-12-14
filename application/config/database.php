@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-$active_group = 'default';
+$active_group = 'online';
 $query_builder = TRUE;
 
 $db['default'] = array(
@@ -98,8 +98,8 @@ $db['default'] = array(
 $db['online'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'only1week',
-	'password' => 'bT3-x9!rpe6$',
+	'username' => 'tradingadmin',
+	'password' => 'hih@^@23Mp+#',
 	'database' => 'trading',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

@@ -127,6 +127,24 @@ class Panel extends LH_Controller {
 	        	return;
 
             }
+            else if($this->input->post('tipo') == 3)
+            {
+            	$this->Auth_model->matrizUsuario($invoice_data->id_user);
+                //Agrego a la Matriz
+                $this->Matriz_model->agregarCuentaMatriz($invoice_data->id_user);
+
+                $this->Auth_model->activarUsuario($invoice_data->id_user);
+            }
+            else if($this->input->post('tipo') == 4)
+            {
+            	$this->Auth_model->matrizUsuario($invoice_data->id_user);
+                //Agrego a la Matriz
+                //Agrego a los Circulos
+                $this->Matriz_model->agregarCuentaMatriz($invoice_data->id_user);
+                $this->Matriz_model->agregarCuentaCirculo($invoice_data->id_user);
+                $this->Auth_model->activarUsuario($invoice_data->id_user);
+            }
+
 
 
 	        echo response_bad('Error');

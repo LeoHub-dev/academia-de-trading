@@ -107,10 +107,10 @@ class Coinpayments
                     'ipn_url' => site_url('api/coinpaymentscallback'),
                 );
             }
-            else
+            else if($usuario->tipo == 3)
             {
                 $req = array(
-                    'amount' => 44.00,
+                    'amount' => 38.00,
                     'currency1' => 'USD',
                     'currency2' => $this->moneda,
                     'address' => '', // send to address in the Coin Acceptance Settings page
@@ -119,11 +119,30 @@ class Coinpayments
                     'ipn_url' => site_url('api/coinpaymentscallback'),
                 );
             }
+            else
+            {
+                $this->error = "No posees Matriz 1 por 2";
+                return FALSE;
+            }
         }
-        else if($this->tipo == 2)
+        else if($this->tipo == 2 || $this->tipo == 3)
         {
+
             $req = array(
                 'amount' => 258.00,
+                'currency1' => 'USD',
+                'currency2' => $this->moneda,
+                'address' => '', // send to address in the Coin Acceptance Settings page
+                'item_name' => $name,
+                'invoice' => $id_invoice,
+                'ipn_url' => site_url('api/coinpaymentscallback'),
+            );
+        }
+        else if($this->tipo == 4)
+        {
+
+            $req = array(
+                'amount' => 296.00,
                 'currency1' => 'USD',
                 'currency2' => $this->moneda,
                 'address' => '', // send to address in the Coin Acceptance Settings page
@@ -298,22 +317,27 @@ class Coinpayments
         if ($status >= 100 || $status == 2) { 
 
             
-            $coinpayment_invoice = array(
-               'moneda' => $data_invoice->moneda,
-               'address' => $data_invoice->address,
-               'monto' => $amount2,
-               'id_invoice' => $data_invoice->id_invoice
-            );
-
-            $query = $this->db->insert('coinpayments_payments',$coinpayment_invoice); 
-
-
-            $this->verifyPayment($data_invoice->address);
+            
             
 
         } else if ($status < 0) { 
             //payment error, this is usually final but payments will sometimes be reopened if there was no exchange rate conversion or with seller consent 
         } else { 
+            if ($status == 1) 
+            {
+                $coinpayment_invoice = array(
+                   'moneda' => $data_invoice->moneda,
+                   'address' => $data_invoice->address,
+                   'monto' => $amount2,
+                   'id_invoice' => $data_invoice->id_invoice
+                );
+
+                $query = $this->db->insert('coinpayments_payments',$coinpayment_invoice); 
+
+
+                $this->verifyPayment($data_invoice->address);
+            }
+            
             //payment is pending, you can optionally add a note to the order page 
         } 
         die('IPN OK'); 
@@ -364,23 +388,56 @@ class Coinpayments
         {
             if($invoice_data->estado == 0)
             {
+                $usuario = $this->Auth_model->obtenerUsuarioID($this->id_usuario)['data'];
+
+                $this->db->where('id_invoice', $invoice_data->id_invoice);
+                $query_activeuser = $this->db->update('coinpayments_invoice', array('estado' => 1));
+
+
                 if($invoice_data->tipo == 1)
                 {
+                    
 
-                    $this->db->where('id_invoice', $invoice_data->id_invoice);
-                    $query_activeuser = $this->db->update('coinpayments_invoice', array('estado' => 1));
-
+                   
                     $this->Auth_model->activarUsuario($invoice_data->id_usuario);
                     $this->Academia_model->marcarPagadoFactura($invoice_data->id_usuario);
                     $this->Academia_model->verificarMensualidad();
+
+                    if($usuario->tipo == 3)
+                    {
+                        //Se integra en los circulos
+                    }
+                        
                 }
                 else if($invoice_data->tipo == 2)
                 {
-                    $this->db->where('id_invoice', $invoice_data->id_invoice);
-                    $query_activeuser = $this->db->update('coinpayments_invoice', array('estado' => 1));
+                    
 
                     $this->Auth_model->vipUsuario($invoice_data->id_usuario);
+                    
                 }
+                else if($invoice_data->tipo == 3)
+                {
+
+
+                    $this->Auth_model->matrizUsuario($invoice_data->id_usuario);
+                    //Agrego a la Matriz
+                    $this->Matriz_model->agregarCuentaMatriz($invoice_data->id_usuario);
+
+                    
+                }
+                else if($invoice_data->tipo == 4)
+                {
+
+
+                    $this->Auth_model->matrizUsuario($invoice_data->id_usuario);
+                    //Agrego a la Matriz
+                    //Agrego a los Circulos
+                    $this->Matriz_model->agregarCuentaMatriz($invoice_data->id_usuario);
+                    
+                }
+
+
 
 
             }

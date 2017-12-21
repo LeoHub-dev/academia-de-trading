@@ -71,7 +71,7 @@ class Coinbase
             $this->account = $this->client->getPrimaryAccount();
         
         } catch (Exception $e) {
-            //echo $e;
+            echo $e;
         }
 
         
@@ -100,43 +100,54 @@ class Coinbase
                 $coinbase_invoice = array(
                     'id_user' => $this->id_user,
                     'tipo' => $this->tipo,
-                    'total_to_pay' => $this->usdToBtc(20),
+                    'total_to_pay' => $this->usdToBtc(23),
+                    'id_factura' => $factura->id_factura
+                );
+            }
+            else if($usuario->tipo == 3)
+            {
+                $coinbase_invoice = array(
+                    'id_user' => $this->id_user,
+                    'tipo' => $this->tipo,
+                    'total_to_pay' => $this->usdToBtc(44),
                     'id_factura' => $factura->id_factura
                 );
             }
             else
             {
-                $coinbase_invoice = array(
-                    'id_user' => $this->id_user,
-                    'tipo' => $this->tipo,
-                    'total_to_pay' => $this->usdToBtc(40),
-                    'id_factura' => $factura->id_factura
-                );
+                $this->error = "No posees Matriz 1 por 2";
+                return FALSE;
             }
 
             
-            $coinbase_invoice_search = array(
-                'id_user' => $this->id_user,
-                'tipo' => $this->tipo,
-                'id_factura' => $factura->id_factura
-            );
+            
         }
-        else if($this->tipo == 2)
+        else if($this->tipo == 2  || $this->tipo == 3)
         {
             $coinbase_invoice = array(
                'id_user' => $this->id_user,
                'tipo' => $this->tipo,
-               'total_to_pay' => $this->usdToBtc(250),
+               'total_to_pay' => $this->usdToBtc(256),
                'id_factura' => $factura->id_factura
             );
-            
 
-            $coinbase_invoice_search = array(
-                'id_user' => $this->id_user,
-                'tipo' => $this->tipo,
-                'id_factura' => $factura->id_factura
-            );
         }
+        else if($this->tipo == 4)
+        {
+            $coinbase_invoice = array(
+               'id_user' => $this->id_user,
+               'tipo' => $this->tipo,
+               'total_to_pay' => $this->usdToBtc(296),
+               'id_factura' => $factura->id_factura
+            );
+
+        }
+
+        $coinbase_invoice_search = array(
+            'id_user' => $this->id_user,
+            'tipo' => $this->tipo,
+            'id_factura' => $factura->id_factura
+        );
 
 
         $this->db->where($coinbase_invoice_search);
@@ -266,12 +277,12 @@ class Coinbase
 
             $total_paid = floatval($info->additional_data->amount->amount) + $total_paid;
 
-            if(floatval($invoice_data->total_to_pay) <= floatval($total_paid))
+            if(floatval($invoice_data->total_to_pay) <= (floatval($total_paid) - floatval($this->usdToBtc(3))))
             {
                 if($invoice_data->status == 0)
                 {
 
-                    if($invoice_data->tipo == 1)
+                    /*if($invoice_data->tipo == 1)
                     {
                         $this->db->where('id_invoice', $invoice_data->id_invoice);
                         $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
@@ -286,7 +297,64 @@ class Coinbase
                         $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
 
                         $this->Auth_model->vipUsuario($invoice_data->id_user);
+                    }*/
+
+                    $usuario = $this->Auth_model->obtenerUsuarioID($invoice_data->id_user)['data'];
+
+                    $this->db->where('id_invoice', $invoice_data->id_invoice);
+                    $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
+
+
+                    if($invoice_data->tipo == 1)
+                    {
+                        
+
+                       
+                        $this->Auth_model->activarUsuario($invoice_data->id_user);
+                        $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
+                        $this->Academia_model->verificarMensualidad();
+
+                        if($usuario->tipo == 3)
+                        {
+                            //Se integra en los circulos
+                            if($this->Matriz_model->obtenerCirculoActivo($usuario->id_usuario) == NULL)
+                            {
+                                $this->Matriz_model->agregarCuentaCirculo($invoice_data->id_user);
+                            }
+
+                            $this->Auth_model->activarUsuario($invoice_data->id_user);
+                            $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
+                        }
+                            
                     }
+                    else if($invoice_data->tipo == 3)
+                    {
+
+
+                        $this->Auth_model->matrizUsuario($invoice_data->id_user);
+                        //Agrego a la Matriz
+                        $this->Matriz_model->agregarCuentaMatriz($invoice_data->id_user);
+
+                        $this->Auth_model->activarUsuario($invoice_data->id_user);
+
+                        $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
+
+                        
+                    }
+                    else if($invoice_data->tipo == 4)
+                    {
+
+
+                        $this->Auth_model->matrizUsuario($invoice_data->id_user);
+                        //Agrego a la Matriz
+                        //Agrego a los Circulos
+                        $this->Matriz_model->agregarCuentaMatriz($invoice_data->id_user);
+                        $this->Matriz_model->agregarCuentaCirculo($invoice_data->id_user);
+                        $this->Auth_model->activarUsuario($invoice_data->id_user);
+                        $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
+                        
+                    }
+
 
                 }
                 
@@ -352,13 +420,13 @@ class Coinbase
             }
         }
 
-        if(floatval($invoice_data->total_to_pay) <= floatval($total_paid))
+        if(floatval($invoice_data->total_to_pay) <= (floatval($total_paid) - floatval($this->usdToBtc(3))))
         {
 
             if($invoice_data->status == 0)
             {
 
-                if($invoice_data->tipo == 1)
+                /*if($invoice_data->tipo == 1)
                 {
                     $this->db->where('id_invoice', $invoice_data->id_invoice);
                     $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
@@ -373,6 +441,60 @@ class Coinbase
                     $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
 
                     $this->Auth_model->vipUsuario($invoice_data->id_user);
+                }*/
+
+                $usuario = $this->Auth_model->obtenerUsuarioID($invoice_data->id_user)['data'];
+
+                $this->db->where('id_invoice', $invoice_data->id_invoice);
+                $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
+
+
+                if($invoice_data->tipo == 1)
+                {
+                    
+
+                   
+                    $this->Auth_model->activarUsuario($invoice_data->id_user);
+                    $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
+                    $this->Academia_model->verificarMensualidad();
+
+                    if($usuario->tipo == 3)
+                    {
+                        //Se integra en los circulos
+                        if($this->Matriz_model->obtenerCirculoActivo($usuario->id_usuario) == NULL)
+                        {
+                            $this->Matriz_model->agregarCuentaCirculo($invoice_data->id_user);
+                        }
+
+                        $this->Auth_model->activarUsuario($invoice_data->id_user);
+                        $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
+                        
+                    }
+                        
+                }
+                else if($invoice_data->tipo == 3)
+                {
+
+
+                    $this->Auth_model->matrizUsuario($invoice_data->id_user);
+                    //Agrego a la Matriz
+                    $this->Matriz_model->agregarCuentaMatriz($invoice_data->id_user);
+
+                    $this->Auth_model->activarUsuario($invoice_data->id_user);
+
+                    
+                }
+                else if($invoice_data->tipo == 4)
+                {
+
+
+                    $this->Auth_model->matrizUsuario($invoice_data->id_user);
+                    //Agrego a la Matriz
+                    //Agrego a los Circulos
+                    $this->Matriz_model->agregarCuentaMatriz($invoice_data->id_user);
+                    $this->Matriz_model->agregarCuentaCirculo($invoice_data->id_user);
+                    $this->Auth_model->activarUsuario($invoice_data->id_user);
+                    
                 }
 
             }
@@ -453,15 +575,7 @@ class Coinbase
                 if(floatval($invoice_data->total_to_pay) <= floatval($total_paid))
                 {
                     
-                    $this->Table_model->activeTableUser($invoice_data->table_father,$invoice_data->id_user,$invoice_data->id_table,$invoice_data->table_type);
-
-                    $this->db->where('id_invoice', $invoice_data->id_invoice);
-                    $query_activeuser = $this->db->update('coinbase_invoice', array('status' => 1));
-
-                    if($this->Table_model->ifTableIsActive($invoice_data->id_table,$invoice_data->table_type))
-                    {
-                        $this->Table_model->autoSortUsers();
-                    }
+                    
                 }
             }
         }

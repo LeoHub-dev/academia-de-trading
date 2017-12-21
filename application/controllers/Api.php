@@ -76,7 +76,7 @@ class Api extends LH_Controller {
 		$this->coinpayments->coinpaymentsCallBack();
 	}
 
-	/*public function verificar_pago($payment = NULL)
+	public function verificar_pago($payment = NULL)
 	{
 		$this->load->library('Coinbase');
 		$response = $this->coinbase->verifyPayment($payment);
@@ -90,9 +90,46 @@ class Api extends LH_Controller {
 			echo response_bad('Error al verificar');
 		}
 
-	}*/
+	}
 
-	public function verificar_pago($payment = NULL)
+	public function obtener_matriz()
+	{
+		if(!$this->session->userdata('id_usuario'))
+		{
+			header("Content-type: application/x-javascript");
+		}
+		else
+		{
+			
+
+			header("Content-type: application/x-javascript");
+			echo "var chart_config = ".json_encode($this->Matriz_model->crearMatriz(@$this->Matriz_model->obtenerMatrizActiva($this->session->userdata('id_usuario'))->id_matriz)).";";
+		}
+		
+		/*header('Content-Type: application/json');
+		echo json_encode($this->Matriz_model->obtenerHijos('05208681'), true);*/
+	}
+
+	public function obtener_circulo()
+	{
+		if(!$this->session->userdata('id_usuario'))
+		{
+			header("Content-type: application/x-javascript");
+		}
+		else
+		{
+			
+
+			header("Content-type: application/x-javascript");
+			echo "var chart_config = '".json_encode($this->Matriz_model->crearCirculo(@$this->Matriz_model->obtenerCirculoActivo($this->session->userdata('id_usuario'))->id_circulo))."';";
+		}
+		
+		/*header('Content-Type: application/json');
+		echo json_encode($this->Matriz_model->obtenerHijos('05208681'), true);*/
+	}
+
+
+	/*public function verificar_pago($payment = NULL)
 	{
 		$this->load->library('Coinpayments');
 		$response = $this->coinpayments->verifyPayment($payment);
@@ -105,7 +142,7 @@ class Api extends LH_Controller {
 		{
 			echo response_bad('Error al verificar');
 		}
-	}
+	}*/
 
 	
 
@@ -184,6 +221,19 @@ class Api extends LH_Controller {
 		}
         
 
+	}
+
+	public function addmatriz($var = NULL)
+	{
+		echo "<script>console.log('Se agrego cuenta ".$var."'); </script><br>";
+		$this->Matriz_model->agregarCuentaMatriz(20);
+		return;
+	}
+
+	public function addcirculo($var = NULL)
+	{
+		echo "<script>console.log('Se agrego cuenta ".$var."'); </script><br>";
+		$this->Matriz_model->agregarCuentaCirculo($var);
 	}
 
 

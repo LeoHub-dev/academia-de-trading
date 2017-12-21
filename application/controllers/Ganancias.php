@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Indicios extends LH_Controller {
+class Ganancias extends LH_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -35,22 +35,16 @@ class Indicios extends LH_Controller {
         		redirect('/pago' ,'refresh');
         	}
 		}
-
 	}
 
 
 	public function index()
 	{
-		$this->scope['lista_indicios'] = $this->Academia_model->obtenerIndicios();
-
-		$this->scope['titulo'] = "Indicios";
-		
-		$this->load->view('Indicios_view',$this->scope);
-		
-		
+		$this->scope['titulo'] = "Ganancias";
+		$this->scope['lista_ganancias'] = $this->Academia_model->listaGanancias($this->scope['info_usuario']['data']->id_usuario);
+		$this->load->view('Ganancias_view',$this->scope);
 	}
 
-	
 
-	
+
 }

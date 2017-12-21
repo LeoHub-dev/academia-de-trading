@@ -44,11 +44,38 @@
                     </li>
                     <?php endif; ?>
 
-                    <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1) : ?>
+                    <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1 || $this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
                     <li>
                         <a href="<?= site_url('clases/vip'); ?>">
                             <i class="material-icons col-amber">local_library</i>
                             <span>Clases Vip</span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+
+                    <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1 || $this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
+                    <li>
+                        <a href="https://t.me/joinchat/AAAAAEHuh3_T6r8SYQnhZA" target="_blank">
+                            <i class="material-icons fa fa-telegram col-red" style="font-size: 23px;"></i>
+                            <span>Canal Señales VIP</span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+
+                    <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
+                    <li>
+                        <a href="<?= site_url('matriz'); ?>">
+                            <i class="material-icons col-red">call_split</i>
+                            <span>Matriz</span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+
+                    <?php if($this->Matriz_model->obtenerCirculoActivo($info_usuario['data']->id_usuario) != NULL) : ?>
+                    <li>
+                        <a href="<?= site_url('matriz/circulo'); ?>">
+                            <i class="material-icons col-red">donut_large</i>
+                            <span>Circulo</span>
                         </a>
                     </li>
                     <?php endif; ?>
@@ -72,6 +99,15 @@
                     </li>
                     <?php endif; ?>
 
+                    <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
+                    <li>
+                        <a href="<?= site_url('ganancias'); ?>">
+                            <i class="material-icons col-amber">attach_money</i>
+                            <span>Ganancias</span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+
                     <li>
                         <a href="https://t.me/joinchat/F4Z0X0QgDsqhs4WUlEbUxw" target="_blank" class="waves-effect waves-block">
                             <i class="material-icons fa fa-telegram col-light-blue" style="font-size: 22px;" aria-hidden="true"></i>
@@ -85,6 +121,33 @@
                             <span>Facebook</span>
                         </a>
                     </li>
+
+
+                    
+
+                    
+                    <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL || $info_usuario['data']->tipo == 0) : ?>
+                    <li>
+                        <a href="<?= site_url('pago'); ?>">
+                            <i class="material-icons col-light-blue">attach_money</i>
+                            <span>Pagar membresia</span>
+                        </a>
+                    </li>
+                     <?php endif; ?>
+
+
+                    <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) == NULL) : ?>
+                    <li>
+                        <a href="<?= site_url('pago/multinivel'); ?>">
+                            <i class="material-icons col-light-blue">attach_money</i>
+                            <span>Pagar multinivel</span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+
+                    
+
+                    
 
                     <?php if($info_usuario['data']->pago == 1) : ?>
                     <li>
@@ -123,14 +186,9 @@
 
                     <?php endif; ?>
                 
-                    <?php if($info_usuario['data']->pago == 0) : ?>
-                    <li>
-                        <a href="<?= site_url('pago'); ?>">
-                            <i class="material-icons col-light-blue">attach_money</i>
-                            <span>Activar Membresia</span>
-                        </a>
-                    </li>
-                    <?php endif; ?>
+                    
+                    
+                    
 
                     
 

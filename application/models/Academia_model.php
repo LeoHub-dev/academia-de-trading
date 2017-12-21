@@ -28,21 +28,76 @@ class Academia_model extends CI_Model
             {
                 if($this->debePagar($inf))
                 {
-
-                    if($this->cantidadReferidosAccesibles($inf->id_usuario) >= 3)
+                    if($inf->tipo != 3)
                     {
+                        if($this->cantidadReferidosAccesibles($inf->id_usuario) >= 3)
+                        {
 
-                        $this->Auth_model->activarUsuario($inf->id_usuario);
-                        $this->marcarPagadoFactura($inf->id_usuario);
+                            $this->Auth_model->activarUsuario($inf->id_usuario);
+                            $this->marcarPagadoFactura($inf->id_usuario);
+                        }
+                        else
+                        {
+
+                            if($inf->pago == 1)
+                            {
+                                $this->Auth_model->desactivarUsuario($inf->id_usuario);
+                            }
+                        }
                     }
                     else
                     {
+                        $ganancias = $this->listaGanancias($inf->id_usuario);
+                        $costo_mensualidad = 40;
+                        $total_ganancias = 0;
 
-                        if($inf->pago == 1)
+                        foreach ((array) $ganancias as $ganancia) 
                         {
-                            $this->Auth_model->desactivarUsuario($inf->id_usuario);
+
+                            if($ganancia->pagada == 0)
+                            {
+                                $total_ganancias = $total_ganancias + $ganancia->cantidad;
+                               
+                            }
+            
+                        }
+
+                        if($total_ganancias >= $costo_mensualidad)
+                        {
+                            foreach ((array) $ganancias as $ganancia) 
+                            {
+  
+                                if($costo_mensualidad >= $ganancia->cantidad)
+                                {
+                                    $this->Panel_model->marcarPagado($ganancia->id_ganancia);
+                                    $costo_mensualidad = $costo_mensualidad - $ganancia->cantidad;
+
+                                }
+                                else
+                                {
+                                    $monto_ganancia = $ganancia->cantidad - $costo_mensualidad;
+                                    $this->agregarGanancia($inf->id_usuario,$costo_mensualidad,$ganancia->razon,1);
+                                    $this->editarGanancia($ganancia->id_ganancia,$monto_ganancia);   
+                                    $costo_mensualidad = $costo_mensualidad - $monto_ganancia;
+                                }
+
+                                if($costo_mensualidad <= 0)
+                                {
+                                    $this->marcarPagadoFactura($inf->id_usuario);
+                                    if($this->Matriz_model->obtenerCirculoActivo($inf->id_usuario) == NULL)
+                                    {
+                                        $this->Matriz_model->agregarCuentaCirculo($inf->id_usuario);
+                                    }
+                                }
+                                
+                            }
+                        }
+                        else
+                        {
+                            $this->Matriz_model->desactivarCirculo($inf->id_usuario);
                         }
                     }
+                    
                 }
             }
         }
@@ -76,7 +131,7 @@ class Academia_model extends CI_Model
 
     public function debePagar($usuario)
     {
-        if($usuario->tipo == 2 || $usuario->tipo == 1)
+        if($usuario->tipo == 2 || $usuario->tipo == 1 || $this->Matriz_model->obtenerCirculoActivo($usuario->id_usuario) == NULL || $this->Matriz_model->obtenerMatrizActiva($usuario->id_usuario) != NULL)
         {
             return FALSE;
         }
@@ -112,13 +167,14 @@ class Academia_model extends CI_Model
 
     }
 
-    public function agregarGanancia($id_usuario,$cantidad,$razon = "Sin asignar")
+    public function agregarGanancia($id_usuario,$cantidad,$razon = "Sin asignar",$pagada = 0)
     {
 
         $data = array(
            'id_usuario' => $id_usuario,
            'cantidad' => $cantidad,
-           'razon' => $razon
+           'razon' => $razon,
+           'pagada' => $pagada
         );
 
         $query = $this->db->insert('ganancias',$data);
@@ -133,6 +189,18 @@ class Academia_model extends CI_Model
         }
         
         
+    }
+
+    public function editarGanancia($id_ganancia,$monto)
+    {
+        $status = $this->db->update('ganancias', array('cantidad' => $monto), array('id_ganancia' => $id_ganancia));
+
+        if($status)
+        {
+            return TRUE;
+        }
+
+        return FALSE;
     }
 
     public function listaGanancias($id_usuario)
@@ -314,81 +382,6 @@ class Academia_model extends CI_Model
         {
             return NULL;
         }
-    }
-
-
-    public function tienePase($id_usuario = NULL)
-    {
-        $this->db->where('id_usuario',$id_usuario);
-        $this->db->or_where('ip', $_SERVER['REMOTE_ADDR']);
-
-        $query = $this->db->get('indicios_temporal');
-
-        if($query->num_rows() > 0 )
-        {
-            return TRUE;
-        }
-        else
-        {
-            return FALSE;
-        }
-
-    }
-
-    public function paseActivo($id_usuario = NULL)
-    {
-        $this->db->where('id_usuario',$id_usuario);
-        $this->db->or_where('ip', $_SERVER['REMOTE_ADDR']);
-
-        $query = $this->db->get('indicios_temporal');
-
-        if($query->num_rows() > 0 )
-        {
-            foreach ($query->result() as $inf)
-            {
-                $fecha_hoy_data = new DateTime(NULL, new DateTimeZone(TIMEZONE));
-                $fecha_hoy = $fecha_hoy_data->format("Y-m-d");
-
-                $fecha_inicial_data = new DateTime($inf->fecha_inicio, new DateTimeZone(TIMEZONE));
-                $fecha_inicial_data->modify('+7 day');
-                $fecha_inicial = $fecha_inicial_data->format("Y-m-d");
-
-                if($fecha_inicial >= $fecha_hoy)
-                {
-                    return TRUE;
-                }
-                else
-                {
-                    return FALSE;
-                }
-
-            }
-        }
-    }
-
-    public function crearPase($id_usuario = NULL)
-    {
-
-        $fecha_hoy_data = new DateTime(NULL, new DateTimeZone(TIMEZONE));
-        $fecha_hoy = $fecha_hoy_data->format("Y-m-d");
-
-        $pase = array(
-           'id_usuario' => $id_usuario,
-           'ip' => $_SERVER['REMOTE_ADDR'],
-           'fecha_inicio' => $fecha_hoy
-        );
-
-        $query = $this->db->insert('indicios_temporal',$pase); 
-
-        if($query)
-        {
-            return TRUE;
-        }
-        else
-        {
-            return FALSE;
-        }
-
     }
 
 

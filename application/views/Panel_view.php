@@ -266,6 +266,8 @@
                                     
                                     <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="1">Activar</a>
                                     <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="2">Activar como VIP</a>
+                                    <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="3">Activar con Matriz</a>
+                                    <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="4">Activar con Matriz y Residual</a>
                                     
                                 
                                 </div>

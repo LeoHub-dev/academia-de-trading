@@ -206,6 +206,20 @@ class Auth_model extends CI_Model {
         return FALSE;
     }
 
+    public function matrizUsuario($id_usuario)
+    {
+        $status = $this->db->update('usuarios_data', array('pago' => 1, 'tipo' => 3), array('id_usuario' => $id_usuario));
+
+        if($status)
+        {
+            /*$usuario = $this->Auth_model->obtenerUsuarioID($id_usuario)['data'];
+            $this->Academia_model->agregarGanancia($usuario->referido,100,'Usuario : '.$usuario->usuario.' fue activado - Pago Unico');*/
+            return TRUE;
+        }
+
+        return FALSE;
+    }
+
     public function obtenerReferidos($id_usuario)
     {
         $lista_referidos = NULL;

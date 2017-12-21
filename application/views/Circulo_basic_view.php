@@ -46,18 +46,23 @@
         <div class="container-fluid">
             <div class="block-header">
                 <ol class="breadcrumb">
-                                <li class="active">
-                                    <i class="material-icons">home</i> Home
-                                </li>
-                            </ol>
+                    <li class="active">
+                        <i class="material-icons">home</i> Home
+                    </li>
+                </ol>
             </div>
+
+            
 
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Pago mensual <small>Realiza tu pago de <?= ($info_usuario['data']->tipo == 3) ? '40$' : '20$'; ?> para mantenerte dentro de la academia</small>
+                                <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                                    <li role="presentation" class="active"><a href="#circulo1" data-toggle="tab" aria-expanded="true">Circulo 1</a></li>
+                                    <li role="presentation" class=""><a href="#circulo2" data-toggle="tab" aria-expanded="false">Circulo 2</a></li>
+                                </ul>
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -88,66 +93,51 @@
                                 </div>
                                 <div class="title">Cargando</div>
                             </div>
-                            <div class="row clearfix">
-                                <div class="col-md-12" >
-                                   
-                                        <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="1">Donar con BTC</button>
-                                   
-
-                                        
-                                    
-
+                            
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade active in" id="circulo1">
+                                    <p>
+                                    <div class="row clearfix text-center">
+                                    <?php foreach ((array) $lista_circulo_1 as $cuenta) : ?>
+                                        <div class="col-xs-6 col-md-2">
+                                            <div class="thumbnail">
+                                                <img src="<?= asset_url(); ?>images/perfil/<?= $cuenta->imagen; ?>">
+                                                <div class="caption">
+                                                    <h3><?= $cuenta->nombre; ?> <?= $cuenta->apellido; ?></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                    </div>
+                                    </p>
                                 </div>
+                                <div role="tabpanel" class="tab-pane fade" id="circulo2">
+                                    <p>
+                                    <div class="row clearfix text-center">
+                                    <?php foreach ((array) $lista_circulo_2 as $cuenta) : ?>
+                                        <div class="col-xs-6 col-md-2">
+                                            <div class="thumbnail">
+                                                <img src="<?= asset_url(); ?>images/perfil/<?= $cuenta->imagen; ?>">
+                                                <div class="caption">
+                                                    <h3><?= $cuenta->nombre; ?> <?= $cuenta->apellido; ?></h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                    </div>
+                                    </p>
+                                </div>
+       
+                             
                             </div>
-                            <form style="display: none">
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="donar">Donar</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="input-group">
-                                            <div class="form-line">
-                                                <input type="text" id="donar" class="form-control btc-monto">
-                                            </div>
-                                            <span class="input-group-addon moneda-text">
-                                                BTC
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="direccion">A esta wallet</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" id="direccion" class="form-control btc-address">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="pagado">Pagado</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" id="pagado" class="form-control btc-pagado">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </form>
+                            
+                            
                         </div>
                     </div>
                 </div>
             </div>
 
+            
 
             
 
@@ -156,6 +146,10 @@
     </section>
 
     <?php include_once 'modules/Scripts.php' ; ?>
+
+    
+
+
 </body>
 
 </html>

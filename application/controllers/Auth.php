@@ -74,6 +74,7 @@ class Auth extends LH_Controller {
 
 		        	if($this->Auth_model->ingresar($usuario))
 		        	{
+		        		$this->Academia_model->verificarMensualidad();
 		        		echo response_good('Has ingresado','Bienvenido');
 
 		        		//redirect('/dashboard' ,'refresh');

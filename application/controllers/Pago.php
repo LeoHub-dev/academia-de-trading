@@ -51,6 +51,20 @@ class Pago extends LH_Controller {
 
 	}
 
+	public function multinivel()
+	{
+		if($this->Matriz_model->obtenerMatrizActiva($this->session->userdata('id_usuario')) != NULL)
+		{
+			redirect('/dashboard' ,'refresh');
+		}
+
+		$this->scope['titulo'] = "Paga tu inicial";
+		$this->scope['lista_monedas'] = $this->coinpayments->obtenerMonedas();
+		$this->load->view('Pago_Multinivel_view',$this->scope);
+
+
+	}
+
 
 	public function get_coinbase_hash()
 	{
@@ -81,6 +95,7 @@ class Pago extends LH_Controller {
 			{
 
 				$this->load->library('Coinpayments');
+
 
 				$this->coinpayments->setIdUsuario($this->session->userdata('id_usuario'));
 				$this->coinpayments->setTipo($this->input->post('tipo'));

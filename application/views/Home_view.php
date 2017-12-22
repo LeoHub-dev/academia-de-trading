@@ -11,7 +11,7 @@
     <meta property="og:title" content="Academia de Trading" />
     <meta property="og:description" content="Academia para aprender Trading y generar tu propio ingreso" />
     <meta property="og:image" content="<?= asset_url(); ?>/home/img/banner-social.jpg" />      
-    <meta property="og:url" content="http://academiadetrading.net/" />
+    <meta property="og:url" content="<?= site_url(); ?>" />
 
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -19,11 +19,11 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,600i" rel="stylesheet">
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>/home/css/social-icons.css">
-    <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>/home/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>/home/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>home/css/social-icons.css">
+    <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>home/css/slick.css">
+    <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>home/css/style.css">
     <script src="https://use.fontawesome.com/a7fd4b808d.js"></script>
-    <link rel="icon" type="image/png" href="<?= asset_url(); ?>/home/img/logo.png" />
+    <link rel="icon" type="image/png" href="<?= asset_url(); ?>home/img/logo.png" />
 
     <!--Start of Tawk.to Script-->
 	<script type="text/javascript">
@@ -817,7 +817,7 @@
 						<div class="at-grid" data-column="3">
 						    <div class="at-column">
 						      <div class="at-user">
-						        <div class="at-user__avatar"><img src="http://academiadetrading.net/assets/images/team_adrian.png"></div>
+						        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_adrian.png"></div>
 						        <div class="at-user__name">Adrian Alvarez</div>
 						        <div class="at-user__title">CEO &amp; Fundador</div>
 
@@ -826,7 +826,7 @@
 
 						    <div class="at-column">
 						      <div class="at-user">
-						        <div class="at-user__avatar"><img src="http://academiadetrading.net/assets/images/team_ernesto.png"></div>
+						        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_ernesto.png"></div>
 						        <div class="at-user__name">Ernesto Rodriguez</div>
 						        <div class="at-user__title">Master Trader</div>
 
@@ -836,7 +836,7 @@
 						   
 						    <div class="at-column">
 						      <div class="at-user">
-						        <div class="at-user__avatar"><img src="http://academiadetrading.net/assets/images/team_gerson.png"></div>
+						        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_gerson.png"></div>
 						        <div class="at-user__name">Gerson</div>
 						        <div class="at-user__title">Master Trader</div>
 						 
@@ -849,7 +849,7 @@
 
 						     <div class="at-column">
 						      <div class="at-user">
-						        <div class="at-user__avatar"><img src="http://academiadetrading.net/assets/images/team_liangely.png"></div>
+						        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_liangely.png"></div>
 						        <div class="at-user__name">Liangely sanchez</div>
 						        <div class="at-user__title">Customer Service</div>
 						 
@@ -858,7 +858,7 @@
 
 						    <div class="at-column">
 						      <div class="at-user">
-						        <div class="at-user__avatar"><img src="http://academiadetrading.net/assets/images/team_sugey.png"></div>
+						        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_sugey.png"></div>
 						        <div class="at-user__name">Sugey Reyes</div>
 						        <div class="at-user__title">Customer Service</div>
 						 
@@ -1100,18 +1100,18 @@
 
 	<!-- Scripts -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script type="text/javascript" src="<?= asset_url(); ?>/home/js/smooth-scroll.min.js"></script>
-	<script type="text/javascript" src="<?= asset_url(); ?>/home/js/modernizr.mq.js"></script>
-	<script type="text/javascript" src="<?= asset_url(); ?>/home/js/mixitup.min.js"></script>
-	<script type="text/javascript" src="<?= asset_url(); ?>/home/js/slick.min.js"></script>
-	<script src="<?= asset_url(); ?>/home/js/wow.js"></script>
-	<script src="<?= asset_url(); ?>/home/js/bootstrap-notify.min.js"></script>
+	<script type="text/javascript" src="<?= asset_url(); ?>home/js/smooth-scroll.min.js"></script>
+	<script type="text/javascript" src="<?= asset_url(); ?>home/js/modernizr.mq.js"></script>
+	<script type="text/javascript" src="<?= asset_url(); ?>home/js/mixitup.min.js"></script>
+	<script type="text/javascript" src="<?= asset_url(); ?>home/js/slick.min.js"></script>
+	<script src="<?= asset_url(); ?>home/js/wow.js"></script>
+	<script src="<?= asset_url(); ?>home/js/bootstrap-notify.min.js"></script>
 
 
 
 	
 
-	<script src="http://matthew.wagerfield.com/parallax/deploy/jquery.parallax.js"></script>
+	<!--<script src="https://matthew.wagerfield.com/parallax/deploy/jquery.parallax.js"></script>-->
 
 	<style type="text/css">
 		.alert-minimalist {
@@ -1140,9 +1140,9 @@
 	</style>
 
 	<script type="text/javascript">
-		var scene = $('#scene');
+		/*var scene = $('#scene');
 		scene.parallax();
-		/*$.notify('I will not close until my delay is up.', {
+		$.notify('I will not close until my delay is up.', {
 			allow_dismiss: false,
 			placement: {
 				from: 'bottom',

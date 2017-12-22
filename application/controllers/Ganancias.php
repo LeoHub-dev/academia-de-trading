@@ -42,6 +42,7 @@ class Ganancias extends LH_Controller {
 	{
 		$this->scope['titulo'] = "Ganancias";
 		$this->scope['lista_ganancias'] = $this->Academia_model->listaGanancias($this->scope['info_usuario']['data']->id_usuario);
+		$this->scope['lista_old_matriz'] = $this->Matriz_model->obtenerMatrizCompletas($this->scope['info_usuario']['data']->id_usuario);
 		$this->load->view('Ganancias_view',$this->scope);
 	}
 

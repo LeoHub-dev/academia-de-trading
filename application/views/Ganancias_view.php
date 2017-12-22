@@ -52,6 +52,41 @@
                 </ol>
             </div>
 
+            <div class="row clearfix">
+
+
+            
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="info-box bg-green hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">check</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">Matrices Completadas</div>
+                            <div class="number " data-from="0" data-to="<?= count($lista_old_matriz); ?>" data-speed="1" data-fresh-interval="20"><?= count($lista_old_matriz); ?></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="info-box bg-orange hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">attach_money</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">Aproximado Ganancias</div>
+                            <div class="number " data-from="0" data-to="<?= count($lista_old_matriz); ?>" data-speed="1" data-fresh-interval="20">$ <?= count($lista_old_matriz)*250; ?></div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                
+
+            </div>
+
 
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

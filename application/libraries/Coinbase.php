@@ -317,7 +317,7 @@ class Coinbase
                         if($usuario->tipo == 3)
                         {
                             //Se integra en los circulos
-                            if($this->Matriz_model->obtenerCirculoActivo($usuario->id_usuario) == NULL)
+                            if($this->Matriz_model->obtenerCirculoActivo($invoice_data->id_user) == NULL)
                             {
                                 $this->Matriz_model->agregarCuentaCirculo($invoice_data->id_user);
                             }

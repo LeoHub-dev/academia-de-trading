@@ -129,20 +129,33 @@ class Panel extends LH_Controller {
             }
             else if($this->input->post('tipo') == 3)
             {
-            	$this->Auth_model->matrizUsuario($invoice_data->id_user);
+            	$this->Auth_model->matrizUsuario($this->input->post('id_usuario'));
                 //Agrego a la Matriz
-                $this->Matriz_model->agregarCuentaMatriz($invoice_data->id_user);
+                $this->Matriz_model->agregarCuentaMatriz($this->input->post('id_usuario'));
 
-                $this->Auth_model->activarUsuario($invoice_data->id_user);
+                $this->Auth_model->activarUsuario($this->input->post('id_usuario'));
+
+                $this->Academia_model->marcarPagadoFactura($this->input->post('id_usuario'));
+
+                echo response_good('Matriz Agregada','Pagada');
+
+	        	return;
             }
             else if($this->input->post('tipo') == 4)
             {
-            	$this->Auth_model->matrizUsuario($invoice_data->id_user);
+            	$this->Auth_model->matrizUsuario($this->input->post('id_usuario'));
                 //Agrego a la Matriz
                 //Agrego a los Circulos
-                $this->Matriz_model->agregarCuentaMatriz($invoice_data->id_user);
-                $this->Matriz_model->agregarCuentaCirculo($invoice_data->id_user);
-                $this->Auth_model->activarUsuario($invoice_data->id_user);
+                $this->Matriz_model->agregarCuentaMatriz($this->input->post('id_usuario'));
+                if($this->Matriz_model->obtenerCirculoActivo($this->input->post('id_usuario')) == NULL)
+                {
+                    $this->Matriz_model->agregarCuentaCirculo($this->input->post('id_usuario'));
+                }
+                $this->Auth_model->activarUsuario($this->input->post('id_usuario'));
+                $this->Academia_model->marcarPagadoFactura($this->input->post('id_usuario'));
+                echo response_good('Matriz y Residual Agregada','Pagada');
+
+	        	return;
             }
 
 

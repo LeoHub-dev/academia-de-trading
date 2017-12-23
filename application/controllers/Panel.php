@@ -129,33 +129,49 @@ class Panel extends LH_Controller {
             }
             else if($this->input->post('tipo') == 3)
             {
-            	$this->Auth_model->matrizUsuario($this->input->post('id_usuario'));
-                //Agrego a la Matriz
-                $this->Matriz_model->agregarCuentaMatriz($this->input->post('id_usuario'));
+            	if($this->Matriz_model->obtenerMatrizActiva($this->input->post('id_usuario')) == NULL)
+            	{
+	            	$this->Auth_model->matrizUsuario($this->input->post('id_usuario'));
+	                //Agrego a la Matriz
+	                $this->Matriz_model->agregarCuentaMatriz($this->input->post('id_usuario'));
 
-                $this->Auth_model->activarUsuario($this->input->post('id_usuario'));
+	                $this->Auth_model->activarUsuario($this->input->post('id_usuario'));
 
-                $this->Academia_model->marcarPagadoFactura($this->input->post('id_usuario'));
+	                $this->Academia_model->marcarPagadoFactura($this->input->post('id_usuario'));
 
-                echo response_good('Matriz Agregada','Pagada');
+	                echo response_good('Matriz Agregada','Pagada');
 
-	        	return;
+		        	return;
+		        }
+		        else
+		        {
+		        	echo response_bad('El usuario ya tiene matriz');
+	        		return;
+		        }
             }
             else if($this->input->post('tipo') == 4)
             {
-            	$this->Auth_model->matrizUsuario($this->input->post('id_usuario'));
-                //Agrego a la Matriz
-                //Agrego a los Circulos
-                $this->Matriz_model->agregarCuentaMatriz($this->input->post('id_usuario'));
-                if($this->Matriz_model->obtenerCirculoActivo($this->input->post('id_usuario')) == NULL)
-                {
-                    $this->Matriz_model->agregarCuentaCirculo($this->input->post('id_usuario'));
-                }
-                $this->Auth_model->activarUsuario($this->input->post('id_usuario'));
-                $this->Academia_model->marcarPagadoFactura($this->input->post('id_usuario'));
-                echo response_good('Matriz y Residual Agregada','Pagada');
+            	if($this->Matriz_model->obtenerMatrizActiva($this->input->post('id_usuario')) == NULL)
+            	{
+	            	$this->Auth_model->matrizUsuario($this->input->post('id_usuario'));
+	                //Agrego a la Matriz
+	                //Agrego a los Circulos
+	                $this->Matriz_model->agregarCuentaMatriz($this->input->post('id_usuario'));
+	                if($this->Matriz_model->obtenerCirculoActivo($this->input->post('id_usuario')) == NULL)
+	                {
+	                    $this->Matriz_model->agregarCuentaCirculo($this->input->post('id_usuario'));
+	                }
+	                $this->Auth_model->activarUsuario($this->input->post('id_usuario'));
+	                $this->Academia_model->marcarPagadoFactura($this->input->post('id_usuario'));
+	                echo response_good('Matriz y Residual Agregada','Pagada');
 
-	        	return;
+		        	return;
+	        	}
+		        else
+		        {
+		        	echo response_bad('El usuario ya tiene matriz');
+	        		return;
+		        }
             }
 
 
@@ -166,6 +182,49 @@ class Panel extends LH_Controller {
 
 		}
 
+	}
+
+	public function agregarMatrizPersonalizada($id_usuario1 = NULL, $id_usuario2 = NULL)
+	{
+		$id_usuario1 = $this->input->post('id_usuario1');
+		$id_usuario2 = $this->input->post('id_usuario2');
+
+		if($id_usuario1 != NULL && $id_usuario2 != NULL)
+		{
+			if($this->Matriz_model->obtenerMatrizActiva($id_usuario1) != NULL)
+	        {
+	            echo response_bad('El usuario al que se pondra debajo de otro, ya posee matriz');
+        		return;
+	        }
+	        else if($this->Matriz_model->obtenerMatrizActiva($id_usuario2) == NULL)
+	        {
+	            echo response_bad('El usuario al que desea adjuntarle alguien no posee matriz');
+        		return;
+	        }
+	        else
+	        {
+	        	$usuario1_info = $this->Auth_model->obtenerUsuarioID($id_usuario1);
+	        	$usuario2_info = $this->Auth_model->obtenerUsuarioID($id_usuario2);
+
+	        	$this->db->update('usuarios_data', array('referido' => $id_usuario2), array('id_usuario' => $id_usuario1));
+
+	        	$this->Matriz_model->agregarCuentaMatriz($id_usuario1);
+
+	        	$this->Auth_model->matrizUsuario($id_usuario1);
+
+	        	$this->Auth_model->activarUsuario($id_usuario1);
+	            
+	            $this->Academia_model->marcarPagadoFactura($id_usuario1);
+
+	            $this->db->update('usuarios_data', array('referido' => $usuario1_info['data']->referido), array('id_usuario' => $id_usuario1));
+
+	            echo response_good('Matriz Agregada','Listo');
+
+	        	return;
+
+	        }
+		}
+		
 	}
 
 	public function agregarIndicio()

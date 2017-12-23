@@ -387,7 +387,7 @@
         function cargarInfo()
         {
 
-            var carga_monedas = $.get('http://academiadetrading.net/mercado/api_coins', function(response) 
+            var carga_monedas = $.get('https://academiadetrading.net/mercado/api_coins', function(response) 
             {
                 $.each(response, function(i){
 

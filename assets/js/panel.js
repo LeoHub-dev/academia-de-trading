@@ -145,6 +145,29 @@ $(function () {
 
     })
 
+    $('.admin-agregar-matriz-especial').on('submit', function(e){
+
+        e.preventDefault();
+        e.stopImmediatePropagation();   
+
+        var form = $(this);
+
+        var inputs = $(this).serializeArray();
+
+  
+        $.post($(this).attr('action'), $(this).serialize(), function(data) {
+            console.log(data);
+            if(data.response == true){  swal(data.response_title, data.response_text, "success");  } else {  swal({title:'Error', type: "error", html: data.errors});    }
+
+        },"json").fail(function(xhr, status, error) {
+            console.log(error);
+            console.log(xhr.responseText);
+            console.log(status);
+        });
+
+
+    })
+
     $("*").on("click",".marcar-pagado",function(e){
 
         e.preventDefault();

@@ -127,7 +127,7 @@ class Coinbase
             $coinbase_invoice = array(
                'id_user' => $this->id_user,
                'tipo' => $this->tipo,
-               'total_to_pay' => $this->usdToBtc(256),
+               'total_to_pay' => $this->usdToBtc(260),
                'id_factura' => $factura->id_factura
             );
 
@@ -137,7 +137,7 @@ class Coinbase
             $coinbase_invoice = array(
                'id_user' => $this->id_user,
                'tipo' => $this->tipo,
-               'total_to_pay' => $this->usdToBtc(296),
+               'total_to_pay' => $this->usdToBtc(300),
                'id_factura' => $factura->id_factura
             );
 
@@ -277,7 +277,7 @@ class Coinbase
 
             $total_paid = floatval($info->additional_data->amount->amount) + $total_paid;
 
-            if(floatval($invoice_data->total_to_pay) <= (floatval($total_paid) - floatval($this->usdToBtc(3))))
+            if(floatval($invoice_data->total_to_pay) <= (floatval($total_paid) - floatval($this->usdToBtc(5))))
             {
                 if($invoice_data->status == 0)
                 {
@@ -420,7 +420,7 @@ class Coinbase
             }
         }
 
-        if(floatval($invoice_data->total_to_pay) <= (floatval($total_paid) - floatval($this->usdToBtc(3))))
+        if(floatval($invoice_data->total_to_pay) <= (floatval($total_paid) - floatval($this->usdToBtc(5))))
         {
 
             if($invoice_data->status == 0)

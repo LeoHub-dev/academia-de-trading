@@ -143,6 +143,87 @@
                                 </div>
                                 
                             </form>
+
+               
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                               Pago con otra criptomoneda</small>
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="loader-container text-center">
+                                <div class="icon">
+                                    <div class="preloader">
+                                        <div class="spinner-layer pl-black">
+                                            <div class="circle-clipper left">
+                                                <div class="circle"></div>
+                                            </div>
+                                            <div class="circle-clipper right">
+                                                <div class="circle"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="title">Cargando</div>
+                            </div>
+                            
+                            <form>
+                                <div class="alert alert-info">Puede realizar el pago hacia otras Cryptomonedas</div>
+                                <div class="alert alert-info">El monto a enviar seria el deseado (250$ o 290$)</div>
+                                <div class="alert alert-danger">Recuerde agregar en la descripcion su nombre de usuario para agilizar el proceso y de igual forma, enviar en el chat ( de la parte derecha inferior ) el Hash id de la transaccion</div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="donar">BTH</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="input-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" value="19UEWjpNigi8sdRESCjKE547qaZXcc2Hkt">
+                                            </div>
+                                            <span class="input-group-addon">
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row clearfix">
+                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+                                        <label for="donar">LTC</label>
+                                    </div>
+                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+                                        <div class="input-group">
+                                            <div class="form-line">
+                                                <input type="text" class="form-control" value="LUt6sZhzS8FCZPqmXFSnsTZ8haf7jp9nkC">
+                                            </div>
+                                            <span class="input-group-addon">
+                                                
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -154,6 +235,20 @@
             
         </div>
     </section>
+
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5a3d0b92bbdfe97b137fce4a/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 
     <?php include_once 'modules/Scripts.php' ; ?>
 </body>

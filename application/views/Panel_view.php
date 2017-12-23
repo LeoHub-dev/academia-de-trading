@@ -282,6 +282,50 @@
                 </div>
             </div>
 
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Agrega una matriz personalizada
+                            </h2>
+                            
+                        </div>
+                        <div class="body">
+                            <form action="<?= site_url('panel/agregarMatrizPersonalizada'); ?>" class="admin-agregar-matriz-especial">
+   
+            
+                                    <h2 class="card-inside-title">Poner a</h2>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12 ">
+                                            <select class="ms" name="id_usuario1" id="id_usuario1" required>
+                                                <?php $n = 0; foreach((array) $lista_usuarios_admin['usuario'] as $usuario) : $lista_usuarios_backup[$usuario->id_usuario] = $usuario; ?>
+                                                <option value="<?= $usuario->id_usuario; ?>"><?= $usuario->nombre; ?> (<?= $usuario->usuario; ?>)</option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <h2 class="card-inside-title">Debajo de</h2>
+                                    <div class="row clearfix">
+                                        <div class="col-sm-12 ">
+                                            <select class="ms" name="id_usuario2" id="id_usuario2" required>
+                                                <?php $n = 0; foreach((array) $lista_usuarios_admin['usuario'] as $usuario) : $lista_usuarios_backup[$usuario->id_usuario] = $usuario; ?>
+                                                <option value="<?= $usuario->id_usuario; ?>"><?= $usuario->nombre; ?> (<?= $usuario->usuario; ?>)</option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">Agregar</button>
+
+                                </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
 
             <div class="row clearfix">
                 

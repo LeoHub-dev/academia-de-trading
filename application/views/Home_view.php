@@ -695,10 +695,10 @@
 		                        <div class="wn-number wn-number--price">
 		                            <div class="wn-number__num">
 		                                <div class="wn-number__group">
-		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">20</span>
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">40</span>
 		                                </div>
 		                            </div>
-		                            <div class="wn-number__caption">Por Mes <font color="red"><b>(Oferta de lanzamiento)</b></font><!--<br><br><small style="text-decoration: line-through;"><font color="red">$40 / Mes </font></small>--></div>
+		                            <div class="wn-number__caption">Por Mes </font><!--<br><br><small style="text-decoration: line-through;"><font color="red">$40 / Mes </font></small>--></div>
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>
@@ -890,6 +890,25 @@
 				<a href="<?= site_url('auth'); ?>#_registro" class="btn btn-default white-yellow">Iniciar Ahora</a>
 
 			</div>
+
+		</section>
+
+		<section>
+
+			<div class="clearfix" style="color: white">
+
+				<div class="col-md-6 text-center" style="padding-bottom: 50px; padding-top: 50px; background-color: #1158d8;">
+					<h2><?= count($lista_old_matriz); ?> Ciclados</h2>
+
+				</div>
+
+				<div class="col-md-6 text-center" style="padding-bottom: 50px; padding-top: 50px; background-color: #000a3f">
+
+					<h2>$ <?= count($lista_old_matriz)*500; ?> Repartidos</h2>
+
+				</div>
+
+			</div> 
 
 		</section>
 

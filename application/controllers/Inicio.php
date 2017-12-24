@@ -13,6 +13,7 @@ class Inicio extends LH_Controller {
 
 	public function index()
 	{
+		$this->scope['lista_old_matriz'] = $this->Matriz_model->obtenerMatrizCompletasTotal();
 		$this->scope['lista_indicios'] = $this->Academia_model->obtenerIndicios();
 		$this->load->view('Home_view',$this->scope);
 	}

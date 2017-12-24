@@ -178,14 +178,28 @@ class Mercado extends LH_Controller {
         $data_fecha_5min = new DateTime("-5 minutes", new DateTimeZone(TIMEZONE));
         $fecha_5min = $data_fecha_5min->format("Y-m-d_H-i");
 
+        if(file_exists("bittrex/".$fecha_5min.".json")) 
+        {
+            //echo "cambio 5 min";
+            $data_fecha_5min->modify('+5 minutes');
+        }
+
         //$datos['5min'] = json_decode(file_get_contents("bittrex/".$fecha_5min.".json"))->result;
+        
 
         foreach (json_decode(file_get_contents("bittrex/".$fecha_5min.".json"))->result as $moneda) {
             $datos[$moneda->Summary->MarketName]['FiveMin'] = $moneda;
         }
 
+        
+
         $data_fecha_10min = new DateTime("-10 minutes", new DateTimeZone(TIMEZONE));
         $fecha_10min = $data_fecha_10min->format("Y-m-d_H-i");
+
+        while (!file_exists("bittrex/".$fecha_10min.".json")) 
+        {
+            $data_fecha_10min->modify('+1 minutes');
+        }
 
         //$datos['10min'] = json_decode(file_get_contents("bittrex/".$fecha_10min.".json"))->result;
 
@@ -196,54 +210,84 @@ class Mercado extends LH_Controller {
         $data_fecha_15min = new DateTime("-15 minutes", new DateTimeZone(TIMEZONE));
         $fecha_15min = $data_fecha_15min->format("Y-m-d_H-i");
 
+        while (!file_exists("bittrex/".$fecha_15min.".json")) 
+        {
+            $data_fecha_15min->modify('+1 minutes');
+        }
+
         //$datos['15min'] = json_decode(file_get_contents("bittrex/".$fecha_15min.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_15min.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_15min.".json"))->result as $moneda) {
             $datos[$moneda->Summary->MarketName]['FifteenMin'] = $moneda;
         }
 
         $data_fecha_30min = new DateTime("-30 minutes", new DateTimeZone(TIMEZONE));
         $fecha_30min = $data_fecha_30min->format("Y-m-d_H-i");
 
+        while (!file_exists("bittrex/".$fecha_30min.".json")) 
+        {
+            $data_fecha_30min->modify('+1 minutes');
+        }
+
         //$datos['30min'] = json_decode(file_get_contents("bittrex/".$fecha_30min.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_30min.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_30min.".json"))->result as $moneda) {
             $datos[$moneda->Summary->MarketName]['ThirtyMin'] = $moneda;
         }
 
         $data_fecha_1h = new DateTime("-1 hour", new DateTimeZone(TIMEZONE));
         $fecha_1h = $data_fecha_1h->format("Y-m-d_H-i");
 
+        while (!file_exists("bittrex/".$fecha_1h.".json")) 
+        {
+            $data_fecha_1h->modify('+1 minutes');
+        }
+
         //$datos['1h'] = json_decode(file_get_contents("bittrex/".$fecha_1h.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_1h.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_1h.".json"))->result as $moneda) {
             $datos[$moneda->Summary->MarketName]['OneHour'] = $moneda;
         }
 
         $data_fecha_2h = new DateTime("-2 hour", new DateTimeZone(TIMEZONE));
         $fecha_2h = $data_fecha_2h->format("Y-m-d_H-i");
 
+        while (!file_exists("bittrex/".$fecha_2h.".json")) 
+        {
+            $data_fecha_2h->modify('+1 minutes');
+        }
+
         //$datos['2h'] = json_decode(file_get_contents("bittrex/".$fecha_2h.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_2h.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_2h.".json"))->result as $moneda) {
             $datos[$moneda->Summary->MarketName]['TwoHour'] = $moneda;
         }
 
         $data_fecha_4h = new DateTime("-4 hour", new DateTimeZone(TIMEZONE));
         $fecha_4h = $data_fecha_4h->format("Y-m-d_H-i");
 
+        while (!file_exists("bittrex/".$fecha_4h.".json")) 
+        {
+            $data_fecha_4h->modify('+1 minutes');
+        }
+
         //$datos['4h'] = json_decode(file_get_contents("bittrex/".$fecha_4h.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_4h.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_4h.".json"))->result as $moneda) {
             $datos[$moneda->Summary->MarketName]['FourHour'] = $moneda;
         }
 
         $data_fecha_1d = new DateTime("-1 day", new DateTimeZone(TIMEZONE));
         $fecha_1d = $data_fecha_1d->format("Y-m-d_H-i");
 
+        while (!file_exists("bittrex/".$fecha_1d.".json")) 
+        {
+            $data_fecha_1d->modify('+1 minutes');
+        }
+
         //$datos['1d'] = json_decode(file_get_contents("bittrex/".$fecha_1d.".json"))->result;
 
-        foreach (json_decode(file_get_contents("bittrex/".$fecha_1d.".json"))->result as $moneda) {
+        foreach (json_decode(@file_get_contents("bittrex/".$fecha_1d.".json"))->result as $moneda) {
             $datos[$moneda->Summary->MarketName]['OneDay'] = $moneda;
         }
 
@@ -251,8 +295,7 @@ class Mercado extends LH_Controller {
 
         //var_dump($datos);
 
-
-
+  
     }
 
 

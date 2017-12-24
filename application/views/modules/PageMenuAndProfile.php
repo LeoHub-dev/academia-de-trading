@@ -80,6 +80,15 @@
                     </li>
                     <?php endif; ?>
 
+                    <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
+                    <li>
+                        <a href="<?= site_url('ganancias'); ?>">
+                            <i class="material-icons col-amber">attach_money</i>
+                            <span>Ganancias</span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+
                     <?php if($info_usuario['data']->pago == 1) : ?>
                     <li>
                         <a href="<?= site_url('mercado'); ?>">
@@ -99,14 +108,7 @@
                     </li>
                     <?php endif; ?>
 
-                    <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
-                    <li>
-                        <a href="<?= site_url('ganancias'); ?>">
-                            <i class="material-icons col-amber">attach_money</i>
-                            <span>Ganancias</span>
-                        </a>
-                    </li>
-                    <?php endif; ?>
+                    
 
                     <li>
                         <a href="https://t.me/joinchat/F4Z0X0QgDsqhs4WUlEbUxw" target="_blank" class="waves-effect waves-block">

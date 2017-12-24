@@ -35,6 +35,25 @@ class Matriz_model extends CI_Model {
 
     ****************************************************************************************************/
 
+    public function obtenerMatrizCompletasTotal()
+    {
+        $old_matriz_list = NULL;
+
+        $this->db->where('completa',1);
+
+        $query = $this->db->get('matriz');
+        
+        if($query->num_rows() > 0)
+        {
+            foreach ($query->result() as $matriz)
+            {
+                $old_matriz_list[] = $matriz;
+            }
+        }
+
+        return $old_matriz_list;
+    }
+
 
 
     public function obtenerMatrizCompletas($id_usuario)
@@ -321,63 +340,58 @@ class Matriz_model extends CI_Model {
 
     public function agregarCuentaAMatriz($id_matriz)
     {
-
         $account = $this->obtenerCuentaMatriz($id_matriz);
 
         $ref_matriz = $this->obtenerMatrizActiva($account->referido);
 
-        if($ref_matriz == NULL)
+        if($ref_matriz != NULL)
         {
-            $ref_matriz = $this->obtenerMatrizActiva($this->obtenerRaizMatriz()->id_usuario);
-        }
+            
+            $this->asignarRelacionDerrameMatriz($id_matriz,$ref_matriz->id_matriz);
 
+            $father = $this->obtenerPadreMatriz($id_matriz,1);
 
-
-        $this->asignarRelacionDerrameMatriz($id_matriz,$ref_matriz->id_matriz);
-
-        $father = $this->obtenerPadreMatriz($id_matriz,1);
-
-        if($father && $this->matrizEstaLista($father))
-        {
-
-            $this->matriz_array = NULL;
-
-            $father_account = $this->obtenerCuentaMatriz($father);
-
-            if($this->Matriz_model->obtenerCirculoActivo($father_account->id_usuario) == NULL)
+            if($father && $this->matrizEstaLista($father))
             {
-                $this->Academia_model->agregarGanancia($father_account->id_usuario,210,"Pago por Completar Matriz");
-                $this->Academia_model->agregarGanancia($father_account->id_usuario,40,"Pago mensualidad",1);
-                $this->Academia_model->agregarGanancia($father_account->id_usuario,250,"Nueva Matriz",1);
-                $this->agregarCuentaCirculo($father_account->id_usuario);
-                $this->Academia_model->marcarPagadoFactura($father_account->id_usuario);
+
+                $this->matriz_array = NULL;
+
+                $father_account = $this->obtenerCuentaMatriz($father);
+
+                if($this->Matriz_model->obtenerCirculoActivo($father_account->id_usuario) == NULL)
+                {
+                    $this->Academia_model->agregarGanancia($father_account->id_usuario,210,"Pago por Completar Matriz");
+                    $this->Academia_model->agregarGanancia($father_account->id_usuario,40,"Pago mensualidad",1);
+                    $this->Academia_model->agregarGanancia($father_account->id_usuario,250,"Nueva Matriz",1);
+                    $this->agregarCuentaCirculo($father_account->id_usuario);
+                    $this->Academia_model->marcarPagadoFactura($father_account->id_usuario);
+                }
+                else
+                {
+                    $this->Academia_model->agregarGanancia($father_account->id_usuario,250,"Pago por Completar Matriz");
+                    $this->Academia_model->agregarGanancia($father_account->id_usuario,250,"Nueva Matriz",1);
+                }
+
+                $this->agregarCuentaMatriz($father_account->id_usuario);
+                
+
+
+                /*$this->giveEarnings($father_account->id_usuario,570,"Matriz de 150$ Terminada");
+                $this->giveEarnings($father_account->id_usuario,150,"Nueva Matriz de 150$",1);
+                $this->giveEarnings($father_account->id_usuario,80,"10% de comision de la pagina",1);*/
+                
+                //$this->Academia_model->agregarGanancia($id_usuario,$cantidad,$razon = "Sin asignar");
+                
+
+                
+                $this->marcarMatrizComoCompletada($father);
             }
             else
             {
-                $this->Academia_model->agregarGanancia($father_account->id_usuario,250,"Pago por Completar Matriz");
-                $this->Academia_model->agregarGanancia($father_account->id_usuario,250,"Nueva Matriz",1);
+                $this->matriz_array = NULL;
             }
 
-            $this->agregarCuentaMatriz($father_account->id_usuario);
-            
-
-
-            /*$this->giveEarnings($father_account->id_usuario,570,"Matriz de 150$ Terminada");
-            $this->giveEarnings($father_account->id_usuario,150,"Nueva Matriz de 150$",1);
-            $this->giveEarnings($father_account->id_usuario,80,"10% de comision de la pagina",1);*/
-            
-            //$this->Academia_model->agregarGanancia($id_usuario,$cantidad,$razon = "Sin asignar");
-            
-
-            
-            $this->marcarMatrizComoCompletada($father);
         }
-        else
-        {
-            $this->matriz_array = NULL;
-        }
-
-   
 
 
     }

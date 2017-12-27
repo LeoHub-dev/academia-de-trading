@@ -279,7 +279,6 @@ class Coinbase
 
             if((floatval($invoice_data->total_to_pay - floatval($this->usdToBtc(5)))) <= floatval($total_paid))
             {
-            {
                 if($invoice_data->status == 0)
                 {
 

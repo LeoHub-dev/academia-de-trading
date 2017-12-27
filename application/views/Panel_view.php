@@ -382,6 +382,63 @@
                 </div>
             </div>
 
+
+
+            <div class="row clearfix">
+                
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Lista Pagos
+                            </h2>
+                            
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                                <table class="table table-bordered table-striped table-hover dataTable js-ganancias-total" id="tabla_indicios" role="grid" aria-describedby="DataTables_Table_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th>#</th>
+                                            <th>Usuario</th>
+                                            <th>Hash Id</th>
+                                            <th>Fecha</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Usuario</th>
+                                            <th>Hash Id</th>
+                                            <th>Fecha</th>
+                                            <th></th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                    <?php $n = 0; foreach((array) $lista_ganancias_admin as $ganancia) : ?>
+                                        <tr role="row">
+                                            <td><?= $n; ?></td>
+                                            <td><?= $lista_usuarios_backup[$ganancia->id_usuario]->usuario; ?></td>
+                                            <td><?= $ganancia->hash_id; ?></td>
+                                            <td><?= $ganancia->fecha; ?></td>
+                                            <td><a href="javascript:void(0)" class="btn btn-primary marcar-pagado" id-ganancia="<?= $ganancia->id_pago; ?>">Marcar como pagado</a></td>
+                                        </tr>
+                                    <?php $n++; endforeach; ?>
+
+                                    </tbody>
+                                </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <?php endif; ?>
 
            

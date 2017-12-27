@@ -384,6 +384,45 @@ class Academia_model extends CI_Model
         }
     }
 
+    public function agregarPago($id_usuario,$hash_id)
+    {
+
+        $data = array(
+           'id_usuario' => $id_usuario,
+           'hash_id' => $hash_id
+        );
+
+        $query = $this->db->insert('pagos',$data);
+
+        if($query)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+        }
+        
+        
+    }
+
+    public function listaPagosGeneral()
+    {
+        $lista_pagos = NULL;
+
+        $query = $this->db->get('pagos');
+
+        if($query->num_rows() > 0 )
+        {
+            foreach ($query->result() as $inf)
+            {
+                $lista_pagos[] = $inf;
+            }
+        }
+
+        return $lista_pagos;
+    }
+
 
     public function __get($var)
     {

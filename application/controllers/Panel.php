@@ -49,6 +49,7 @@ class Panel extends LH_Controller {
 		$this->scope['lista_pagos_admin'] = $this->Panel_model->listaPagos();
 		$this->scope['lista_indicios_admin'] = $this->Academia_model->obtenerIndicios();
 		$this->scope['lista_ganancias_admin'] = $this->Panel_model->listaGanancias();
+		$this->scope['lista_pagos_admin'] = $this->Academia_model->listaPagosGeneral();
 		
 		$this->load->view('Panel_view',$this->scope);
 		

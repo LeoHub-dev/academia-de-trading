@@ -92,6 +92,29 @@ $(function () {
         });
     });
 
+
+    $('.form-accion-respuesta').on('submit', function(e){
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        var form = $(this);
+        
+        divLoadingStatus($('.body')); 
+        
+        $.post($(this).attr('action'), $(this).serialize(), function(data) {
+            console.log(data);
+            if(data.response == true){  swal(data.response_title, data.response_text, "success");  } else {   swal({title:'Error', type: "error", html: data.errors}); } divNormalStatus($('.body'));
+        },"json").fail(function(xhr, status, error) {
+
+            divNormalStatus($('.body'));
+
+            console.log(error);
+            console.log(xhr.responseText);
+
+        });
+    });
+
     $('#input_referido').on('input', function(e) { 
 
         var input_group = $(this).parent().parent();

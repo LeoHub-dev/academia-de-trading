@@ -234,7 +234,7 @@ class Auth extends LH_Controller {
 	{
 		$usuario = $this->Auth_model->obtenerUsuarioEmail($this->input->post('email'));
 
-		if($usuario != NULL)
+		if($usuario['response'])
 		{
 			$this->load->model('Mail_model');
 			$this->Mail_model->setTo($this->input->post('email'));

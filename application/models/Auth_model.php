@@ -328,11 +328,17 @@ class Auth_model extends CI_Model {
 
     public function editarPassword($id_usuario,$hash_date,$hash_email,$hash_password,$np)
     {
-        $usuario = $this->Auth_model->obtenerUsuarioID($id_usuario)['data'];
+        $usuario = $this->Auth_model->obtenerUsuarioID($id_usuario);
+
+        if(!$usuario['response']) {
+            return FALSE;
+        }
+
+        $usuario = $usuario['data'];
 
         if((myHash($usuario->fecha_creacion) == $hash_date) && (myHash($usuario->email) == $hash_email) && (myHash($usuario->password) == $hash_password))
         {
-            $status = $this->db->update('usuarios_data', array('password' => $np), array('id_usuario' => $id_usuario));
+            $status = $this->db->update('usuarios_data', array('password' => myHash($np)), array('id_usuario' => $id_usuario));
 
             if($status)
             {

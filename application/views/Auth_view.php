@@ -44,7 +44,7 @@
                     </div>
                     <div class="title">Cargando</div>
                 </div>
-                <form id="login-form" class="form_login" action="<?= site_url('auth/ingreso'); ?>" method="POST">
+                <form id="login-form" class="auth-form" action="<?= site_url('auth/ingreso'); ?>" method="POST">
                     <div class="msg">Iniciar Sesion</div>
                     <div class="input-group">
                         <span class="input-group-addon">
@@ -82,7 +82,10 @@
                     </div>
                     <div class="row m-t-15 m-b--20">
                         <div class="col-xs-6">
-                            <a id="register-form-link" href="javascript:void(0)">Registrate!</a>
+                            <a class="auth-link" data-href="register-form" href="javascript:void(0)">Registrate!</a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a class="auth-link" data-href="forgot-form" href="javascript:void(0)">Olvido Contraseña?</a>
                         </div>
                          <div class="col-md-12">
                             <a href="javascript:void(0)" onclick="loginFb()"><img src="https://www.thenerdmag.com/wp-content/uploads/facebook-login.png" class="img-responsive"></a>
@@ -93,7 +96,7 @@
                     </div>
                 </form>
 
-                <form id="register-form" class="form_registro" action="<?= site_url('auth/registro'); ?>" style="display: none;" method="POST">
+                <form id="register-form" class="auth-form" action="<?= site_url('auth/registro'); ?>" style="display: none;" method="POST">
                     <div class="msg">Registro</div>
                     
                     
@@ -182,9 +185,44 @@
                     <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
 
                     <div class="m-t-25 m-b--5 align-center">
-                        <a id="login-form-link" href="javascript:void(0)">Ya estas registrado ?</a>
+                        <a class="auth-link" data-href="login-form" href="javascript:void(0)">Ya estas registrado ?</a>
                     </div>
                 </form>
+
+
+                <form id="forgot-form" class="auth-form" action="<?= site_url('auth/reiniciar_pw'); ?>" style="display: none;" method="POST">
+                    <div class="msg">Recuperar Contraseña</div>
+                    
+                    
+                    
+
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">email</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div id="error_message" class="alert alert-danger clearfix" style="display: none;" role="alert">
+                          Bad
+                      </div>
+                      <div id="success_message" class="alert alert-success clearfix" style="display: none;" role="alert">
+                          Good
+                      </div>
+                    </div>
+
+
+                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">Recuperar Contraseña</button>
+
+                    <div class="m-t-25 m-b--5 align-center">
+                        <a class="auth-link" data-href="login-form" href="javascript:void(0)">Ya estas registrado ?</a>
+                    </div>
+                </form>
+
+
             </div>
         </div>
     </div>
@@ -235,7 +273,7 @@ $(function () {
 
     $('form').trigger('reset');
 
-    console.log(window.location.hash);
+
     var hash = window.location.hash;
     if(hash == "#_registro")
     {
@@ -244,6 +282,18 @@ $(function () {
         $('#login-form-link').removeClass('active');
         $(this).addClass('active');
     }
+
+
+    $('.auth-link').click(function(e) {
+        var form = $(this).attr('data-href');
+
+        $(".auth-form").fadeOut(100);
+        $("#"+form).delay(100).fadeIn(100);
+        
+        //$('#register-form-link').removeClass('active');
+        //$(this).addClass('active');
+        e.preventDefault();
+    });
 });
 
 </script>

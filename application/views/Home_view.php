@@ -10,7 +10,7 @@
     <meta name="author" content="Adrian Alvarez"/>
     <meta property="og:title" content="Academia de Trading" />
     <meta property="og:description" content="Academia para aprender Trading y generar tu propio ingreso" />
-    <meta property="og:image" content="<?= asset_url(); ?>/home/img/banner-social.jpg" />      
+    <meta property="og:image" content="https://i.imgur.com/f4H2cUB.jpg" />      
     <meta property="og:url" content="<?= site_url(); ?>" />
 
     <!-- Latest compiled and minified CSS -->

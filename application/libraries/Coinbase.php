@@ -277,7 +277,8 @@ class Coinbase
 
             $total_paid = floatval($info->additional_data->amount->amount) + $total_paid;
 
-            if(floatval($invoice_data->total_to_pay) <= (floatval($total_paid) - floatval($this->usdToBtc(5))))
+            if((floatval($invoice_data->total_to_pay - floatval($this->usdToBtc(5)))) <= floatval($total_paid))
+            {
             {
                 if($invoice_data->status == 0)
                 {
@@ -317,13 +318,14 @@ class Coinbase
                         if($usuario->tipo == 3)
                         {
                             //Se integra en los circulos
-                            if($this->Matriz_model->obtenerCirculoActivo($invoice_data->id_user) == NULL)
+                            if($this->Matriz_model->obtenerCirculoActivo($usuario->id_usuario) == NULL)
                             {
                                 $this->Matriz_model->agregarCuentaCirculo($invoice_data->id_user);
                             }
 
                             $this->Auth_model->activarUsuario($invoice_data->id_user);
                             $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
+                            
                         }
                             
                     }
@@ -337,8 +339,6 @@ class Coinbase
 
                         $this->Auth_model->activarUsuario($invoice_data->id_user);
 
-                        $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
-
                         
                     }
                     else if($invoice_data->tipo == 4)
@@ -351,10 +351,8 @@ class Coinbase
                         $this->Matriz_model->agregarCuentaMatriz($invoice_data->id_user);
                         $this->Matriz_model->agregarCuentaCirculo($invoice_data->id_user);
                         $this->Auth_model->activarUsuario($invoice_data->id_user);
-                        $this->Academia_model->marcarPagadoFactura($invoice_data->id_user);
                         
                     }
-
 
                 }
                 
@@ -420,7 +418,7 @@ class Coinbase
             }
         }
 
-        if(floatval($invoice_data->total_to_pay) <= (floatval($total_paid) - floatval($this->usdToBtc(5))))
+        if((floatval($invoice_data->total_to_pay - floatval($this->usdToBtc(5)))) <= floatval($total_paid))
         {
 
             if($invoice_data->status == 0)

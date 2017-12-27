@@ -2,24 +2,9 @@ $(function () {
 
     var base_url = window.location.protocol + "//" + window.location.host + "/";
 
-	$('#login-form-link').click(function(e) {
-        $("#login-form").delay(100).fadeIn(100);
-        $("#register-form").fadeOut(100);
-        $('#register-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
-
-    $('#register-form-link').click(function(e) {
-        $("#register-form").delay(100).fadeIn(100);
-        $("#login-form").fadeOut(100);
-        $('#login-form-link').removeClass('active');
-        $(this).addClass('active');
-        e.preventDefault();
-    });
 
 
-    $('.form_registro').on('submit', function(e){
+    $('#login-form').on('submit', function(e){
 
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -41,7 +26,7 @@ $(function () {
         });
     });
 
-    $('.form_login').on('submit', function(e){
+    $('#register-form').on('submit', function(e){
 
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -53,6 +38,50 @@ $(function () {
         $.post($(this).attr('action'), $(this).serialize(), function(data) {
             console.log(data);
             if(data.response == true){  swal(data.response_title, data.response_text, "success").then(function () { window.location.replace(base_url+"dashboard/"); }); setTimeout(function(){ window.location.replace(base_url+"dashboard"); }, 2000); } else {  divNormalStatus($('.auth_card')); showFormError(form,data.errors); }
+        },"json").fail(function(xhr, status, error) {
+
+            divNormalStatus($('.auth_card'));
+
+            console.log(error);
+            console.log(xhr.responseText);
+
+        });
+    });
+
+    $('#forgot-form').on('submit', function(e){
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        var form = $(this);
+        
+        divLoadingStatus($('.auth_card')); 
+        
+        $.post($(this).attr('action'), $(this).serialize(), function(data) {
+            console.log(data);
+            if(data.response == true){  swal(data.response_title, data.response_text, "success").then(function () { window.location.replace(base_url+"auth/"); }); setTimeout(function(){ window.location.replace(base_url+"auth"); }, 2000); } else {  divNormalStatus($('.auth_card')); showFormError(form,data.errors); }
+        },"json").fail(function(xhr, status, error) {
+
+            divNormalStatus($('.auth_card'));
+
+            console.log(error);
+            console.log(xhr.responseText);
+
+        });
+    });
+
+    $('#reset-form').on('submit', function(e){
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        var form = $(this);
+        
+        divLoadingStatus($('.auth_card')); 
+        
+        $.post($(this).attr('action'), $(this).serialize(), function(data) {
+            console.log(data);
+            if(data.response == true){  swal(data.response_title, data.response_text, "success").then(function () { window.location.replace(base_url+"auth/"); }); setTimeout(function(){ window.location.replace(base_url+"auth"); }, 2000); } else {  divNormalStatus($('.auth_card')); showFormError(form,data.errors); }
         },"json").fail(function(xhr, status, error) {
 
             divNormalStatus($('.auth_card'));

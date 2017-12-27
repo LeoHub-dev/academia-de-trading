@@ -128,6 +128,28 @@ class Auth_model extends CI_Model {
         }    
     }
 
+    public function obtenerUsuarioEmail($email)
+    {
+        $this->db->where('email',$email);
+        $this->db->join('usuarios_personas', 'usuarios_data.id_persona = usuarios_personas.id_persona', 'left');
+
+        $query = $this->db->get('usuarios_data',1);
+
+        if($query->num_rows() > 0 )
+        {
+            foreach ($query->result() as $inf)
+            {
+                return array('response' => TRUE, 'data' => $inf);
+
+            }
+
+        }
+        else
+        {
+            return array('response' => FALSE, 'data' => 'Not found');
+        }    
+    }
+
 
     public function obtenerReferidoID($id_usuario)
     {
@@ -303,6 +325,24 @@ class Auth_model extends CI_Model {
 
 
     }
+
+    public function editarPassword($id_usuario,$hash_date,$hash_email,$hash_password,$np)
+    {
+        $usuario = $this->Auth_model->obtenerUsuarioID($id_usuario)['data'];
+
+        if((myHash($usuario->fecha_creacion) == $hash_date) && (myHash($usuario->email) == $hash_email) && (myHash($usuario->password) == $hash_password))
+        {
+            $status = $this->db->update('usuarios_data', array('password' => $np), array('id_usuario' => $id_usuario));
+
+            if($status)
+            {
+                return TRUE;
+            }
+        }
+        
+        return FALSE;
+    }
+
 
     
     

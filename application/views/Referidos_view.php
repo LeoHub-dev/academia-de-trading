@@ -75,12 +75,94 @@
                 </div>
             </div>
 
+
+
+            <?php foreach((array) $lista_referidos as $usuario) :  
+
+            if($usuario->tipo == 3) { $lista_backup['matriz'][] = $usuario; }
+            if($usuario->tipo != 3) { $lista_backup['academia'][] = $usuario; }
+
+            endforeach; ?>
+
+          
+
+
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Lista de Referidos
+                                Lista de Referidos - Multinivel
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
+                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+
+               
+
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Email</th>
+                                            <th>#Numero Referido</th>
+                                            <th>Fecha de Ingreso</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre</th>
+                                            <th>Apellido</th>
+                                            <th>Email</th>
+                                            <th>#Numero Referido</th>
+                                            <th>Fecha de Ingreso</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+
+                                    <?php $n = 0; foreach((array) $lista_backup['matriz'] as $usuario) :  ?>
+                                        <tr role="row">
+                                            <td><?= $n; ?></td>
+                                            <td><?= $usuario->nombre; ?></td>
+                                            <td><?= $usuario->apellido; ?></td>
+                                            <td><?= $usuario->email; ?></td>
+                                            <td><?= $usuario->id_usuario; ?></td>
+                                            <td><?= $usuario->fecha_creacion; ?></td>
+                                        </tr>
+                                    <?php $n++; endforeach; ?>
+
+                                    </tbody>
+                                </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Lista de Referidos - Academia
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -126,7 +208,7 @@
                                     </tfoot>
                                     <tbody>
 
-                                    <?php $n = 0; foreach((array) $lista_referidos as $usuario) : ?>
+                                    <?php $n = 0; foreach((array) $lista_backup['academia'] as $usuario) : if($usuario->tipo == 3) { continue; } ?>
                                         <tr role="row">
                                             <td><?= $n; ?></td>
                                             <td><?= $usuario->nombre; ?></td>

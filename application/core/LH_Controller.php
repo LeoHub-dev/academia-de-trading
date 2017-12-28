@@ -22,7 +22,7 @@ class LH_Controller extends CI_Controller
                 
             }
 
-
+            
         }
 
         if($this->session->userdata('site_lang'))

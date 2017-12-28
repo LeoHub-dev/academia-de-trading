@@ -289,9 +289,19 @@ class Auth_model extends CI_Model {
             $data_user = array('imagen' => $post['image']) + $data_user;
         }
 
-        if(isset($post['wallet']) && !empty($post['wallet']))
+        if(isset($post['wallet_btc']) && !empty($post['wallet_btc']))
         {
-            $data_user = array('wallet' => $post['wallet']) + $data_user;
+            $data_user = array('wallet_btc' => $post['wallet_btc']) + $data_user;
+        }
+
+        if(isset($post['wallet_ltc']) && !empty($post['wallet_ltc']))
+        {
+            $data_user = array('wallet_ltc' => $post['wallet_ltc']) + $data_user;
+        }
+
+        if(isset($post['wallet_bth']) && !empty($post['wallet_bth']))
+        {
+            $data_user = array('wallet_bth' => $post['wallet_bth']) + $data_user;
         }
 
         if(isset($post['usuario']) && !empty($post['usuario']))

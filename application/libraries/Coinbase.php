@@ -104,6 +104,15 @@ class Coinbase
                     'id_factura' => $factura->id_factura
                 );
             }
+            else if($usuario->tipo == 1)
+            {
+                $coinbase_invoice = array(
+                    'id_user' => $this->id_user,
+                    'tipo' => $this->tipo,
+                    'total_to_pay' => $this->usdToBtc(44),
+                    'id_factura' => $factura->id_factura
+                );
+            }
             else if($usuario->tipo == 3)
             {
                 $coinbase_invoice = array(

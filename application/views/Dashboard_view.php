@@ -163,13 +163,17 @@
                         <div class="body">
                             <?php foreach ($info_usuario['data'] as $key => $value): ?>
 
-                                <?= ($key == "wallet" && $value == NULL) ? '<div class="alert alert-info"><strong>No</strong> tienes una Wallet asignada en tu perfil <a href="'.site_url('perfil').'" class="alert-link">Click aqui para editar tu perfil</a></div>' : ''; ?>
+                                <?= ($key == "wallet_btc" && $value == NULL) ? '<div class="alert alert-info"><strong>No</strong> tienes una Wallet BTC asignada en tu perfil <a href="'.site_url('perfil').'" class="alert-link">Click aqui para editar tu perfil</a></div>' : ''; ?>
+
+                                <?= ($key == "wallet_ltc" && $value == NULL) ? '<div class="alert alert-info"><strong>No</strong> tienes una Wallet LTH asignada en tu perfil <a href="'.site_url('perfil').'" class="alert-link">Click aqui para editar tu perfil</a></div>' : ''; ?>
+
+
                                 
                             <?php endforeach ?>
 
                             <?php if($info_usuario['data']->pago == 0) : ?>
 
-                                <div class="alert alert-danger">Su <strong>cuenta</strong> se encuentra inactiva. Puede invitar a 3 referidos con <a role="button" data-toggle="collapse" href="#refLink" aria-expanded="true" aria-controls="refLink" class="alert-link">Tu Link de referido</a> o realizar el pago de 20$ <a href="<?= site_url('pago'); ?>" class="alert-link">AQUI</a></div>
+                                <div class="alert alert-danger">Su <strong>cuenta</strong> se encuentra inactiva. Realiza el pago de 40$ <a href="<?= site_url('pago'); ?>" class="alert-link">AQUI</a></div>
 
                                 <div class="collapse" id="refLink">
                                     <div class="well">

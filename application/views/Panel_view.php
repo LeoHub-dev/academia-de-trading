@@ -233,13 +233,37 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <h2 class="card-inside-title">Wallet</h2>
+                                        <h2 class="card-inside-title">Wallet Btc</h2>
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
 
                                                 <div class="form-group">
                                                     <div class="form-line">
-                                                        <input type="text" name="wallet" class="form-control" placeholder="Wallet" value="">
+                                                        <input type="text" name="wallet_btc" class="form-control" placeholder="Wallet" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h2 class="card-inside-title">Wallet Ltc</h2>
+                                        <div class="row clearfix">
+                                            <div class="col-sm-12">
+
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input type="text" name="wallet_ltc" class="form-control" placeholder="Wallet" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <h2 class="card-inside-title">Wallet Bth</h2>
+                                        <div class="row clearfix">
+                                            <div class="col-sm-12">
+
+                                                <div class="form-group">
+                                                    <div class="form-line">
+                                                        <input type="text" name="wallet_bth" class="form-control" placeholder="Wallet" value="">
                                                     </div>
                                                 </div>
                                             </div>
@@ -391,7 +415,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Lista Pagos
+                                Lista Pagos Manuales para la pagina
                             </h2>
                             
                         </div>
@@ -419,13 +443,14 @@
                                     </tfoot>
                                     <tbody>
 
-                                    <?php $n = 0; foreach((array) $lista_ganancias_admin as $ganancia) : ?>
+                                    <?php $n = 0; foreach((array) $lista_pagos_manual_admin as $ganancia) : ?>
                                         <tr role="row">
                                             <td><?= $n; ?></td>
                                             <td><?= $lista_usuarios_backup[$ganancia->id_usuario]->usuario; ?></td>
                                             <td><?= $ganancia->hash_id; ?></td>
                                             <td><?= $ganancia->fecha; ?></td>
-                                            <td><a href="javascript:void(0)" class="btn btn-primary marcar-pagado" id-ganancia="<?= $ganancia->id_pago; ?>">Marcar como pagado</a></td>
+                                            <td><a href="#" class="btn btn-primary cargar-usuario" id-usuario="<?= $ganancia->id_usuario; ?>">Buscar usuario</a>
+                                                <a href="javascript:void(0)" class="btn btn-primary" id-ganancia="">Eliminar</a></td>
                                         </tr>
                                     <?php $n++; endforeach; ?>
 

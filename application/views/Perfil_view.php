@@ -145,17 +145,42 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h2 class="card-inside-title">Wallet</h2>
+                                <h2 class="card-inside-title">Wallet BTC</h2>
                                 <div class="row clearfix">
                                     <div class="col-sm-12">
 
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <input type="text" name="wallet" class="form-control" placeholder="Wallet" value="<?= $info_usuario['data']->wallet; ?>">
+                                                <input type="text" name="wallet_btc" class="form-control" placeholder="Wallet Btc" value="<?= $info_usuario['data']->wallet_btc; ?>">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <h2 class="card-inside-title">Wallet LTC</h2>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12">
+
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="wallet_ltc" class="form-control" placeholder="Wallet Ltc" value="<?= $info_usuario['data']->wallet_ltc; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h2 class="card-inside-title">Wallet BTH</h2>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12">
+
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="wallet_bth" class="form-control" placeholder="Wallet Bth" value="<?= $info_usuario['data']->wallet_bth; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <h2 class="card-inside-title">Imagen de perfil</h2>
                                 <div class="row clearfix">
                                     <div class="form-group">
@@ -188,6 +213,9 @@
         $('#mostrar_pw').on('click', function(e){
             $(this).parent().parent().find('input').attr('type','text');
         });
+        <?php if($info_usuario['data']->wallet_ltc == NULL || $info_usuario['data']->wallet_ltc == "") : ?>
+        alert('Debe asignar una wallet de LTC (LiteCoin)'); 
+        <?php endif; ?>
     </script>
     <script>
 

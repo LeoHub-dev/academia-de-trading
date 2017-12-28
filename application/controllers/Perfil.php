@@ -28,6 +28,8 @@ class Perfil extends LH_Controller {
 		{
 			redirect('/auth' ,'refresh');
 		}
+
+
 		
 	}
 

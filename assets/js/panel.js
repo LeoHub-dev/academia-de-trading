@@ -7,6 +7,8 @@ $(function () {
         e.preventDefault();
         e.stopImmediatePropagation();
 
+        $('html, body').animate({ scrollTop: 0 }, 'fast');
+
         var panel_body = $('#usuario-info-container');
 
         panel_body.show();
@@ -304,6 +306,40 @@ $(function () {
         var td = $(this).parent();
 
         $.post(base_url+'panel/eliminarindicio', {id : $(this).attr('data-id')}, function(data) {
+            console.log(data);
+            if(data.response == true)
+            {   
+                swal(data.response_title, data.response_text, "success");
+                td.html('Eliminada');
+
+            }
+            if(data.response == false)
+            { 
+                swal({title:'Error', type: "error", text: data.errors, html: true});  
+            }
+
+        },'json').fail(function(xhr, status, error) {
+            console.log(error);
+            console.log(xhr.responseText);
+            console.log(status);
+        });
+
+    })
+
+    $("*").on("click",".eliminar_pago",function(e){
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        if (confirm('Desea eliminar esta pago?')) {
+            
+          } else {
+            return;
+          }
+
+        var td = $(this).parent();
+
+        $.post(base_url+'panel/eliminarpago', {id : $(this).attr('data-id')}, function(data) {
             console.log(data);
             if(data.response == true)
             {   

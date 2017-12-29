@@ -243,6 +243,11 @@ class Panel_model extends CI_Model
         $this->db->delete('indicios', array('id_indicio' => $id));
     }
 
+    public function eliminarPago($id)
+    {
+        $this->db->delete('pagos', array('id_pago' => $id));
+    }
+
 
     public function __get($var)
     {

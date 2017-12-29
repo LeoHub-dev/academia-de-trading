@@ -449,8 +449,8 @@
                                             <td><?= $lista_usuarios_backup[$ganancia->id_usuario]->usuario; ?></td>
                                             <td><?= $ganancia->hash_id; ?></td>
                                             <td><?= $ganancia->fecha; ?></td>
-                                            <td><a href="#" class="btn btn-primary cargar-usuario" id-usuario="<?= $ganancia->id_usuario; ?>">Buscar usuario</a>
-                                                <a href="javascript:void(0)" class="btn btn-primary" id-ganancia="">Eliminar</a></td>
+                                            <td><a href="#top" class="btn btn-primary cargar-usuario" id-usuario="<?= $ganancia->id_usuario; ?>">Buscar usuario</a>
+                                                <a href="javascript:void(0)" class="btn btn-primary eliminar_pago" data-id="<?= $ganancia->id_pago; ?>">Eliminar</a></td>
                                         </tr>
                                     <?php $n++; endforeach; ?>
 

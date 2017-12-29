@@ -269,6 +269,21 @@ class Panel extends LH_Controller {
 		
 	}
 
+	public function eliminarPago()
+	{
+
+		if($this->input->server('REQUEST_METHOD') == 'POST')
+		{
+
+			$this->Panel_model->eliminarPago($this->input->post('id'));
+
+			echo response_good('Correcto','Eliminado');
+
+	        return;
+	    }
+		
+	}
+
 	public function uploadimg()
 	{
 

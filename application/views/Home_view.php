@@ -909,7 +909,7 @@
 #plan {
 
 	 left: 50%;
-    top: 50%;
+    top: 90%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     z-index: 1;

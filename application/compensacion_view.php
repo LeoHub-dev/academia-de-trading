@@ -219,7 +219,8 @@
 
 	<script type="text/javascript" src="<?= asset_url(); ?>/js/particles.js"></script>
 	<script type="text/javascript">
-		
+		var scene = $('#scene');
+		scene.parallax();
 		
 
 		particlesJS.load('equipo', '<?= asset_url(); ?>particlesjs-config.json', function() {

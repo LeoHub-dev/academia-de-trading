@@ -107,7 +107,7 @@
 	<main>
 
 
-		<section id="equipo"  style="background-image: url('<?= asset_url(); ?>/images/adrianwall.jpg'); background-size: 100% auto; background-repeat: no-repeat;">
+		<section class="hidden-xs" id="equipo"  style="background-image: url('<?= asset_url(); ?>/images/adrianwall.jpg'); background-size: 100% auto; background-repeat: no-repeat;">
 
 			<div class="container-fluid" style="position: absolute; left: 0;
     right: 0;">
@@ -119,11 +119,13 @@
 						<div class="title-content">
 							
 							<h2 style="font-size: 40px; color: white" class="section-title">Plan de compensación</h2>
-	<h4 style="color: white">Finalmente una plataforma de ganancias en donde todos ganamos y recibimos el pago el mismo día</h4>
-	<br>
+	
+	
 
 <iframe src="https://player.vimeo.com/video/249318003" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
- 
+ <h4 style="color: white">Finalmente una plataforma de ganancias en donde todos ganamos y recibimos el pago el mismo día</h4>
+<br>
+ <a href="" class="btn btn-info btn-lg">  Descargar</a>
 						</div>
 
 					</div>
@@ -140,10 +142,36 @@
 			</div> <!-- /.container -->
 
 
-
 		</section>
 
-		
+
+		<section class="hidden-sm hidden-md hidden-lg">
+		<div class="embed-responsive embed-responsive-16by9">	
+<iframe src="https://player.vimeo.com/video/249318003" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+ 
+
+
+</div>
+ <h4 class="text-center">Finalmente una plataforma de ganancias en donde todos ganamos y recibimos el pago el mismo día</h4>
+<br>
+<center>
+ <a href="" class="btn btn-info btn-lg">  Descargar</a></center>
+		</section>
+
+				<div class="row">
+
+<div class="col-md-6 text-center" style=" color:white; padding-bottom: 100px; padding-top: 100px; background-color: #1158d8;">
+					<h2><?= count($lista_old_matriz); ?> Ciclados</h2>
+
+				</div>
+
+
+				<div class="col-md-6 text-center" style="color:white;padding-bottom: 100px; padding-top: 100px; background-color: #000a3f">
+
+					<h2>$ <?= count($lista_old_matriz)*500; ?> Repartidos</h2>
+
+				</div>
+</div>	
 
 	</main>
 

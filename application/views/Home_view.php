@@ -899,56 +899,49 @@
 
 
 
+<img src="<?= asset_url(); ?>images/chica.jpg"  alt="" width="100%">
 
 
-
-			<div class="clearfix" style="color: white ">
-<div style="background-image: url('<?= asset_url(); ?>images/chica.jpg'); background-repeat: no-repeat; background-size: 100% auto; padding: 300px ">
-	
-<div class="" style="">
-	
-
-<h2 class="" style="
-
-color: #333;
-font-weight: 800;
-background-color: #ffffff4d;
-padding: 20px;
-position: absolute;
-top: 60%;
-left: 60%;
+			<div class="clearfix s" style="color: white ">
 
 
+<style type="text/css" media="screen">
+#plan {
 
-">NETWORK MARKETING   </h2>
-	
-</div>
-
-
-
-</div>
-
-
-<div style="
-    left: 50%;
-    top: 86%;
+	 left: 50%;
+    top: 90%;
     transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
     z-index: 1;
-    position: absolute;">
+    position: absolute;
+}
+
+@media screen and (max-width: 500px) {
+
+#plan {
+
+position: relative;
+float: left;
+}
+
+
+}
+	
+</style>
+<div id="plan" style="">
 
 
 <a href="<?= site_url('compensacion'); ?>" class="btn btn-lg btn-warning">Plan de compensación</a>
 </div>
 
 
-				<div class="col-md-6 text-center" style="padding-bottom: 100px; padding-top: 100px; background-color: #1158d8;">
+				<div class="col-md-6 text-center" style="padding-bottom: 50px; padding-top: 50px; background-color: #1158d8;">
 					<h2><?= count($lista_old_matriz); ?> Ciclados</h2>
 
 				</div>
 
 
-				<div class="col-md-6 text-center" style="padding-bottom: 100px; padding-top: 100px; background-color: #000a3f">
+				<div class="col-md-6 text-center" style="padding-bottom: 50px; padding-top: 50px; background-color: #000a3f">
 
 					<h2>$ <?= count($lista_old_matriz)*500; ?> Repartidos</h2>
 

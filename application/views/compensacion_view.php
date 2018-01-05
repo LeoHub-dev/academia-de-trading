@@ -123,7 +123,7 @@
 	
 
 <iframe src="https://player.vimeo.com/video/249318003" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
- <h4 style="color: white">Finalmente una plataforma de ganancias en donde todos ganamos y recibimos el pago el mismo día</h4>
+ <h4 style="color: white; padding: 10px">Finalmente una plataforma de ganancias<br> en donde todos ganamos y recibimos el pago el mismo día</h4>
 <br>
  <a href="" class="btn btn-info btn-lg">  Descargar plan de compensación</a>
 						</div>

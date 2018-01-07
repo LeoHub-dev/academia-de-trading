@@ -877,68 +877,67 @@ class Matriz_model extends CI_Model {
         $ref_circulo = $this->obtenerCirculoActivo($account->referido);
 
         
-        if($ref_circulo == NULL)
+        if($ref_circulo != NULL)
         {
-            $ref_circulo = $this->obtenerCirculoActivo($this->obtenerRaiz()->id_usuario);
-        }
+          
 
-  
-
-        $this->asignarRelacionDerrame($id_circulo,$ref_circulo->id_circulo);
-        
-        $padre = $this->obtenerPadreCirculo($id_circulo,1);
+            $this->asignarRelacionDerrame($id_circulo,$ref_circulo->id_circulo);
+            
+            $padre = $this->obtenerPadreCirculo($id_circulo,1);
 
 
-        while($padre) 
-        {
-            /*if($this->debePagar($padre))
+            while($padre) 
             {
-
-                $cuenta_padre = $this->obtenerCuentaCirculo($padre);
-
-                $ganancias = $this->obtenerGanancias($padre);
-
-                $factura = $this->obtenerFactura($cuenta_padre->id_usuario);
-
-
-                $monto = $factura->monto;
-
-                foreach ((array) $ganancias as $ganancia) 
+                /*if($this->debePagar($padre))
                 {
-                    if($monto > 0)
+
+                    $cuenta_padre = $this->obtenerCuentaCirculo($padre);
+
+                    $ganancias = $this->obtenerGanancias($padre);
+
+                    $factura = $this->obtenerFactura($cuenta_padre->id_usuario);
+
+
+                    $monto = $factura->monto;
+
+                    foreach ((array) $ganancias as $ganancia) 
                     {
-                        if($monto >= $ganancia->monto)
+                        if($monto > 0)
                         {
-                            $this->marcarPagado($ganancia->id_ganancia);
-                            $monto = $monto - $ganancia->monto;
+                            if($monto >= $ganancia->monto)
+                            {
+                                $this->marcarPagado($ganancia->id_ganancia);
+                                $monto = $monto - $ganancia->monto;
 
+                            }
+                            else
+                            {
+                                $monto_ganancia = $ganancia->monto - $monto;
+                                $this->darGanancias($padre,$monto,$ganancia->razon,1);
+                                $this->editarGanancia($ganancia->id_ganancia,$monto_ganancia);
+                                $monto = $monto - $monto_ganancia;
+
+                                
+                            }
+
+                            $this->editarFactura($factura->id_factura,$monto);
                         }
-                        else
+
+
+                        if($monto == 0)
                         {
-                            $monto_ganancia = $ganancia->monto - $monto;
-                            $this->darGanancias($padre,$monto,$ganancia->razon,1);
-                            $this->editarGanancia($ganancia->id_ganancia,$monto_ganancia);
-                            $monto = $monto - $monto_ganancia;
-
-                            
+                            $this->marcarPagadoFactura($factura->id_factura,$cuenta_padre->id_usuario);
+                            break;
                         }
-
-                        $this->editarFactura($factura->id_factura,$monto);
+        
                     }
+                }*/
 
 
-                    if($monto == 0)
-                    {
-                        $this->marcarPagadoFactura($factura->id_factura,$cuenta_padre->id_usuario);
-                        break;
-                    }
-    
-                }
-            }*/
+                $padre = $this->obtenerPadreCirculo($padre,1);
 
 
-            $padre = $this->obtenerPadreCirculo($padre,1);
-
+            }
 
         }
 

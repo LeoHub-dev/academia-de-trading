@@ -836,9 +836,9 @@
 						   
 						    <div class="at-column">
 						      <div class="at-user">
-						        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/team_gerson.png"></div>
-						        <div class="at-user__name">Gerson</div>
-						        <div class="at-user__title">Master Trader</div>
+						        <div class="at-user__avatar"><img src="https://i.imgur.com/BZPkhMG.jpg"></div>
+						        <div class="at-user__name">Gabriel Blanco</div>
+						        <div class="at-user__title">Chief of Marketing</div>
 						 
 						      </div>
 						    </div>
@@ -1077,14 +1077,21 @@ float: left;
 						if($indicio->seccion == 1) continue;
 
 						$factura_final = new DateTime($indicio->fecha, new DateTimeZone(TIMEZONE));
+						$final = $factura_final->format("Y-m-d");
                         setlocale(LC_TIME,"es_ES");
                         $f = strftime("%d de %B",  $factura_final->getTimestamp());  
 
-                         
+                        $data_fecha_hoy = new DateTime(NULL, new DateTimeZone(TIMEZONE));
+        				$data_fecha_hoy->modify('-2 month');
+        				$fecha_actual = $data_fecha_hoy->format("Y-m-d");
 
-                        $lista_senal[str_replace(' ', '', $indicio->fecha)]["fecha"] = $f;
-                        $lista_senal[str_replace(' ', '', $indicio->fecha)]["fecha_raw"] = str_replace(' ', '', $indicio->fecha);
-                        $lista_senal[str_replace(' ', '', $indicio->fecha)]["imagenes"][] = $indicio->imagen;
+
+        				if($fecha_actual < $final)
+        				{
+	                        $lista_senal[str_replace(' ', '', $indicio->fecha)]["fecha"] = $f;
+	                        $lista_senal[str_replace(' ', '', $indicio->fecha)]["fecha_raw"] = str_replace(' ', '', $indicio->fecha);
+	                        $lista_senal[str_replace(' ', '', $indicio->fecha)]["imagenes"][] = $indicio->imagen;
+	                    }
 
            
 

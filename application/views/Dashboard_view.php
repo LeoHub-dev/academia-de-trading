@@ -126,7 +126,7 @@
                             <div class="content">
                                 <div class="text">FECHA FINAL DE MENSUALIDAD</div>
                                 <div class="number " data-speed="1" data-fresh-interval="20"><?php 
-                                $factura_final = new DateTime( $factura->fecha_inicial, new DateTimeZone(TIMEZONE));
+                                $factura_final = new DateTime( $factura->fecha_final, new DateTimeZone(TIMEZONE));
                                 echo $factura_final->format("Y-m-d"); ?></div>
                             </div>
                         </div>

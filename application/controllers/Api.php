@@ -92,6 +92,13 @@ class Api extends LH_Controller {
 
 	}
 
+	public function listacoinbase()
+	{
+		$this->load->library('Coinbase');
+
+		var_dump($this->coinbase->getNotificationsList());
+	}
+
 	public function obtener_matriz()
 	{
 		if(!$this->session->userdata('id_usuario'))

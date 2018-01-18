@@ -18,6 +18,11 @@ class Inicio extends LH_Controller {
 		$this->load->view('Home_view',$this->scope);
 	}
 
+	public function ventas()
+	{
+		$this->load->view('Ventas_view',$this->scope);
+	}
+
 	public function ver_indicio($indicio = NULL)
 	{
 		if($indicio == NULL)

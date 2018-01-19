@@ -106,7 +106,7 @@
                 array(
                         'field' => 'email',
                         'label' => 'Email',
-                        'rules' => 'required|valid_email|trim|esUnEmailUnico'
+                        'rules' => 'required|valid_email'
                 ),
                 array(
                         'field' => 'name',

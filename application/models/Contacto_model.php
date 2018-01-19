@@ -35,6 +35,22 @@ class Contacto_model extends CI_Model {
         {
            
 
+            $this->load->model('Mail_model');
+            $this->Mail_model->setTo($data['email']);
+            //$this->Mail_model->setTo('Douglasjosenieves@gmail.com');
+            $this->Mail_model->setSubject('Academia de Trading - Recuperacion');
+
+            $data = array( 
+            "titulo" => "Academia de Trading",
+            "texto" => "Test",
+            "link" => "#",
+            "texto_link" => "BotonTest"
+            );
+
+            $this->Mail_model->setMessage($data);
+            $this->Mail_model->sendMail();
+
+
  redirect('/trading?send=true', 'location');
 return TRUE;
 

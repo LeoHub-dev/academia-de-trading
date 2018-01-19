@@ -53,6 +53,8 @@ $route['default_controller'] = 'Inicio';
 
 $route['blog'] = "BlogController/index";
 
+$route['trading'] = "Inicio/ventas";
+
 $route['compensacion'] = "CompensacionController/index";
 
 $route['404_override'] = '';

@@ -84,7 +84,7 @@
 <div class="col-md-8">
 	
 	<div class="vcenter" style="">
-		      		<h3 class="tex-reset f40 hidden">Escribanos al Whatsapp: + 1xxxxxxxx</h3>
+		      		<h3 class="tex-reset f40">Escribanos al Whatsapp: + 1xxxxxxxx</h3>
 		      	</div>
 		      	
 
@@ -149,9 +149,7 @@
 								<h3 class="clearfix font-yellow tex-reset" style="margin-top: 40px; margin-bottom: 40px;text-align: center; position: relative;">COMPROBADO: 9 de Cada 10 de nuestros Estudiantes Ganan Dinero Diariamente</h3>
 								
 							</div> <!-- /.col -->
-							<div class="col-md-5" style="
-    margin-top: 30px;
-">
+							<div class="col-md-5">
 							<div class="box">
 								<div class="col-md-12 some-margin">
 									<h3 class="clearfix font-yellow">Solicite su asesoria de inversiones aqui</h3>
@@ -240,7 +238,7 @@
 							<div class="col-md-8 some-margin">
 								<div class="col-md-12 text-justify">
 									<h4 class="some-margin low">El trading de criptomonedas es uno de los negocios mas provechosos y rentables del ultimo siglo, dando ganancias millonarias a gente que ha sabido aprovechar la oportunidad de invertir en criptomonedas.</h4>
-<br>
+
 									<h4 class="low">Ya esta usted listo para comenzar a invertir?</h4>
 									
 								</div>
@@ -306,8 +304,8 @@
 								</div> <!-- /.col -->
 
 									
- 
-								<div class="col-md-12 text-center padding-top" >
+
+								<div class="col-md-12 text-center">
 									<a href="#planes" class="btn btn-default black-yellow smoothScroll">QUIERO INSCRIBIRME</a>
 								</div>
 									
@@ -328,7 +326,7 @@
 
 				</section>
 			</div>
-	<div class="col-md-4">
+	<div class="col-md-4 bg-white">
 
 <div class="row padding-top" >
 	
@@ -336,7 +334,9 @@
 
 
 	<div class="row" >
+<br><br>
 <br>
+
 <div class="row">
 						
 							<div class="col-md-12 text-center padding">
@@ -458,7 +458,249 @@
 			</div>-->
 		</div>
 
-		
+		<section style="padding-top: 30px; margin-bottom: 40px; overflow: hidden;" class="clearfix">
+
+			<div class="row">
+					
+				<div class="col-md-8 col-md-offset-2">
+
+					<div class="title-content">
+						
+						<h2 class="section-title">Testimonios</h2>
+
+						
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="about-team slider-container">
+
+				<div class="team-member grabbable">
+
+					<div class="container">
+
+						<div class="row" style="display: flex;align-items: center;justify-content: center;">
+
+							<div class="col-md-4">
+
+								<div class="img-container">	
+									<!--<img src="https://i.imgur.com/J1mOynB.jpg" alt="Alfredo Gutierrez Uzcanga" class="circle-img">-->
+									<div class="round">
+							            <img src="https://i.imgur.com/J1mOynB.jpg" />
+							        </div>
+								</div>
+
+							</div>
+
+							<div class="col-md-8">
+
+								<div class="description">
+
+									<span class="h4">Alfredo Gutierrez Uzcanga</span>
+
+
+									<div class="biography">
+
+										<p>Estoy en una plataforma dónde estoy a prendiendo hacer trading y lo mejor que tenemos un gran equipo de amigos que nos ayudan air mejorando paso a paso y que uno mismo tiene la responsabilidad de manejar su propio dinero.     </p>
+
+
+									</div>
+
+					
+
+								</div> <!-- /.desctiption -->
+
+							</div>
+
+						</div> <!-- /.row -->
+
+					</div> <!-- /.container -->
+
+				</div> <!-- /.team-member -->
+
+				<div class="team-member grabbable">
+
+					<div class="container">
+
+						<div class="row" style="display: flex;align-items: center;justify-content: center;">
+
+							<div class="col-md-4">
+
+								<div class="img-container">	
+									<!--<img src="https://i.imgur.com/J1mOynB.jpg" alt="Alfredo Gutierrez Uzcanga" class="circle-img">-->
+									<div class="round">
+							            <img src="https://i.imgur.com/vpIgPlC.jpg" />
+							        </div>
+								</div>
+
+							</div>
+
+							<div class="col-md-8">
+
+								<div class="description">
+
+									<span class="h4">Jose Rondon</span>
+
+
+									<div class="biography">
+
+										<p>El mejor trabajo en equipo, ayuda y orentación en el mercado de trading de cryptomonedas.</p>
+
+
+									</div>
+
+					
+
+								</div> <!-- /.desctiption -->
+
+							</div>
+
+						</div> <!-- /.row -->
+
+					</div> <!-- /.container -->
+
+				</div> <!-- /.team-member -->
+
+
+				<div class="team-member grabbable">
+
+					<div class="container">
+
+						<div class="row" style="display: flex;align-items: center;justify-content: center;">
+
+							<div class="col-md-4">
+
+								<div class="img-container">	
+									<!--<img src="https://i.imgur.com/J1mOynB.jpg" alt="Alfredo Gutierrez Uzcanga" class="circle-img">-->
+									<div class="round">
+							            <img src="https://i.imgur.com/FVnXGd5.jpg" />
+							        </div>
+								</div>
+
+							</div>
+
+							<div class="col-md-8">
+
+								<div class="description">
+
+									<span class="h4">Gerardo Sanchez</span>
+
+
+									<div class="biography">
+
+										<p>Mi experiencia en esta gran academia de trading que gracias a Dios conocí, me a dado tanto en aprendisaje que la verdad no sabria como pagarles. Este camino a sido de gran bendicion y crecimiento como en el tranding como personal. Me a enseñado a pensar en grande a soñar y perseguir mis sueños a un que es un logro pequeño pero gigante para mi.</p>
+
+
+									</div>
+
+					
+
+								</div> <!-- /.desctiption -->
+
+							</div>
+
+						</div> <!-- /.row -->
+
+					</div> <!-- /.container -->
+
+				</div> <!-- /.team-member -->
+
+				<div class="team-member grabbable">
+
+					<div class="container">
+
+						<div class="row" style="display: flex;align-items: center;justify-content: center;">
+
+							<div class="col-md-4">
+
+								<div class="img-container">	
+									<!--<img src="https://i.imgur.com/J1mOynB.jpg" alt="Alfredo Gutierrez Uzcanga" class="circle-img">-->
+									<div class="round">
+							            <img src="https://i.imgur.com/F9b0jky.png" />
+							        </div>
+								</div>
+
+							</div>
+
+							<div class="col-md-8">
+
+								<div class="description">
+
+									<span class="h4">Osmel Cedeño</span>
+
+
+									<div class="biography">
+
+										<p>Si todas las Academias de Trading fueran como este, creo que menos gente perdería dinero en los mercados. Definitivamente mi operativa ha mejorado y apenas llevo 2 semanas. Entrar a la Academia me ayudo a establecer unas bases más solidad a las que tenía. Pensé que me las sabía todas y no tenía por qué pagar 20$ pero definitivamente esto fue lo mejor que hice pase en poco tiempo de perdedor a ganador.</p>
+
+
+									</div>
+
+					
+
+								</div> <!-- /.desctiption -->
+
+							</div>
+
+						</div> <!-- /.row -->
+
+					</div> <!-- /.container -->
+
+				</div> <!-- /.team-member -->
+
+				<div class="team-member grabbable">
+
+					<div class="container">
+
+						<div class="row" style="display: flex;align-items: center;justify-content: center;">
+
+							<div class="col-md-4">
+
+								<div class="img-container">	
+									<!--<img src="https://i.imgur.com/J1mOynB.jpg" alt="Alfredo Gutierrez Uzcanga" class="circle-img">-->
+									<div class="round">
+							            <img src="https://i.imgur.com/k05RZcp.jpg" />
+							        </div>
+								</div>
+
+							</div>
+
+							<div class="col-md-8">
+
+								<div class="description">
+
+									<span class="h4">Angel Guerrero</span>
+
+
+									<div class="biography">
+
+										<p>Estoy muy contento de haber ingresado a la academia son muy profesionales y están atentos en ayudar.... Vamos por más gracias amigos.</p>
+
+
+									</div>
+
+					
+
+								</div> <!-- /.desctiption -->
+
+							</div>
+
+						</div> <!-- /.row -->
+
+					</div> <!-- /.container -->
+
+				</div> <!-- /.team-member -->
+
+				
+				
+			</div> <!-- /.about-team -->
+
+
+		</section>
+
 
 		
 
@@ -528,9 +770,9 @@
 
 
 
-		<section id="planes" class="" style="background-color: white">
+		<section id="planes" class="bg-5">
 
-	
+			<div class="overlay_soft"></div>
 
 			<div class="container">
 
@@ -555,25 +797,59 @@
 
 		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite col-md-6 col-sm-6">
 		                <div class="wn-plan__box">
-		               
-
-<img class="img-responsive" src="<?= asset_url(); ?>/ventas/img/planbasico.jpg" alt="">
-
-
+		                    <div class="wn-plan__header">
+		                        <div class="wn-header wn-header--reduce wn-header--center wn-header--wysiwyg">
+		                            <h3 class="wn-header__text">Plan Basico</h3>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__number">
+		                        <div class="wn-number wn-number--price">
+		                            <div class="wn-number__num">
+		                                <div class="wn-number__group">
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">40</span>
+		                                </div>
+		                            </div>
+		                            <div class="wn-number__caption">Por Mes </font><!--<br><br><small style="text-decoration: line-through;"><font color="red">$40 / Mes </font></small>--></div>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__details"><ul>
+			                    	<li><strong>Aprende</strong> el trading basico</li>
+			                    	<li><strong>1 a 3</strong> señales por dia</li>
+			                    	<li>Apoyo por <strong>Skype o Telegram</strong></li>
+			                    	<li>Se parte de la <strong>comunidad</strong></li>
+			                    	<li>Acceso a las <strong>herramientas</strong> de la pagina</li>
+			                    	<li>Invita <strong>3 referidos (Activos)</strong> y obten el mes gratis</li>
+		                    	</ul></div>
 		                    <div class="wn-plan__buttons">
 		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
 		                    </div>
 		                </div>
 		            </div>
-		           
-
-
 		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite wn-plan--last col-md-6 col-sm-6">
 		                <div class="wn-plan__box">
-		                   
-		           <img class="img-responsive" src="<?= asset_url(); ?>/ventas/img/plan-Enterprise.jpg" alt="">         
-
-
+		                    <div class="wn-plan__header">
+		                        <div class="wn-header wn-header--reduce wn-header--center wn-header--wysiwyg">
+		                            <h3 class="wn-header__text">ENTERPRISE</h3>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__number">
+		                        <div class="wn-number wn-number--price">
+		                            <div class="wn-number__num">
+		                                <div class="wn-number__group">
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">250</span> 
+		                                </div>
+		                            </div>
+		                            <div class="wn-number__caption">Pago Unico<!--<br><br><small style="text-decoration: line-through;"><font color="red">$497</font></small>--></div>
+		                        </div>
+		                    </div>
+		                    <div class="wn-plan__details"><ul>
+			                    	<li>Un <strong>SOLO</strong> pago</li>
+			                    	<li>Acceso a <strong>todo</strong> el paquete basico</li>
+			                    	<li>Señales <strong>ilimitadas</strong> todo el dia</li>
+			                    	<li><strong>Clases</strong> de analisis tecnico</li>
+			                    	<li>Curso de trading <strong>fundamental</strong></li>
+			                    	<li>Acceso a las <strong>herramientas</strong> de la pagina</li>
+		                    	</ul></div>
 		                    <div class="wn-plan__buttons">
 		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
 		                    </div>
@@ -590,11 +866,11 @@
 		</section>
 
 		
-		<section id="explicacion" class="bg-100" style="padding-bottom: 40px">
+		<section id="explicacion" class="bg-1" style="padding-bottom: 0px">
 
 			<div class="container-fluid not-so-fluid">
 
-			
+				<div class="overlay"></div>
 
 				<div>
 
@@ -602,7 +878,7 @@
 
 						
 						<div class="col-md-12 some-margin text-center">
-							<h3 class="font-white big" style="letter-spacing: 8px;">NO PIERDA MAS TIEMPO!</h3>
+							<h3 class="font-white big">NO PIERDA MAS TIEMPO!</h3>
 						</div> <!-- /.col -->
 
 						<div class="col-md-12 some-margin text-center">
@@ -610,7 +886,7 @@
 						</div> <!-- /.col -->
 
 						<div class="col-md-4">
-							
+							<img src="<?= asset_url(); ?>ventas/img/fotochic2.png" class="img-responsive" >
 						</div>
 						<div class="col-md-8 font-white">
 							<p class="big">En la academia de trading usted tiene todo lo que necesita para comenzar a invertir en criptomonedas y obtener altas rentabilidades.</p>

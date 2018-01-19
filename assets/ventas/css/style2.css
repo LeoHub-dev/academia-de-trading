@@ -1,0 +1,166 @@
+.vcenter {
+    
+vertical-align: middle
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.tex-reset{
+
+text-transform: none;;
+
+}
+
+.box {
+    border-radius: 10px;
+    padding: 10px 10px;
+    background: #000;
+    color: #ffffff;
+}
+
+.btn-default.black-yellow {
+    color: #000;
+    background-color: #da9924;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+#main-navigation .navbar-brand img {
+    max-height: 100px;
+    /* margin-bottom: 20px; */
+}
+
+#main-navigation .navbar-brand, #main-navigation.navbar-default .navbar-nav>li>a.navbar-brand {
+    height: 100px;
+    /* padding: 29px 45px 23px; */
+    padding: 6px 15px 26px 15px;
+    margin-left: 0px;
+}
+
+
+.f40 {
+    font-size: 40px;
+}
+
+.titulo {
+
+margin-top: 40px; margin-bottom: 40px;text-align: center; position: relative; text-transform: none;;  font-size: 40px;
+
+}
+
+.some-margin {
+    margin: 10px 0px;
+}
+
+
+.contact-form input, .contact-form textarea {
+    display: block;
+    width: 100%;
+    font-weight: 300;
+    padding: 18px 26px;
+    color: #040404;
+    background: #b3b3b3;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+
+ .formula input::placeholder {
+  color: black;
+}
+
+.bg-white{
+
+background-color: #fff;
+
+}
+
+
+.bg-gris{
+
+	background-color: #ddd;
+}
+
+.padding-top
+{padding-top: 50px;}
+
+
+#explicacion {
+    padding: 50px 0 40px;
+}
+
+.padding {
+
+	padding: 40px;
+}
+
+
+.padding5 {
+
+	padding: 5px;
+}
+
+
+@media only screen and (min-width: 1440px)
+{
+h3.low, h4.low {
+    font-size: 1.9vw;
+    line-height: 100%;
+}
+
+
+
+
+}
+@media only screen and (min-width: 1440px) {
+
+ li{
+
+ 
+    font-size: 20px;
+    /* color: #38b142; */
+    text-align: justify;
+    text-decoration: none;
+    line-height: 25px;
+ 
+
+ }
+
+
+h3.medium, h4.medium {
+    font-size: 3.5vw;
+    line-height: 150%;
+
+     letter-spacing: 1px;
+}
+
+
+h3 {
+    font-size: 40px;
+}
+
+
+
+h3.big {
+    font-size: 4vw;
+    line-height: 150%;
+}
+
+
+h3.medium, h4.medium {
+    font-size: 3.5vw;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+}
+
+
+.bg-100 {
+    background: url(../img/Banner-Chica.png) center center no-repeat;
+    background-size: cover;
+}

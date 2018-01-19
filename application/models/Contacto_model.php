@@ -38,13 +38,14 @@ class Contacto_model extends CI_Model {
             $this->load->model('Mail_model');
             $this->Mail_model->setTo($data['email']);
             //$this->Mail_model->setTo('Douglasjosenieves@gmail.com');
-            $this->Mail_model->setSubject('Academia de Trading - Recuperacion');
+            $this->Mail_model->setSubject('Academia de Trading - Gracias por escribirnos');
 
             $data = array( 
-            "titulo" => "Academia de Trading",
-            "texto" => "Test",
-            "link" => "#",
-            "texto_link" => "BotonTest"
+            "titulo" => "Un afectuoso saludo ".$data['name']." pronto seras atendido(a)",
+            "texto" => "Comience a Invertir en Criptomonedas 
+Sin Ser Experto y Sin Arriesgar Su Dinero",
+            "link" => "https://academiadetrading.net/auth#_registro",
+            "texto_link" => "Registrarme"
             );
 
             $this->Mail_model->setMessage($data);

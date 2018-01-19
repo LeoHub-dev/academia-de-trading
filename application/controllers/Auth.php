@@ -314,5 +314,53 @@ class Auth extends LH_Controller {
         exit;
 	}
 
+
+
+
+
+	public function formcontactos()
+	{
+	 
+			if($this->input->server('REQUEST_METHOD') == 'POST')
+			{
+				if ($this->form_validation->run('contactos') == FALSE)
+	        	{
+	        		echo response_bad(validation_errors());
+	        	}
+	        	else
+	        	{
+					$usuario = array(
+						'name' => $this->input->post('name'),
+						
+
+						'email' => $this->input->post('email'),
+						'whatsapp' => $this->input->post('whatsapp'),
+						'ciudad' => $this->input->post('ciudad'),
+						'inversion' => $this->input->post('inversion'),
+						 
+					);
+
+
+
+					if($this->Contacto_model->registrar($usuario))
+					{
+				
+						echo response_good('Correcto','Ya puede ingresar a su cuenta');
+		        	}
+		        	
+
+
+				}
+			}
+
+
+			else
+		    {
+		    	echo response_bad('Error - Fallo sistema');
+		    }
+	 
+		
+	}
+
 	
 }

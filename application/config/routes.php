@@ -55,6 +55,8 @@ $route['blog'] = "BlogController/index";
 
 $route['trading'] = "Inicio/ventas";
 
+$route['contactos-store'] = "Auth/formcontactos";
+
 $route['compensacion'] = "CompensacionController/index";
 
 $route['404_override'] = '';

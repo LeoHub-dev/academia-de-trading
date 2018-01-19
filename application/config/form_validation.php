@@ -99,6 +99,44 @@
                         'label' => 'Apellido',
                         'rules' => 'required',
                 )
+        ),
+
+
+          'contactos' => array(
+                array(
+                        'field' => 'email',
+                        'label' => 'Email',
+                        'rules' => 'required|valid_email|trim|esUnEmailUnico'
+                ),
+                array(
+                        'field' => 'name',
+                        'label' => 'Nombre',
+                        'rules' => 'required',
+                ),
+          
+              
+                array(
+                        'field' => 'whatsapp',
+                        'label' => 'Whatsapp',
+                        'rules' => 'required',
+                ),
+
+
+                array(
+                        'field' => 'ciudad',
+                        'label' => 'Ciudad',
+                        'rules' => 'required',
+                ),
+
+                  array(
+                        'field' => 'inversion',
+                        'label' => 'Inversion',
+                        'rules' => 'required',
+                ),
+    
+
+
+
         )
         );
 

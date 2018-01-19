@@ -20,7 +20,12 @@ class Inicio extends LH_Controller {
 
 	public function ventas()
 	{
+
+        $this->scope['send'] = $this->input->get('send');
+
 		$this->load->view('Ventas_view',$this->scope);
+
+
 	}
 
 	public function ver_indicio($indicio = NULL)

@@ -159,42 +159,45 @@
 								<div class="col-md-12 some-margin">
 									<h4 class="clearfix">Queremos Conocerlo y Ayudarle de Manera Personalizada</h4>
 								</div>
-								<form id="formula" class="contact-form">
+								
+
+
+								<form id="formula" action="<?= site_url('contactos-store'); ?>" method="post" class="contact-form">
 					
 									<div class="row">
 
 										<div class="col-md-12 some-margin">
 											
 											<label class="sr-only" for="Name">Nombre</label>
-											<input type="text" name="name" id="Name" placeholder="Nombre">
+											<input type="text" required name="name" id="Name" placeholder="Nombre">
 
 										</div>
 										
 										<div class="col-md-12 some-margin">
 											
 											<label class="sr-only" for="Email">Correo Electronico</label>
-											<input type="email" name="email" id="Email" placeholder="Correo Electronico">
+											<input type="email" required name="email" id="Email" placeholder="Correo Electronico">
 
 										</div>
 
 										<div class="col-md-12 some-margin">
 											
 											<label class="sr-only" for="Subject">Whatsapp</label>
-											<input type="text" name="subject" id="Subject" placeholder="Whatsapp (Con codigo de area)">
+											<input type="text" required name="whatsapp" id="whatsapp" placeholder="Whatsapp (Con codigo de area)">
 
 										</div>
 
 										<div class="col-md-12 some-margin">
 											
-											<label class="sr-only" for="Subject">Whatsapp</label>
-											<input type="text" name="subject" id="Subject" placeholder="Ciudad/Pais">
+											<label class="sr-only" for="Subject">Ciudad/Pais</label>
+											<input type="text" required name="ciudad" id="ciudad" placeholder="Ciudad/Pais">
 
 										</div>
 
 										<div class="col-md-12 some-margin">
 											
-											<label class="sr-only" for="Subject">Whatsapp</label>
-											<input type="text" name="subject" id="Subject" placeholder="Monto que desea invertir">
+											<label class="sr-only" for="Subject">Monto que desea invertir</label>
+											<input type="text"  required name="inversion" id="inversion" placeholder="Monto que desea invertir">
 
 										</div>
 
@@ -202,7 +205,22 @@
 
 			
 
-									<button type="submit" class="btn btn-default black-yellow smoothScroll" style="margin: 15px auto 0;">QUIERO QUE ME LLAMEN</button>
+									
+<?php if ($send =='true'): ?>
+	
+
+
+
+<div class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>Enviado!</strong> Gracias en breve lo contactaremos...
+</div>
+
+<?php else: ?>
+
+<button type="submit" class="btn btn-default black-yellow smoothScroll" style="margin: 15px auto 0;">QUIERO QUE ME LLAMEN</button>
+
+<?php endif ?>
 
 								</form>
 							</div>

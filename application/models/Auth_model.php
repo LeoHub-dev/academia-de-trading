@@ -128,6 +128,10 @@ class Auth_model extends CI_Model {
         }    
     }
 
+
+
+
+
     public function obtenerUsuarioEmail($email)
     {
         $this->db->where('email',$email);

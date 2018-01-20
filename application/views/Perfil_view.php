@@ -67,6 +67,32 @@
                     </div>
                 </div>
             </div>
+
+
+
+                  <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Link para invitar Referidos #2 
+                            </h2>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="form-line disabled">
+                                            <input value="<?= site_url('api/d/'.$info_usuario['data']->id_usuario); ?>" type="text" class="form-control" placeholder="Disabled" disabled="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             
 
             <div class="row clearfix">

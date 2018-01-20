@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-01-2018 a las 21:21:44
+-- Tiempo de generación: 20-01-2018 a las 18:36:13
 -- Versión del servidor: 10.1.28-MariaDB
 -- Versión de PHP: 5.6.32
 
@@ -35,6 +35,7 @@ CREATE TABLE `contactos` (
   `whatsapp` varchar(250) DEFAULT NULL,
   `ciudad` varchar(250) DEFAULT NULL,
   `inversion` varchar(250) DEFAULT NULL,
+  `referido_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

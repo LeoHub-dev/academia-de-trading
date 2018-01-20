@@ -48,6 +48,26 @@ class Api extends LH_Controller {
 		}
 	}
 
+
+
+		public function d($cuenta = NULL)
+	{
+		if(!$this->Auth_model->estaConectado())
+		{
+			if($this->Auth_model->obtenerReferidoID($cuenta)['response'])
+	        {
+	            $this->session->set_userdata('ref',$cuenta);
+	            $this->session->set_userdata('usuario',$this->Auth_model->obtenerUsuarioID($cuenta));
+	        }
+	        
+			redirect('/trading' ,'refresh');
+		}
+		else
+		{
+			redirect('/dashboard' ,'refresh');
+		}
+	}
+
 	public function admin_usuario($id_usuario)
 	{
 		$usuario = $this->Auth_model->obtenerUsuarioID($id_usuario);

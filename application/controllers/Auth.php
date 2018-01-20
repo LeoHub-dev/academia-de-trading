@@ -337,6 +337,9 @@ class Auth extends LH_Controller {
 						'whatsapp' => $this->input->post('whatsapp'),
 						'ciudad' => $this->input->post('ciudad'),
 						'inversion' => $this->input->post('inversion'),
+						'referido_id' => $this->input->post('referido_id'),
+
+						
 						 
 					);
 

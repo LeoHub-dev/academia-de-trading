@@ -25,7 +25,8 @@ class Contacto_model extends CI_Model {
            'email' => $data['email'],
            'whatsapp' => $data['whatsapp'],
            'ciudad' => $data['ciudad'],
-           'inversion' => $data['inversion']
+           'inversion' => $data['inversion'],
+           'referido_id' => $data['referido_id']
          
         );
 

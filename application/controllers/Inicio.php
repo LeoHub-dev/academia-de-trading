@@ -22,8 +22,12 @@ class Inicio extends LH_Controller {
 	{
 
         $this->scope['send'] = $this->input->get('send');
+       $this->scope['referido_id'] = $this->session->userdata('ref');
+       $user = $this->session->userdata('usuario');
+       $user2 = $user['data'];
+       $this->scope['referido_name'] =  $user2->nombre.' '.$user2->apellido  ;
 
-		$this->load->view('Ventas_view',$this->scope);
+       $this->load->view('Ventas_view',$this->scope);
 
 
 	}

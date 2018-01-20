@@ -70,7 +70,7 @@ return TRUE;
     
     public function getContactos()
     {
-        
+         $this->db->order_by("id","desc");
 $query = $this->db->get('contactos'); 
 
 return $query->result();

@@ -68,6 +68,18 @@ class Api extends LH_Controller {
 		}
 	}
 
+
+
+	public function getContactos()
+	{
+	
+$array = $this->Contacto_model->getContactos();
+header('Content-Type: application/json');
+echo json_encode( $array);
+
+
+	}
+
 	public function admin_usuario($id_usuario)
 	{
 		$usuario = $this->Auth_model->obtenerUsuarioID($id_usuario);

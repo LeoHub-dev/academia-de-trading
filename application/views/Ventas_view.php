@@ -84,7 +84,7 @@
 <div class="col-md-8">
 	
 	<div class="vcenter" style="">
-<?php if ($referido_name): ?>
+<?php if (@$referido_name): ?>
 		<h3 class="tex-reset f40 "><?php echo $referido_name.' te invita a registrarte'  ?></h3>
 <?php endif ?>
 
@@ -214,7 +214,7 @@
 	                                 <div class="col-md-12 some-margin hidden">
 											
 											<label class="sr-only" for="Subject">Referido ID</label>
-											<input type="text" value="<?= (isset($referido_id)) ? $referido_id : ""; ?>"  required name="referido_id" id="referido_id" placeholder="Referido ID">
+											<input type="text" value="<?= (isset($referido_id)) ? $referido_id : ""; ?>"   name="referido_id" id="referido_id" placeholder="Referido ID">
 
 										</div>
 

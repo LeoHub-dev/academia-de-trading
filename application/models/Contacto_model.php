@@ -68,6 +68,13 @@ return TRUE;
     }
 
     
+    public function getContactos()
+    {
+        
+$query = $this->db->get('contactos'); 
+
+return $query->result();
+    }
 
 
 

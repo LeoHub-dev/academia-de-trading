@@ -407,11 +407,12 @@ $user2 = $user['data'];
    ////Enviar email
              $this->load->model('Mail_model');
             $this->Mail_model->setTo($user2->email);
+                    $this->Mail_model->setToCC('soporte@academiadetrading.net');
             //$this->Mail_model->setTo('Douglasjosenieves@gmail.com');
-            $this->Mail_model->setSubject('Academia de Trading - Pago reportado con exito!');
+            $this->Mail_model->setSubject('Academia de Trading - Pago Hash Id: '.$hash_id.'');
 
             $data_email= array( 
-            "titulo" => "Estimado(a) ".$user2->nombre.". Su pago se ha reportado con exito!",
+            "titulo" => "Estimado(a) ".$user2->nombre.". Su pago se ha reportado con exito! Hash Id: ".$hash_id."" ,
             "texto" => "Pronto nuestro staff administrativo verificará su pago.",
             "link" => "https://academiadetrading.net/",
             "texto_link" => "Ir a la Academia"

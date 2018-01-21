@@ -38,8 +38,10 @@ class Contacto_model extends CI_Model {
 
             $this->load->model('Mail_model');
             $this->Mail_model->setTo($data['email']);
+
+            $this->Mail_model->setToCC('soporte@academiadetrading.net');
             //$this->Mail_model->setTo('Douglasjosenieves@gmail.com');
-            $this->Mail_model->setSubject('Academia de Trading - Gracias por escribirnos');
+            $this->Mail_model->setSubject('Academia de Trading - Forulario Web - '.$data['name'].'');
 
             $data = array( 
             "titulo" => "Estimado(a) ".$data['name']." gracias por escribirnos",

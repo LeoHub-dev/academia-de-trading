@@ -5,6 +5,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Mail_model extends CI_Model {
 
 	public $to;
+    public $cc;
     public $from = "soporte@academiadetrading.net";
     public $from_name = "Academia de Trading - Soporte";
 	public $subject;
@@ -90,6 +91,16 @@ class Mail_model extends CI_Model {
         return $this;
     }
 
+        public function setToCC($email)
+    {
+        $this->cc = $email;
+
+        return $this;
+    }
+
+
+
+
     /**
      * Gets the value of email.
      *
@@ -144,6 +155,7 @@ class Mail_model extends CI_Model {
 
         $this->email->from($this->from, $this->from_name);
         $this->email->to($this->to);
+        $this->email->cc($this->cc);
 
         if($type == "general")
         {

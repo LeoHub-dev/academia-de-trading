@@ -28,6 +28,21 @@ class Mail_model extends CI_Model {
             'charset'   => 'iso-8859-1'
         );
         
+
+ $config_local = Array(
+  'protocol' => 'smtp',
+  'smtp_host' => 'smtp.mailtrap.io',
+  'smtp_port' => 2525,
+  'smtp_user' => 'fb384a47eedc9f',
+  'smtp_pass' => '65e9cd3717b8e4',
+  'crlf' => "\r\n",
+  'newline' => "\r\n",
+   'mailtype'  => 'html', 
+);
+        
+
+
+
         /*$config = Array(   
             'protocol' => 'smtp',
             'smtp_host' => 'server231.web-hosting.com',
@@ -45,7 +60,7 @@ class Mail_model extends CI_Model {
             'charset'   => 'iso-8859-1'
         );*/
         
-        $this->load->library('email',$config);
+        $this->load->library('email',$config_local);
 
 
         

@@ -13,7 +13,11 @@ class Mail_model extends CI_Model {
 
 	public function __construct()
 	{
-		// Call the CI_Model constructor
+		// Call the CI_Model constructor 
+
+
+
+
 		parent::__construct();
         
 
@@ -29,6 +33,10 @@ class Mail_model extends CI_Model {
             'charset'   => 'iso-8859-1'
         );
         
+        //https://mailtrap.io/
+        //usuario:douglasjosenieves@gmail.com
+        //clave:programador
+
 
  $config_local = Array(
   'protocol' => 'smtp',

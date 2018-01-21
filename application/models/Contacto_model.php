@@ -42,9 +42,12 @@ class Contacto_model extends CI_Model {
             $this->Mail_model->setSubject('Academia de Trading - Gracias por escribirnos');
 
             $data = array( 
-            "titulo" => "Un afectuoso saludo ".$data['name']." pronto seras atendido(a)",
-            "texto" => "Comience a Invertir en Criptomonedas 
-Sin Ser Experto y Sin Arriesgar Su Dinero",
+            "titulo" => "Estimado(a) ".$data['name']." gracias por escribirnos",
+            "texto" => "Email: ".$data['email'].", 
+                        whatsapp: ".$data['whatsapp'].", 
+                        Ciudad: ".$data['ciudad'].", 
+                        Inversion: ".$data['inversion'].", 
+                        Referido: ".$data['referido_id']." ",
             "link" => "https://academiadetrading.net/auth#_registro",
             "texto_link" => "Registrarme"
             );

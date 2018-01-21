@@ -127,7 +127,7 @@
 						<div id="home-video-text">
 							<div class="col-md-8" id="home-video">
 								<div class="embed-responsive embed-responsive-16by9">
-									<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/245812578?title=0&amp;byline=0&amp;portrait=0;autoplay=1" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+									<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/252055460?title=0&amp;byline=0&amp;portrait=0;autoplay=1" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
 								  
 								</div>
 								

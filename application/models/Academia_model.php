@@ -411,7 +411,7 @@ $user2 = $user['data'];
             $this->Mail_model->setSubject('Academia de Trading - Pago reportado con exito!');
 
             $data_email= array( 
-            "titulo" => "".$user2->nombre.". Su pago se ha reportado con exito!",
+            "titulo" => "Estimado(a) ".$user2->nombre.". Su pago se ha reportado con exito!",
             "texto" => "Pronto nuestro staff administrativo verificará su pago.",
             "link" => "https://academiadetrading.net/",
             "texto_link" => "Ir a la Academia"

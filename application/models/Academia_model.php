@@ -392,20 +392,29 @@ class Academia_model extends CI_Model
            'hash_id' => $hash_id
         );
 
+
+
 $query = $this->db->insert('pagos',$data);
+
+
+$user = $this->Auth_model->obtenerUsuarioID($id_usuario);
+$user2 = $user['data'];
+
+
+
 
 
    ////Enviar email
              $this->load->model('Mail_model');
-            $this->Mail_model->setTo('douglasjosenieves@gmail.com');
+            $this->Mail_model->setTo($user2->email);
             //$this->Mail_model->setTo('Douglasjosenieves@gmail.com');
             $this->Mail_model->setSubject('Academia de Trading - Pago reportado con exito!');
 
             $data_email= array( 
-            "titulo" => "Un afectuoso saludo Douglas. Su pago se ha reportado con exito!",
+            "titulo" => "".$user2->nombre.". Su pago se ha reportado con exito!",
             "texto" => "Pronto nuestro staff administrativo verificará su pago.",
             "link" => "https://academiadetrading.net/",
-            "texto_link" => "In a la Academia"
+            "texto_link" => "Ir a la Academia"
             );
 
             $this->Mail_model->setMessage($data_email);

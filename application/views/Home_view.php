@@ -913,7 +913,7 @@
 
 
 
-<img src="<?= asset_url(); ?>images/chica.jpg"  alt="" width="100%">
+<img src="<?= asset_url(); ?>images/networkmarketing.jpg"  alt="" width="100%">
 
 
 			<div class="clearfix s" style="color: white ">

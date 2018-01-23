@@ -988,7 +988,7 @@ float: left;
 				<div class="row about-team">
 
 					
-		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite col-md-6 col-sm-6">
+		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite col-md-12 col-sm-12">
 		                <div class="wn-plan__box">
 		                    <div class="wn-plan__header">
 		                        <div class="wn-header wn-header--reduce wn-header--center wn-header--wysiwyg">
@@ -1037,7 +1037,7 @@ float: left;
 							
 							<h2 class="section-title">Señales</h2>
 
-							<h3>Aqui todas nuestras señales que se cumplieron.</h3>
+							<h3>Aqui las ultimas señales que se cumplieron.</h3>
 
 
 
@@ -1069,7 +1069,7 @@ float: left;
                         $f = strftime("%d de %B",  $factura_final->getTimestamp());  
 
                         $data_fecha_hoy = new DateTime(NULL, new DateTimeZone(TIMEZONE));
-        				$data_fecha_hoy->modify('-1 month');
+        				$data_fecha_hoy->modify('-15 days');
         				$fecha_actual = $data_fecha_hoy->format("Y-m-d");
 
 

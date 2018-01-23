@@ -987,34 +987,7 @@ float: left;
 
 				<div class="row about-team">
 
-					<div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite wn-plan--first col-md-6 col-sm-6">
-		                <div class="wn-plan__box">
-		                    <div class="wn-plan__header">
-		                        <div class="wn-header wn-header--reduce wn-header--center wn-header--wysiwyg">
-		                            <h3 class="wn-header__text">Paquete de</h3>
-		                        </div>
-		                    </div>
-		                    <div class="wn-plan__number">
-		                        <div class="wn-number wn-number--price">
-		                            <div class="wn-number__num">
-		                                <div class="wn-number__group">
-		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">500</span>
-		                                </div>
-		                            </div>
-		                            <div class="wn-number__caption"></div>
-		                        </div>
-		                    </div>
-		                    <div class="wn-plan__details">
-		                    	<ul>
-			                    	<li>En 90 dias habiles te regresamos <strong>$800</strong></li>
-			                    	<li>Una ganancia de mas del <strong>60%</strong></li>
-		                    	</ul>
-		                    </div>
-		                    <div class="wn-plan__buttons">
-		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
-		                    </div>
-		                </div>
-		            </div>
+					
 		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite col-md-6 col-sm-6">
 		                <div class="wn-plan__box">
 		                    <div class="wn-plan__header">
@@ -1026,15 +999,15 @@ float: left;
 		                        <div class="wn-number wn-number--price">
 		                            <div class="wn-number__num">
 		                                <div class="wn-number__group">
-		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">1000</span>
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">1500</span>
 		                                </div>
 		                            </div>
 		                            <div class="wn-number__caption"></div>
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>
-			                    	<li>En 90 dias habiles te regresamos <strong>$1600</strong></li>
-			                    	<li>Una ganancia de mas del <strong>60%</strong></li>
+			                    	<li>500$ en TradingCoin para Referido</li>
+			                    	<li>Una ganancia de mas del <strong>80%</strong></li>
 		                    	</ul></div>
 		                    <div class="wn-plan__buttons">
 		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
@@ -1096,7 +1069,7 @@ float: left;
                         $f = strftime("%d de %B",  $factura_final->getTimestamp());  
 
                         $data_fecha_hoy = new DateTime(NULL, new DateTimeZone(TIMEZONE));
-        				$data_fecha_hoy->modify('-2 month');
+        				$data_fecha_hoy->modify('-1 month');
         				$fecha_actual = $data_fecha_hoy->format("Y-m-d");
 
 

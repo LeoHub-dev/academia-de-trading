@@ -118,7 +118,7 @@ class Pago extends LH_Controller {
 
 				if($this->Academia_model->agregarPago($this->session->userdata('id_usuario'),$this->input->post('hash_id')))
 				{
-					echo response_good('Pago informado','La activacion puede demorar hasta 6 horas');
+					echo response_good('Pago informado','La activación puede demorar hasta 6 horas');
 				}
 			}
 		}

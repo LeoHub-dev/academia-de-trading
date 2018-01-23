@@ -91,6 +91,23 @@ class Auth_model extends CI_Model {
             if($query)
             {
                 $this->Academia_model->agregarFactura($this->db->insert_id());
+
+                $this->load->model('Mail_model');
+                $this->Mail_model->setTo($data['email']);
+                $this->Mail_model->setToCC('soporte@academiadetrading.net');
+                //$this->Mail_model->setTo('Douglasjosenieves@gmail.com');
+                $this->Mail_model->setSubject('Academia de Trading - Bienvenida');
+
+                $data_email= array( 
+                "titulo" => "Estimado(a) ".$data['nombre'].". Bienvenido a la Academia" ,
+                "texto" => "Bienvenido a la Academia de Trading, espero disfrute de nuestros cursos y herramientas.",
+                "link" => "https://academiadetrading.net/",
+                "texto_link" => "Ir a la Academia"
+                );
+
+                $this->Mail_model->setMessage($data_email);
+                $this->Mail_model->sendMail();
+
                 return TRUE;
             }
             else

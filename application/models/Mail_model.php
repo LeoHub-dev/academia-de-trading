@@ -38,16 +38,16 @@ class Mail_model extends CI_Model {
         //clave:programador
 
 
- $config_local = Array(
-  'protocol' => 'smtp',
-  'smtp_host' => 'smtp.mailtrap.io',
-  'smtp_port' => 2525,
-  'smtp_user' => 'fb384a47eedc9f',
-  'smtp_pass' => '65e9cd3717b8e4',
-  'crlf' => "\r\n",
-  'newline' => "\r\n",
-   'mailtype'  => 'html', 
-);
+        $config_local = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'smtp.mailtrap.io',
+            'smtp_port' => 2525,
+            'smtp_user' => 'fb384a47eedc9f',
+            'smtp_pass' => '65e9cd3717b8e4',
+            'crlf' => "\r\n",
+            'newline' => "\r\n",
+            'mailtype'  => 'html', 
+        );
         
 
 

@@ -106,7 +106,7 @@
                           <th class="flex" width="113" align="left" style="padding:0;">
                             <table class="center" cellpadding="0" cellspacing="0">
                               <tr>
-                                <td style="line-height:0;">
+                                <td>
                                   <a target="_blank" style="text-decoration:none;" href="<?= site_url(); ?>"><!--<img src="https://i.imgur.com/6GlW2FU.png" border="0" style="font:bold 12px/12px Arial, Helvetica, sans-serif; color:#606060;" align="left" vspace="0" hspace="0" width="113" height="12" alt="<?= site_url(); ?>" />-->Academia De Trading</a>
                                 </td>
                               </tr>

@@ -50,7 +50,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Link para invitar Referidos
+                                Link para invitar Referidos Base
                             </h2>
                         </div>
                         <div class="body">
@@ -75,7 +75,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Link para invitar Referidos #2 
+                                Link para invitar Referidos Hoja De Ventas
                             </h2>
                         </div>
                         <div class="body">

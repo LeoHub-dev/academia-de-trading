@@ -489,7 +489,7 @@
 								<div class="img-container">	
 									<!--<img src="https://i.imgur.com/J1mOynB.jpg" alt="Alfredo Gutierrez Uzcanga" class="circle-img">-->
 									<div class="round">
-							            <img src="https://i.imgur.com/F9b0jky.png" />
+							            <img src="https://i.imgur.com/MGWiP7Om.png" />
 							        </div>
 								</div>
 

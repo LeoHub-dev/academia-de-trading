@@ -907,7 +907,7 @@
 
 		</section>
 
-		<section>
+		<!--<section>
 
 			
 
@@ -963,7 +963,7 @@ float: left;
 
 			</div> 
 
-		</section>
+		</section>-->
 
 		<section id="inversiones">
 

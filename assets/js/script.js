@@ -163,10 +163,12 @@ $(function () {
 
         var panel_body = $(this).parent().parent().parent();
 
+        var moneda = $(this).parent().children('.bootstrap-select').children('#moneda_pago').val(); 
+
         
         divLoadingStatus(panel_body);
 
-        $.post(base_url+'pago/get_coinbase_hash',  {tipo: $(this).attr('id-tipo')}, function(data) {
+        $.post(base_url+'pago/get_coinbase_hash',  {tipo: $(this).attr('id-tipo'), moneda: moneda}, function(data) {
             console.log(data);
             if(data.response == true) { 
 
@@ -176,6 +178,7 @@ $(function () {
                 $(pagos_con_btc).show();
                 $(pagos_con_btc).find('.btc-monto').val(data.payment_amount); 
                 $(pagos_con_btc).find('.btc-address').val(data.data.address); 
+                $(pagos_con_btc).find('.moneda-text').html(moneda);  
                 
 
                 window.setInterval(function(){

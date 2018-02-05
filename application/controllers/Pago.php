@@ -45,7 +45,7 @@ class Pago extends LH_Controller {
 		else
 		{*/
 			$this->scope['titulo'] = "Paga tu inicial";
-			$this->scope['lista_monedas'] = $this->coinpayments->obtenerMonedas();
+			//$this->scope['lista_monedas'] = $this->coinpayments->obtenerMonedas();
 			$this->load->view('Pago_view',$this->scope);
 		/*}*/
 
@@ -59,7 +59,7 @@ class Pago extends LH_Controller {
 		}
 
 		$this->scope['titulo'] = "Paga tu inicial";
-		$this->scope['lista_monedas'] = $this->coinpayments->obtenerMonedas();
+		//$this->scope['lista_monedas'] = $this->coinpayments->obtenerMonedas();
 		$this->load->view('Pago_Multinivel_view',$this->scope);
 
 
@@ -73,10 +73,12 @@ class Pago extends LH_Controller {
 			if($this->input->server('REQUEST_METHOD') == 'POST')
 			{
 
-				$this->load->library('Coinbase');
+
+				$this->load->library('Coinbase',array('moneda' => $this->input->post('moneda')));
 
 				$this->coinbase->setIdUser($this->session->userdata('id_usuario'));
 				$this->coinbase->setTipo($this->input->post('tipo'));
+				$this->coinbase->setMoneda($this->input->post('moneda'));
 
 				$payment_info_address = $this->coinbase->coinBaseAddress();
 

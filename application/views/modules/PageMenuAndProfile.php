@@ -109,13 +109,14 @@
                     <?php endif; ?>
 
                     
-
+                    <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1 || $this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
                     <li>
                         <a href="https://t.me/joinchat/F4Z0X0QgDsqhs4WUlEbUxw" target="_blank" class="waves-effect waves-block">
                             <i class="material-icons fa fa-telegram col-light-blue" style="font-size: 22px;" aria-hidden="true"></i>
                             <span>Telegram</span>
                         </a>
                     </li>
+                    <?php endif; ?>
 
                     <li>
                         <a href="https://www.facebook.com/Academiadetrading-496295420749430" target="_blank" class="waves-effect waves-block">

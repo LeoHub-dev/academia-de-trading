@@ -92,7 +92,7 @@ echo json_encode( $array);
 
 	public function coinbase_callback()
 	{
-		$this->load->library('Coinbase');
+		$this->load->library('Coinbase',array('moneda' => $this->input->post('moneda')));
 
 		$data = file_get_contents('php://input');
 		$signature = $_SERVER['HTTP_CB_SIGNATURE'];
@@ -110,7 +110,7 @@ echo json_encode( $array);
 
 	public function verificar_pago($payment = NULL)
 	{
-		$this->load->library('Coinbase');
+		$this->load->library('Coinbase',array('moneda' => $this->input->post('moneda')));
 		$response = $this->coinbase->verifyPayment($payment);
 
 		if($response || $response == 0)

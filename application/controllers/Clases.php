@@ -50,7 +50,7 @@ class Clases extends LH_Controller {
 
 	public function vip()
 	{
-		if($this->scope['info_usuario']['data']->tipo == 2 || $this->scope['info_usuario']['data']->tipo == 1)
+		if($this->scope['info_usuario']['data']->tipo == 2 || $this->scope['info_usuario']['data']->tipo == 1 || $this->Matriz_model->obtenerMatrizActiva($this->scope['info_usuario']['data']->id_usuario) != NULL)
 		{
 			$this->scope['titulo'] = "Clases Vip";
 		

@@ -1,6 +1,10 @@
 <!-- Jquery Core Js -->
 <script src="<?= asset_url(); ?>plugins/jquery/jquery.min.js"></script>
 
+<!-- Jquery Ui Datapicker -->
+<script src="<?= asset_url(); ?>plugins/jquery-ui-datapicker/js/jquery-ui-datapicker.js"></script>
+
+
 <!-- Bootstrap Core Js -->
 <script src="<?= asset_url(); ?>plugins/bootstrap/js/bootstrap.js"></script>
 

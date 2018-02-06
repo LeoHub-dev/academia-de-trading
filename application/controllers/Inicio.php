@@ -1,15 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Inicio extends LH_Controller {
-
-
+class Inicio extends LH_Controller
+{
 	public function __construct()
 	{
 		parent::__construct();
-
 	}
-
 
 	public function index()
 	{
@@ -20,35 +17,27 @@ class Inicio extends LH_Controller {
 
 	public function ventas()
 	{
+		$this->scope['send'] = $this->input->get('send');
 
-        
-       $this->scope['send'] = $this->input->get('send');
+        if ($this->session->userdata('usuario'))
+        {
+  	        if ($this->session->userdata('ref'))
+  	        {
+  	            $this->scope['referido_id'] = $this->session->userdata('ref');
+                $user = $this->session->userdata('usuario');
+                $user2 = $user['data'];
+                $this->scope['referido_name'] =  $user2->nombre.' '.$user2->apellido;
+            }
+		}
 
-       
+        $this->load->view('Ventas2_view',$this->scope);
+	}
 
-  if ($this->session->userdata('usuario')) {
+	public function ventas_adrian()
+	{
+		$this->scope['send'] = $this->input->get('send');
 
-  	if ($this->session->userdata('ref')) {
-  		# code...
-  	
-
-  	   $this->scope['referido_id'] = $this->session->userdata('ref');
-       
-       $user = $this->session->userdata('usuario');
-       $user2 = $user['data'];
-       $this->scope['referido_name'] =  $user2->nombre.' '.$user2->apellido;
-
-       }
-}
-
-
-
-
-      
-
-       $this->load->view('Ventas_view',$this->scope);
-
-
+		$this->load->view('VentasAdrian_view',$this->scope);
 	}
 
 	public function ver_indicio($indicio = NULL)

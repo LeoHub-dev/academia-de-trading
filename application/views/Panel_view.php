@@ -414,10 +414,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>
-                                Lista Pagos Manuales para la pagina
-                            </h2>
-                            
+                            <h2>Lista Pagos Manuales para la pagina</h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -463,6 +460,72 @@
                     </div>
                 </div>
             </div>
+
+	            <div class="row clearfix">
+
+		            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			            <div class="card">
+				            <div class="header">
+					            <h2>
+						            Pagos Para el Paquete de 1500$
+					            </h2>
+											<div class="right" style="top: 14px; right: 15px;position: absolute">
+												<div class="form-line col-md-8">
+													<input type="text" id="fecha_pago" name="fecha_pago" class="form-control input-sm"/>
+												</div>
+												<input type="button" class="btn btn-primary" id="pagar_paquete" value="Enviar Diario"/>
+											</div>
+				            </div>
+				            <div class="body">
+					            <div class="table-responsive">
+						            <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+							            <table class="table table-bordered table-striped table-hover dataTable js-pagos-paquete" id="tabla_paquete" role="grid" aria-describedby="DataTables_Table_1_info">
+								            <thead>
+								            <tr role="row">
+									            <th>#</th>
+									            <th>Usuario</th>
+									            <th>Nombre y Apellido</th>
+									            <th>Wallet BTC</th>
+									            <th>Wallet LTC</th>
+									            <th>Wallet BTH</th>
+									            <th align="center">Opci&oacute;n</th>
+								            </tr>
+								            </thead>
+								            <tfoot>
+								            <tr>
+									            <th>#</th>
+									            <th>Usuario</th>
+									            <th>Nombre y Apellido</th>
+									            <th>Wallet BTC</th>
+									            <th>Wallet LTC</th>
+									            <th>Wallet BTH</th>
+									            <th align="center">Opci&oacute;n</th>
+								            </tr>
+								            </tfoot>
+								            <tbody>
+
+				                    <?php $n = 0; foreach($lista_pagos_manual_admin_paquete as $pago) : ?>
+									            <tr role="row">
+										            <td><?=$n?></td>
+										            <td><?=$pago->usuario?></td>
+										            <td><?=$pago->nombre.' '.$pago->apellido?></td>
+										            <td><?=$pago->wallet_btc?></td>
+										            <td><?=$pago->wallet_ltc?></td>
+										            <td><?=$pago->wallet_bth?></td>
+										            <td align="center">
+											            <a href="#top" class="btn btn-primary cargar-usuario" id-usuario="<?=$pago->id_persona?>">Buscar usuario</a>
+										            </td>
+									            </tr>
+					                    <?php $n++; endforeach; ?>
+								            </tbody>
+							            </table>
+
+						            </div>
+					            </div>
+				            </div>
+			            </div>
+		            </div>
+	            </div>
 
             <?php endif; ?>
 
@@ -698,6 +761,27 @@
 
     <script type="text/javascript">
         $(function () {
+
+	        $( "#fecha_pago" ).datepicker({
+	          monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+		          'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+	          monthNamesShort: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+		          'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+	          dateFormat: 'yy-mm-dd',
+	          dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
+	          dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','S&aacute;'],
+	          firstDay: 1,
+	          showOtherMonths: true,
+	          selectOtherMonths: true,
+	          minDate: new Date(2018, 1 - 1, 25),
+	          beforeShowDay: function(date) {
+		          var day = date.getDay();
+		          return [(day != 0 && day != 6)];
+	          },
+	          maxDate: '0'
+          });
+
+
             $('.js-basic-example').DataTable({
                 responsive: true
             });
@@ -722,14 +806,23 @@
             });
 
             //Exportable table
-            $('.js-ganancias-total').DataTable({
-                dom: 'Bfrtip',
-                responsive: true,
-                "order": [[ 4, "asc" ]],
-                buttons: [
-                    'excel', 'pdf', 'print'
-                ]
-            });
+          $('.js-ganancias-total').DataTable({
+		        dom: 'Bfrtip',
+		        responsive: true,
+		        "order": [[ 4, "asc" ]],
+		        buttons: [
+			        'excel', 'pdf', 'print'
+		        ]
+	        });
+
+	        $('.js-pagos-paquete').DataTable({
+		        dom: 'Bfrtip',
+		        responsive: true,
+		        "order": [[ 1, "asc" ]],
+		        buttons: [
+			        'excel', 'pdf', 'print'
+		        ]
+	        });
 
             
         });

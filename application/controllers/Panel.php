@@ -44,20 +44,18 @@ class Panel extends LH_Controller {
 	public function index()
 	{
 		$this->scope['titulo'] = "Panel";
-
 		$this->scope['lista_usuarios_admin'] = $this->Panel_model->obtenerUsuarios();
 		$this->scope['lista_pagos_admin'] = $this->Panel_model->listaPagos();
 		$this->scope['lista_indicios_admin'] = $this->Academia_model->obtenerIndicios();
 		$this->scope['lista_ganancias_admin'] = $this->Panel_model->listaGanancias();
 		$this->scope['lista_pagos_manual_admin'] = $this->Academia_model->listaPagosGeneral();
-		
+		$this->scope['lista_pagos_manual_admin_paquete'] = $this->Academia_model->listaPagosGeneralPaquete(5);
+
 		$this->load->view('Panel_view',$this->scope);
-		
 	}
 
 	public function marcar_pago()
 	{
-
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
 			if($this->Panel_model->marcarPagado($this->input->post('id_ganancia')))
@@ -65,7 +63,6 @@ class Panel extends LH_Controller {
 				echo response_good('Correcto','Pagada');
 			}
 		}
-
 	}
 
 	public function editar_usuario()
@@ -233,9 +230,6 @@ class Panel extends LH_Controller {
 
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
-
-
-
 			if($info = $this->Panel_model->agregarIndicio($this->input->post()))
 			{
 				echo response_good('Correcto','Señal agregada',array('indicio' => $this->input->post(), 'id_indicio' => $info));
@@ -244,8 +238,6 @@ class Panel extends LH_Controller {
         	{
         		echo response_bad('Error - intente mas tarde');
         	}
-
-			
 		}
 		else
 	    {
@@ -256,10 +248,8 @@ class Panel extends LH_Controller {
 
 	public function eliminarIndicio()
 	{
-
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
-
 			$this->Panel_model->eliminarIndicio($this->input->post('id'));
 
 			echo response_good('Correcto','Eliminada');
@@ -271,10 +261,8 @@ class Panel extends LH_Controller {
 
 	public function eliminarPago()
 	{
-
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
-
 			$this->Panel_model->eliminarPago($this->input->post('id'));
 
 			echo response_good('Correcto','Eliminado');
@@ -301,8 +289,6 @@ class Panel extends LH_Controller {
         {
                 $error = array('error' => $this->upload->display_errors());
 
-
-      
             echo json_encode($error);
         }
         else

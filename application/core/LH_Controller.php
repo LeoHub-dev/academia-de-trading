@@ -21,8 +21,6 @@ class LH_Controller extends CI_Controller
             {
                 
             }
-
-            
         }
 
         if($this->session->userdata('site_lang'))
@@ -45,9 +43,7 @@ class LH_Controller extends CI_Controller
         $this->form_validation->set_message('isConfirmedUser', 'Debe confirmar su email para poder entrar');
         $this->form_validation->set_message('isSuscribed', 'Esta suscrito');
         $this->form_validation->set_message('ifCodeExist', 'No existe este codigo de referido');
-
     }
-
 
     public function setlang($lang = 'english')
 	{

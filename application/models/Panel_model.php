@@ -229,6 +229,11 @@ class Panel_model extends CI_Model
         $this->db->delete('pagos', array('id_pago' => $id));
     }
 
+    public function establecerPagoDiario(array $data)
+    {
+		$this->db->insert('comisiones_diarias', $data);
+    }
+
 
     public function __get($var)
     {

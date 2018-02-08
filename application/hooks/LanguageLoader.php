@@ -17,7 +17,6 @@ class LanguageLoader
         {
             $ci->lang->load('words','spanish');
             $ci->lang->load('data','spanish');
-
         }
     }
 }

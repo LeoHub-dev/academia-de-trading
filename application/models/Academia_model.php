@@ -437,6 +437,7 @@ class Academia_model extends CI_Model
 				->from('coinbase_invoice')
 				->join('usuarios_personas', 'usuarios_personas.id_persona = coinbase_invoice.id_user')
 				->join('usuarios_data', 'usuarios_data.id_persona = usuarios_personas.id_persona')
+				->where('coinbase_invoice.status', '1')
 				->where('coinbase_invoice.tipo', $num)
 				->get()
 				->result_object();

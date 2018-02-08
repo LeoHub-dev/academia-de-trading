@@ -30,7 +30,7 @@ class Inicio extends LH_Controller
             }
 		}
 
-        $this->load->view('Ventas2_view',$this->scope);
+        $this->load->view('VentasInversores_view',$this->scope);
 	}
 
 	public function ventas_adrian()

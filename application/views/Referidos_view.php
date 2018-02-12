@@ -77,7 +77,9 @@
 
 
 
-            <?php foreach((array) $lista_referidos as $usuario) :  
+            <?php $lista_backup['matriz'] = NULL;
+             $lista_backup['academia'] = NULL;
+            foreach((array) $lista_referidos as $usuario) :  
 
             if($usuario->tipo == 3) { $lista_backup['matriz'][] = $usuario; }
             if($usuario->tipo != 3) { $lista_backup['academia'][] = $usuario; }

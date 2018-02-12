@@ -95,9 +95,7 @@ class Pago extends LH_Controller {
 		{
 			if($this->input->server('REQUEST_METHOD') == 'POST')
 			{
-
 				$this->load->library('Coinpayments');
-
 
 				$this->coinpayments->setIdUsuario($this->session->userdata('id_usuario'));
 				$this->coinpayments->setTipo($this->input->post('tipo'));
@@ -118,7 +116,7 @@ class Pago extends LH_Controller {
 			if($this->input->server('REQUEST_METHOD') == 'POST')
 			{
 
-				if($this->Academia_model->agregarPago($this->session->userdata('id_usuario'),$this->input->post('hash_id')))
+				if($this->Academia_model->agregarPago($this->session->userdata('id_usuario'), $this->input->post('hash_id')))
 				{
 					echo response_good('Pago informado','La activación puede demorar hasta 6 horas');
 				}

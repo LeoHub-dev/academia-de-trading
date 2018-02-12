@@ -71,7 +71,6 @@ $(function () {
     });
 
     $('#reset-form').on('submit', function(e){
-
         e.preventDefault();
         e.stopImmediatePropagation();
 
@@ -198,9 +197,6 @@ $(function () {
                         console.log(status);
                     });
                 }, 5000);
-
-
-
             }
         },"json").fail(function(xhr, status, error) {
             divNormalStatus(panel_body); 
@@ -208,7 +204,7 @@ $(function () {
             console.log(xhr.responseText);
             console.log(status);
         });
-    })
+    });
 
     $('#perfil_form').on('submit', function(e){
 
@@ -226,14 +222,8 @@ $(function () {
             console.log(xhr.responseText);
             console.log(status);
         });
-
-
-    })
-
-
-
+    });
 });
- 
 
 function parseURLParams(url) {
     var queryStart = url.indexOf("?") + 1,

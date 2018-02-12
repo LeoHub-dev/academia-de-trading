@@ -1,0 +1,183 @@
+h3, .h3 {
+	font-size: 45px;
+	font-weight: 600;
+	text-transform: uppercase;
+}
+p.big {
+	font-size: 25px;
+	margin: 20px 0px;
+	line-height: 150%;
+}
+.vcenter {
+    
+vertical-align: middle
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+.tex-reset{
+
+text-transform: none;;
+
+}
+
+.box {
+    border-radius: 10px;
+    padding: 10px 10px;
+    background: #000;
+    color: #ffffff;
+}
+
+.btn-default.black-yellow {
+    color: #000;
+    background-color: #ffe600;
+    border: 1px solid #ffffff;
+    padding: 14px;
+    font-size: 24px;
+    letter-spacing: 1px;
+		width: 90% !important;
+}
+
+#main-navigation .navbar-brand img {
+    max-height: 100px;
+    /* margin-bottom: 20px; 'Open Sans', sans-serif*/
+}
+
+#main-navigation .navbar-brand, #main-navigation.navbar-default .navbar-nav>li>a.navbar-brand {
+    height: 100px;
+    /* padding: 29px 45px 23px; */
+    padding: 6px 15px 26px 15px;
+    margin-left: 0px;
+}
+
+
+.f40 {
+    font-size: 40px;
+}
+
+.titulo {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	text-align: center;
+	position: relative;
+	text-transform: none;
+	font-size: 75px;
+}
+.subtitulo {
+	margin-top: 0px;
+	margin-bottom: 40px;
+	text-align: center;
+	line-height: 70px;
+	position: relative;
+	text-transform: none;
+	font-size: 55px;
+}
+.some-margin {
+    margin: 10px 0px;
+}
+
+.low-text {
+	margin: 0px;
+	margin-bottom: 20px;
+	font-weight: 600;
+	line-height: 30px;
+	font-size: 25px;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.img-border {
+	border-radius: 3px !important;
+}
+
+.contact-form input, .contact-form textarea {
+    display: block;
+    width: 100%;
+    font-weight: 300;
+    padding: 18px 26px;
+    color: #040404;
+    background: #b3b3b3;
+    border: 1px solid #000000;
+    border-radius: 5px;
+}
+
+
+ .formula input::placeholder {
+  color: black;
+}
+
+.bg-white{
+	background-color: #fff;
+}
+
+
+.bg-gris{
+	background-color: #ddd;
+}
+
+.padding-top {
+	padding-top: 50px;
+}
+
+
+#explicacion {
+  padding: 50px 0 40px;
+}
+
+.padding {
+	padding: 40px;
+}
+
+.padding5 {
+	padding: 5px;
+}
+
+@media only screen and (min-width: 1440px)
+{
+	h3.low, h4.low {
+    font-size: 1.9vw;
+    line-height: 100%;
+	}
+}
+@media only screen and (min-width: 1440px) {
+
+  li {
+		font-size: 20px;
+		/* color: #38b142; */
+		text-align: justify;
+		text-decoration: none;
+		line-height: 25px;
+  }
+
+	h3.medium, h4.medium {
+	  font-size: 3.5vw;
+	  line-height: 150%;
+	  letter-spacing: 1px;
+	}
+
+	h3 {
+    font-size: 40px;
+	}
+
+	h3.big {
+    font-size: 4vw;
+    line-height: 150%;
+	}
+
+	h3.medium, h4.medium {
+    font-size: 3.5vw;
+    line-height: 1.2;
+    letter-spacing: 1px;
+	}
+}
+
+.bg-100 {
+    background: url(../img/Banner-Chica.png) center center no-repeat;
+    background-size: cover;
+}
+
+#footer {
+	padding: 40px 0 20px;
+}

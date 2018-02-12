@@ -18,8 +18,6 @@ class Panel extends LH_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -44,20 +42,18 @@ class Panel extends LH_Controller {
 	public function index()
 	{
 		$this->scope['titulo'] = "Panel";
-
 		$this->scope['lista_usuarios_admin'] = $this->Panel_model->obtenerUsuarios();
 		$this->scope['lista_pagos_admin'] = $this->Panel_model->listaPagos();
 		$this->scope['lista_indicios_admin'] = $this->Academia_model->obtenerIndicios();
 		$this->scope['lista_ganancias_admin'] = $this->Panel_model->listaGanancias();
 		$this->scope['lista_pagos_manual_admin'] = $this->Academia_model->listaPagosGeneral();
-		
+		$this->scope['lista_pagos_manual_admin_paquete'] = $this->Academia_model->listaPagosGeneralPaquete(5);
+
 		$this->load->view('Panel_view',$this->scope);
-		
 	}
 
 	public function marcar_pago()
 	{
-
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
 			if($this->Panel_model->marcarPagado($this->input->post('id_ganancia')))
@@ -65,12 +61,10 @@ class Panel extends LH_Controller {
 				echo response_good('Correcto','Pagada');
 			}
 		}
-
 	}
 
 	public function editar_usuario()
 	{
-
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
 			if($this->form_validation->run('editarusuario') == FALSE)
@@ -97,18 +91,13 @@ class Panel extends LH_Controller {
 					echo response_bad('Error al editar');
 				}
 			}
-        	
 		}
-		
 	}
 
 	public function activar_cuenta()
 	{
-
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
-
-
 			if($this->input->post('tipo') == 1)
 			{
 			 	$this->Auth_model->activarUsuario($this->input->post('id_usuario'));
@@ -175,12 +164,8 @@ class Panel extends LH_Controller {
 		        }
             }
 
-
-
 	        echo response_bad('Error');
 	        return;
-
-
 		}
 
 	}
@@ -222,20 +207,14 @@ class Panel extends LH_Controller {
 	            echo response_good('Matriz Agregada','Listo');
 
 	        	return;
-
 	        }
 		}
-		
 	}
 
 	public function agregarIndicio()
 	{
-
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
-
-
-
 			if($info = $this->Panel_model->agregarIndicio($this->input->post()))
 			{
 				echo response_good('Correcto','Señal agregada',array('indicio' => $this->input->post(), 'id_indicio' => $info));
@@ -244,37 +223,29 @@ class Panel extends LH_Controller {
         	{
         		echo response_bad('Error - intente mas tarde');
         	}
-
-			
 		}
 		else
 	    {
 	    	echo response_bad('Error - Fallo sistema');
 	    }
-	
 	}
 
 	public function eliminarIndicio()
 	{
-
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
-
 			$this->Panel_model->eliminarIndicio($this->input->post('id'));
 
 			echo response_good('Correcto','Eliminada');
 
 	        return;
 	    }
-		
 	}
 
 	public function eliminarPago()
 	{
-
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
-
 			$this->Panel_model->eliminarPago($this->input->post('id'));
 
 			echo response_good('Correcto','Eliminado');
@@ -286,14 +257,13 @@ class Panel extends LH_Controller {
 
 	public function uploadimg()
 	{
-
-		$config['upload_path']          = './assets/images/indicios/';
-        $config['allowed_types']        = 'gif|jpg|png|jpeg';
-        $config['max_size']             = 500;
-        $config['max_width']            = 1500;
-        $config['max_height']           = 1500;
+		$config['upload_path']      = './assets/images/indicios/';
+        $config['allowed_types']    = 'gif|jpg|png|jpeg';
+        $config['max_size']         = 500;
+        $config['max_width']        = 1500;
+        $config['max_height']       = 1500;
         $config['file_ext_tolower'] = TRUE;
-        $config['encrypt_name'] = TRUE;
+        $config['encrypt_name']     = TRUE;
 
         $this->load->library('upload', $config);
 
@@ -301,8 +271,6 @@ class Panel extends LH_Controller {
         {
                 $error = array('error' => $this->upload->display_errors());
 
-
-      
             echo json_encode($error);
         }
         else
@@ -318,9 +286,6 @@ class Panel extends LH_Controller {
 
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
-
-
-
 			if($info = $this->Panel_model->agregarCalendario($this->input->post()))
 			{
 				echo response_good('Correcto','Calendario Cambiado');
@@ -329,8 +294,6 @@ class Panel extends LH_Controller {
         	{
         		echo response_bad('Error - intente mas tarde');
         	}
-
-			
 		}
 		else
 	    {
@@ -341,7 +304,6 @@ class Panel extends LH_Controller {
 
 	public function uploadcalendario()
 	{
-
 		$config['upload_path']          = './assets/images/calendarios/';
         $config['allowed_types']        = 'gif|jpg|png|jpeg';
         $config['max_size']             = 500;
@@ -354,17 +316,13 @@ class Panel extends LH_Controller {
 
         if ( ! $this->upload->do_upload('imgCalendario'))
         {
-                $error = array('error' => $this->upload->display_errors());
-
-
-      
+	        $error = array('error' => $this->upload->display_errors());
             echo json_encode($error);
         }
         else
         {
-                $data = array('upload_data' => $this->upload->data());
-
-                echo json_encode($data['upload_data']['file_name']);
+            $data = array('upload_data' => $this->upload->data());
+            echo json_encode($data['upload_data']['file_name']);
         }
 	}
 
@@ -377,5 +335,25 @@ class Panel extends LH_Controller {
 	public function nuevosistema()
 	{
 		$this->Academia_model->prepararNuevoSistema();
+	}
+
+	public function pagoDiario()
+	{
+		$fechaPago = $this->input->post('fecha_pago');
+		$monto = $this->input->post('monto');
+		$getListUser = $this->Academia_model->listaPagosGeneralPaquete(5);
+
+		foreach ($getListUser as $user) {
+			$this->Panel_model->establecerPagoDiario([
+				'id_usuario' => $user->id_persona,
+				'cantidad' => $monto,
+				'razon' => "Comision diaria por el monto de {$monto}$",
+				'fecha' => $fechaPago.' '.date('H:m:s'),
+				'fecha_insert' => date('Y-m-d H:m:s')
+			]);
+		}
+
+		$this->session->set_flashdata('messages_pagos', 'Pago de la fecha '.$fechaPago.' realizado con Exito');
+		redirect("panel");
 	}
 }

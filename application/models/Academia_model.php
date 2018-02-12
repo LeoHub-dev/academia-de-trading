@@ -5,15 +5,11 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Academia_model extends CI_Model 
 {
-
-
-
     public function __construct()
     {
         // Call the CI_Model constructor
         parent::__construct();
     }
-
 
     public function verificarMensualidad()
     {
@@ -131,8 +127,10 @@ class Academia_model extends CI_Model
 
     public function debePagar($usuario)
     {
-        if($usuario->tipo == 2 || $usuario->tipo == 1 || $this->Matriz_model->obtenerCirculoActivo($usuario->id_usuario) == NULL || $this->Matriz_model->obtenerMatrizActiva($usuario->id_usuario) != NULL)
-        {
+        if ($usuario->tipo == 2 || $usuario->tipo == 1 ||
+           $this->Matriz_model->obtenerCirculoActivo($usuario->id_usuario) == NULL ||
+           $this->Matriz_model->obtenerMatrizActiva($usuario->id_usuario) != NULL
+        ) {
             return FALSE;
         }
 
@@ -259,25 +257,18 @@ class Academia_model extends CI_Model
 
     public function agregarFacturaEspecifica($id_usuario,$fecha_inicial,$fecha_final)
     {
-
-        $data = array(
-           'id_usuario' => $id_usuario,
-           'fecha_inicial' => $fecha_inicial,
-           'fecha_final' => $fecha_final
-        );
-
-        $query = $this->db->insert('facturas',$data);
+        $query = $this->db->insert('facturas', [
+	            'id_usuario' => $id_usuario,
+	         'fecha_inicial' => $fecha_inicial,
+	           'fecha_final' => $fecha_final
+        ]);
 
         if($query)
         {
             return TRUE;
         }
-        else
-        {
-            return FALSE;
-        }
-        
-        
+
+        return FALSE;
     }
 
     public function obtenerFactura($id_usuario)
@@ -384,64 +375,38 @@ class Academia_model extends CI_Model
         }
     }
 
-    public function agregarPago($id_usuario,$hash_id)
+    public function agregarPago($id_usuario, $hash_id)
     {
+		$query = $this->db->insert('pagos',[
+			'id_usuario' => $id_usuario,
+			'hash_id' => $hash_id
+		]);
 
-        $data = array(
-           'id_usuario' => $id_usuario,
-           'hash_id' => $hash_id
-        );
+		$user = $this->Auth_model->obtenerUsuarioID($id_usuario);
+		$user2 = $user['data'];
 
+		////Enviar email
+	    $this->load->model('Mail_model');
+        $this->Mail_model->setTo($user2->email);
+        $this->Mail_model->setToCC('soporte@academiadetrading.net');
+	    $this->Mail_model->setSubject('Academia de Trading - Pago Hash Id: '.$hash_id.'');
+	    //$this->Mail_model->setTo('Douglasjosenieves@gmail.com');
 
+        $this->Mail_model->setMessage([
+	        "titulo" => "Estimado(a) ".$user2->nombre.". Su pago se ha reportado con exito! Hash Id: ".$hash_id."" ,
+	        "texto" => "Pronto nuestro staff administrativo verificará su pago.",
+	        "link" => "https://academiadetrading.net/",
+	        "texto_link" => "Ir a la Academia"
+        ]);
 
-$query = $this->db->insert('pagos',$data);
-
-
-$user = $this->Auth_model->obtenerUsuarioID($id_usuario);
-$user2 = $user['data'];
-
-
-
-
-
-   ////Enviar email
-             $this->load->model('Mail_model');
-            $this->Mail_model->setTo($user2->email);
-                    $this->Mail_model->setToCC('soporte@academiadetrading.net');
-            //$this->Mail_model->setTo('Douglasjosenieves@gmail.com');
-            $this->Mail_model->setSubject('Academia de Trading - Pago Hash Id: '.$hash_id.'');
-
-            $data_email= array( 
-            "titulo" => "Estimado(a) ".$user2->nombre.". Su pago se ha reportado con exito! Hash Id: ".$hash_id."" ,
-            "texto" => "Pronto nuestro staff administrativo verificará su pago.",
-            "link" => "https://academiadetrading.net/",
-            "texto_link" => "Ir a la Academia"
-            );
-
-            $this->Mail_model->setMessage($data_email);
-            $this->Mail_model->sendMail();
-
-
-        ///
-
-        
+        $this->Mail_model->sendMail();
 
         if($query)
         {
-
-
-     
-
-
-
             return TRUE;
         }
-        else
-        {
-            return FALSE;
-        }
-        
-        
+
+        return FALSE;
     }
 
     public function listaPagosGeneral()
@@ -460,6 +425,25 @@ $user2 = $user['data'];
 
         return $lista_pagos;
     }
+
+	public function listaPagosGeneralPaquete($num)
+	{
+		$lista_pagos = NULL;
+
+		$query = $this->db
+				->select('coinbase_invoice.tipo,usuarios_personas.wallet_btc,usuarios_personas.wallet_ltc,
+						usuarios_personas.wallet_bth,usuarios_personas.nombre,usuarios_personas.apellido,
+						usuarios_data.usuario,usuarios_personas.id_persona')
+				->from('coinbase_invoice')
+				->join('usuarios_personas', 'usuarios_personas.id_persona = coinbase_invoice.id_user')
+				->join('usuarios_data', 'usuarios_data.id_persona = usuarios_personas.id_persona')
+				->where('coinbase_invoice.status', '1')
+				->where('coinbase_invoice.tipo', $num)
+				->get()
+				->result_object();
+
+		return $query;
+	}
 
 
     public function __get($var)

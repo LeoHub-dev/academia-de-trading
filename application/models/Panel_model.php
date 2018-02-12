@@ -97,8 +97,6 @@ class Panel_model extends CI_Model
 
     public function editarUsuario($post,$id_usuario)
     {
-        
-
         $usuario = $this->Auth_model->obtenerUsuarioID($id_usuario);
 
         if(isset($post['usuario']) && !empty($post['usuario']))
@@ -173,54 +171,39 @@ class Panel_model extends CI_Model
         }
 
         return FALSE;
-
-
     }
-
 
     public function agregarIndicio($data)
     {
+        $query = $this->db->insert('indicios',[
+        	 'titulo' => $data['titulo'],
+             'imagen' => $data['imagen'],
+              'fecha' => $data['fecha'],
+	        'seccion' => $data['seccion'],
+	           'info' => $data['info']
+        ]);
 
-        $data = array(
-           'titulo' => $data['titulo'],
-           'imagen' => $data['imagen'],
-           'fecha' => $data['fecha'],
-           'seccion' => $data['seccion'],
-           'info' => $data['info']
-        );
-
-        $query = $this->db->insert('indicios',$data);
-
-        if($query)
-        {
+        if ($query) {
             return $this->db->insert_id();
         }
-        else
-        {
-            return FALSE;
-        }
-        
+
+        return FALSE;
     }
 
     public function agregarCalendario($data)
     {
         $this->db->truncate('calendarios');
-        
-        $data = array(
-           'imagen' => $data['imagen']
-        );
 
-        $query = $this->db->insert('calendarios',$data);
+        $query = $this->db->insert('calendarios',[
+	        'imagen' => $data['imagen']
+        ]);
 
         if($query)
         {
             return $this->db->insert_id();
         }
-        else
-        {
-            return FALSE;
-        }
-        
+
+        return FALSE;
     }
 
     public function marcarPagado($id_ganancia)
@@ -229,8 +212,6 @@ class Panel_model extends CI_Model
 
         if($status)
         {
-
-
             return TRUE;
         }
 
@@ -246,6 +227,11 @@ class Panel_model extends CI_Model
     public function eliminarPago($id)
     {
         $this->db->delete('pagos', array('id_pago' => $id));
+    }
+
+    public function establecerPagoDiario(array $data)
+    {
+		$this->db->insert('comisiones_diarias', $data);
     }
 
 

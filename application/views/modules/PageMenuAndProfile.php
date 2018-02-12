@@ -32,9 +32,6 @@
                     </a>
                 </li>
 
-                    
-
-
                     <?php if($info_usuario['data']->pago == 1) : ?>
                     <li>
                         <a href="<?= site_url('clases'); ?>">

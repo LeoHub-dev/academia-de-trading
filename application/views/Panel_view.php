@@ -414,10 +414,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>
-                                Lista Pagos Manuales para la pagina
-                            </h2>
-                            
+                            <h2>Lista Pagos Manuales para la pagina</h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -463,6 +460,77 @@
                     </div>
                 </div>
             </div>
+
+	            <div class="row clearfix">
+
+		            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			            <div class="card">
+				            <div class="header">
+					            <h2>
+						            Pagos Para el Paquete de 1500$
+					            </h2>
+											<div class="right col-md-6" style="top: 14px; right: 15px;position: absolute">
+												<form action="<?=site_url('panel/pagoDiario')?>" method="post" name="generarPagoDiario" id="generarPagoDiario">
+													<div class="form-line col-md-4">
+														<input type="text" id="fecha_pago" name="fecha_pago" class="form-control input-sm" placeholder="Fecha"/>
+													</div>
+													<div class="form-line col-md-4">
+														<input type="text" id="monto" name="monto" class="form-control input-sm" placeholder="Monto"/>
+													</div>
+													<input type="submit" class="btn btn-primary" id="btnPagar" value="Enviar Pago Diario"/>
+												</form>
+											</div>
+				            </div>
+				            <div class="body">
+					            <div class="table-responsive">
+						            <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+							            <table class="table table-bordered table-striped table-hover dataTable js-pagos-paquete" id="tabla_paquete" role="grid" aria-describedby="DataTables_Table_1_info">
+								            <thead>
+								            <tr role="row">
+									            <th>#</th>
+									            <th>Usuario</th>
+									            <th>Nombre y Apellido</th>
+									            <th>Wallet BTC</th>
+									            <th>Wallet LTC</th>
+									            <th>Wallet BTH</th>
+									            <th align="center">Opci&oacute;n</th>
+								            </tr>
+								            </thead>
+								            <tfoot>
+								            <tr>
+									            <th>#</th>
+									            <th>Usuario</th>
+									            <th>Nombre y Apellido</th>
+									            <th>Wallet BTC</th>
+									            <th>Wallet LTC</th>
+									            <th>Wallet BTH</th>
+									            <th align="center">Opci&oacute;n</th>
+								            </tr>
+								            </tfoot>
+								            <tbody>
+
+				                    <?php $n = 0; foreach($lista_pagos_manual_admin_paquete as $pago) : ?>
+									            <tr role="row">
+										            <td><?=$n?></td>
+										            <td><?=$pago->usuario?></td>
+										            <td><?=$pago->nombre.' '.$pago->apellido?></td>
+										            <td><?=$pago->wallet_btc?></td>
+										            <td><?=$pago->wallet_ltc?></td>
+										            <td><?=$pago->wallet_bth?></td>
+										            <td align="center">
+											            <a href="#top" class="btn btn-primary cargar-usuario" id-usuario="<?=$pago->id_persona?>">Buscar usuario</a>
+										            </td>
+									            </tr>
+					                    <?php $n++; endforeach; ?>
+								            </tbody>
+							            </table>
+
+						            </div>
+					            </div>
+				            </div>
+			            </div>
+		            </div>
+	            </div>
 
             <?php endif; ?>
 
@@ -543,10 +611,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>
-                                Lista señales
-                            </h2>
-                            
+                            <h2>Lista señales</h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -554,13 +619,12 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-ganancias-total" id="tabla_indicios" role="grid" aria-describedby="DataTables_Table_1_info">
                                     <thead>
                                         <tr role="row">
-                                            <th>#</th>
-                                            <th>Titulo</th>
-                                            <th>Imagen</th>
-                                            
-                                            <th>Fecha</th>
-                                            <th>Seccion</th>
-                                            <th></th>
+	                                        <th>#</th>
+	                                        <th>Titulo</th>
+	                                        <th>Imagen</th>
+	                                        <th>Fecha</th>
+	                                        <th>Seccion</th>
+	                                        <th></th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -568,14 +632,12 @@
                                             <th>#</th>
                                             <th>Titulo</th>
                                             <th>Imagen</th>
-                                            
                                             <th>Fecha</th>
                                             <th>Seccion</th>
                                             <th></th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-
                                     <?php $n = 0; foreach((array) $lista_indicios_admin as $indicio) : ?>
                                         <tr role="row">
                                             <td><?= $n; ?></td>
@@ -586,7 +648,6 @@
                                             <td><a href="javascript:void(0)" class="btn btn-primary eliminar_indicio" data-id="<?= $indicio->id_indicio; ?>">Eliminar</a></td>
                                         </tr>
                                     <?php $n++; endforeach; ?>
-
                                     </tbody>
                                 </table>
 
@@ -601,15 +662,10 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>
-                                Editar imagen de calendario
-                            </h2>
-                            
+                            <h2>Editar imagen de calendario</h2>
                         </div>
                         <div class="body">
                             <form action="<?= site_url('panel/editarCalendario'); ?>" class="admin-editar-calendario">
-   
-                                    
                                    <h2 class="card-inside-title">Imagen de calendario</h2>
                                     <div class="row clearfix">
                                         <div class="form-group">
@@ -620,11 +676,8 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row clearfix"><p class="img_upload_error" style="color: red"></p></div>
-
                                     <button type="submit" class="btn btn-primary m-t-15 waves-effect">Agregar</button>
-
                                 </form>
                         </div>
                     </div>
@@ -632,9 +685,7 @@
 
                 
             </div>
-
             <?php if ($info_usuario['data']->id_usuario == 1 || $info_usuario['data']->id_usuario == 100) : ?>
-
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
@@ -668,157 +719,154 @@
                         </div>
                     </div>
                 </div>
-
-                
             </div>
-
-
-
-
             <?php endif; ?>
-
-
-
-            
         </div>
     </section>
 
-    <?php include_once 'modules/Scripts.php' ; ?>
-    <!-- Jquery DataTable Plugin Js -->
-    <script src="<?= asset_url(); ?>plugins/jquery-datatable/jquery.dataTables.js"></script>
-    <script src="<?= asset_url(); ?>plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
-    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
-    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
-    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
-    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
-    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
-    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
-    <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
-    <script src="<?= asset_url(); ?>js/panel.js"></script>
+  <?php include_once 'modules/Scripts.php' ; ?>
+  <!-- Jquery DataTable Plugin Js -->
+  <script src="<?= asset_url(); ?>plugins/jquery-datatable/jquery.dataTables.js"></script>
+  <script src="<?= asset_url(); ?>plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+  <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+  <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+  <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+  <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+  <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+  <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+  <script src="<?= asset_url(); ?>plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+  <script src="<?= asset_url(); ?>js/panel.js"></script>
+  <?php if(!empty($this->session->flashdata('messages_pagos'))) { ?>
+  <script type="text/javascript">
+	  $(function() {
+	    swal("<?=$this->session->flashdata('messages_pagos')?>", "&nbsp;", "success");
+    })
+  </script>
+  <?php } ?>
+<script type="text/javascript">
+	$(function() {
 
-    <script type="text/javascript">
-        $(function () {
-            $('.js-basic-example').DataTable({
-                responsive: true
-            });
+	  $("#fecha_pago").datepicker({
+	    monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+	      'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+	    monthNamesShort: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+	      'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+	    dateFormat: 'yy-mm-dd',
+	    dayNamesShort: ['Dom','Lun','Mar','Mi&eacute;','Juv','Vie','S&aacute;b'],
+	    dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','S&aacute;'],
+	    firstDay: 1,
+	    showOtherMonths: true,
+	    selectOtherMonths: true,
+	    minDate: new Date(2018, 1 - 1, 25),
+	    beforeShowDay: function(date) {
+	      var day = date.getDay();
+	      return [(day != 0 && day != 6)];
+	    },
+	    maxDate: '0'
+	  });
 
-            //Exportable table
-            $('.js-exportable').DataTable({
-                dom: 'Bfrtip',
-                responsive: true,
-                buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
-                ]
-            });
+	  $('.js-basic-example').DataTable({
+	    responsive: true
+	  });
 
-            //Exportable table
-            $('.js-exportable-usuarios').DataTable({
-                dom: 'Bfrtip',
-                responsive: true,
-                "order": [[ 0, "desc" ]],
-                buttons: [
-                    'copy', 'csv', 'excel', 'pdf', 'print'
-                ]
-            });
+	  //Exportable table
+	  $('.js-exportable').DataTable({
+	    dom: 'Bfrtip',
+	    responsive: true,
+	    buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+	  });
 
-            //Exportable table
-            $('.js-ganancias-total').DataTable({
-                dom: 'Bfrtip',
-                responsive: true,
-                "order": [[ 4, "asc" ]],
-                buttons: [
-                    'excel', 'pdf', 'print'
-                ]
-            });
+	  //Exportable table
+	  $('.js-exportable-usuarios').DataTable({
+	      dom: 'Bfrtip',
+	      responsive: true,
+	      "order": [[ 0, "desc" ]],
+	      buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+	  });
 
-            
-        });
-    </script>
+	  //Exportable table
+	  $('.js-ganancias-total').DataTable({
+	    dom: 'Bfrtip',
+	    responsive: true,
+	    "order": [[ 4, "asc" ]],
+	    buttons: ['excel', 'pdf', 'print']
+	  });
 
-    <script>
+	  $('.js-pagos-paquete').DataTable({
+	    dom: 'Bfrtip',
+	    responsive: true,
+	    "order": [[ 1, "asc" ]],
+	    buttons: ['excel', 'pdf', 'print']
+	  });
 
-        $("#imageupload").uploadFile({
-          url:"panel/uploadimg/",
-          dragDropStr: "<span><b>Arrastra & Suelta tu Imagen</b></span>",
-          uploadStr:"Subir",
-          fileName:"imgPerfil",
-          showPreview:true,
-          maxFileCount:1,
-          previewHeight: "100px",
-          previewWidth: "100px",
-          acceptFiles:"image/*",
-          showDelete: true,
-          deleteCallback: function (data, pd) {
-            $("#image_input").val('');
-          },
-          onSuccess:function(files,data,xhr,pd)
-          {
+	  $("#imageupload").uploadFile({
+	    url:"panel/uploadimg/",
+	    dragDropStr: "<span><b>Arrastra & Suelta tu Imagen</b></span>",
+	    uploadStr:"Subir",
+	    fileName:"imgPerfil",
+	    showPreview:true,
+	    maxFileCount:1,
+	    previewHeight: "100px",
+	    previewWidth: "100px",
+	    acceptFiles:"image/*",
+	    showDelete: true,
+	    deleteCallback: function (data, pd) {
+		    $("#image_input").val('');
+	    },
+	    onSuccess:function(files,data,xhr,pd) {
+		    console.log(data);
+		    var error = JSON.parse(data);
+		    console.log(error);
 
-            console.log(data);
+		    if(error.error)
+		    {
+			    $(".img_upload_error").html(error.error)
+		    }
+		    else
+		    {
+			    var img = JSON.parse(data);
+			    $(".img_upload_error").html("");
+			    $("#image_input").val(img);
+			    //$(".imagen_perfil").attr('src','<?= asset_url(); ?>images/perfil/'+img);
+		    }
+	    }
+	  });
 
-            var error = JSON.parse(data);
-            console.log(error);
+	  $("#imagecalendario").uploadFile({
+	    url:"panel/uploadcalendario/",
+	    dragDropStr: "<span><b>Arrastra & Suelta tu Imagen</b></span>",
+	    uploadStr:"Subir",
+	    fileName:"imgCalendario",
+	    showPreview:true,
+	    maxFileCount:1,
+	    previewHeight: "100px",
+	    previewWidth: "100px",
+	    acceptFiles:"image/*",
+	    showDelete: true,
+	    deleteCallback: function (data, pd)
+	    {
+		    $("#image_calendario").val('');
+	    },
+	    onSuccess:function(files,data,xhr,pd)
+	    {
+		    console.log(data);
+		    var error = JSON.parse(data);
+		    console.log(error);
 
-            if(error.error)
-            {
-
-                $(".img_upload_error").html(error.error)
-            }
-            else
-            {
-                var img = JSON.parse(data);
-                $(".img_upload_error").html("");
-                $("#image_input").val(img);
-                //$(".imagen_perfil").attr('src','<?= asset_url(); ?>images/perfil/'+img);
-            }
-            
-
-            
-          }
-        });
-
-        $("#imagecalendario").uploadFile({
-          url:"panel/uploadcalendario/",
-          dragDropStr: "<span><b>Arrastra & Suelta tu Imagen</b></span>",
-          uploadStr:"Subir",
-          fileName:"imgCalendario",
-          showPreview:true,
-          maxFileCount:1,
-          previewHeight: "100px",
-          previewWidth: "100px",
-          acceptFiles:"image/*",
-          showDelete: true,
-          deleteCallback: function (data, pd) {
-            $("#image_calendario").val('');
-          },
-          onSuccess:function(files,data,xhr,pd)
-          {
-
-            console.log(data);
-
-            var error = JSON.parse(data);
-            console.log(error);
-
-            if(error.error)
-            {
-
-                $(".img_upload_error").html(error.error)
-            }
-            else
-            {
-                var img = JSON.parse(data);
-                $(".img_upload_error").html("");
-                $("#image_calendario").val(img);
-                //$(".imagen_perfil").attr('src','<?= asset_url(); ?>images/perfil/'+img);
-            }
-            
-
-            
-          }
-        });
-      </script>
-
-
+		    if(error.error)
+		    {
+			    $(".img_upload_error").html(error.error)
+		    }
+		    else
+		    {
+			    var img = JSON.parse(data);
+			    $(".img_upload_error").html("");
+			    $("#image_calendario").val(img);
+			    //$(".imagen_perfil").attr('src','<?= asset_url(); ?>images/perfil/'+img);
+		    }
+	    }
+	  });
+});
+</script>
 </body>
-
 </html>

@@ -75,7 +75,9 @@
 		        <li class="active"><a class="smoothScroll" href="#home">Home <span class="sr-only">(current)</span></a></li>
 		        <li><a class="smoothScroll" href="http://tradingcoin.us/">TradingCoin</a></li>
 		        <li><a class="smoothScroll" href="#planes">Planes</a></li>
-		        <li><a target="_blank" href="https://academiadtrading.blogspot.com/">Blog</a></li>
+		       
+
+		      		<li><a target="_blank" href="http://criptobitcoins.com/news/">Noticias</a></li>
 		      	<li id="brand-desktop">
 					<a class="navbar-brand smoothScroll" href="#home">
 						<img alt="Academia De Trading" src="<?= asset_url(); ?>/home/img/logo.png">

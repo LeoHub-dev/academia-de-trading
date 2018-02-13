@@ -90,8 +90,10 @@
 								</div>
 								<div class="col-md-8">
 									<div class="vcenter" style="">
-				            <h3 class="tex-reset f40">Escribanos al Whatsapp: + 1xxxxxxxx</h3>
-					        </div>
+                      <?php if (@$referido_name): ?>
+                        <h3 class="tex-reset f40 "><?php echo $referido_name.' te invita a registrarte'  ?></h3>
+                      <?php endif ?>
+				          </div>
 			          </div>
 							</div>
 						</div>
@@ -129,7 +131,7 @@
 								<div class="col-md-12 some-margin">
 									<h4 class="clearfix">Te llamaremos para ver si puedes invertir con nosotros</h4>
 								</div>
-								<form id="formula" class="contact-form">
+								<form id="formula" method="post" action="<?= site_url('contactos-store'); ?>"class="contact-form">
 					
 									<div class="row">
 										<div class="col-md-12 some-margin">
@@ -144,21 +146,27 @@
 
 										<div class="col-md-12 some-margin">
 											<label class="sr-only" for="Subject">Whatsapp</label>
-											<input type="text" name="subject" id="Subject" placeholder="Whatsapp (Con codigo de area)">
+											<input type="text" name="whatsapp" id="whatsapp" placeholder="Whatsapp (Con codigo de area)">
 										</div>
 
 										<div class="col-md-12 some-margin">
-											<label class="sr-only" for="Subject">Whatsapp</label>
-											<input type="text" name="subject" id="Subject" placeholder="Ciudad/Pais">
+											<label class="sr-only" for="Subject">Ciudad/Pais</label>
+											<input type="text" name="ciudad" id="ciudad" placeholder="Ciudad/Pais">
 										</div>
 
 										<div class="col-md-12 some-margin">
-											<label class="sr-only" for="Subject">Whatsapp</label>
-											<input type="text" name="subject" id="Subject" placeholder="Monto que desea invertir">
+											<label class="sr-only" for="inversion">Monto que desea invertir</label>
+											<input type="text" name="inversion" id="inversion" placeholder="Monto que desea invertir">
 										</div>
 										<div class="col-md-12 some-margin">
-										<button type="submit" class="btn btn-default black-yellow smoothScroll">QUIERO QUE ME LLAMEN</button>
-										</div>
+                      <?php if ($send =='true'): ?>
+                        <div class="alert alert-success">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                          <strong>Enviado!</strong> Gracias en breve lo contactaremos...
+                        </div>
+                      <?php endif ?>
+                      <button type="submit" class="btn btn-default black-yellow smoothScroll">QUIERO QUE ME LLAMEN</button>
+                    </div>
 									</div> <!-- /.row -->
 								</form>
 							</div>
@@ -175,7 +183,7 @@
 					<div class="row text-center some-margin">
 						<div class="col-md-12">
 							<div class="col-md-12">
-								<div class="services-container" style="margin-bottom: 20px; margin-top: 0px">
+								<div class="services-container" style="margin-bottom: 40px; margin-top: 0px">
 									<h3 class="medium">QUE ES EL CLUB DE INVERSIONISTAS?</h3>
 								</div>
 							</div>
@@ -213,11 +221,11 @@
 			<div class="col-md-12 col-sm-12 col-xs-12" style="padding: 0; margin: 0; display:  flex;">
 				<section class="bg-1">
 
-					<div class="container-fluid not-so-fluid" style="padding-bottom: 30px;">
+					<div class="container-fluid not-so-fluid" style="padding: 40px 0;">
 						<div class="overlay"></div>
 						<div>
 							<div class="clearfix">
-								<div class="col-md-12 some-margin text-center" style="margin-top: 25px">
+								<div class="col-md-12 some-margin text-center" style="margin-top: 10px;margin-bottom: 20px">
 									<h3 class="font-yellow medium">CUANTO ES LA INVERSI&OacuteN Y CUAL ES LA RENTABILIDAD?</h3>
 								</div> <!-- /.col -->
 
@@ -242,13 +250,13 @@
 			</div>
 		</div>
 
-		<section style="padding-top: 15px; overflow: hidden;" class="bg-gris clearfix">
+		<section style="padding: 40px; overflow: hidden;" class="bg-gris clearfix">
 			<div class="container-fluid not-so-fluid">
 				<div class="services-container" style="margin-bottom: 30px;margin-top:15px;">
 					<div class="row text-center some-margin">
 						<div class="col-md-12">
 							<div class="col-md-12">
-								<div class="services-container" style="margin-bottom: 20px; margin-top: 0px">
+								<div class="services-container" style="margin-bottom: 40px; margin-top: 0px">
 									<h3 class="medium">EN QUE SE HACEN LAS INVERSIONES?</h3>
 								</div>
 							</div>
@@ -275,12 +283,12 @@
 			</div> <!-- /.container -->
 		</section>
 
-		<section class="bg-1" style="padding-bottom: 0px">
+		<section class="bg-1" style="padding: 40px">
 			<div class="container-fluid not-so-fluid" style="padding-bottom: 30px;">
 				<div class="overlay"></div>
 				<div>
 					<div class="clearfix">
-						<div class="col-md-12 some-margin text-center" style="margin-top: 25px">
+						<div class="col-md-12 some-margin text-center" style="margin-top: 25px;margin-bottom: 10px">
 							<h3 class="font-yellow medium">Y QUE PASA SI LOS TRADERS PIERDEN MI DINERO?</h3>
 						</div> <!-- /.col -->
 
@@ -299,13 +307,13 @@
 				</div>
 			</div>
 		</section>
-		<section style="padding-top: 15px; overflow: hidden;" class="bg-gris clearfix">
+		<section style="padding: 20px; overflow: hidden;" class="bg-gris clearfix">
 			<div class="container-fluid not-so-fluid">
 				<div class="services-container" style="margin-bottom: 30px;margin-top:15px;">
 					<div class="row text-center some-margin">
 						<div class="col-md-12">
 							<div class="col-md-12">
-								<div class="services-container" style="margin-bottom: 20px; margin-top: 0px">
+								<div class="services-container" style="margin-bottom: 30px; margin-top: 0px">
 									<h3 class="medium">COMO PUEDO COMENZAR HOY MISMO?</h3>
 								</div>
 							</div>

@@ -426,9 +426,62 @@ class Academia_model extends CI_Model
         return $lista_pagos;
     }
 
+    public function calcularMeses($fecha)
+    {
+        //FECHA ACTUAL
+        $fechainicial = date('Y-m-d H:m:s');
+        //SUMAMOS UN DIA A LA FECHA OBTENIDA CON EL FIN DE OBTENER EL ULTIMO DIA DEL MES CUMPLIDO
+        $ultimoDia = date ( 'Y-m-d H:m:s' , strtotime ( '+1 day', strtotime ( $fecha ) ) );
+        //FECHA PRIMER PAGO
+        $fecha_primer_pago = new DateTime($ultimoDia);
+        //FECHA ACTUAL PARA CALCULAR LOS 6 MESES
+        $date_actual = new DateTime($fechainicial);
+
+        $diferencia = $date_actual->diff($fecha_primer_pago);
+
+        $meses = ( $diferencia->y * 12 ) + $diferencia->m;
+
+        return (int) $meses;
+    }
+
+    public function getUsersMesMin()
+    {
+        return $this->db->select('comisiones_diarias.id_usuario,MIN(comisiones_diarias.fecha) as fecha')
+                    ->from('comisiones_diarias')
+                    ->where('comisiones_diarias.estatus', 'A')
+                    ->group_by('comisiones_diarias.id_usuario')
+                    ->order_by('comisiones_diarias.fecha', 'ASC')
+                    ->get()
+                    ->result_object();
+    }
+
+    public function verificarAndUpdateUserMes($meses = 6)
+    {
+        $users_paquete = $this->getUsersMesMin();
+
+        $array_users = [];
+
+        foreach ($users_paquete as $user) {
+            $mes = $this->calcularMeses($user->fecha);
+
+            if ($mes >= $meses) {
+                $this->db->update('comisiones_diarias',
+                    ['estatus' => 'L'],
+                    ['id_usuario' => $user->id_usuario, 'estatus' => 'A']);
+            }
+            else
+            {
+                $array_users[] = $user->id_usuario;
+            }
+        }
+
+        return $array_users;
+    }
+
+
 	public function listaPagosGeneralPaquete($num)
 	{
-		$lista_pagos = NULL;
+        $usuarios = $this->verificarAndUpdateUserMes();
 
 		$query = $this->db
 				->select('coinbase_invoice.tipo,usuarios_personas.wallet_btc,usuarios_personas.wallet_ltc,
@@ -439,12 +492,12 @@ class Academia_model extends CI_Model
 				->join('usuarios_data', 'usuarios_data.id_persona = usuarios_personas.id_persona')
 				->where('coinbase_invoice.status', '1')
 				->where('coinbase_invoice.tipo', $num)
+                ->where_in('usuarios_personas.id_persona', $usuarios)
 				->get()
 				->result_object();
 
 		return $query;
 	}
-
 
     public function __get($var)
     {

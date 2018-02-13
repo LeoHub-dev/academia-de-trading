@@ -30,8 +30,26 @@ class Inicio extends LH_Controller
             }
 		}
 
-        $this->load->view('VentasInversores_view',$this->scope);
+        $this->load->view('Ventas_view',$this->scope);
 	}
+
+    public function ventas_inversionista()
+    {
+        $this->scope['send'] = $this->input->get('send');
+
+        if ($this->session->userdata('usuario'))
+        {
+            if ($this->session->userdata('ref'))
+            {
+                $this->scope['referido_id'] = $this->session->userdata('ref');
+                $user = $this->session->userdata('usuario');
+                $user2 = $user['data'];
+                $this->scope['referido_name'] =  $user2->nombre.' '.$user2->apellido;
+            }
+        }
+
+        $this->load->view('VentasInversores_view',$this->scope);
+    }
 
 	public function ventas_adrian()
 	{
@@ -52,6 +70,5 @@ class Inicio extends LH_Controller
 		$this->scope['lista_indicios'] = $this->Academia_model->obtenerIndicios();
 		$this->load->view('HomeIndicio_view',$this->scope);
 	}
-
 
 }

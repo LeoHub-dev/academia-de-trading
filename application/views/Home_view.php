@@ -127,7 +127,7 @@
 						<div id="home-video-text">
 							<div class="col-md-8" id="home-video">
 								<div class="embed-responsive embed-responsive-16by9">
-									<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/252055460?title=0&amp;byline=0&amp;portrait=0;autoplay=1" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+									<iframe class="embed-responsive-item" src="https://player.vimeo.com/video/252055460?title=0&amp;byline=0&amp;portrait=0;autoplay=0" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
 								  
 								</div>
 								
@@ -1010,7 +1010,10 @@ float: left;
 			                    	<li>Una ganancia de mas del <strong>80%</strong></li>
 		                    	</ul></div>
 		                    <div class="wn-plan__buttons">
-		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
+		                        <div class="wn-buttons wn-buttons--center">
+                              <a style="margin-top: 0" href="<?= site_url('inversionista'); ?>" class="wn-buttons__btn btn btn-xs-lg btn-default">Informaci&oacute;n</a>
+                              <a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-xs-lg btn-default">Comprar Ahora</a>
+                            </div>
 		                    </div>
 		                </div>
 		            </div>

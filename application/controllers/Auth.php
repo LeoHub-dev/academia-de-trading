@@ -314,56 +314,35 @@ class Auth extends LH_Controller {
         exit;
 	}
 
-
-
-
-
 	public function formcontactos()
 	{
-	 
-			if($this->input->server('REQUEST_METHOD') == 'POST')
-			{
-				if ($this->form_validation->run('contactos') == FALSE)
-	        	{
-	        		echo response_bad(validation_errors());
-	        	}
-	        	else
-	        	{
-					$usuario = array(
-						'name' => $this->input->post('name'),
-						
+        if($this->input->server('REQUEST_METHOD') != 'POST')
+        {
+            echo response_bad('Error - Fallo sistema');
+            return;
+        }
 
-						'email' => $this->input->post('email'),
-						'whatsapp' => $this->input->post('whatsapp'),
-						'ciudad' => $this->input->post('ciudad'),
-						'inversion' => $this->input->post('inversion'),
-						'referido_id' => $this->input->post('referido_id'),
+        if ($this->form_validation->run('contactos') == FALSE)
+        {
+            echo response_bad(validation_errors());
+            return;
+        }
 
-						
-						 
-					);
+        $usuario = $this->Contacto_model->registrar([
+            'name' => $this->input->post('name'),
+            'email' => $this->input->post('email'),
+            'whatsapp' => $this->input->post('whatsapp'),
+            'ciudad' => $this->input->post('ciudad'),
+            'inversion' => $this->input->post('inversion'),
+            'referido_id' => $this->input->post('referido_id')
+        ]);
 
-
-
-					if($this->Contacto_model->registrar($usuario))
-					{
-				
-						echo response_good('Correcto','Ya puede ingresar a su cuenta');
-		        	}
-		        	
-
-
-				}
-			}
-
-
-			else
-		    {
-		    	echo response_bad('Error - Fallo sistema');
-		    }
-	 
-		
-	}
+        if(!$usuario)
+        {
+            echo response_bad('Error - Fallo sistema');
+            return;
+        }
+    }
 
 	
 }

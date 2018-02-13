@@ -1,2 +1,4 @@
 /.phpintel
 /.idea
+
+/application/config/database.php

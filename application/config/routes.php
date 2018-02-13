@@ -57,6 +57,8 @@ $route['trading'] = "Inicio/ventas";
 
 $route['trading2'] = "Inicio/ventas_adrian";
 
+$route['inversionista'] = "Inicio/ventas_inversionista";
+
 $route['contactos-store'] = "Auth/formcontactos";
 
 $route['compensacion'] = "CompensacionController/index";

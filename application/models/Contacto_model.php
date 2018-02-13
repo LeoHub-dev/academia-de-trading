@@ -10,40 +10,24 @@ class Contacto_model extends CI_Model {
 		parent::__construct();
 	}
 
-   
-
-
-
     public function registrar($data)
     {
-        $usuario_persona = array(
+        $query = $this->db->insert('contactos', $data);
 
+        $error = $this->db->error();
 
-                 
+        if(!$query || $error['code'] == '1054'){
+            return FALSE;
+        }
 
-           'name' => $data['name'],
-           'email' => $data['email'],
-           'whatsapp' => $data['whatsapp'],
-           'ciudad' => $data['ciudad'],
-           'inversion' => $data['inversion'],
-           'referido_id' => $data['referido_id']
-         
-        );
+        $this->load->model('Mail_model');
+        $this->Mail_model->setTo($data['email']);
 
-        $query = $this->db->insert('contactos',$usuario_persona); 
+        $this->Mail_model->setToCC('soporte@academiadetrading.net');
+        //$this->Mail_model->setTo('Douglasjosenieves@gmail.com');
+        $this->Mail_model->setSubject('Academia de Trading - Forulario Web - '.$data['name'].'');
 
-        if($query)
-        {
-           
-
-            $this->load->model('Mail_model');
-            $this->Mail_model->setTo($data['email']);
-
-            $this->Mail_model->setToCC('soporte@academiadetrading.net');
-            //$this->Mail_model->setTo('Douglasjosenieves@gmail.com');
-            $this->Mail_model->setSubject('Academia de Trading - Forulario Web - '.$data['name'].'');
-
-            $data = array( 
+        $data = array(
             "titulo" => "Estimado(a) ".$data['name']." gracias por escribirnos",
             "texto" => "Email: ".$data['email'].", 
                         whatsapp: ".$data['whatsapp'].", 
@@ -52,49 +36,23 @@ class Contacto_model extends CI_Model {
                         Referido: ".$data['referido_id']." ",
             "link" => "https://academiadetrading.net/auth#_registro",
             "texto_link" => "Registrarme"
-            );
+        );
 
-            $this->Mail_model->setMessage($data);
-            $this->Mail_model->sendMail();
+        $this->Mail_model->setMessage($data);
+        $this->Mail_model->sendMail();
 
-
- redirect('/trading?send=true', 'location');
-return TRUE;
-
-
-         }
-
-           
-       
-        else
-        {
-            return FALSE;
-        }   
+        redirect('/trading?send=true', 'location');
+        return TRUE;
     }
-
     
     public function getContactos()
     {
-         $this->db->order_by("id","desc");
-$query = $this->db->get('contactos'); 
+        $this->db->order_by("id","desc");
+        $query = $this->db->get('contactos');
 
-return $query->result();
+        return $query->result();
     }
 
-
-
- 
-
-
-
-
-
-
-
-
-
-
-   
     public function editarUsuario($post,$id_user)
     {
         $user = $this->obtenerUsuarioID($id_user);

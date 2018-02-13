@@ -134,8 +134,6 @@ class Panel_model extends CI_Model
 
         $user_status = $this->db->update('usuarios_data');
 
-        
-
         if(!$user_status)
         {
             return FALSE;

@@ -202,7 +202,7 @@ $(function () {
             console.log(status);
         });
 
-    })
+    });
 
     $("*").on("click",".activar-usuario",function(e){
 

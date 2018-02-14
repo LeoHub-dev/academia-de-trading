@@ -82,7 +82,6 @@ class Pago extends LH_Controller {
 
 				$payment_info_address = $this->coinbase->coinBaseAddress();
 
-
 				echo response_good(FALSE,FALSE,array('data' => $payment_info_address, 'payment_amount' => $payment_info_address->total_a_pagar));
 				
 			}

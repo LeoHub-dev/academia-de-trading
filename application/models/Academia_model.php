@@ -366,8 +366,6 @@ class Academia_model extends CI_Model
             {
                 return $calendario;
             }
-
-            //return $indicios;
         }
         else
         {
@@ -431,7 +429,7 @@ class Academia_model extends CI_Model
         //FECHA ACTUAL
         $fechainicial = date('Y-m-d H:m:s');
         //SUMAMOS UN DIA A LA FECHA OBTENIDA CON EL FIN DE OBTENER EL ULTIMO DIA DEL MES CUMPLIDO
-        $ultimoDia = date ( 'Y-m-d H:m:s' , strtotime ( '+1 day', strtotime ( $fecha ) ) );
+        $ultimoDia = date ( 'Y-m-d H:m:s' , strtotime ( '+0 day', strtotime ( $fecha ) ) );
         //FECHA PRIMER PAGO
         $fecha_primer_pago = new DateTime($ultimoDia);
         //FECHA ACTUAL PARA CALCULAR LOS 6 MESES
@@ -457,13 +455,14 @@ class Academia_model extends CI_Model
 
     public function verificarAndUpdateUserMes($meses = 6)
     {
+        //ESTATUS ---> L = LIQUIDADO && A = ACTIVO
         $users_paquete = $this->getUsersMesMin();
 
         $array_users = [];
 
         foreach ($users_paquete as $user) {
             $mes = $this->calcularMeses($user->fecha);
-
+            //SI EL MES > = 6 ACTUALIZA EL ESTATUS DE TODOS LOS PAGOS A L
             if ($mes >= $meses) {
                 $this->db->update('comisiones_diarias',
                     ['estatus' => 'L'],
@@ -476,6 +475,21 @@ class Academia_model extends CI_Model
         }
 
         return $array_users;
+    }
+
+    public function checkUserPaquete($id_user, $num)
+    {
+        $query = $this->db->from('coinbase_invoice')
+                    ->where('coinbase_invoice.status', '1')
+                    ->where('coinbase_invoice.tipo', $num)
+                    ->where('coinbase_invoice.id_user', $id_user)
+                    ->get();
+        if($query->num_rows() > 0 )
+        {
+            return TRUE;
+        }
+
+        return FALSE;
     }
 
 

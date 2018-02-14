@@ -1,24 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard extends LH_Controller {
-
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-
+class Dashboard extends LH_Controller
+{
 
 	public function __construct()
 	{
@@ -44,7 +28,11 @@ class Dashboard extends LH_Controller {
 
 		$this->scope['cantidad_referidos'] = $this->Academia_model->cantidadReferidosAccesibles($this->scope['info_usuario']['data']->id_usuario);
 		$this->scope['calendario'] = $this->Academia_model->obtenerCalendario();
-		
+
+        $this->scope['calendario_pagos'] = $this->CalendarioPago_model->getPagosDiariosUser($this->session->userdata('id_usuario'));
+
+        $this->scope['verificar'] = $this->Academia_model->checkUserPaquete($this->session->userdata('id_usuario'), 5);
+
 		$this->load->view('Dashboard_view',$this->scope);
 		
 	}

@@ -497,7 +497,11 @@ class Academia_model extends CI_Model
 	{
         $usuarios = $this->verificarAndUpdateUserMes();
 
-		$query = $this->db
+        if(count($usuarios) >= 0 && !empty($usuarios))
+        {
+
+
+	      $query = $this->db
 				->select('coinbase_invoice.tipo,usuarios_personas.wallet_btc,usuarios_personas.wallet_ltc,
 						usuarios_personas.wallet_bth,usuarios_personas.nombre,usuarios_personas.apellido,
 						usuarios_data.usuario,usuarios_personas.id_persona')
@@ -510,7 +514,9 @@ class Academia_model extends CI_Model
 				->get()
 				->result_object();
 
-		return $query;
+		  return $query;
+        }
+
 	}
 
     public function __get($var)

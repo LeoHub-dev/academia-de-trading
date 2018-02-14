@@ -1,6 +1,6 @@
 $(function () {
 
-    var base_url = window.location.protocol + "//" + window.location.host + "/";
+    var base_url = window.location.protocol + "//" + window.location.host + "/academiadetrading/";
 
     $('*').on('click', '.cargar-usuario', function(e){
 

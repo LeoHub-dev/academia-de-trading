@@ -509,7 +509,7 @@
 								            </tfoot>
 								            <tbody>
 
-				                    <?php $n = 0; foreach($lista_pagos_manual_admin_paquete as $pago) : ?>
+				                    <?php $n = 0; foreach((array) $lista_pagos_manual_admin_paquete as $pago) : ?>
 									            <tr role="row">
 										            <td><?=$n?></td>
 										            <td><?=$pago->usuario?></td>

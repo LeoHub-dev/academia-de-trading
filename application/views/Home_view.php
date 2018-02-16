@@ -1008,7 +1008,18 @@ float: left;
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>
-			                   
+		                    	<li> <h2>TEMARIO</h2></li>
+			                   <li>Blockchain security</li>
+			                   <li>Requerimientos</li>
+			                   <li>Bajar cartera</li>
+			                   <li>Instalar cartera</li>
+			                   <li>Masternode public address</li>
+			                   <li>Fundar tu cartera con la moneda</li>
+			                   <li>Instalar y Setup de VPS</li>
+			                   <li>Cargar los file de la moneda en el servidor</li>
+			                   <li>Servidor</li>
+			                   <li>Conectar el servidor con la wallet</li>
+			                   <li>Recibir ganancias</li>
 		                    	</ul></div>
 		                    <div class="wn-plan__buttons">
 		                        <div class="wn-buttons wn-buttons--center">

@@ -1008,11 +1008,11 @@ float: left;
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>
-			                    	<li>500$ Dolares en Bitcoin para Referidos</li>
+			                   
 		                    	</ul></div>
 		                    <div class="wn-plan__buttons">
 		                        <div class="wn-buttons wn-buttons--center">
-                              <a style="margin-top: 0" href="<?= site_url('inversionista'); ?>" class="wn-buttons__btn btn btn-xs-lg btn-default">Informaci&oacute;n</a>
+                            
                               <a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-xs-lg btn-default">Comprar Ahora</a>
                             </div>
 		                    </div>

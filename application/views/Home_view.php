@@ -977,7 +977,7 @@ float: left;
 
 						<div class="title-content">
 							
-							<h2 class="section-title">Inversiones</h2>
+							<h2 class="section-title">Curso de contratos ICO's</h2>
 
 							
 
@@ -1008,8 +1008,7 @@ float: left;
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>
-			                    	<li>500$ en TradingCoin para Referido</li>
-			                    	<li>Una ganancia de mas del <strong>80%</strong></li>
+			                    	<li>500$ Dolares en Bitcoin para Referidos</li>
 		                    	</ul></div>
 		                    <div class="wn-plan__buttons">
 		                        <div class="wn-buttons wn-buttons--center">

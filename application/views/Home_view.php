@@ -877,15 +877,7 @@
 
 
 
-						    	    <div class="at-column">
-						      <div class="at-user">
-						        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/douglas-nieves.jpg"></div>
-						        <div class="at-user__name">Douglas Nieves</div>
-						        <div class="at-user__title">IT Department</div>
-						 
-						      </div>
-						    </div>
-
+						    	   
 
 
 

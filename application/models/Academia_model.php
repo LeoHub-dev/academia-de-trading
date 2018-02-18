@@ -495,12 +495,11 @@ class Academia_model extends CI_Model
 
 	public function listaPagosGeneralPaquete($num)
 	{
+	    //VERIFICAR SOLO LOS USUARIOS QUE ESTAN EN LA LISTA
         $usuarios = $this->verificarAndUpdateUserMes();
 
         if(count($usuarios) >= 0 && !empty($usuarios))
         {
-
-
 	      $query = $this->db
 				->select('coinbase_invoice.tipo,usuarios_personas.wallet_btc,usuarios_personas.wallet_ltc,
 						usuarios_personas.wallet_bth,usuarios_personas.nombre,usuarios_personas.apellido,

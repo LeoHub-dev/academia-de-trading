@@ -57,10 +57,20 @@ function calcular_ganancia_mensual ($dias) {
     $monto = 0;
     foreach ($dias as $dia => $m) {
         if ( is_object($m) ) {
-            $monto += (float) $m->monto;
+            if(isset($m->monto)) {
+
+                $monto += (float) $m->monto;
+            }
+
+
         }
     }
 
     return $monto;
+}
+
+function custom_isobject($valor, $reemplazo = "")
+{
+    return (is_object($valor)) ? $valor : $reemplazo;
 }
 ?>

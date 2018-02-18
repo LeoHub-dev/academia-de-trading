@@ -292,8 +292,6 @@
                                     <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="2">Activar como VIP</a>
                                     <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="3">Activar con Matriz</a>
                                     <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="4">Activar con Matriz y Residual</a>
-                                    
-                                
                                 </div>
                                 
        
@@ -530,6 +528,101 @@
 				            </div>
 			            </div>
 		            </div>
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="card">
+                    <div class="header">
+                      <h2> Ganancias Obtenidas Diarias<small>Paquete de 1500$</small></h2>
+                    </div>
+                      <div class="body">
+                        <?php
+                          $montoSemestral = 0;
+                          foreach ((array) $confirmar_pagos_manual_admin_paquete as $key => $semanas) { ?>
+                            <h5>Mes de <?=getmes($key)?></h5>
+                            <table class="table table-bordered table-striped table-hover dataTable js-confimar-pagos" id="confirmar_paquete"
+                                   role="grid" aria-describedby="DataTables_Table_1_info">
+                              <thead>
+                                <tr>
+                                  <td>Usuario</td>
+                                  <td>Nombre y Apellido</td>
+                                  <td>Lunes</td>
+                                  <td>Martes</td>
+                                  <td>Miercoles</td>
+                                  <td>Jueves</td>
+                                  <td>Viernes</td>
+                                  <td>Sabado</td>
+                                  <td>Domingo</td>
+                                  <td>Total Semana</td>
+                                  <td>Confirmar</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $montoMesual = 0;
+                                foreach ((array)$semanas as $key => $semana)
+                                {
+                                  foreach ((array)$semana as $key => $dias)
+                                  {
+                                      /*foreach ($dias as $dia => $m) {
+                                          if ( is_object($m) ) {
+                                              if(isset($m->monto)) {
+
+
+                                              }
+
+
+                                          }
+                                      }*/
+
+                                      $lunes     = (is_object($dias['lunes']))     ? '<b>'.$dias['lunes']->monto.'$</b>'     : '0 $';
+                                      $martes    = (is_object($dias['martes']))    ? '<b>'.$dias['martes']->monto.'$</b>'    : '0 $';
+                                      $miercoles = (is_object($dias['miercoles'])) ? '<b>'.$dias['miercoles']->monto.'$</b>' : '0 $';
+                                      $jueves    = (is_object($dias['jueves']))    ? '<b>'.$dias['jueves']->monto.'$</b>'    : '0 $';
+                                      $viernes   = (is_object($dias['viernes']))   ? '<b>'.$dias['viernes']->monto.'$</b>'   : '0 $';
+                                      $sabado    = (is_object($dias['sabado']))    ? '<b>'.$dias['sabado']->monto.'$</b>'    : '0 $';
+                                      $domingo   = (is_object($dias['domingo']))   ? '<b>'.$dias['domingo']->monto.'$</b>'   : '0 $';
+                                      $montoSemanal = calcular_ganancia_mensual($dias);
+                                      $montoMesual += $montoSemanal;
+
+                                  ?>
+
+                                    <tr>
+                                      <td><?=$dias['user']->usuario?></td>
+                                      <td><?=$dias['user']->nombre.' '.$dias['user']->apellido?></td>
+                                      <td><?=$lunes?></td>
+                                      <td><?=$martes?></td>
+                                      <td><?=$miercoles?></td>
+                                      <td><?=$jueves?></td>
+                                      <td><?=$viernes?></td>
+                                      <td><?=$sabado?></td>
+                                      <td><?=$domingo?></td>
+                                      <td><?=$montoSemanal?></td>
+                                      <td>
+                                        <form id="confirmar_pago">
+                                          <a href="javascript:void(0)" class="btn btn-primary marcar-pagado" id="">
+                                            Confirmar Pago
+                                          </a>
+                                        </form>
+                                      </td>
+                                    </tr>
+
+                                <?php $montoSemestral += $montoMesual; } ?>
+                                <?php }
+                                ?>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                  <td colspan="9" align="right">Total Mensual</td>
+                                  <td><?='<b>'.$montoMesual. '$'.'</b>'?></td>
+                                </tr>
+                                </tfoot>
+                              </table>
+                            <?php } ?>
+
+                        </div>
+                      </div>
+                    </div>
+
 	            </div>
 
             <?php endif; ?>
@@ -797,6 +890,13 @@
 	    responsive: true,
 	    "order": [[ 1, "asc" ]],
 	    buttons: ['excel', 'pdf', 'print']
+	  });
+
+	  $('.js-confimar-pagos').DataTable({
+		  dom: 'Bfrtip',
+		  responsive: true,
+		  "order": [[ 1, "asc" ]],
+		  buttons: ['excel', 'pdf', 'print']
 	  });
 
 	  $("#imageupload").uploadFile({

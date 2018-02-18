@@ -27,6 +27,7 @@ class Dashboard extends LH_Controller
 		$this->scope['titulo'] = "Dashboard";
 
 		$this->scope['cantidad_referidos'] = $this->Academia_model->cantidadReferidosAccesibles($this->scope['info_usuario']['data']->id_usuario);
+
 		$this->scope['calendario'] = $this->Academia_model->obtenerCalendario();
 
         $this->scope['calendario_pagos'] = $this->CalendarioPago_model->getPagosDiariosUser($this->session->userdata('id_usuario'));

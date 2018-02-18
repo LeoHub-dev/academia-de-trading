@@ -33,6 +33,7 @@ class Panel extends LH_Controller {
 		$this->scope['lista_ganancias_admin'] = $this->Panel_model->listaGanancias();
 		$this->scope['lista_pagos_manual_admin'] = $this->Academia_model->listaPagosGeneral();
 		$this->scope['lista_pagos_manual_admin_paquete'] = $this->Academia_model->listaPagosGeneralPaquete(5);
+		$this->scope['confirmar_pagos_manual_admin_paquete'] = $this->CalendarioPago_model->getPagosDiariosAllUser();
 
 		$this->load->view('Panel_view',$this->scope);
 	}

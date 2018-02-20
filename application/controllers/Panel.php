@@ -49,6 +49,21 @@ class Panel extends LH_Controller {
 		}
 	}
 
+	public function confirmar_pago()
+    {
+        if($this->input->server('REQUEST_METHOD') == 'POST')
+        {
+            $idcomision = $this->input->post('id_comision');
+            $idusuario = $this->input->post('id_usuario');
+
+            foreach ($idcomision as $id)
+            {
+               $this->Panel_model->confirmarPago(['id_comision' => $id,'id_usuario' => $idusuario]);
+            }
+            echo response_good('Correcto','Pagada');
+        }
+    }
+
 	public function editar_usuario()
 	{
 		if($this->input->server('REQUEST_METHOD') == 'POST')

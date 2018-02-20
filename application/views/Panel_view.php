@@ -537,9 +537,9 @@
                       <div class="body">
                         <?php
                           $montoSemestral = 0;
-                          foreach ((array) $confirmar_pagos_manual_admin_paquete as $key => $semanas) { ?>
-                            <h5>Mes de <?=getmes($key)?></h5>
-                            <table class="table table-bordered table-striped table-hover dataTable js-confimar-pagos" id="confirmar_paquete"
+                          foreach ((array) $confirmar_pagos_manual_admin_paquete as $mes => $semanas) { ?>
+                            <h5 class="mesh-<?=$mes?>">Mes de <?=getmes($mes)?></h5>
+                            <table class="table table-bordered table-striped table-hover dataTable js-confimar-pagos mes-<?=$mes?>" id="confirmar_paquete"
                                    role="grid" aria-describedby="DataTables_Table_1_info">
                               <thead>
                                 <tr>
@@ -559,34 +559,21 @@
                                 <tbody>
                                 <?php
                                 $montoMesual = 0;
-                                foreach ((array)$semanas as $key => $semana)
-                                {
+                                foreach ((array)$semanas as $sn => $semana) {
                                   foreach ((array)$semana as $key => $dias)
                                   {
-                                      /*foreach ($dias as $dia => $m) {
-                                          if ( is_object($m) ) {
-                                              if(isset($m->monto)) {
-
-
-                                              }
-
-
-                                          }
-                                      }*/
-
-                                      $lunes     = (is_object($dias['lunes']))     ? '<b>'.$dias['lunes']->monto.'$</b>'     : '0 $';
-                                      $martes    = (is_object($dias['martes']))    ? '<b>'.$dias['martes']->monto.'$</b>'    : '0 $';
-                                      $miercoles = (is_object($dias['miercoles'])) ? '<b>'.$dias['miercoles']->monto.'$</b>' : '0 $';
-                                      $jueves    = (is_object($dias['jueves']))    ? '<b>'.$dias['jueves']->monto.'$</b>'    : '0 $';
-                                      $viernes   = (is_object($dias['viernes']))   ? '<b>'.$dias['viernes']->monto.'$</b>'   : '0 $';
-                                      $sabado    = (is_object($dias['sabado']))    ? '<b>'.$dias['sabado']->monto.'$</b>'    : '0 $';
-                                      $domingo   = (is_object($dias['domingo']))   ? '<b>'.$dias['domingo']->monto.'$</b>'   : '0 $';
+                                      $lunes     = (is_object($dias['lunes']))     ? '<b>'.$dias['lunes']->monto.'$</b>'     : '0$';
+                                      $martes    = (is_object($dias['martes']))    ? '<b>'.$dias['martes']->monto.'$</b>'    : '0$';
+                                      $miercoles = (is_object($dias['miercoles'])) ? '<b>'.$dias['miercoles']->monto.'$</b>' : '0$';
+                                      $jueves    = (is_object($dias['jueves']))    ? '<b>'.$dias['jueves']->monto.'$</b>'    : '0$';
+                                      $viernes   = (is_object($dias['viernes']))   ? '<b>'.$dias['viernes']->monto.'$</b>'   : '0$';
+                                      $sabado    = (is_object($dias['sabado']))    ? '<b>'.$dias['sabado']->monto.'$</b>'    : '0$';
+                                      $domingo   = (is_object($dias['domingo']))   ? '<b>'.$dias['domingo']->monto.'$</b>'   : '0$';
                                       $montoSemanal = calcular_ganancia_mensual($dias);
+                                      $printdias = obtener_idcomision_pago($dias);
                                       $montoMesual += $montoSemanal;
-
                                   ?>
-
-                                    <tr>
+                                    <tr id="dl-<?=$dias['user']->id_usuario?>_<?=$sn?>">
                                       <td><?=$dias['user']->usuario?></td>
                                       <td><?=$dias['user']->nombre.' '.$dias['user']->apellido?></td>
                                       <td><?=$lunes?></td>
@@ -596,107 +583,137 @@
                                       <td><?=$viernes?></td>
                                       <td><?=$sabado?></td>
                                       <td><?=$domingo?></td>
-                                      <td><?=$montoSemanal?></td>
+                                      <td><?='<b>'.$montoSemanal. '$</b>'?></td>
                                       <td>
-                                        <form id="confirmar_pago">
-                                          <a href="javascript:void(0)" class="btn btn-primary marcar-pagado" id="">
-                                            Confirmar Pago
-                                          </a>
+                                        <form method="post"
+                                              name='confirmar_pago_<?=$dias['user']->id_usuario?>_<?=$sn?>'
+                                              id='confirmar_pago_<?=$dias['user']->id_usuario?>_<?=$sn?>'>
+                                        <div class="modal fade" id="modal_confirmar_pago_<?=$dias['user']->id_usuario?>_<?=$sn?>" tabindex="-1" role="dialog">
+                                          <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h4 class="modal-title" id="defaultModalLabel">Confirmar Pago</h4>
+                                              </div>
+                                              <div class="modal-body">
+                                                <table class="table table-bordered">
+                                                  <tr>
+                                                    <th>Wallet BTC</th>
+                                                    <td><?=$dias['user']->wallet_btc?></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th>Wallet LTC</th>
+                                                    <td><?=$dias['user']->wallet_ltc?></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th>Wallet BTH</th>
+                                                    <td><?=$dias['user']->wallet_bth?></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th>Monto</th>
+                                                    <td><?='<b>'.$montoSemanal. '$</b>'?></td>
+                                                  </tr>
+                                                </table>
+                                                  <input type="hidden" name="id_usuario" value="<?=$dias['user']->id_usuario?>"/>
+                                                  <?=$printdias?>
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button mes="<?=$mes?>"
+                                                        mns="<?=$montoSemanal?>"
+                                                        us="<?=$dias['user']->id_usuario?>_<?=$sn?>"
+                                                        fm="confirmar_pago_<?=$dias['user']->id_usuario?>_<?=$sn?>"
+                                                        md="modal_confirmar_pago_<?=$dias['user']->id_usuario?>_<?=$sn?>"
+                                                        type="button" class="btn btn-link waves-effect marcar-pagado-paquete">
+                                                  Pagado
+                                                </button>
+                                                <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Cancelar</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
                                         </form>
+                                        <a href="javascript:void(0)" class="btn btn-primary confirmar-pago"
+                                           md="modal_confirmar_pago_<?=$dias['user']->id_usuario?>_<?=$sn?>">
+                                          Confirmar Pago
+                                        </a>
                                       </td>
                                     </tr>
-
-                                <?php $montoSemestral += $montoMesual; } ?>
-                                <?php }
+                                <?php $montoSemestral += $montoMesual; }
+                                  }
                                 ?>
                                 </tbody>
                                 <tfoot>
                                 <tr>
                                   <td colspan="9" align="right">Total Mensual</td>
-                                  <td><?='<b>'.$montoMesual. '$'.'</b>'?></td>
+                                  <td><?='<b class="monto-total-mensual-'.$mes.'">'.$montoMesual.'</b>'?><b>$</b></td>
                                 </tr>
                                 </tfoot>
                               </table>
                             <?php } ?>
-
                         </div>
                       </div>
                     </div>
-
 	            </div>
-
             <?php endif; ?>
-
-           
 
             <div class="row clearfix">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <div class="card">
-                        <div class="header">
-                            <h2>
-                                Agrega una Señal
-                            </h2>
-                            
-                        </div>
+                        <div class="header"><h2>Agrega una Señal</h2></div>
                         <div class="body">
                             <form action="<?= site_url('panel/agregarIndicio'); ?>" class="admin-agregar-indicio">
-   
-                                    <h2 class="card-inside-title">Titulo</h2>
-                                    <div class="row clearfix">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" name="titulo" class="form-control" placeholder="Titulo" value="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h2 class="card-inside-title">Seccion</h2>
-                                    <div class="row clearfix">
-                                        <div class="col-sm-12 ">
-                                            <select class="ms" name="seccion" required>
-                                                <option value="">-- Selecciona un area --</option>
-                                                <option value="1">BackOffice</option>
-                                                <option value="2">Home</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <h2 class="card-inside-title">Fecha</h2>
-                                    <div class="row clearfix">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="date" name="fecha" class="form-control" value="<?php echo date('Y-m-d'); ?>">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h2 class="card-inside-title">Info Adicional</h2>
-                                    <div class="row clearfix">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <div class="form-line">
-                                                    <input type="text" name="info" class="form-control" placeholder="Info" value="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                   <h2 class="card-inside-title">Imagen de la señal</h2>
-                                    <div class="row clearfix">
+                                <h2 class="card-inside-title">Titulo</h2>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12">
                                         <div class="form-group">
-                                            <div class="col-md-12 clearfix">
-                                              <label>Agregar imagen</label>
-                                              <div id="imageupload">Subir</div>
-                                              <input type="hidden" name="imagen" id="image_input" value="" required>
+                                            <div class="form-line">
+                                                <input type="text" name="titulo" class="form-control" placeholder="Titulo" value="">
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="row clearfix"><p class="img_upload_error" style="color: red"></p></div>
-
-                                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">Agregar</button>
-
-                                </form>
+                                </div>
+                                <h2 class="card-inside-title">Seccion</h2>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12 ">
+                                        <select class="ms" name="seccion" required>
+                                            <option value="">-- Selecciona un area --</option>
+                                            <option value="1">BackOffice</option>
+                                            <option value="2">Home</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <h2 class="card-inside-title">Fecha</h2>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="date" name="fecha" class="form-control" value="<?php echo date('Y-m-d'); ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2 class="card-inside-title">Info Adicional</h2>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text" name="info" class="form-control" placeholder="Info" value="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               <h2 class="card-inside-title">Imagen de la señal</h2>
+                                <div class="row clearfix">
+                                    <div class="form-group">
+                                        <div class="col-md-12 clearfix">
+                                          <label>Agregar imagen</label>
+                                          <div id="imageupload">Subir</div>
+                                          <input type="hidden" name="imagen" id="image_input" value="" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row clearfix"><p class="img_upload_error" style="color: red"></p></div>
+                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">Agregar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -817,6 +834,7 @@
         </div>
     </section>
 
+
   <?php include_once 'modules/Scripts.php' ; ?>
   <!-- Jquery DataTable Plugin Js -->
   <script src="<?= asset_url(); ?>plugins/jquery-datatable/jquery.dataTables.js"></script>
@@ -838,6 +856,12 @@
   <?php } ?>
 <script type="text/javascript">
 	$(function() {
+
+     $('a.confirmar-pago').on('click' ,function () {
+        var idmodal = $(this).attr("md");
+
+        $('#'+idmodal).modal('show');
+     });
 
 	  $("#fecha_pago").datepicker({
 	    monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio',

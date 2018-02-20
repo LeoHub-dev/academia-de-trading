@@ -1,6 +1,7 @@
 $(function () {
 
-    var base_url = window.location.protocol + "//" + window.location.host + "/academiadetrading/";
+    //var base_url = window.location.protocol + "//" + window.location.host + "/academiadetrading/";
+    var base_url = window.location.protocol + "//" + window.location.host + "/";
 
     $('*').on('click', '.cargar-usuario', function(e){
 
@@ -168,7 +169,7 @@ $(function () {
         });
 
 
-    })
+    });
 
     $("*").on("click",".marcar-pagado",function(e){
 
@@ -204,6 +205,72 @@ $(function () {
 
     });
 
+	$("*").on("click",".marcar-pagado-paquete",function(e){
+
+		e.preventDefault();
+		e.stopImmediatePropagation();
+
+		var el = $(this).attr('fm');
+		var md = $(this).attr('md');
+		var tr = $(this).attr('us');
+      var mes = $(this).attr('mes');
+		var totalSemanal = $(this).attr('mns');
+      var totalMensual = $(".monto-total-mensual-"+mes).text();
+      const data = $("#"+el).serialize();
+
+      $.ajax({
+          method: 'POST',
+             url: base_url + 'panel/confirmar_pago',
+            data: data,
+         success: function(res) {
+            const response = JSON.parse(res);
+            if(response.response === true)
+            {
+               $("#"+md).modal('hide');
+               alert("Pago realizado con exito");
+               setTimeout(function(){
+
+                  var restoMensual = parseFloat(totalMensual) - parseFloat(totalSemanal);
+                  $(".monto-total-mensual-"+mes).text(restoMensual);
+                  if(restoMensual === 0 || restoMensual === 0.0){
+                     $(".mes-"+mes).parent().remove();
+                     $(".mesh-"+mes).remove();
+                  } else {
+                     $("#dl-"+tr).remove();
+
+                  }
+               }, 1000);
+
+            }
+            if(response.response === false)
+            {
+               swal({title:'Error', type: "error", text: data.errors, html: true});
+            }
+
+        }
+      });
+
+		/*$.post(base_url+'panel/marcar_pago', {id_ganancia : $(this).attr('id-ganancia')}, function(data) {
+			console.log(data);
+			if(data.response == true)
+			{
+				swal(data.response_title, data.response_text, "success");
+				td.html('Pagado');
+
+			}
+			if(data.response == false)
+			{
+				swal({title:'Error', type: "error", text: data.errors, html: true});
+			}
+
+		},'json').fail(function(xhr, status, error) {
+			console.log(error);
+			console.log(xhr.responseText);
+			console.log(status);
+		});*/
+
+	});
+
     $("*").on("click",".activar-usuario",function(e){
 
         e.preventDefault();
@@ -220,7 +287,7 @@ $(function () {
 
         $.post(base_url+'panel/activar_cuenta', {id_usuario : $(this).attr('id_usuario'), tipo: $(this).attr('tipo')}, function(data) {
             console.log(data);
-            if(data.response == true)
+            if(data.response === true)
             {   
 
                 $('.id-usuario-'+id_usuario_td).children('td:nth-child(4)').html("*"+data.response_title);
@@ -230,7 +297,7 @@ $(function () {
 
 
             }
-            if(data.response == false)
+            if(data.response === false)
             { 
                 swal({title:'Error', type: "error", text: data.errors, html: true});  
             }
@@ -241,7 +308,7 @@ $(function () {
             console.log(status);
         });
 
-    })
+    });
 
     $('.admin-agregar-indicio').on('submit', function(e){
 
@@ -268,9 +335,7 @@ $(function () {
             console.log(xhr.responseText);
             console.log(status);
         });
-
-
-    })
+    });
 
     $('.admin-editar-calendario').on('submit', function(e){
 

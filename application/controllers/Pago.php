@@ -3,22 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pago extends LH_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-
 	public function __construct()
     {
     	parent::__construct();
@@ -26,7 +10,6 @@ class Pago extends LH_Controller {
     	if($this->Auth_model->estaConectado())
         {
         	$this->load->library('Coinpayments');
-        	
         }
         else
         {
@@ -57,12 +40,9 @@ class Pago extends LH_Controller {
 		{
 			redirect('/dashboard' ,'refresh');
 		}
-
 		$this->scope['titulo'] = "Paga tu inicial";
 		//$this->scope['lista_monedas'] = $this->coinpayments->obtenerMonedas();
 		$this->load->view('Pago_Multinivel_view',$this->scope);
-
-
 	}
 
 
@@ -72,8 +52,6 @@ class Pago extends LH_Controller {
 		{
 			if($this->input->server('REQUEST_METHOD') == 'POST')
 			{
-
-
 				$this->load->library('Coinbase',array('moneda' => $this->input->post('moneda')));
 
 				$this->coinbase->setIdUser($this->session->userdata('id_usuario'));

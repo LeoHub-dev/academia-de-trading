@@ -26,13 +26,7 @@ class CalendarioPago_model extends CI_Model
 
                 $fechaInitFin = $this->getFechaInitAndFechaFin($numsemana, $yearFecha);
                 $dayporsemana = $this->getDatesNumberWeek($user->fecha);
-                /*if(in_array($user->fecha, $fecha)) {
 
-                }*/
-                /*if (!in_array($mesFecha, $mes)) {
-                    $mes[] = $mesFecha;
-                    $data_results[$mesFecha] = [];
-                }*/
                 $data = (object)[
                     'monto' => $user->cantidad,
                     'id_usuario' => $user->id_usuario,
@@ -77,49 +71,54 @@ class CalendarioPago_model extends CI_Model
         $user_fecha = [];
         $data_results = [];
         foreach ($data as $user) {
-            if ($user->fecha != null && $user->fecha != "" && !in_array([$user->fecha, $user->id_usuario], $user_fecha)) {
+            if ($user->fecha != null && $user->fecha != "") {
+                if(!in_array([$user->fecha, $user->id_usuario], $user_fecha)) {
+                    $user_fecha[] = [$user->fecha, $user->id_usuario];
 
-                $user_fecha[] = [$user->fecha, $user->id_usuario];
+                    $numsemana = $this->getNumeroSemana($user->fecha);
+                    $yearFecha = $this->getNumeroYear($user->fecha);
+                    $mesFecha = $this->getNumeroMes($user->fecha);
+                    $diaFecha = $this->getStringDia($user->fecha);
 
-                $numsemana = $this->getNumeroSemana($user->fecha);
-                $yearFecha = $this->getNumeroYear($user->fecha);
-                $mesFecha = $this->getNumeroMes($user->fecha);
-                $diaFecha = $this->getStringDia($user->fecha);
+                    $fechaInitFin = $this->getFechaInitAndFechaFin($numsemana, $yearFecha);
+                    $dayporsemana = $this->getDatesNumberWeek($user->fecha);
 
-                $fechaInitFin = $this->getFechaInitAndFechaFin($numsemana, $yearFecha);
-                $dayporsemana = $this->getDatesNumberWeek($user->fecha);
+                    $mesA = explode("-", $fechaInitFin[0])[1];
+                    $mesB = explode("-", $fechaInitFin[1])[1];
 
-                $mesA = explode("-", $fechaInitFin[0])[1];
-                $mesB = explode("-", $fechaInitFin[1])[1];
+                    $mescalculado = ($mesA == $mesB) ? $mesFecha : $mesA;
 
-                $mescalculado = ($mesA == $mesB) ? $mesFecha : $mesA;
+                    $data = (object)[
+                        'monto' => $user->cantidad,
+                        'id_usuario' => $user->id_usuario,
+                        'id_comision' => $user->id_comision,
+                        'fecha' => $user->fecha
+                    ];
 
-                $data = (object)[
-                    'monto' => $user->cantidad,
-                    'id_usuario' => $user->id_usuario,
-                    'id_comision' => $user->id_comision,
-                    'fecha' => $user->fecha
-                ];
+                    $data_user = (object)[
+                        'id_usuario' => $user->id_usuario,
+                        'nombre' => $user->nombre,
+                        'apellido' => $user->apellido,
+                        'usuario' => $user->usuario,
+                        'wallet_btc' => $user->wallet_btc,
+                        'wallet_ltc' => $user->wallet_ltc,
+                        'wallet_bth' => $user->wallet_bth,
+                    ];
 
-                $data_user = (object)[
-                    'id_usuario' => $user->id_usuario,
-                    'nombre' => $user->nombre,
-                    'apellido' => $user->apellido,
-                    'usuario' => $user->usuario
-                ];
-
-                if (!in_array([$numsemana, $user->id_usuario], $users)) {
-                    $users[] = [$numsemana, $user->id_usuario];
-                    $data_results[$mescalculado][$numsemana][$user->id_usuario] = $dayporsemana;
-                    $data_results[$mescalculado][$numsemana][$user->id_usuario]['user'] = $data_user;
-                    $data_results[$mescalculado][$numsemana][$user->id_usuario][$diaFecha] = $data;
+                    if (!in_array([$numsemana, $user->id_usuario], $users)) {
+                        $users[] = [$numsemana, $user->id_usuario];
+                        $data_results[$mescalculado][$numsemana][$user->id_usuario] = $dayporsemana;
+                        $data_results[$mescalculado][$numsemana][$user->id_usuario]['user'] = $data_user;
+                        $data_results[$mescalculado][$numsemana][$user->id_usuario][$diaFecha] = $data;
+                    } else {
+                        $data_results[$mescalculado][$numsemana][$user->id_usuario][$diaFecha] = $data;
+                    }
                 } else {
-                    $data_results[$mescalculado][$numsemana][$user->id_usuario][$diaFecha] = $data;
+                    $this->db->update('comisiones_diarias', array('estatus' => 'I'), ['id_comision' => $user->id_comision]);
                 }
             }
         }
-
-        /* echo "<pre>";
+         /*echo "<pre>";
           print_r($user_fecha);
           echo "</pre>";
           exit;*/
@@ -129,13 +128,15 @@ class CalendarioPago_model extends CI_Model
     public function getPagosDiariosAllUser()
     {
         $query = $this->db
-            ->select('comisiones_diarias.id_usuario,comisiones_diarias.id_comision,
+            ->select('comisiones_diarias.id_usuario,comisiones_diarias.id_comision,usuarios_personas.wallet_btc,
+                    usuarios_personas.wallet_ltc,usuarios_personas.wallet_bth,
                     comisiones_diarias.cantidad,DATE_FORMAT(comisiones_diarias.fecha,"%Y-%m-%d") as fecha,usuarios_personas.nombre,
                     usuarios_personas.apellido,usuarios_data.usuario')
             ->from('comisiones_diarias')
             ->join('usuarios_personas', 'usuarios_personas.id_persona = comisiones_diarias.id_usuario')
             ->join('usuarios_data', 'usuarios_data.id_persona = comisiones_diarias.id_usuario')
             ->where('comisiones_diarias.pagada', '0')
+            ->where('comisiones_diarias.estatus', 'A')
             ->order_by('comisiones_diarias.fecha', 'ASC')
             ->get()
             ->result_object();
@@ -145,8 +146,8 @@ class CalendarioPago_model extends CI_Model
         //echo json_encode($results);
         /*echo "<pre>";
         print_r($results);
-        echo "</pre>";*/
-        //exit;
+        echo "</pre>";
+        exit;*/
         return $results;
     }
 

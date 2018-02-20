@@ -94,21 +94,21 @@
 
 
               <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
-              <li>
-                  <a href="<?= site_url('matriz'); ?>">
+              <!--<li>
+                  <a href="<?/*= site_url('matriz'); */?>">
                       <i class="material-icons col-red">call_split</i>
                       <span>Matriz</span>
                   </a>
-              </li>
+              </li>-->
               <?php endif; ?>
 
               <?php if($this->Matriz_model->obtenerCirculoActivo($info_usuario['data']->id_usuario) != NULL) : ?>
-              <li>
-                  <a href="<?= site_url('matriz/circulo'); ?>">
+              <!--<li>
+                  <a href="<?/*= site_url('matriz/circulo'); */?>">
                       <i class="material-icons col-red">donut_large</i>
                       <span>Circulo</span>
                   </a>
-              </li>
+              </li>-->
               <?php endif; ?>
 
               <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>

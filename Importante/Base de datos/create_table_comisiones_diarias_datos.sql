@@ -21,40 +21,12 @@ CREATE TABLE IF NOT EXISTS `comisiones_diarias` (
   `fecha` datetime,
   `fecha_insert` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_pagado` datetime DEFAULT NULL,
-  `estatus` enum('A','L') DEFAULT 'A',
+  `estatus` enum('A','L','I') DEFAULT 'A',
   PRIMARY KEY (`id_comision`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla academiadetrading.comisiones_diarias: ~27 rows (aproximadamente)
+-- Volcando datos para la tabla academiadetrading.comisiones_diarias: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `comisiones_diarias` DISABLE KEYS */;
-INSERT INTO `comisiones_diarias` (`id_comision`, `id_usuario`, `cantidad`, `razon`, `pagada`, `fecha`, `fecha_insert`, `fecha_pagado`, `estatus`) VALUES
-	(1, 1, 10, 'Comision diaria por el monto de 10$', 0, '2018-01-27 15:02:50', '2018-02-09 15:02:50', NULL, 'A'),
-	(2, 1, 10, 'Comision diaria por el monto de 10$', 0, '2018-01-24 15:02:50', '2018-02-09 15:02:50', NULL, 'A'),
-	(3, 1, 25, 'Comision diaria por el monto de 25$', 0, '2018-01-22 17:02:53', '2018-02-10 17:02:53', NULL, 'A'),
-	(4, 1, 25, 'Comision diaria por el monto de 25$', 0, '2018-01-23 01:00:00', '2018-02-10 17:02:53', NULL, 'A'),
-	(5, 1, 15, 'Comision diaria por el monto de 15$', 0, '2018-01-26 23:02:06', '2018-02-12 23:02:06', NULL, 'A'),
-	(6, 1, 10, 'Comision diaria por el monto de 10$', 0, '2018-01-29 15:02:50', '2018-02-09 15:02:50', NULL, 'A'),
-	(7, 1, 10, 'Comision diaria por el monto de 10$', 0, '2018-01-30 15:02:50', '2018-02-09 15:02:50', NULL, 'A'),
-	(8, 1, 10, 'Comision diaria por el monto de 10$', 0, '2018-02-01 15:02:50', '2018-02-09 15:02:50', NULL, 'A'),
-	(9, 1, 10, 'Comision diaria por el monto de 10$', 0, '2018-02-02 15:02:50', '2018-02-09 15:02:50', NULL, 'A'),
-	(10, 1, 10, 'Comision diaria por el monto de 10$', 0, '2018-02-05 15:02:50', '2018-02-09 15:02:50', NULL, 'A'),
-	(11, 1, 10, 'Comision diaria por el monto de 10$', 0, '2018-02-06 15:02:50', '2018-02-09 15:02:50', NULL, 'A'),
-	(12, 1, 10, 'Comision diaria por el monto de 10$', 0, '2018-02-07 15:02:50', '2018-02-09 15:02:50', NULL, 'A'),
-	(13, 1, 10, 'Comision diaria por el monto de 10$', 0, '2018-02-08 15:02:50', '2018-02-09 15:02:50', NULL, 'A'),
-	(14, 1, 10, 'Comision diaria por el monto de 10$', 0, '2018-02-09 15:02:50', '2018-02-09 15:02:50', NULL, 'A'),
-	(15, 1, 10, 'Comision diaria por el monto de 10$', 0, '2018-02-12 15:02:50', '2018-02-09 15:02:50', NULL, 'A'),
-	(16, 1, 10, 'Comision diaria por el monto de 10$', 0, '2018-02-13 15:02:50', '2018-02-09 15:02:50', NULL, 'A'),
-	(18, 372, 10, 'Comision diaria por el monto de 10$', 0, '2018-01-26 23:02:06', '2018-02-09 15:02:50', NULL, 'A'),
-	(19, 372, 10, 'Comision diaria por el monto de 10$', 0, '2018-01-27 15:02:50', '2018-02-10 15:02:50', NULL, 'A'),
-	(20, 372, 10, 'Comision diaria por el monto de 10$', 0, '2018-08-07 15:02:50', '2018-02-16 15:02:50', NULL, 'A'),
-	(23, 1, 25, 'Comision diaria por el monto de 25$', 0, '2018-02-14 02:02:03', '2018-02-14 02:02:03', NULL, 'A'),
-	(24, 372, 25, 'Comision diaria por el monto de 25$', 0, '2018-02-14 02:02:03', '2018-02-14 02:02:03', NULL, 'A'),
-	(25, 1, 30, 'Comision diaria por el monto de 30$', 0, '2018-02-15 05:02:16', '2018-02-15 05:02:16', NULL, 'A'),
-	(26, 372, 30, 'Comision diaria por el monto de 30$', 0, '2018-02-15 05:02:16', '2018-02-16 05:02:16', NULL, 'A'),
-	(27, 1, 23, 'Comision diaria por el monto de 23$', 0, '2018-02-14 12:02:32', '2018-02-15 12:02:32', NULL, 'A'),
-	(28, 372, 23, 'Comision diaria por el monto de 23$', 0, '2018-02-14 12:02:32', '2018-02-15 12:02:32', NULL, 'A'),
-	(29, 1, 30, 'Comision diaria por el monto de 30$', 0, '2018-02-16 21:02:38', '2018-02-16 21:02:38', NULL, 'A'),
-	(30, 372, 30, 'Comision diaria por el monto de 30$', 0, '2018-02-16 21:02:38', '2018-02-16 21:02:38', NULL, 'A');
 /*!40000 ALTER TABLE `comisiones_diarias` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

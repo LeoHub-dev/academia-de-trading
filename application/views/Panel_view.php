@@ -225,7 +225,6 @@
                                         <h2 class="card-inside-title">Referido</h2>
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
-
                                                 <div class="form-group">
                                                     <div class="form-line">
                                                         <input type="text" name="referido" class="form-control" placeholder="Referido" value="">
@@ -244,7 +243,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <h2 class="card-inside-title">Wallet Ltc</h2>
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
@@ -256,7 +254,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <h2 class="card-inside-title">Wallet Bth</h2>
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
@@ -278,27 +275,17 @@
                                                 </div>
                                             </div>
                                         </div>-->
-
                                         <div class="row clearfix"><p class="img_upload_error" style="color: red"></p></div>
-
                                         <button type="submit" class="btn btn-primary m-t-15 waves-effect">Editar</button>
-
                                     </form>
                                 </div>
-
                                 <div role="tabpanel" class="tab-pane fade" id="opciones">
-                                    
                                     <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="1">Activar</a>
                                     <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="2">Activar como VIP</a>
                                     <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="3">Activar con Matriz</a>
                                     <a href="javascript:void(0)" class="btn btn-primary opcion-id-usuario activar-usuario" id_usuario="0" tipo="4">Activar con Matriz y Residual</a>
                                 </div>
-                                
-       
-                             
                             </div>
-                            
-                            
                         </div>
                     </div>
                 </div>
@@ -308,57 +295,44 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>
-                                Agrega una matriz personalizada
-                            </h2>
-                            
+                            <h2>Agrega una matriz personalizada</h2>
                         </div>
                         <div class="body">
                             <form action="<?= site_url('panel/agregarMatrizPersonalizada'); ?>" class="admin-agregar-matriz-especial">
-   
-            
-                                    <h2 class="card-inside-title">Poner a</h2>
-                                    <div class="row clearfix">
-                                        <div class="col-sm-12 ">
-                                            <select class="ms" name="id_usuario1" id="id_usuario1" required>
-                                                <?php $n = 0; foreach((array) $lista_usuarios_admin['usuario'] as $usuario) : $lista_usuarios_backup[$usuario->id_usuario] = $usuario; ?>
-                                                <option value="<?= $usuario->id_usuario; ?>"><?= $usuario->nombre; ?> (<?= $usuario->usuario; ?>)</option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
+                                <h2 class="card-inside-title">Poner a</h2>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12 ">
+                                        <select class="ms" name="id_usuario1" id="id_usuario1" required>
+                                            <?php $n = 0; foreach((array) $lista_usuarios_admin['usuario'] as $usuario) : $lista_usuarios_backup[$usuario->id_usuario] = $usuario; ?>
+                                            <option value="<?= $usuario->id_usuario; ?>"><?= $usuario->nombre; ?> (<?= $usuario->usuario; ?>)</option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
+                                </div>
 
-                                    <h2 class="card-inside-title">Debajo de</h2>
-                                    <div class="row clearfix">
-                                        <div class="col-sm-12 ">
-                                            <select class="ms" name="id_usuario2" id="id_usuario2" required>
-                                                <?php $n = 0; foreach((array) $lista_usuarios_admin['usuario'] as $usuario) : $lista_usuarios_backup[$usuario->id_usuario] = $usuario; ?>
-                                                <option value="<?= $usuario->id_usuario; ?>"><?= $usuario->nombre; ?> (<?= $usuario->usuario; ?>)</option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
+                                <h2 class="card-inside-title">Debajo de</h2>
+                                <div class="row clearfix">
+                                    <div class="col-sm-12 ">
+                                        <select class="ms" name="id_usuario2" id="id_usuario2" required>
+                                            <?php $n = 0; foreach((array) $lista_usuarios_admin['usuario'] as $usuario) : $lista_usuarios_backup[$usuario->id_usuario] = $usuario; ?>
+                                            <option value="<?= $usuario->id_usuario; ?>"><?= $usuario->nombre; ?> (<?= $usuario->usuario; ?>)</option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
-
-                                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">Agregar</button>
-
-                                </form>
+                                </div>
+                                <button type="submit" class="btn btn-primary m-t-15 waves-effect">Agregar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
 
             </div>
 
-
             <div class="row clearfix">
-                
-
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>
-                                Lista ganancias
-                            </h2>
-                            
+                            <h2>Lista ganancias</h2>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -383,7 +357,6 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-
                                     <?php $n = 0; foreach((array) $lista_ganancias_admin as $ganancia) : ?>
                                         <tr role="row">
                                             <td><?= $n; ?></td>
@@ -404,11 +377,7 @@
                 </div>
             </div>
 
-
-
             <div class="row clearfix">
-                
-
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
@@ -437,7 +406,6 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-
                                     <?php $n = 0; foreach((array) $lista_pagos_manual_admin as $ganancia) : ?>
                                         <tr role="row">
                                             <td><?= $n; ?></td>
@@ -448,10 +416,8 @@
                                                 <a href="javascript:void(0)" class="btn btn-primary eliminar_pago" data-id="<?= $ganancia->id_pago; ?>">Eliminar</a></td>
                                         </tr>
                                     <?php $n++; endforeach; ?>
-
                                     </tbody>
                                 </table>
-
                                 </div>
                             </div>
                         </div>
@@ -459,76 +425,77 @@
                 </div>
             </div>
 
-	            <div class="row clearfix">
+            <div class="row clearfix">
+              <?php if(count($lista_pagos_manual_admin_paquete) > 0) { ?>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                  <div class="header">
+                    <h2>
+                      Pagos Para el Paquete de 1500$
+                    </h2>
+                    <div class="right col-md-6" style="top: 14px; right: 15px;position: absolute">
+                      <form action="<?=site_url('panel/pagoDiario')?>" method="post" name="generarPagoDiario" id="generarPagoDiario">
+                        <div class="form-line col-md-4">
+                          <input type="text" id="fecha_pago" name="fecha_pago" class="form-control input-sm" placeholder="Fecha"/>
+                        </div>
+                        <div class="form-line col-md-4">
+                          <input type="text" id="monto" name="monto" class="form-control input-sm" placeholder="Monto"/>
+                        </div>
+                        <input type="submit" class="btn btn-primary" id="btnPagar" value="Enviar Pago Diario"/>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="body">
+                    <div class="table-responsive">
+                      <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                        <table class="table table-bordered table-striped table-hover dataTable js-pagos-paquete" id="tabla_paquete" role="grid" aria-describedby="DataTables_Table_1_info">
+                          <thead>
+                          <tr role="row">
+                            <th>#</th>
+                            <th>Usuario</th>
+                            <th>Nombre y Apellido</th>
+                            <th>Wallet BTC</th>
+                            <th>Wallet LTC</th>
+                            <th>Wallet BTH</th>
+                            <th align="center">Opci&oacute;n</th>
+                          </tr>
+                          </thead>
+                          <tfoot>
+                          <tr>
+                            <th>#</th>
+                            <th>Usuario</th>
+                            <th>Nombre y Apellido</th>
+                            <th>Wallet BTC</th>
+                            <th>Wallet LTC</th>
+                            <th>Wallet BTH</th>
+                            <th align="center">Opci&oacute;n</th>
+                          </tr>
+                          </tfoot>
+                          <tbody>
 
-		            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			            <div class="card">
-				            <div class="header">
-					            <h2>
-						            Pagos Para el Paquete de 1500$
-					            </h2>
-											<div class="right col-md-6" style="top: 14px; right: 15px;position: absolute">
-												<form action="<?=site_url('panel/pagoDiario')?>" method="post" name="generarPagoDiario" id="generarPagoDiario">
-													<div class="form-line col-md-4">
-														<input type="text" id="fecha_pago" name="fecha_pago" class="form-control input-sm" placeholder="Fecha"/>
-													</div>
-													<div class="form-line col-md-4">
-														<input type="text" id="monto" name="monto" class="form-control input-sm" placeholder="Monto"/>
-													</div>
-													<input type="submit" class="btn btn-primary" id="btnPagar" value="Enviar Pago Diario"/>
-												</form>
-											</div>
-				            </div>
-				            <div class="body">
-					            <div class="table-responsive">
-						            <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-							            <table class="table table-bordered table-striped table-hover dataTable js-pagos-paquete" id="tabla_paquete" role="grid" aria-describedby="DataTables_Table_1_info">
-								            <thead>
-								            <tr role="row">
-									            <th>#</th>
-									            <th>Usuario</th>
-									            <th>Nombre y Apellido</th>
-									            <th>Wallet BTC</th>
-									            <th>Wallet LTC</th>
-									            <th>Wallet BTH</th>
-									            <th align="center">Opci&oacute;n</th>
-								            </tr>
-								            </thead>
-								            <tfoot>
-								            <tr>
-									            <th>#</th>
-									            <th>Usuario</th>
-									            <th>Nombre y Apellido</th>
-									            <th>Wallet BTC</th>
-									            <th>Wallet LTC</th>
-									            <th>Wallet BTH</th>
-									            <th align="center">Opci&oacute;n</th>
-								            </tr>
-								            </tfoot>
-								            <tbody>
+                          <?php $n = 0; foreach((array) $lista_pagos_manual_admin_paquete as $pago) : ?>
+                            <tr role="row">
+                              <td><?=$n?></td>
+                              <td><?=$pago->usuario?></td>
+                              <td><?=$pago->nombre.' '.$pago->apellido?></td>
+                              <td><?=$pago->wallet_btc?></td>
+                              <td><?=$pago->wallet_ltc?></td>
+                              <td><?=$pago->wallet_bth?></td>
+                              <td align="center">
+                                <a href="#top" class="btn btn-primary cargar-usuario" id-usuario="<?=$pago->id_persona?>">Buscar usuario</a>
+                              </td>
+                            </tr>
+                            <?php $n++; endforeach; ?>
+                          </tbody>
+                        </table>
 
-				                    <?php $n = 0; foreach((array) $lista_pagos_manual_admin_paquete as $pago) : ?>
-									            <tr role="row">
-										            <td><?=$n?></td>
-										            <td><?=$pago->usuario?></td>
-										            <td><?=$pago->nombre.' '.$pago->apellido?></td>
-										            <td><?=$pago->wallet_btc?></td>
-										            <td><?=$pago->wallet_ltc?></td>
-										            <td><?=$pago->wallet_bth?></td>
-										            <td align="center">
-											            <a href="#top" class="btn btn-primary cargar-usuario" id-usuario="<?=$pago->id_persona?>">Buscar usuario</a>
-										            </td>
-									            </tr>
-					                    <?php $n++; endforeach; ?>
-								            </tbody>
-							            </table>
-
-						            </div>
-					            </div>
-				            </div>
-			            </div>
-		            </div>
-
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <?php } ?>
+              <?php if (count($confirmar_pagos_manual_admin_paquete) > 0) { ?>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="card">
                     <div class="header">
@@ -618,11 +585,11 @@
                                               </div>
                                               <div class="modal-footer">
                                                 <button mes="<?=$mes?>"
-                                                        mns="<?=$montoSemanal?>"
-                                                        us="<?=$dias['user']->id_usuario?>_<?=$sn?>"
-                                                        fm="confirmar_pago_<?=$dias['user']->id_usuario?>_<?=$sn?>"
-                                                        md="modal_confirmar_pago_<?=$dias['user']->id_usuario?>_<?=$sn?>"
-                                                        type="button" class="btn btn-link waves-effect marcar-pagado-paquete">
+                                                  mns="<?=$montoSemanal?>"
+                                                  us="<?=$dias['user']->id_usuario?>_<?=$sn?>"
+                                                  fm="confirmar_pago_<?=$dias['user']->id_usuario?>_<?=$sn?>"
+                                                  md="modal_confirmar_pago_<?=$dias['user']->id_usuario?>_<?=$sn?>"
+                                                  type="button" class="btn btn-link waves-effect marcar-pagado-paquete">
                                                   Pagado
                                                 </button>
                                                 <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Cancelar</button>
@@ -651,8 +618,9 @@
                             <?php } ?>
                         </div>
                       </div>
-                    </div>
-	            </div>
+                </div>
+              <?php } ?>
+            </div>
             <?php endif; ?>
 
             <div class="row clearfix">

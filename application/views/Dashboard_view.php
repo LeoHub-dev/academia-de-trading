@@ -143,7 +143,11 @@
           </div>
         </div>
 
+        <?php
+          if(count($calendario_pagos) > 0) {
 
+
+        ?>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="card">
             <div class="header">
@@ -206,7 +210,9 @@
             </div>
           </div>
         </div>
+        <?php } ?>
       </div>
+
     </div>
   </section>
 

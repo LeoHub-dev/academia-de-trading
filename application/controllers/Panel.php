@@ -284,7 +284,6 @@ class Panel extends LH_Controller {
 
 	public function editarCalendario()
 	{
-
 		if($this->input->server('REQUEST_METHOD') == 'POST')
 		{
 			if($info = $this->Panel_model->agregarCalendario($this->input->post()))
@@ -300,7 +299,6 @@ class Panel extends LH_Controller {
 	    {
 	    	echo response_bad('Error - Fallo sistema');
 	    }
-	
 	}
 
 	public function uploadcalendario()
@@ -348,7 +346,7 @@ class Panel extends LH_Controller {
 			$this->Panel_model->establecerPagoDiario([
 				'id_usuario' => $user->id_persona,
 				'cantidad' => $monto,
-				'razon' => "Comision diaria por el monto de {$monto}$",
+				'razon' => "Comision diaria del dia ".date('d-m-Y')." por el monto de {$monto}$",
 				'fecha' => $fechaPago.' '.date('H:m:s'),
 				'fecha_insert' => date('Y-m-d H:m:s')
 			]);

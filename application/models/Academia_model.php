@@ -525,7 +525,6 @@ class Academia_model extends CI_Model
         return FALSE;
     }
 
-
 	public function listaPagosGeneralPaquete($num)
 	{
 	    //VERIFICAR SOLO LOS USUARIOS QUE ESTAN EN LA LISTA
@@ -549,6 +548,20 @@ class Academia_model extends CI_Model
 		  return $query;
         }
 	}
+
+	public function pagoConfirmados($id_usuario, $numpaquete = 5)
+    {
+        return $this->db->select('comisiones_diarias.id_usuario,comisiones_diarias.fecha,comisiones_diarias.razon,
+        comisiones_diarias.cantidad,comisiones_diarias.pagada')
+            ->from('comisiones_diarias')
+            ->join('usuarios_personas', 'usuarios_personas.id_persona = comisiones_diarias.id_usuario')
+            ->where('comisiones_diarias.pagada', '1')
+            ->where_in('comisiones_diarias.estatus', ['A','L'])
+            ->where('comisiones_diarias.id_usuario', $id_usuario)
+            ->order_by('comisiones_diarias.fecha', 'ASC')
+            ->get()
+            ->result_object();
+    }
 
     public function __get($var)
     {

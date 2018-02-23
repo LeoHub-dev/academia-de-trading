@@ -71,4 +71,11 @@ class Inicio extends LH_Controller
 		$this->load->view('HomeIndicio_view',$this->scope);
 	}
 
+	public function master_nodes()
+    {
+        $this->scope['send'] = '';
+
+        $this->load->view('master_node_view',$this->scope);
+    }
+
 }

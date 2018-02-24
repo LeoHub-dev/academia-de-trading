@@ -70,7 +70,7 @@ class Api extends LH_Controller {
 		}
 	}
 
-	public function i($cuenta = NULL)
+	public function m($cuenta = NULL)
 	{
 		if(!$this->Auth_model->estaConectado())
 		{

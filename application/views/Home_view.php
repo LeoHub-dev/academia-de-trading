@@ -959,7 +959,7 @@ float: left;
 
 		</section>-->
 
-		<section id="inversiones">
+		<!--<section id="inversiones">
 
 			<div class="container">
 
@@ -977,7 +977,7 @@ float: left;
 
 					</div>
 
-				</div> <!-- /.row -->
+				</div> 
 
 				<div class="row about-team">
 
@@ -1023,14 +1023,13 @@ float: left;
 		            </div>
 		           
 
-				</div> <!-- /.row -->
+				</div> 
+
+			</div>
 
 
-			</div> <!-- /.container -->
 
-
-
-		</section>
+		</section>-->
 
 		<section id="senales">
 

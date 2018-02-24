@@ -53,6 +53,14 @@
                         </a>
                       </li>
                     <?php endif; ?>
+                    <?php if(count($calendario_pagos) > 0) : ?>
+                      <li>
+                        <a href="<?= site_url('clases/inversionistas'); ?>">
+                          <i class="material-icons col-amber">local_library</i>
+                          <span>Clases Inversionistas</span>
+                        </a>
+                      </li>
+                    <?php endif; ?>
                     <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1 || $this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
                       <li>
                         <a href="https://t.me/joinchat/AAAAAEHuh3_T6r8SYQnhZA" target="_blank">
@@ -61,6 +69,7 @@
                         </a>
                       </li>
                     <?php endif; ?>
+
                     <?php if($info_usuario['data']->pago == 1) : ?>
                       <li>
                         <a href="<?= site_url('mastermind'); ?>">

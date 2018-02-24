@@ -101,7 +101,7 @@
 
                                 <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;"> 
                                     
-                                        <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="4">Pagar con</button> 
+                                        <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="1">Pagar con</button> 
                                     
  
                                         <select class="form-control show-tick" id="moneda_pago"> 

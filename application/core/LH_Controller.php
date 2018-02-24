@@ -32,6 +32,9 @@ class LH_Controller extends CI_Controller
             $this->scope['site_lang'] = $this->config->item('language');;
         }
 
+        $this->scope['calendario_pagos'] = $this->CalendarioPago_model->getPagosDiariosUser($this->session->userdata('id_usuario'));
+
+
         $this->form_validation->set_message('isNotUniqueMail', 'El email no existe');
         $this->form_validation->set_message('esUnEmailUnico', 'El email debe ser unico');
         $this->form_validation->set_message('esUnUsuarioUnico', 'El usuario debe ser unico');

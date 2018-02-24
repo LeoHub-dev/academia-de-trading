@@ -877,15 +877,7 @@
 
 
 
-						    	    <div class="at-column">
-						      <div class="at-user">
-						        <div class="at-user__avatar"><img src="<?= asset_url(); ?>images/douglas-nieves.jpg"></div>
-						        <div class="at-user__name">Douglas Nieves</div>
-						        <div class="at-user__title">IT Department</div>
-						 
-						      </div>
-						    </div>
-
+						    	   
 
 
 
@@ -967,7 +959,7 @@ float: left;
 
 		</section>-->
 
-		<section id="inversiones">
+		<!--<section id="inversiones">
 
 			<div class="container">
 
@@ -977,7 +969,7 @@ float: left;
 
 						<div class="title-content">
 							
-							<h2 class="section-title">Inversiones</h2>
+							<h2 class="section-title">Curso de contratos ICO's</h2>
 
 							
 
@@ -985,7 +977,7 @@ float: left;
 
 					</div>
 
-				</div> <!-- /.row -->
+				</div> 
 
 				<div class="row about-team">
 
@@ -1008,12 +1000,22 @@ float: left;
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>
-			                    	<li>500$ en TradingCoin para Referido</li>
-			                    	<li>Una ganancia de mas del <strong>80%</strong></li>
+		                    	<li> <h2>TEMARIO</h2></li>
+			                   <li>Blockchain security</li>
+			                   <li>Requerimientos</li>
+			                   <li>Bajar cartera</li>
+			                   <li>Instalar cartera</li>
+			                   <li>Masternode public address</li>
+			                   <li>Fundar tu cartera con la moneda</li>
+			                   <li>Instalar y Setup de VPS</li>
+			                   <li>Cargar los file de la moneda en el servidor</li>
+			                   <li>Servidor</li>
+			                   <li>Conectar el servidor con la wallet</li>
+			                   <li>Recibir ganancias</li>
 		                    	</ul></div>
 		                    <div class="wn-plan__buttons">
 		                        <div class="wn-buttons wn-buttons--center">
-                              <a style="margin-top: 0" href="<?= site_url('inversionista'); ?>" class="wn-buttons__btn btn btn-xs-lg btn-default">Informaci&oacute;n</a>
+                            
                               <a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-xs-lg btn-default">Comprar Ahora</a>
                             </div>
 		                    </div>
@@ -1021,14 +1023,13 @@ float: left;
 		            </div>
 		           
 
-				</div> <!-- /.row -->
+				</div> 
+
+			</div>
 
 
-			</div> <!-- /.container -->
 
-
-
-		</section>
+		</section>-->
 
 		<section id="senales">
 

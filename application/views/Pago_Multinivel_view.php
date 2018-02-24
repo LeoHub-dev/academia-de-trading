@@ -57,7 +57,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Pago MultiNivel <small>Realiza tu pago de 250$ - Asi obtendras acceso al multinivel</small>
+                                Pago 250$ <small>Realiza tu pago de 250$ - Obtienes los beneficios de la academia y ingresas a nuestro multinivel interno</small>
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -168,7 +168,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Pago MultiNivel + 40$ Mensualidad <small>Realiza tu pago de 290$ - Asi obtendras acceso al multinivel y pagarias tu mensualidad inmediatamente</small>
+                                Pago 250$ + 40$ Mensualidad <small>Realiza tu pago de 290$ - Asi obtendras acceso a la academia (con sus beneficios) y pagarias tu mensualidad inmediatamente</small>
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">

@@ -53,10 +53,6 @@
             </div>
 
             <div class="row clearfix">
-
-
-            
-
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="info-box bg-green hover-expand-effect">
                         <div class="icon">
@@ -80,13 +76,7 @@
                         </div>
                     </div>
                 </div>
-
-                
-
-                
-
             </div>
-
 
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -111,9 +101,6 @@
                         <div class="body">
                             <div class="table-responsive">
                                 <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
-
-               
-
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
                                     <thead>
                                         <tr role="row">
@@ -132,7 +119,6 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-
                                     <?php $n = 0; foreach((array) $lista_ganancias as $ganancia) : ?>
                                         <tr role="row">
                                             <td><?= $n; ?></td>
@@ -141,7 +127,6 @@
                                             <td><?php if($ganancia->pagada == 0) : ?>No<?php else : ?>Si<?php endif; ?></td>
                                         </tr>
                                     <?php $n++; endforeach; ?>
-
                                     </tbody>
                                 </table>
 
@@ -150,13 +135,60 @@
                         </div>
                     </div>
                 </div>
+              <?php if( count($lista_ganancias_paquete) > 0 ) { ?>
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                  <div class="header">
+                    <h2>
+                      Lista de Ganancias de Paquete 1500$
+                    </h2>
+                    <ul class="header-dropdown m-r--5">
+                      <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                          <i class="material-icons">more_vert</i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="body">
+                    <div class="table-responsive">
+                      <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="DataTables_Table_1" role="grid" aria-describedby="DataTables_Table_1_info">
+                          <thead>
+                          <tr role="row">
+                            <th>#</th>
+                            <th>Ganancia</th>
+                            <th>Monto</th>
+                            <th>Pagada</th>
+                          </tr>
+                          </thead>
+                          <tfoot>
+                          <tr>
+                            <th>#</th>
+                            <th>Ganancia</th>
+                            <th>Monto</th>
+                            <th>Pagada</th>
+                          </tr>
+                          </tfoot>
+                          <tbody>
+                          <?php $n = 0; foreach((array) $lista_ganancias_paquete as $ganancia) : ?>
+                            <tr role="row">
+                              <td><?= $n; ?></td>
+                              <td><?= $ganancia->razon; ?></td>
+                              <td><?= $ganancia->cantidad; ?></td>
+                              <td><?php if($ganancia->pagada == 0) : ?>No<?php else : ?>Si<?php endif; ?></td>
+                            </tr>
+                              <?php $n++; endforeach; ?>
+                          </tbody>
+                        </table>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <?php } ?>
             </div>
-
-            
-
-            
-
-            
         </div>
     </section>
 
@@ -189,8 +221,6 @@
             });
         });
     </script>
-
-
 </body>
 
 </html>

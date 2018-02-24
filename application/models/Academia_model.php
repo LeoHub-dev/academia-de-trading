@@ -442,27 +442,61 @@ class Academia_model extends CI_Model
         return (int) $meses;
     }
 
-    public function getUsersMesMin()
+    public function getUsersMesMin($iduser)
     {
         return $this->db->select('comisiones_diarias.id_usuario,MIN(comisiones_diarias.fecha) as fecha')
                     ->from('comisiones_diarias')
                     ->where('comisiones_diarias.estatus', 'A')
+                    ->where('comisiones_diarias.id_usuario', $iduser)
                     ->group_by('comisiones_diarias.id_usuario')
                     ->order_by('comisiones_diarias.fecha', 'ASC')
                     ->get()
                     ->result_object();
     }
 
+    public function getUsesAll()
+    {
+        return $this->db
+            ->select('coinbase_invoice.tipo,usuarios_personas.nombre,usuarios_personas.apellido,usuarios_personas.id_persona')
+            ->from('coinbase_invoice')
+            ->join('usuarios_personas', 'usuarios_personas.id_persona = coinbase_invoice.id_user')
+            ->where('coinbase_invoice.status', '1')
+            ->where('coinbase_invoice.tipo', '5')
+            ->get()
+            ->result_object();
+    }
+
     public function verificarAndUpdateUserMes($meses = 6)
     {
-        //ESTATUS ---> L = LIQUIDADO && A = ACTIVO
-        $users_paquete = $this->getUsersMesMin();
+        //ESTATUS ---> L = LIQUIDADO && A = ACTIVO && I = INACTIVO
+        //$users_paquete = $this->getUsersMesMin();
+        $users = $this->getUsesAll();
 
         $array_users = [];
 
-        foreach ($users_paquete as $user) {
+        foreach ($users as $value) {
+            $user = $this->getUsersMesMin($value->id_persona);
+            if(count($user) > 0) {
+                $mes = $this->calcularMeses($user[0]->fecha);
+                //SI EL MES >= 6 ACTUALIZA EL ESTATUS DE TODOS LOS PAGOS A L
+                if ($mes >= $meses) {
+                    $this->db->update('comisiones_diarias',
+                        ['estatus' => 'L'],
+                        ['id_usuario' => $user[0]->id_usuario, 'estatus' => 'A']);
+                }
+                else
+                {
+                    $array_users[] = $user[0]->id_usuario;
+                }
+            }
+            else
+            {
+                $array_users[] = $value->id_persona;
+            }
+        }
+        /*foreach ($users_paquete as $user) {
             $mes = $this->calcularMeses($user->fecha);
-            //SI EL MES > = 6 ACTUALIZA EL ESTATUS DE TODOS LOS PAGOS A L
+            //SI EL MES >= 6 ACTUALIZA EL ESTATUS DE TODOS LOS PAGOS A L
             if ($mes >= $meses) {
                 $this->db->update('comisiones_diarias',
                     ['estatus' => 'L'],
@@ -472,8 +506,7 @@ class Academia_model extends CI_Model
             {
                 $array_users[] = $user->id_usuario;
             }
-        }
-
+        }*/
         return $array_users;
     }
 
@@ -492,15 +525,13 @@ class Academia_model extends CI_Model
         return FALSE;
     }
 
-
 	public function listaPagosGeneralPaquete($num)
 	{
+	    //VERIFICAR SOLO LOS USUARIOS QUE ESTAN EN LA LISTA
         $usuarios = $this->verificarAndUpdateUserMes();
 
         if(count($usuarios) >= 0 && !empty($usuarios))
         {
-
-
 	      $query = $this->db
 				->select('coinbase_invoice.tipo,usuarios_personas.wallet_btc,usuarios_personas.wallet_ltc,
 						usuarios_personas.wallet_bth,usuarios_personas.nombre,usuarios_personas.apellido,
@@ -516,8 +547,21 @@ class Academia_model extends CI_Model
 
 		  return $query;
         }
-
 	}
+
+	public function pagoConfirmados($id_usuario, $numpaquete = 5)
+    {
+        return $this->db->select('comisiones_diarias.id_usuario,comisiones_diarias.fecha,comisiones_diarias.razon,
+        comisiones_diarias.cantidad,comisiones_diarias.pagada')
+            ->from('comisiones_diarias')
+            ->join('usuarios_personas', 'usuarios_personas.id_persona = comisiones_diarias.id_usuario')
+            ->where('comisiones_diarias.pagada', '1')
+            ->where_in('comisiones_diarias.estatus', ['A','L'])
+            ->where('comisiones_diarias.id_usuario', $id_usuario)
+            ->order_by('comisiones_diarias.fecha', 'ASC')
+            ->get()
+            ->result_object();
+    }
 
     public function __get($var)
     {

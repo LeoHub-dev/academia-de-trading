@@ -57,10 +57,32 @@ function calcular_ganancia_mensual ($dias) {
     $monto = 0;
     foreach ($dias as $dia => $m) {
         if ( is_object($m) ) {
-            $monto += (float) $m->monto;
+            if(isset($m->monto)) {
+
+                $monto += (float) $m->monto;
+            }
         }
     }
 
     return $monto;
+}
+
+function obtener_idcomision_pago ($dias) {
+    $html_dias = '';
+    foreach ( $dias as $dia => $m ) {
+        if ( is_object($m) ) {
+            if(isset($m->monto))
+            {
+                $html_dias .= '<input type="hidden" name="id_comision[]" value="'.$m->id_comision.'"/>';
+            }
+        }
+    }
+
+    return $html_dias;
+}
+
+function custom_isobject($valor, $reemplazo = "")
+{
+    return (is_object($valor)) ? $valor : $reemplazo;
 }
 ?>

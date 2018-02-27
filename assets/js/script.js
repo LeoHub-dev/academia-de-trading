@@ -1,6 +1,6 @@
 $(function () {
 
-    var base_url = window.location.protocol + "//" + window.location.host + "/";
+    var base_url = window.location.protocol + "//" + window.location.host + "/academia-de-trading/";
 
 
 
@@ -41,6 +41,34 @@ $(function () {
         },"json").fail(function(xhr, status, error) {
 
             divNormalStatus($('.auth_card'));
+
+            console.log(error);
+            console.log(xhr.responseText);
+
+        });
+    });
+
+    $('#register-form-ventas').on('submit', function(e){
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        var form = $(this);
+        
+        divLoadingStatus($('.modal-body')); 
+        
+        $.post($(this).attr('action'), $(this).serialize(), function(data) {
+            console.log(data);
+            if(data.response == true){   
+                $('#register-form-ventas').hide();
+                $('#login-form').hide();
+                $('.pago-ventas-view').show();
+                divNormalStatus($('.modal-body'));
+
+            } else {  divNormalStatus($('.modal-body')); showFormError(form,data.errors); }
+        },"json").fail(function(xhr, status, error) {
+
+            divNormalStatus($('.modal-body'));
 
             console.log(error);
             console.log(xhr.responseText);
@@ -163,6 +191,69 @@ $(function () {
         var panel_body = $(this).parent().parent().parent();
 
         var moneda = $(this).parent().children('.bootstrap-select').children('#moneda_pago').val(); 
+
+        
+        divLoadingStatus(panel_body);
+
+        $.post(base_url+'pago/get_coinbase_hash',  {tipo: $(this).attr('id-tipo'), moneda: moneda}, function(data) {
+            console.log(data);
+            if(data.response == true) { 
+
+                divNormalStatus(panel_body); 
+
+
+                $(pagos_con_btc).show();
+                $(pagos_con_btc).find('.btc-monto').val(data.payment_amount); 
+                $(pagos_con_btc).find('.btc-address').val(data.data.address); 
+                $(pagos_con_btc).find('.moneda-text').html(moneda);  
+                
+
+                window.setInterval(function(){
+                    $.post(base_url+'api/verificar_pago/'+data.data.address, null, function(payment) {
+
+                            console.log(payment);
+
+                            if(payment.amount_paid >= data.payment_amount)
+                            {
+                                location.reload();
+                            }
+                            $(pagos_con_btc).find('.btc-pagado').val(payment.amount_paid);
+
+                        },"json").fail(function(xhr, status, error) {
+                        console.log(error);
+                        console.log(xhr.responseText);
+                        console.log(status);
+                    });
+                }, 5000);
+            }
+        },"json").fail(function(xhr, status, error) {
+            divNormalStatus(panel_body); 
+            console.log(error);
+            console.log(xhr.responseText);
+            console.log(status);
+        });
+    });
+
+    $('input[type=radio][name=plan]').change(function() {
+
+        $('.pagar-con-general').attr('id-tipo', $(this).val())
+    });
+
+    $('*').on('click', '.pagar-con-general', function(e){
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        if (confirm('¿ Esta seguro que desea pagar ?  \n Debe de tener su billetera a mano y con saldo suficiente')) {
+        } else {
+            return;
+        }
+
+        var pagos_con_btc = $(this).parent().parent().parent().children('form');
+
+        var panel_body = $(this).parent().parent().parent();
+
+        var moneda = $(this).parent().children('#moneda_pago').val(); 
 
         
         divLoadingStatus(panel_body);

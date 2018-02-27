@@ -40,7 +40,6 @@ class Api extends LH_Controller {
 			if($this->Auth_model->obtenerReferidoID($cuenta)['response'])
 	        {
 	            $this->session->set_userdata('ref',$cuenta);
-	            $this->session->set_userdata('usuario',$this->Auth_model->obtenerUsuarioID($cuenta));
 	        }
 	        
 			redirect('/trading' ,'refresh');
@@ -59,7 +58,6 @@ class Api extends LH_Controller {
 			if($this->Auth_model->obtenerReferidoID($cuenta)['response'])
 	        {
 	            $this->session->set_userdata('ref',$cuenta);
-	            $this->session->set_userdata('usuario',$this->Auth_model->obtenerUsuarioID($cuenta));
 	        }
 	        
 			redirect('/inversionista' ,'refresh');
@@ -77,7 +75,6 @@ class Api extends LH_Controller {
 			if($this->Auth_model->obtenerReferidoID($cuenta)['response'])
 	        {
 	            $this->session->set_userdata('ref',$cuenta);
-	            $this->session->set_userdata('usuario',$this->Auth_model->obtenerUsuarioID($cuenta));
 	        }
 	        
 			redirect('/curso-master-nodes' ,'refresh');

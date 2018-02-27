@@ -192,6 +192,30 @@ class Coinbase
             );
 
         }
+        else if($this->tipo == 6)
+        {
+            $coinbase_invoice = array(
+               'id_user' => $this->id_user,
+               'tipo' => $this->tipo,
+               'usd' => 497,
+               'moneda' => $this->moneda,
+               'total_to_pay' => $this->usdToBtc(497),
+               'id_factura' => NULL
+            );
+
+        }
+        else if($this->tipo == 7)
+        {
+            $coinbase_invoice = array(
+               'id_user' => $this->id_user,
+               'tipo' => $this->tipo,
+               'usd' => 2000,
+               'moneda' => $this->moneda,
+               'total_to_pay' => $this->usdToBtc(2000),
+               'id_factura' => NULL
+            );
+
+        }
 
         $coinbase_invoice_search = array(
             'id_user' => $this->id_user,

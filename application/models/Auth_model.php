@@ -40,7 +40,8 @@ class Auth_model extends CI_Model {
 
 		$query = $this->db->get('usuarios_data');
 
-		if($query->num_rows() == 1)
+
+		if($query->num_rows() > 0)
         {
 			foreach ($query->result() as $inf)
             {
@@ -85,6 +86,11 @@ class Auth_model extends CI_Model {
                 'id_persona' => $id_persona,
                 'referido' => $data['referido']
             );
+
+            if($this->session->userdata('tipo_registro'))
+            {
+                $usuario_data = $usuario_data + array('tipo' => $this->session->userdata('tipo_registro'));
+            }
 
             $query = $this->db->insert('usuarios_data',$usuario_data); 
 

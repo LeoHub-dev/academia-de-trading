@@ -59,6 +59,8 @@
         </div>
           <?php if($info_usuario['data']->pago == 0) : ?>
 
+            <?php if($info_usuario['data']->tipo != 5 && $info_usuario['data']->tipo != 6) : ?>
+
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
               <div class="info-box bg-orange hover-expand-effect">
                 <div class="icon">
@@ -70,6 +72,8 @@
                 </div>
               </div>
             </div>
+
+          <?php endif; ?>
 
           <?php else: ?>
           <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1) : ?>

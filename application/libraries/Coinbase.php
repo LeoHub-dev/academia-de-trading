@@ -427,6 +427,10 @@ class Coinbase
                         $this->Auth_model->activarUsuario($invoice_data->id_user);
                         
                     }
+                    else
+                    {
+                        $this->Auth_model->activarUsuario($invoice_data->id_user);
+                    }
 
                 }
                 
@@ -567,6 +571,10 @@ class Coinbase
                     $this->Matriz_model->agregarCuentaCirculo($invoice_data->id_user);
                     $this->Auth_model->activarUsuario($invoice_data->id_user);
                     
+                }
+                else
+                {
+                    $this->Auth_model->activarUsuario($invoice_data->id_user);
                 }
 
             }

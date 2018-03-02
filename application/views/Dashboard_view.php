@@ -46,6 +46,7 @@
       <div class="block-header"><h2>DASHBOARD</h2></div>
 
       <div class="row clearfix">
+        <?php if($info_usuario['data']->tipo != 5 && $info_usuario['data']->tipo != 6) : ?>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
           <div class="info-box bg-pink hover-expand-effect">
             <div class="icon">
@@ -57,9 +58,10 @@
             </div>
           </div>
         </div>
+        
           <?php if($info_usuario['data']->pago == 0) : ?>
 
-            <?php if($info_usuario['data']->tipo != 5 && $info_usuario['data']->tipo != 6) : ?>
+            
 
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
               <div class="info-box bg-orange hover-expand-effect">
@@ -73,8 +75,7 @@
               </div>
             </div>
 
-          <?php endif; ?>
-
+          
           <?php else: ?>
           <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1) : ?>
 
@@ -111,6 +112,7 @@
           <?php endif; ?>
 
       </div>
+      <?php endif; ?>
 
       <div class="row clearfix">
 
@@ -130,7 +132,7 @@
 
               <?php if($info_usuario['data']->pago == 0) : ?>
                 <div class="alert alert-danger">
-                  Su <strong>cuenta</strong> se encuentra inactiva. Realiza el pago de 40$
+                  Su <strong>cuenta</strong> se encuentra inactiva. Realiza el pago
                   <a href="<?= site_url('pago'); ?>" class="alert-link">AQUI</a>
                 </div>
 
@@ -140,9 +142,11 @@
                   </div>
                 </div>
               <?php endif; ?>
+              <?php if($info_usuario['data']->tipo != 5 && $info_usuario['data']->tipo != 6) : ?>
               <div class="text-center">
                 <img src="<?= asset_url(); ?>images/calendarios/<?= $calendario->imagen; ?>" style="display: initial;" class="img-responsive">
               </div>
+              <?php endif; ?>
             </div>
           </div>
         </div>

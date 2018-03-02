@@ -21,43 +21,46 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 	<style type="text/css">
 		.material-icons {
-	    font-size: initial !important;
-	}
+			font-size: initial !important;
+		}
 
 	</style>
-	<!-- Styles -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-	<link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/social-icons.css">
-	<link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/slick.css">
-	<link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/style.css">
-	<link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/style3.css">
+<!-- Styles -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/social-icons.css">
+<link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/slick.css">
+<link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/style.css">
+<link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/style3.css">
 
-	<script src="https://use.fontawesome.com/a7fd4b808d.js"></script>
-	<link rel="icon" type="image/png" href="<?= asset_url(); ?>ventas/img/logo.png" />
-	<style type="text/css">
-	.alert-minimalist {
-		background-color: rgb(0, 126, 255);
-		/*border-color: rgba(149, 149, 149, 0.3);*/
-		border-color: rgba(0, 0, 0, 0.3);
-		border-radius: 3px;
-		color: rgb(149, 149, 149);
-		padding: 10px;
-	}
-	.alert-minimalist > [data-notify="icon"] {
-		height: 50px;
-		margin-right: 12px;
-	}
-	.alert-minimalist > [data-notify="title"] {
-		color: white;
-		display: block;
-		font-weight: bold;
-		margin-bottom: 5px;
-		text-transform: capitalize;
-	}
-	.alert-minimalist > [data-notify="message"] {
-		font-size: 80%;
-		color: white;
-	}
+<script src="https://use.fontawesome.com/a7fd4b808d.js"></script>
+<link rel="icon" type="image/png" href="<?= asset_url(); ?>ventas/img/logo.png" />
+<style type="text/css">
+#main-navigation .navbar-brand img {
+    max-height: 48px;
+}
+.alert-minimalist {
+	background-color: rgb(0, 126, 255);
+	/*border-color: rgba(149, 149, 149, 0.3);*/
+	border-color: rgba(0, 0, 0, 0.3);
+	border-radius: 3px;
+	color: rgb(149, 149, 149);
+	padding: 10px;
+}
+.alert-minimalist > [data-notify="icon"] {
+	height: 50px;
+	margin-right: 12px;
+}
+.alert-minimalist > [data-notify="title"] {
+	color: white;
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+	text-transform: capitalize;
+}
+.alert-minimalist > [data-notify="message"] {
+	font-size: 80%;
+	color: white;
+}
 </style>
 </head>
 <div id="loaderDiv">
@@ -75,42 +78,43 @@
 		<!-- Section title -->
 		<h1 class="sr-only">Academia de Trading | Home page</h1>
 		<nav id="main-navigation" class="navbar navbar-default navbar-fixed-top">
-			<div id="top-header" style=""></div>
-			<!-- Section title -->
-			<h1 class="sr-only">Main navigation</h1>
 
-			<div class="">
+      <div id="top-header" style=""></div>
+      <!-- Section title -->
+      <h1 class="sr-only">Main navigation</h1>
 
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<a id="brand-mobile" class="navbar-brand navbar-brand-center smoothScroll" href="#home">
-						<img alt="Academia De Trading" src="<?= asset_url(); ?>/ventas/img/logo.png">
-					</a>
-				</div>
+      <div class="">
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse " id="main-navbar" >
-					<div class="nav" style="display: inline">
-						<div class="container-fluid vcenter" style=" ">
-							<div class="row vertical-align">
-								<div class="col-md-4">
-									<a class="navbar-brand smoothScroll" href="#home">
-										<img alt="Academia De Trading" src="<?= asset_url(); ?>/ventas/img/Logo-Academia.png" >
-									</a>
-								</div>
-								<div class="col-md-8">
-									<div class="vcenter" style="">
-										<?php if (@$referido_name): ?>
-											<h3 class="tex-reset f40 "><?php echo $referido_name.' te invita a registrarte'  ?></h3>
-										<?php endif ?>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container -->
-		</nav>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+          <a id="brand-mobile" class="navbar-brand navbar-brand-center smoothScroll" href="#home">
+            <img alt="Academia De Trading" src="<?= asset_url(); ?>/home/img/logo.png">
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main-navbar">
+          <ul class="nav navbar-nav">
+           
+            <li id="brand-desktop">
+              <a class="navbar-brand smoothScroll" href="#home" style="padding: 26px 15px 26px 15px;">
+                <img alt="Academia De Trading" src="<?= asset_url(); ?>/home/img/logo.png">
+              </a>
+            </li>
+
+            <li><a class="" href="<?= site_url('auth'); ?>">Login</a></li>
+            <li class="active"><a class="" href="<?= site_url('auth'); ?>#_registro">Registro</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav>
+
 	</header>
 
 	<main>
@@ -136,15 +140,15 @@
 							<div class="col-md-5">
 								<div class="box">
 									<div class="col-md-12 some-margin">
-										<h3 class="clearfix font-yellow">CALIFICA COMO UN INVERSIONISTA</h3>
+										<h3 class="clearfix font-yellow">CONVIERTETE UN INVERSIONISTA</h3>
 									</div>
 									<div class="col-md-12 some-margin">
-										<h4 class="clearfix">Te llamaremos para ver si puedes invertir con nosotros</h4>
+										<!--<h4 class="clearfix">Te llamaremos para ver si puedes invertir con nosotros</h4>-->
 									</div>
 									<form id="formula" method="post" action="<?= site_url('contactos-store'); ?>"class="contact-form">
 
 										<div class="row">
-											<div class="col-md-12 some-margin">
+											<!--<div class="col-md-12 some-margin">
 												<label class="sr-only" for="Name">Nombre</label>
 												<input type="text" name="name" id="Name" placeholder="Nombre">
 											</div>
@@ -167,7 +171,7 @@
 											<div class="col-md-12 some-margin">
 												<label class="sr-only" for="inversion">Monto que desea invertir</label>
 												<input type="text" name="inversion" id="inversion" placeholder="Monto que desea invertir">
-											</div>
+											</div>-->
 											<div class="col-md-12 some-margin">
 												<?php if ($send =='true'): ?>
 													<div class="alert alert-success">
@@ -175,7 +179,7 @@
 														<strong>Enviado!</strong> Gracias en breve lo contactaremos...
 													</div>
 												<?php endif ?>
-												<button type="submit" class="btn btn-default black-yellow smoothScroll">QUIERO QUE ME LLAMEN</button>
+												<a href="javascript:void(0)" data-toggle="modal" data-target="#myModal" class="btn btn-default black-yellow smoothScroll">QUIERO INVERTIR</a>
 											</div>
 										</div> <!-- /.row -->
 									</form>
@@ -362,7 +366,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Modal Header</h4>
+						<h4 class="modal-title">Login Registro</h4>
 					</div>
 					<div class="modal-body">	
 						<div class="loader-container text-center">
@@ -380,240 +384,239 @@
 							</div>
 							<div class="title">Cargando</div>
 						</div>
-						<form id="login-form" class="auth-form" action="<?= site_url('auth/ingreso'); ?>" style="display: none;" method="POST">
-							<div class="msg">Iniciar Sesion</div>
-							<div class="input-group">
-								<span class="input-group-addon">
-									<i class="material-icons">person</i>
-								</span>
-								<div class="form-line">
-									<input type="text" class="form-control" name="usuario" placeholder="Usuario" required autofocus>
+						<?php if($info_usuario == FALSE) : ?> 
+							<form id="login-form" class="auth-form" action="<?= site_url('auth/ingreso'); ?>" style="display: none;" method="POST">
+								<div class="msg">Iniciar Sesion</div>
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="material-icons">person</i>
+									</span>
+									<div class="form-line">
+										<input type="text" class="form-control" name="usuario" placeholder="Usuario" required autofocus>
+									</div>
 								</div>
-							</div>
-							<div class="input-group">
-								<span class="input-group-addon">
-									<i class="material-icons">lock</i>
-								</span>
-								<div class="form-line">
-									<input type="password" class="form-control" name="password" placeholder="Password" required>
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="material-icons">lock</i>
+									</span>
+									<div class="form-line">
+										<input type="password" class="form-control" name="password" placeholder="Password" required>
+									</div>
 								</div>
-							</div>
-							<div class="col-md-12">
-								<div id="error_message" class="alert alert-danger clearfix" style="display: none;" role="alert">
-									Bad
+								<div class="col-md-12">
+									<div id="error_message" class="alert alert-danger clearfix" style="display: none;" role="alert">
+										Bad
+									</div>
+									<div id="success_message" class="alert alert-success clearfix" style="display: none;" role="alert">
+										Good
+									</div>
 								</div>
-								<div id="success_message" class="alert alert-success clearfix" style="display: none;" role="alert">
-									Good
+								<div class="row">
+									<div class="col-xs-8 p-t-5">
+										<input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
+										<label for="rememberme">Recordarme</label>
+									</div>
+									<div class="col-xs-4">
+										<button class="btn btn-block bg-pink waves-effect" type="submit">LOGIN</button>
+									</div>
+
 								</div>
-							</div>
+								<div class="row m-t-15 m-b--20">
+									<div class="col-xs-6">
+										<a class="auth-link" data-href="register-form-ventas" href="javascript:void(0)">Registrate!</a>
+									</div>
+
+
+								</div>
+							</form>
+
+							<form id="register-form-ventas" class="auth-form" action="<?= site_url('auth/registro'); ?>"  method="POST">
+								<div class="msg">Registro</div>
+
+
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="material-icons">person</i>
+									</span>
+									<div class="form-line">
+										<input type="text" class="form-control" name="nombre" placeholder="Nombre" required autofocus>
+									</div>
+								</div>
+
+
+
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="material-icons">person</i>
+									</span>
+									<div class="form-line">
+										<input type="text" class="form-control" name="apellido" placeholder="Apellido" required autofocus>
+									</div>
+								</div>
+
+
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="material-icons">email</i>
+									</span>
+									<div class="form-line">
+										<input type="email" class="form-control" name="email" placeholder="Email Address" required>
+									</div>
+								</div>
+
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="material-icons">person</i>
+									</span>
+									<div class="form-line">
+										<input type="text" class="form-control" name="usuario" placeholder="Usuario" required autofocus>
+									</div>
+								</div>
+
+
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="material-icons">lock</i>
+									</span>
+									<div class="form-line">
+										<input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>
+									</div>
+								</div>
+								<div class="input-group">
+									<span class="input-group-addon">
+										<i class="material-icons">lock</i>
+									</span>
+									<div class="form-line">
+										<input type="password" class="form-control" name="confirmar_password" minlength="6" placeholder="Confirm Password" required>
+									</div>
+								</div>
+
+
+
+
+								<div class="col-md-12">
+									<div id="error_message" class="alert alert-danger clearfix" style="display: none;" role="alert">
+										Bad
+									</div>
+									<div id="success_message" class="alert alert-success clearfix" style="display: none;" role="alert">
+										Good
+									</div>
+								</div>
+
+
+								<div class="form-group">
+									<input type="checkbox" name="terminos" id="terminos" class="filled-in chk-col-pink">
+									<label for="terminos">Lei y estoy de acuerdo con los <a href="<?= site_url('legal'); ?>" target="_blank">terminos de uso</a>.</label>
+								</div>
+
+								<button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
+
+								<div class="m-t-25 m-b--5 align-center">
+									<a class="auth-link" data-href="login-form" href="javascript:void(0)">Ya estas registrado ?</a>
+								</div>
+							</form>
+
+						<?php endif; ?> 
+
+						<div class="pago-ventas-view" <?php if($info_usuario == FALSE) : ?> style="display: none;" <?php endif; ?>>
+
 							<div class="row">
-								<div class="col-xs-8 p-t-5">
-									<input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
-									<label for="rememberme">Recordarme</label>
+			    				<div class="alert alert-success">
+								  <p><small class="font-weight-bold">Nombre : </small><small id="payment_form_nombre"><?= ($info_usuario != FALSE) ? $info_usuario['data']->nombre.' '.$info_usuario['data']->apellido : ''; ?></small></p>
+                  <p><small class="font-weight-bold">Email : </small><small id="payment_form_email"><?= ($info_usuario != FALSE) ? $info_usuario['data']->email : ''; ?></small></p>
+								  <p><a href="<?= site_url('auth/desconectarse'); ?>" style="color: black">* Desconectar esta cuenta</a></p>
 								</div>
-								<div class="col-xs-4">
-									<button class="btn btn-block bg-pink waves-effect" type="submit">LOGIN</button>
-								</div>
-
-							</div>
-							<div class="row m-t-15 m-b--20">
-								<div class="col-xs-6">
-									<a class="auth-link" data-href="register-form-ventas" href="javascript:void(0)">Registrate!</a>
-								</div>
-													
-                        <!--<div class="col-xs-6 align-right">
-                            <a href="forgot-password.html">Forgot Password?</a>
-                        </div>-->
-                    </div>
-                </form>
-
-                <form id="register-form-ventas" class="auth-form" action="<?= site_url('auth/registro'); ?>"  method="POST">
-                	<div class="msg">Registro</div>
+			    				
+			    			</div>
 
 
-                	<div class="input-group">
-                		<span class="input-group-addon">
-                			<i class="material-icons">person</i>
-                		</span>
-                		<div class="form-line">
-                			<input type="text" class="form-control" name="nombre" placeholder="Nombre" required autofocus>
-                		</div>
-                	</div>
+							<div class="row clearfix">
+	             
 
+	                        <div class="col-xs-12 col-sm-12 col-md-12">
+	                        	<p>Paquete</p>
+	                        	<div class="form-group clearfix">
+	                        		
+	                        		<div class="form-check">
+	                        			<label class="form-check-label">
+	                        				<input class="form-check-input" type="radio" name="plan" value="5" checked>
+	                        				Inversion 1500$
+	                        			</label>
+	                        		</div>
+	                        		
+	                        		
 
+	                        	</div>
+	                        </div>
 
-                	<div class="input-group">
-                		<span class="input-group-addon">
-                			<i class="material-icons">person</i>
-                		</span>
-                		<div class="form-line">
-                			<input type="text" class="form-control" name="apellido" placeholder="Apellido" required autofocus>
-                		</div>
-                	</div>
+	                        <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;"> 
+	                        	
+	                        	<button type="button" class="btn btn-primary waves-effect pagar-con-general" id-tipo="5">Pagar con</button> 
+	                        	
 
+	                        	<select class="form-control show-tick select-moneda" id="moneda_pago"> 
+	                        		<option value="BTC">BTC (Bitcoin)</option>
+	                        		<option value="LTC">LTC (Litecoin)</option>
+	                        		<option value="BCH">BCH (BitcoinCash)</option>
+	                        	</select> 
+	                        	
 
-                	<div class="input-group">
-                		<span class="input-group-addon">
-                			<i class="material-icons">email</i>
-                		</span>
-                		<div class="form-line">
-                			<input type="email" class="form-control" name="email" placeholder="Email Address" required>
-                		</div>
-                	</div>
-
-                	<div class="input-group">
-                		<span class="input-group-addon">
-                			<i class="material-icons">person</i>
-                		</span>
-                		<div class="form-line">
-                			<input type="text" class="form-control" name="usuario" placeholder="Usuario" required autofocus>
-                		</div>
-                	</div>
-
-
-                	<div class="input-group">
-                		<span class="input-group-addon">
-                			<i class="material-icons">lock</i>
-                		</span>
-                		<div class="form-line">
-                			<input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>
-                		</div>
-                	</div>
-                	<div class="input-group">
-                		<span class="input-group-addon">
-                			<i class="material-icons">lock</i>
-                		</span>
-                		<div class="form-line">
-                			<input type="password" class="form-control" name="confirmar_password" minlength="6" placeholder="Confirm Password" required>
-                		</div>
-                	</div>
-
-
-
-
-                	<div class="col-md-12">
-                		<div id="error_message" class="alert alert-danger clearfix" style="display: none;" role="alert">
-                			Bad
-                		</div>
-                		<div id="success_message" class="alert alert-success clearfix" style="display: none;" role="alert">
-                			Good
-                		</div>
-                	</div>
-
-
-                	<div class="form-group">
-                		<input type="checkbox" name="terminos" id="terminos" class="filled-in chk-col-pink">
-                		<label for="terminos">Lei y estoy de acuerdo con los <a href="<?= site_url('legal'); ?>" target="_blank">terminos de uso</a>.</label>
-                	</div>
-
-                	<button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
-
-                	<div class="m-t-25 m-b--5 align-center">
-                		<a class="auth-link" data-href="login-form" href="javascript:void(0)">Ya estas registrado ?</a>
-                	</div>
-                </form>
-
-                <div class="pago-ventas-view" style="display: none;">
-	                <div class="row clearfix">
-	                    <!--<div class="col-md-12" >
-	                       
-	                            <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="1">Donar con BTC</button>
-	                       
-
-	                            
-	                        
-
-	                    </div>-->
-
-	                    <div class="col-xs-12 col-sm-12 col-md-12">
-	    					<p>Paquete</p>
-	    					<div class="form-group clearfix">
-	    						
-	                			<div class="form-check">
-								  <label class="form-check-label">
-								    <input class="form-check-input" type="radio" name="plan" value="1" checked>
-								    Paquete de $497
-								  </label>
-								</div>
-								<div class="form-check">
-								  <label class="form-check-label">
-								    <input class="form-check-input" type="radio" name="plan" value="2">
-								    Paquete de $2000
-								  </label>
-								</div>
-	
-
-	    					</div>
-	    				</div>
-
-	                    <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;"> 
-	                        
-	                            <button type="button" class="btn btn-primary waves-effect pagar-con-general" id-tipo="1">Pagar con</button> 
-	                        
-
-	                            <select class="form-control show-tick select-moneda" id="moneda_pago"> 
-	                                <option value="BTC">BTC (Bitcoin)</option>
-	                                <option value="LTC">LTC (Litecoin)</option>
-	                                <option value="BCH">BCH (BitcoinCash)</option>
-	                            </select> 
-	                         
-
+	                        </div>
 	                    </div>
+	                    <form style="display: none">
+	                    	<div class="row clearfix">
+	                    		<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+	                    			<label for="donar">Donar</label>
+	                    		</div>
+	                    		<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+	                    			<div class="input-group">
+	                    				<div class="form-line">
+	                    					<input type="text" id="donar" class="form-control btc-monto">
+	                    				</div>
+	                    				<span class="input-group-addon moneda-text">
+	                    					BTC
+	                    				</span>
+	                    			</div>
+	                    		</div>
+	                    	</div>
+
+	                    	<div class="row clearfix">
+	                    		<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+	                    			<label for="direccion">A esta wallet</label>
+	                    		</div>
+	                    		<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+	                    			<div class="form-group">
+	                    				<div class="form-line">
+	                    					<input type="text" id="direccion" class="form-control btc-address">
+	                    				</div>
+	                    			</div>
+	                    		</div>
+	                    	</div>
+
+	                    	<div class="row clearfix">
+	                    		<div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+	                    			<label for="pagado">Pagado</label>
+	                    		</div>
+	                    		<div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+	                    			<div class="form-group">
+	                    				<div class="form-line">
+	                    					<input type="text" id="pagado" class="form-control btc-pagado" value="0">
+	                    				</div>
+	                    			</div>
+	                    		</div>
+	                    	</div>
+	                    	
+	                    </form>
 	                </div>
-	                <form style="display: none">
-	                    <div class="row clearfix">
-	                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-	                            <label for="donar">Donar</label>
-	                        </div>
-	                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-	                            <div class="input-group">
-	                                <div class="form-line">
-	                                    <input type="text" id="donar" class="form-control btc-monto">
-	                                </div>
-	                                <span class="input-group-addon moneda-text">
-	                                    BTC
-	                                </span>
-	                            </div>
-	                        </div>
-	                    </div>
-
-	                    <div class="row clearfix">
-	                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-	                            <label for="direccion">A esta wallet</label>
-	                        </div>
-	                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-	                            <div class="form-group">
-	                                <div class="form-line">
-	                                    <input type="text" id="direccion" class="form-control btc-address">
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-
-	                    <div class="row clearfix">
-	                        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-	                            <label for="pagado">Pagado</label>
-	                        </div>
-	                        <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-	                            <div class="form-group">
-	                                <div class="form-line">
-	                                    <input type="text" id="pagado" class="form-control btc-pagado" value="0">
-	                                </div>
-	                            </div>
-	                        </div>
-	                    </div>
-	                    
-	                </form>
 	            </div>
-            </div>
-            <div class="modal-footer">
-            	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+	            <div class="modal-footer">
+	            	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	            </div>
+	        </div>
 
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+	    </div>
+	</div>
+
 
 
 
@@ -658,32 +661,32 @@
 </script>
 <script>
 
-$(function () {
+	$(function () {
 
-    $('form').trigger('reset');
-
-
-    var hash = window.location.hash;
-    if(hash == "#_registro")
-    {
-        $("#register-form").fadeIn(100);
-        $("#login-form").fadeOut(100);
-        $('#login-form-link').removeClass('active');
-        $(this).addClass('active');
-    }
+		$('form').trigger('reset');
 
 
-    $('.auth-link').click(function(e) {
-        var form = $(this).attr('data-href');
+		var hash = window.location.hash;
+		if(hash == "#_registro")
+		{
+			$("#register-form").fadeIn(100);
+			$("#login-form").fadeOut(100);
+			$('#login-form-link').removeClass('active');
+			$(this).addClass('active');
+		}
 
-        $(".auth-form").fadeOut(100);
-        $("#"+form).delay(100).fadeIn(100);
-        
+
+		$('.auth-link').click(function(e) {
+			var form = $(this).attr('data-href');
+
+			$(".auth-form").fadeOut(100);
+			$("#"+form).delay(100).fadeIn(100);
+			
         //$('#register-form-link').removeClass('active');
         //$(this).addClass('active');
         e.preventDefault();
     });
-});
+	});
 
 </script>
 

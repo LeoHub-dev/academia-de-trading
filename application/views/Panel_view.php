@@ -483,13 +483,13 @@
                                 foreach ((array)$semanas as $sn => $semana) {
                                   foreach ((array)$semana as $key => $dias)
                                   {
-                                      $lunes     = (is_object($dias['lunes']))     ? '<b>'.$dias['lunes']->monto.'$</b>'     : '0$';
-                                      $martes    = (is_object($dias['martes']))    ? '<b>'.$dias['martes']->monto.'$</b>'    : '0$';
-                                      $miercoles = (is_object($dias['miercoles'])) ? '<b>'.$dias['miercoles']->monto.'$</b>' : '0$';
-                                      $jueves    = (is_object($dias['jueves']))    ? '<b>'.$dias['jueves']->monto.'$</b>'    : '0$';
-                                      $viernes   = (is_object($dias['viernes']))   ? '<b>'.$dias['viernes']->monto.'$</b>'   : '0$';
-                                      $sabado    = (is_object($dias['sabado']))    ? '<b>'.$dias['sabado']->monto.'$</b>'    : '0$';
-                                      $domingo   = (is_object($dias['domingo']))   ? '<b>'.$dias['domingo']->monto.'$</b>'   : '0$';
+                                      $lunes     = (is_object($dias['lunes']))     ? '<b>$'.$dias['lunes']->monto.'</b>'     : '$0';
+                                      $martes    = (is_object($dias['martes']))    ? '<b>$'.$dias['martes']->monto.'</b>'    : '$0';
+                                      $miercoles = (is_object($dias['miercoles'])) ? '<b>$'.$dias['miercoles']->monto.'</b>' : '$0';
+                                      $jueves    = (is_object($dias['jueves']))    ? '<b>$'.$dias['jueves']->monto.'</b>'    : '$0';
+                                      $viernes   = (is_object($dias['viernes']))   ? '<b>$'.$dias['viernes']->monto.'</b>'   : '$0';
+                                      $sabado    = (is_object($dias['sabado']))    ? '<b>$'.$dias['sabado']->monto.'</b>'    : '$0';
+                                      $domingo   = (is_object($dias['domingo']))   ? '<b>$'.$dias['domingo']->monto.'</b>'   : '$0';
                                       $montoSemanal = calcular_ganancia_mensual($dias);
                                       $printdias = obtener_idcomision_pago($dias);
                                       $montoMesual += $montoSemanal;

@@ -1,6 +1,6 @@
 $(function () {
 
-    var base_url = window.location.protocol + "//" + window.location.host + "/academia-de-trading/";
+    var base_url = window.location.protocol + "//" + window.location.host + "/";
 
 
 
@@ -63,6 +63,8 @@ $(function () {
                 $('#register-form-ventas').hide();
                 $('#login-form').hide();
                 $('.pago-ventas-view').show();
+                $('#payment_form_nombre').html(data.data_usuario.nombre);
+                $('#payment_form_email').html(data.data_usuario.email);
                 divNormalStatus($('.modal-body'));
 
             } else {  divNormalStatus($('.modal-body')); showFormError(form,data.errors); }

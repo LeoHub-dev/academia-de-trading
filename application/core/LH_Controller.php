@@ -22,6 +22,10 @@ class LH_Controller extends CI_Controller
                 
             }
         }
+        else
+        {
+            $this->scope['info_usuario'] = FALSE;
+        }
 
         if($this->session->userdata('site_lang'))
         {

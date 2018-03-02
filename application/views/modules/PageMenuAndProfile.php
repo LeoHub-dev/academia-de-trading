@@ -25,19 +25,23 @@
     <div class="menu">
       <ul class="list">
         <li class="header">MENU</li>
+
+
+
         <li class="active">
           <a href="<?= site_url('dashboard'); ?>">
             <i class="material-icons col-light-blue">home</i>
             <span>Dashboard</span>
           </a>
         </li>
-        <li>
-          <a href="javascript:void(0);" class="menu-toggle">
-            <i class="material-icons col-light-blue">account_balance</i>
-            <span>Academia</span>
-          </a>
-          <ul class="ml-menu">
-            <?php if($info_usuario['data']->tipo != 6) : ?>
+
+        <?php if($info_usuario['data']->tipo != 6 && $info_usuario['data']->tipo != 5) : ?>
+          <li>
+            <a href="javascript:void(0);" class="menu-toggle">
+              <i class="material-icons col-light-blue">account_balance</i>
+              <span>Academia</span>
+            </a>
+            <ul class="ml-menu">
 
               <?php if($info_usuario['data']->pago == 1) : ?>
                 <li>
@@ -94,26 +98,7 @@
                   <span>Facebook</span>
                 </a>
               </li>
-            <?php else: ?>
 
-              <?php if(count($calendario_pagos) > 0) : ?>
-                <li>
-                  <a href="<?= site_url('clases/inversionistas'); ?>">
-                    <i class="material-icons col-amber">local_library</i>
-                    <span>Clases Inversionistas</span>
-                  </a>
-                </li>
-              <?php endif; ?>
-
-              <li>
-                <a href="https://www.facebook.com/Academiadetrading-496295420749430" target="_blank" class="waves-effect waves-block">
-                  <i style="font-size: 22px;" class="material-icons fa fa-facebook-official col-light-blue" aria-hidden="true"></i>
-                  <span>Facebook</span>
-                </a>
-              </li>
-
-
-            <?php endif; ?>
             </ul>
           </li>
 
@@ -127,122 +112,163 @@
             </li>
           <?php endif; ?>
 
-          <?php if($this->Matriz_model->obtenerCirculoActivo($info_usuario['data']->id_usuario) != NULL) : ?>
-              <!--<li>
-                  <a href="<?/*= site_url('matriz/circulo'); */?>">
-                      <i class="material-icons col-red">donut_large</i>
-                      <span>Circulo</span>
-                  </a>
-                </li>-->
-              <?php endif; ?>
 
-              <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL || $info_usuario['data']->tipo == 6) : ?>
-                <li>
-                  <a href="<?= site_url('ganancias'); ?>">
-                    <i class="material-icons col-amber">attach_money</i>
-                    <span>Ganancias</span>
-                  </a>
-                </li>
-              <?php endif; ?>
+          <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL || $info_usuario['data']->tipo == 6) : ?>
+            <li>
+              <a href="<?= site_url('ganancias'); ?>">
+                <i class="material-icons col-amber">attach_money</i>
+                <span>Ganancias</span>
+              </a>
+            </li>
+          <?php endif; ?>
+
+          <?php if($info_usuario['data']->pago == 1) : ?>
+            <li>
+              <a href="<?= site_url('mercado'); ?>">
+                <i class="material-icons col-red">store</i>
+                <span>Mercado</span>
+              </a>
+            </li>
+          <?php endif; ?>
+
+
+          <?php if($info_usuario['data']->pago == 1) : ?>
+            <li>
+              <a href="<?= site_url('calculadora'); ?>">
+                <i class="material-icons col-amber">extension</i>
+                <span>Calculadora</span>
+              </a>
+            </li>
+          <?php endif; ?>
+
+
+          <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL || $info_usuario['data']->tipo == 0) : ?>
+            <li>
+              <a href="<?= site_url('pago'); ?>">
+                <i class="material-icons col-light-blue">attach_money</i>
+                <span>Pagar membresia</span>
+              </a>
+            </li>
+          <?php endif; ?>
+
+
+          <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) == NULL) : ?>
+            <li>
+              <a href="<?= site_url('pago/multinivel'); ?>">
+                <i class="material-icons col-light-blue">attach_money</i>
+                <span>Pagar Entrada</span>
+              </a>
+            </li>
+          <?php endif; ?>
+
+
+          <?php if($info_usuario['data']->pago == 1) : ?>
+            <li>
+              <a href="<?= site_url('referido'); ?>">
+                <i class="material-icons">people</i>
+                <span>Referidos</span>
+              </a>
+            </li>
+
+          <?php endif; ?>
+
+          <?php if($info_usuario['data']->tipo == 1): ?>
+            <li>
+              <a href="<?= site_url('panel'); ?>">
+                <i class="material-icons col-light-blue">settings</i>
+                <span>Panel</span>
+              </a>
+            </li>
+
+          <?php endif; ?>
+
+
+        <?php elseif($info_usuario['data']->tipo == 5) : ?>
+
+          <?php if($info_usuario['data']->pago == 1) : ?>
+          <li>
+            <a href="<?= site_url('ganancias'); ?>">
+              <i class="material-icons col-amber">attach_money</i>
+              <span>Ganancias</span>
+            </a>
+          </li>
+          <?php endif; ?>
+
+          <?php if(count($calendario_pagos) == 0 && $info_usuario['data']->pago == 0) : ?> 
+
+            <li>
+              <a href="<?= site_url('pago/multinivel'); ?>">
+                <i class="material-icons col-light-blue">attach_money</i>
+                <span>Pagar Entrada</span>
+              </a>
+            </li>
+
+          <?php endif; ?>
+
+        <?php elseif($info_usuario['data']->tipo == 6) : ?>
+
+          <li>
+            <a href="javascript:void(0);" class="menu-toggle">
+              <i class="material-icons col-light-blue">account_balance</i>
+              <span>Academia</span>
+            </a>
+            <ul class="ml-menu">
 
               <?php if($info_usuario['data']->pago == 1) : ?>
-                <li>
-                  <a href="<?= site_url('mercado'); ?>">
-                    <i class="material-icons col-red">store</i>
-                    <span>Mercado</span>
-                  </a>
-                </li>
+              <li> 
+                <a href="<?= site_url('clases/inversionistas'); ?>"> 
+                  <i class="material-icons col-amber">local_library</i> 
+                  <span>Clases Inversionistas</span> 
+                </a> 
+              </li> 
               <?php endif; ?>
 
-
-              <?php if($info_usuario['data']->pago == 1) : ?>
-                <li>
-                  <a href="<?= site_url('calculadora'); ?>">
-                    <i class="material-icons col-amber">extension</i>
-                    <span>Calculadora</span>
-                  </a>
-                </li>
-              <?php endif; ?>
-
-
-
-
-
-
-
-
-
-
-              <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL || $info_usuario['data']->tipo == 0) : ?>
-                <li>
-                  <a href="<?= site_url('pago'); ?>">
-                    <i class="material-icons col-light-blue">attach_money</i>
-                    <span>Pagar membresia</span>
-                  </a>
-                </li>
-              <?php endif; ?>
-
-
-              <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) == NULL) : ?>
-                <li>
-                  <a href="<?= site_url('pago/multinivel'); ?>">
-                    <i class="material-icons col-light-blue">attach_money</i>
-                    <span>Pagar Entrada</span>
-                  </a>
-                </li>
-              <?php endif; ?>
-
-
-
-
-
-
-
-
-
-
-              <?php if($info_usuario['data']->pago == 1) : ?>
-                <li>
-                  <a href="<?= site_url('referido'); ?>">
-                    <i class="material-icons">people</i>
-                    <span>Referidos</span>
-                  </a>
-                </li>
-
-              <?php endif; ?>
-
-              <?php if($info_usuario['data']->tipo == 1): ?>
-                <li>
-                  <a href="<?= site_url('panel'); ?>">
-                    <i class="material-icons col-light-blue">settings</i>
-                    <span>Panel</span>
-                  </a>
-                </li>
-
-              <?php endif; ?>
-
-
-
-
-
-
+              <li>
+                <a href="https://www.facebook.com/Academiadetrading-496295420749430" target="_blank" class="waves-effect waves-block">
+                  <i style="font-size: 22px;" class="material-icons fa fa-facebook-official col-light-blue" aria-hidden="true"></i>
+                  <span>Facebook</span>
+                </a>
+              </li>
 
             </ul>
-          </div>
-          <!-- #Menu -->
-          <!-- Footer -->
-          <div class="legal">
-            <div class="copyright">
-              &copy; 2017 <a href="http://www.adrianalvarez.net/">www.AdrianAlvarez.net</a>.
-            </div>
-            <div class="version">
-              <b>Version: </b> 1.0.5
-            </div>
-          </div>
-          <!-- #Footer -->
-        </aside>
-        <!-- #END# Left Sidebar -->
-        <!-- Right Sidebar -->
+          </li>
 
-        <!-- #END# Right Sidebar -->
-      </section>
+          <?php if($info_usuario['data']->pago == 0) : ?>
+
+
+            <li>
+              <a href="<?= site_url('pago/multinivel'); ?>">
+                <i class="material-icons col-light-blue">attach_money</i>
+                <span>Pagar Entrada</span>
+              </a>
+            </li>
+
+          <?php endif; ?>
+
+        <?php endif; ?>
+
+
+
+
+
+
+
+      </ul>
+    </div>
+    <!-- #Menu -->
+    <!-- Footer -->
+    <div class="legal">
+      <div class="copyright">
+        &copy; 2017 <a href="http://www.adrianalvarez.net/">www.AdrianAlvarez.net</a>.
+      </div>
+      <div class="version">
+        <b>Version: </b> 1.0.5
+      </div>
+    </div>
+    <!-- #Footer -->
+  </aside>
+  <!-- #END# Left Sidebar -->
+  <!-- Right Sidebar -->
+
+  <!-- #END# Right Sidebar -->
+</section>

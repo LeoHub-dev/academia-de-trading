@@ -65,7 +65,7 @@ class Clases extends LH_Controller {
 
 	public function inversionistas()
 	{
-		if(count($this->scope['calendario_pagos']) > 0) 
+		if($this->scope['info_usuario']['data']->tipo == 6) 
 		{
 			$this->scope['titulo'] = "Clases Inversionistas";
 		

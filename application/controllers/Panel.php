@@ -344,7 +344,7 @@ class Panel extends LH_Controller {
 
 		foreach ($getListUser as $user) {
 			$this->Panel_model->establecerPagoDiario([
-				'id_usuario' => $user->id_persona,
+				'id_usuario' => $user->id_usuario,
 				'cantidad' => $monto,
 				'razon' => "Comision diaria del dia ".date('d-m-Y')." por el monto de {$monto}$",
 				'fecha' => $fechaPago.' '.date('H:m:s'),

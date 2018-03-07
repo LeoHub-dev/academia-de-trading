@@ -133,8 +133,8 @@ class CalendarioPago_model extends CI_Model
                     comisiones_diarias.cantidad,DATE_FORMAT(comisiones_diarias.fecha,"%Y-%m-%d") as fecha,usuarios_personas.nombre,
                     usuarios_personas.apellido,usuarios_data.usuario')
             ->from('comisiones_diarias')
-            ->join('usuarios_personas', 'usuarios_personas.id_persona = comisiones_diarias.id_usuario')
-            ->join('usuarios_data', 'usuarios_data.id_persona = comisiones_diarias.id_usuario')
+            ->join('usuarios_data', 'usuarios_data.id_usuario = comisiones_diarias.id_usuario')
+            ->join('usuarios_personas', 'usuarios_personas.id_persona = usuarios_data.id_persona')
             ->where('comisiones_diarias.pagada', '0')
             ->where('comisiones_diarias.estatus', 'A')
             ->order_by('comisiones_diarias.fecha', 'ASC')
@@ -158,8 +158,8 @@ class CalendarioPago_model extends CI_Model
                     comisiones_diarias.cantidad,comisiones_diarias.fecha,usuarios_personas.nombre,
                     usuarios_personas.apellido,usuarios_data.usuario')
             ->from('comisiones_diarias')
-            ->join('usuarios_personas', 'usuarios_personas.id_persona = comisiones_diarias.id_usuario')
-            ->join('usuarios_data', 'usuarios_data.id_persona = comisiones_diarias.id_usuario')
+            ->join('usuarios_data', 'usuarios_data.id_usuario = comisiones_diarias.id_usuario')
+            ->join('usuarios_personas', 'usuarios_personas.id_persona = usuarios_data.id_persona')
             ->where('comisiones_diarias.id_usuario', $idusuario)
             ->order_by('comisiones_diarias.fecha', 'ASC')
             ->get()

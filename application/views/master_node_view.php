@@ -302,7 +302,7 @@
 
                 <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;"> 
 
-                  <button type="button" class="btn btn-primary waves-effect pagar-con-general" id-tipo="5">Pagar con</button> 
+                  <button type="button" class="btn btn-primary waves-effect pagar-con-general" id-tipo="6">Pagar con</button> 
                   
 
                   <select class="form-control show-tick select-moneda" id="moneda_pago"> 

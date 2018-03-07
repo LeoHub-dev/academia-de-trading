@@ -121,7 +121,7 @@
             <div class="header">
               <h2> Inicio <small>Información general</small></h2>
             </div>
-            <div class="body">
+            <div class="body clearfix">
               <?php foreach ($info_usuario['data'] as $key => $value): ?>
 
                 <?= ($key == "wallet_btc" && $value == NULL) ? '<div class="alert alert-info"><strong>No</strong> tienes una Wallet BTC asignada en tu perfil <a href="'.site_url('perfil').'" class="alert-link">Click aqui para editar tu perfil</a></div>' : ''; ?>
@@ -142,6 +142,11 @@
                   </div>
                 </div>
               <?php endif; ?>
+              <?php if($info_usuario['data']->tipo == 5 && $info_usuario['data']->pago == 1) : ?>
+              <div class="col-md-12">
+                <iframe src="https://player.vimeo.com/video/258565800?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+              </div>
+              <?php endif; ?>
               <?php if($info_usuario['data']->tipo != 5 && $info_usuario['data']->tipo != 6) : ?>
               <div class="text-center">
                 <img src="<?= asset_url(); ?>images/calendarios/<?= $calendario->imagen; ?>" style="display: initial;" class="img-responsive">
@@ -152,8 +157,8 @@
         </div>
 
         <?php
-          if(count($calendario_pagos) > 0) {
-
+          
+        if($info_usuario['data']->tipo == 5 && $info_usuario['data']->pago == 1) :
 
         ?>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -218,7 +223,7 @@
             </div>
           </div>
         </div>
-        <?php } ?>
+        <?php endif; ?>
       </div>
 
     </div>

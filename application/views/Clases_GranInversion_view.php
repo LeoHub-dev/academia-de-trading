@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="body">
-                            <iframe src="https://player.vimeo.com/video/257438305?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                            <iframe src="https://player.vimeo.com/video/259523247?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@
                            
                         </div>
                         <div class="body">
-                            <iframe src="https://player.vimeo.com/video/257441353?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                            <iframe src="https://player.vimeo.com/video/259515651?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>
@@ -92,52 +92,7 @@
                         </div>
 
                         <div class="body">
-                            <iframe src="https://player.vimeo.com/video/257443330?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center-block" style="float: none">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Clase 4</small>
-                            </h2>
-                           
-                        </div>
-
-                        <div class="body">
-                            <iframe src="https://player.vimeo.com/video/259953013?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center-block" style="float: none">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Clase 5</small>
-                            </h2>
-                           
-                        </div>
-
-                        <div class="body">
-                            <iframe src="https://player.vimeo.com/video/259960947?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 center-block" style="float: none">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Clase 6</small>
-                            </h2>
-                           
-                        </div>
-
-                        <div class="body">
-                            <iframe src="https://player.vimeo.com/video/259967769?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                            <iframe src="https://player.vimeo.com/video/259565320?title=0&amp;byline=0&amp;portrait=0;autoplay=0" width="100%" height="270" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                         </div>
                     </div>
                 </div>

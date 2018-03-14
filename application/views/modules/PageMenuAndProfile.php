@@ -186,6 +186,15 @@
         <?php elseif($info_usuario['data']->tipo == 5) : ?>
 
           <?php if($info_usuario['data']->pago == 1) : ?>
+              <li> 
+                <a href="<?= site_url('clases/biginversionistas'); ?>"> 
+                  <i class="material-icons col-amber">local_library</i> 
+                  <span>Clases Inversionistas</span> 
+                </a> 
+              </li> 
+          <?php endif; ?>
+
+          <?php if($info_usuario['data']->pago == 1) : ?>
           <li>
             <a href="<?= site_url('ganancias'); ?>">
               <i class="material-icons col-amber">attach_money</i>

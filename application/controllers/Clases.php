@@ -67,9 +67,24 @@ class Clases extends LH_Controller {
 	{
 		if($this->scope['info_usuario']['data']->tipo == 6) 
 		{
-			$this->scope['titulo'] = "Clases Inversionistas";
+			$this->scope['titulo'] = "Clases Masternodos";
 		
 			$this->load->view('Clases_Inversionistas_view',$this->scope);
+		}
+		else
+		{
+			redirect('/dashboard' ,'refresh');
+		}
+		
+	}
+
+	public function biginversionistas()
+	{
+		if($this->scope['info_usuario']['data']->tipo == 5) 
+		{
+			$this->scope['titulo'] = "Clases Inversionistas";
+		
+			$this->load->view('Clases_GranInversion_view',$this->scope);
 		}
 		else
 		{

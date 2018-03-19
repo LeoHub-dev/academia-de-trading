@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <?php include_once 'modules/Header.php' ; ?>
 </head>
-
 <body class="theme-blue">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
@@ -46,10 +44,10 @@
         <div class="container-fluid">
             <div class="block-header">
                 <ol class="breadcrumb">
-                                <li class="active">
-                                    <i class="material-icons">home</i> Home
-                                </li>
-                            </ol>
+                    <li class="active">
+                        <i class="material-icons">home</i> Home
+                    </li>
+                </ol>
             </div>
 
             <div class="row clearfix">
@@ -155,10 +153,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
                             </form>
-
-               
                         </div>
                     </div>
                 </div>
@@ -202,13 +197,7 @@
                             </div>
                             <div class="row clearfix">
                                 <!--<div class="col-md-12" >
-                                   
-                                        <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="1">Donar con BTC</button>
-                                   
-
-                                        
-                                    
-
+                                  <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="1">Donar con BTC</button>
                                 </div>-->
 
                                 <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;"> 

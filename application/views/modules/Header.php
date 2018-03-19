@@ -29,8 +29,6 @@
 
 <link href="<?= asset_url(); ?>plugins/jquery-ui-datapicker/css/jquery-ui.theme.css" rel="stylesheet" />
 
-
-
 <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
 <link href="<?= asset_url(); ?>css/themes/all-themes.css" rel="stylesheet" />
 

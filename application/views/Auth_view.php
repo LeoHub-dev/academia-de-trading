@@ -221,13 +221,9 @@
                         <a class="auth-link" data-href="login-form" href="javascript:void(0)">Ya estas registrado ?</a>
                     </div>
                 </form>
-
-
             </div>
         </div>
     </div>
-
-    
 
     <?php include_once 'modules/Scripts.php' ; ?>
 </body>

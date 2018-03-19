@@ -97,7 +97,56 @@ class Auth extends LH_Controller {
 
 	}
 
-	public function registro()
+    public function registro()
+    {
+        if ($this->Auth_model->estaConectado())
+        {
+            redirect('/dashboard' ,'refresh');
+        }
+        else
+        {
+            if($this->input->server('REQUEST_METHOD') == 'POST')
+            {
+                if ($this->form_validation->run('registro') == FALSE)
+                {
+                    echo response_bad(validation_errors());
+                }
+                else
+                {
+                    $usuario = array(
+                        'nombre' => $this->input->post('nombre'),
+                        'apellido' => $this->input->post('apellido'),
+                        'fecha_nacimiento' => $this->input->post('fecha_nacimiento'),
+                        'email' => $this->input->post('email'),
+                        'telefono' => $this->input->post('telefono'),
+                        'usuario' => $this->input->post('usuario'),
+                        'password' => myHash($this->input->post('password')),
+                        'referido' => $this->input->post('referido')
+                    );
+
+
+
+                    if($this->Auth_model->registrar($usuario))
+                    {
+                        $this->Auth_model->ingresar($usuario);
+                        echo response_good('Correcto','Ya puede ingresar a su cuenta');
+                    }
+                    else
+                    {
+                        echo response_bad('Error - intente mas tarde');
+                    }
+
+                }
+            }
+            else
+            {
+                echo response_bad('Error - Fallo sistema');
+            }
+        }
+
+    }
+
+    public function registro_master_node()
 	{
 		if ($this->Auth_model->estaConectado())
 		{
@@ -121,12 +170,11 @@ class Auth extends LH_Controller {
 						'telefono' => $this->input->post('telefono'),
 						'usuario' => $this->input->post('usuario'),
 						'password' => myHash($this->input->post('password')),
-						'referido' => $this->input->post('referido')
+						'referido' => $this->input->post('referido'),
+						'paquete' => $this->input->post('paquete')
 					);
 
-
-
-					if($this->Auth_model->registrar($usuario))
+					if($this->Auth_model->registrar_master_node($usuario))
 					{
 						$this->Auth_model->ingresar($usuario);
 						echo response_good('Correcto','Ya puede ingresar a su cuenta');
@@ -135,7 +183,6 @@ class Auth extends LH_Controller {
 		        	{
 		        		echo response_bad('Error - intente mas tarde');
 		        	}
-
 				}
 			}
 			else

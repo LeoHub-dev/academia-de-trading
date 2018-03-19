@@ -18,14 +18,19 @@
     <link rel="stylesheet" href="<?= asset_url(); ?>plugins/bootstrap/css/bootstrap.min.css" />
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,600i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
     <!-- Styles -->
-    <link rel="stylesheet" href="<?= asset_url(); ?>plugins/animate-css/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/social-icons.css">
-    <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/slick.css">
-    <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/style.css">
-    <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>curso/css/master_node.css">
-    <script src="https://use.fontawesome.com/a7fd4b808d.js"></script>
-    <link rel="icon" type="image/png" href="<?= asset_url(); ?>ventas/img/logo.png" />
+  <link rel="stylesheet" href="<?= asset_url(); ?>plugins/animate-css/animate.min.css">
+  <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/social-icons.css">
+  <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/slick.css">
+
+  <link href="<?= asset_url(); ?>css/style.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>ventas/css/style.css">
+  <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>curso/css/master_node.css">
+  <link href="<?= asset_url(); ?>css/themes/all-themes.css" rel="stylesheet" />
+
+  <script src="1ttps://use.fontawesome.com/a7fd4b808d.js"></script>
+  <link rel="icon" type="image/png" href="<?= asset_url(); ?>ventas/img/logo.png" />
     <style type="text/css">
         .alert-minimalist {
             background-color: rgb(0, 126, 255);
@@ -50,8 +55,8 @@
             font-size: 80%;
             color: white;
         }
-
     </style>
+  <script src="https://use.fontawesome.com/a7fd4b808d.js"></script>
 </head>
 
 <body>
@@ -97,8 +102,8 @@
           </li>
           <li><a class="smoothScroll" href="<?=base_url()?>#inversiones">Inversiones</a></li>
           <li><a class="smoothScroll" href="<?=base_url()?>#senales">Señales</a></li>
-          <li class="active"><a class="" href="<?= site_url('auth'); ?>">Login</a></li>
-          <li class="active"><a class="" href="<?= site_url('auth'); ?>#_registro">Registro</a></li>
+          <li class="active"><a id="ms-login"  class="" href="#">Login</a></li>
+          <li class="active"><a id="ms-registro" href="#">Registro</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container -->
@@ -355,6 +360,168 @@
       </div> <!-- /.row -->
     </div> <!-- /.container -->
   </footer>
+
+  <div class="modal fade" id="modal-register" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="padding: 15px 25px 0px 25px">
+          <h4 class="modal-title" id="defaultModalLabel"><div class="msg">Registro</div></h4>
+        </div>
+        <div class="modal-body" style="padding: 10px 0px">
+          <div class="card" style="margin-bottom: 0px">
+            <div class="body auth_card">
+
+            <form id="register-form" class="auth-form" action="<?= site_url('auth/registro_master_node'); ?>" style="" method="POST">
+
+              <div class="input-group">
+                <span class="input-group-addon"><i class="material-icons">person</i></span>
+                <div class="form-line">
+                  <input type="text" class="form-control" name="nombre" placeholder="Nombre" required autofocus>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <span class="input-group-addon"><i class="material-icons">person</i></span>
+                <div class="form-line">
+                  <input type="text" class="form-control" name="apellido" placeholder="Apellido" required autofocus>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <span class="input-group-addon"><i class="material-icons">email</i></span>
+                <div class="form-line">
+                  <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <span class="input-group-addon"><i class="material-icons">person</i></span>
+                <div class="form-line">
+                  <input type="text" class="form-control" name="usuario" placeholder="Usuario" required autofocus>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <span class="input-group-addon"><i class="material-icons">lock</i></span>
+                <div class="form-line">
+                  <input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <span class="input-group-addon"><i class="material-icons">lock</i></span>
+                <div class="form-line">
+                  <input type="password" class="form-control" name="confirmar_password" minlength="6" placeholder="Confirm Password" required>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <div class="form-line">
+                  <input type="text" id="input_referido" name="referido" class="form-control" placeholder="Numero Referido #" value="<?= (isset($referido_id)) ? $referido_id : ""; ?>" required>
+                </div>
+                <span class="input-group-addon">@<span class="referido_nombre">Referido</span></span>
+              </div>
+
+              <div class="col-md-12" style="margin: 0">
+                <div id="error_message" class="alert alert-danger clearfix" style="display: none;margin: 0" role="alert">
+                  Bad
+                </div>
+                <div id="success_message" class="alert alert-success clearfix" style="display: none;" role="alert">
+                  Good
+                </div>
+              </div>
+
+              <div class="input-group">
+                <div class="form-line">
+                  <select class="form-control show-tick" name="paquete" id="paquete" required>
+                    <option value="">Seleccione el paquete de preferencia</option>
+                    <option value="6">paquete de $497</option>
+                    <option value="7">paquete de $2000</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="checkbox" name="terminos" id="terminos" class="filled-in chk-col-pink">
+                <label for="terminos">Lei y estoy de acuerdo con los <a href="<?= site_url('legal'); ?>" target="_blank">terminos de uso</a>.</label>
+              </div>
+
+              <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
+
+              <div class="m-t-25 m-b--5 align-center">
+                <a class="auth-link" data-href="login-form" href="javascript:void(0)">Ya estas registrado ?</a>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade" id="modal-login" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="padding: 15px 25px 0px 25px">
+        <h4 class="modal-title" id="defaultModalLabel"><div class="msg">Login</div></h4>
+      </div>
+      <div class="modal-body" style="padding: 10px 0px">
+        <div class="card" style="margin-bottom: 0px">
+          <div class="body auth_card">
+            <form id="login-form" class="auth-form" action="<?= site_url('auth/ingreso'); ?>" method="POST">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="material-icons">person</i></span>
+                <div class="form-line">
+                  <input type="text" class="form-control" name="usuario" placeholder="Usuario" required autofocus>
+                </div>
+              </div>
+              <div class="input-group">
+                <span class="input-group-addon"><i class="material-icons">lock</i></span>
+                <div class="form-line">
+                  <input type="password" class="form-control" name="password" placeholder="Password" required>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div id="error_message" class="alert alert-danger clearfix" style="display: none;" role="alert">
+                  Bad
+                </div>
+                <div id="success_message" class="alert alert-success clearfix" style="display: none;" role="alert">
+                  Good
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 p-t-5">
+                  <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
+                  <label for="rememberme">Recordarme</label>
+                </div>
+                <div class="col-xs-6">
+                  <button class="btn btn-block bg-pink waves-effect" type="submit">LOGIN</button>
+                </div>
+              </div>
+              <div class="row m-t-15 m-b--20">
+                <div class="col-xs-6">
+                  <a class="auth-link" data-href="register-form" href="javascript:void(0)">Registrate!</a>
+                </div>
+                <div class="col-xs-6">
+                  <a class="auth-link" data-href="forgot-form" href="javascript:void(0)">Olvido Contraseña?</a>
+                </div>
+                <div class="col-md-12" style="text-align: center">
+                  <a href="javascript:void(0)" onclick="loginFb()">
+                    <img width="230" src="https://www.thenerdmag.com/wp-content/uploads/facebook-login.png" class="img-responsive">
+                  </a>
+                </div>
+                <!--<div class="col-xs-6 align-right">
+                    <a href="forgot-password.html">Forgot Password?</a>
+                </div>-->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- Scripts -->
 <script src="<?= asset_url(); ?>plugins/jquery/jquery.min.js"></script>
 <script src="<?= asset_url(); ?>plugins/bootstrap/js/bootstrap.js" crossorigin="anonymous"></script>
@@ -369,122 +536,145 @@
 <script src="<?= asset_url(); ?>ventas/js/bootstrap-notify.min.js"></script>
 <script src="<?= asset_url(); ?>ventas/js/custom.js"></script>
 <!--<script src="https://matthew.wagerfield.com/parallax/deploy/jquery.parallax.js"></script>-->
-<script>
-   particlesJS('content-particles',
+<script type="text/javascript">
+ $(function() {
 
-       {
-          "particles": {
-             "number": {
-                "value": 200,
-                "density": {
-                   "enable": true,
-                   "value_area": 800
-                }
-             },
-             "color": {
-                "value": "#ffffff"
-             },
-             "shape": {
-                "type": "circle",
-                "stroke": {
-                   "width": 0,
-                   "color": "#000000"
-                },
-                "polygon": {
-                   "nb_sides": 5
-                }
-             },
-             "opacity": {
-                "value": 0.5,
-                "random": false,
-                "anim": {
-                   "enable": false,
-                   "speed": 1,
-                   "opacity_min": 0.1,
-                   "sync": false
-                }
-             },
-             "size": {
-                "value": 5,
-                "random": true,
-                "anim": {
-                   "enable": false,
-                   "speed": 40,
-                   "size_min": 0.1,
-                   "sync": false
-                }
-             },
-             "line_linked": {
+    $("#ms-registro").click(function(){
+      $("#modal-register").modal("show");
+    })
+
+    $("#ms-login").click(function(){
+       $("#modal-login").modal("show");
+    });
+
+    particlesJS('content-particles', {
+       "particles": {
+          "number": {
+             "value": 200,
+             "density": {
                 "enable": true,
-                "distance": 150,
-                "color": "#ffffff",
-                "opacity": 0.4,
-                "width": 1
-             },
-             "move": {
-                "enable": true,
-                "speed": 4,
-                "direction": "none",
-                "random": false,
-                "straight": false,
-                "out_mode": "out",
-                "attract": {
-                   "enable": false,
-                   "rotateX": 600,
-                   "rotateY": 1200
-                }
+                "value_area": 800
              }
           },
-          "interactivity": {
-             "detect_on": "canvas",
-             "events": {
-                "onhover": {
-                   "enable": true,
-                   "mode": "repulse"
-                },
-                "onclick": {
-                   "enable": true,
-                   "mode": "push"
-                },
-                "resize": true
+          "color": {
+             "value": "#ffffff"
+          },
+          "shape": {
+             "type": "circle",
+             "stroke": {
+                "width": 0,
+                "color": "#000000"
              },
-             "modes": {
-                "grab": {
-                   "distance": 400,
-                   "line_linked": {
-                      "opacity": 1
-                   }
-                },
-                "bubble": {
-                   "distance": 400,
-                   "size": 40,
-                   "duration": 2,
-                   "opacity": 8,
-                   "speed": 3
-                },
-                "repulse": {
-                   "distance": 200
-                },
-                "push": {
-                   "particles_nb": 4
-                },
-                "remove": {
-                   "particles_nb": 2
-                }
+             "polygon": {
+                "nb_sides": 5
              }
           },
-          "retina_detect": true,
-          "config_demo": {
-             "hide_card": false,
-             "background_color": "#b61924",
-             "background_image": "",
-             "background_position": "50% 50%",
-             "background_repeat": "no-repeat",
-             "background_size": "cover"
+          "opacity": {
+             "value": 0.5,
+             "random": false,
+             "anim": {
+                "enable": false,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+             }
+          },
+          "size": {
+             "value": 5,
+             "random": true,
+             "anim": {
+                "enable": false,
+                "speed": 40,
+                "size_min": 0.1,
+                "sync": false
+             }
+          },
+          "line_linked": {
+             "enable": true,
+             "distance": 150,
+             "color": "#ffffff",
+             "opacity": 0.4,
+             "width": 1
+          },
+          "move": {
+             "enable": true,
+             "speed": 4,
+             "direction": "none",
+             "random": false,
+             "straight": false,
+             "out_mode": "out",
+             "attract": {
+                "enable": false,
+                "rotateX": 600,
+                "rotateY": 1200
+             }
           }
+       },
+       "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+             "onhover": {
+                "enable": true,
+                "mode": "repulse"
+             },
+             "onclick": {
+                "enable": true,
+                "mode": "push"
+             },
+             "resize": true
+          },
+          "modes": {
+             "grab": {
+                "distance": 400,
+                "line_linked": {
+                   "opacity": 1
+                }
+             },
+             "bubble": {
+                "distance": 400,
+                "size": 40,
+                "duration": 2,
+                "opacity": 8,
+                "speed": 3
+             },
+             "repulse": {
+                "distance": 200
+             },
+             "push": {
+                "particles_nb": 4
+             },
+             "remove": {
+                "particles_nb": 2
+             }
+          }
+       },
+       "retina_detect": true,
+       "config_demo": {
+          "hide_card": false,
+          "background_color": "#b61924",
+          "background_image": "",
+          "background_position": "50% 50%",
+          "background_repeat": "no-repeat",
+          "background_size": "cover"
        }
-
-   );
+    });
+});
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

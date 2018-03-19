@@ -962,30 +962,30 @@ NAVIGATION
     padding-left: 15px;
     padding-right: 15px;
   }
-  .wn-plan__number {
-    font-size: 79px;
+	position: relative;
+	.wn-plan__number {
+	  font-size: 79px;
   }
-  .wn-plan__details {
-    font-size: 17px;
+	.wn-plan__details {
+	  font-size: 17px;
   }
-  .wn-plan--favorite {
-    margin: 0;
-    top: 0;
+	.wn-plan--favorite {
+	  margin: 0;
+	  top: 0;
   }
 }
 
 .wn-number {
-  display: inline-block;
-  margin-top: -0.12em;
+	display: inline-block;
+	margin-top: -0.12em;
 }
 .wn-number__num {
-  display: inline-table;
-  height: 1em;
+	display: inline-table;
+	height: 1em;
 }
 .wn-number__group {
-  display: table-cell;
-  font-weight: bold;
-  position: relative;
+	display: table-cell;
+	font-weight: bold;
   vertical-align: middle;
 }
 .wn-number__left {

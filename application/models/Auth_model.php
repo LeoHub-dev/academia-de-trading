@@ -121,7 +121,64 @@ class Auth_model extends CI_Model {
         }   
     }
 
-    
+    public function registrar_master_node($data)
+    {
+        $usuario_persona = array(
+            'nombre' => $data['nombre'],
+            'apellido' => $data['apellido'],
+            'fecha_nacimiento' => $data['fecha_nacimiento'],
+            'email' => $data['email'],
+            'telefono' => $data['telefono']
+        );
+
+        $query = $this->db->insert('usuarios_personas',$usuario_persona);
+
+        if($query)
+        {
+            $id_persona = $this->db->insert_id();
+
+            $usuario_data = array(
+                'usuario' => $data['usuario'],
+                'password' => $data['password'],
+                'id_persona' => $id_persona,
+                'referido' => $data['referido'],
+                'tipo' => $data['paquete']
+            );
+
+            $query = $this->db->insert('usuarios_data',$usuario_data);
+
+            if($query)
+            {
+                $this->Academia_model->agregarFactura($this->db->insert_id());
+
+                $this->load->model('Mail_model');
+                $this->Mail_model->setTo($data['email']);
+                $this->Mail_model->setToCC('soporte@academiadetrading.net');
+                //$this->Mail_model->setTo('Douglasjosenieves@gmail.com');
+                $this->Mail_model->setSubject('Academia de Trading - Bienvenida');
+
+                $data_email= array(
+                    "titulo" => "Estimado(a) ".$data['nombre'].". Bienvenido a la Academia" ,
+                    "texto" => "Bienvenido a la Academia de Trading, espero disfrute de nuestros cursos y herramientas.",
+                    "link" => "https://academiadetrading.net/",
+                    "texto_link" => "Ir a la Academia"
+                );
+
+                $this->Mail_model->setMessage($data_email);
+                $this->Mail_model->sendMail();
+
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
 
     public function obtenerUsuarioID($id_usuario)
     {
@@ -135,7 +192,6 @@ class Auth_model extends CI_Model {
             foreach ($query->result() as $inf)
             {
                 return array('response' => TRUE, 'data' => $inf);
-
             }
 
         }
@@ -144,10 +200,6 @@ class Auth_model extends CI_Model {
             return array('response' => FALSE, 'data' => 'Not found');
         }    
     }
-
-
-
-
 
     public function obtenerUsuarioEmail($email)
     {
@@ -161,9 +213,7 @@ class Auth_model extends CI_Model {
             foreach ($query->result() as $inf)
             {
                 return array('response' => TRUE, 'data' => $inf);
-
             }
-
         }
         else
         {

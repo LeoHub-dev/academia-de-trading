@@ -74,7 +74,6 @@ class Panel extends LH_Controller {
             $mes = $this->input->post('mes_pago');
             $idusuario = $this->input->post('id_usuario');
 
-
             $this->Panel_model->confirmarPagoMesual(['MONTH(fecha)' => $mes,'id_usuario' => $idusuario]);
 
             echo response_good('Correcto','Pagada');

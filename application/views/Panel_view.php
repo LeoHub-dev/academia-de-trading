@@ -474,7 +474,7 @@
                               <tr id="dl-<?=$v->id_usuario?>_<?=$k?>">
                                   <td><?=$v->usuario?></td>
                                   <td><?=$v->nombre.' '.$v->apellido?></td>
-                                  <td><?=getmes($v->mes)?></td>
+                                  <td><?=getmes('0'.$v->mes)?></td>
                                   <td><?='<b>'.$v->cantidad. '$</b>'?></td>
                                   <td>
                                       <form method="post"

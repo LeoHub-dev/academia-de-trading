@@ -43,14 +43,42 @@
 
 <section class="content">
     <div class="container-fluid">
-        <div class="block-header">
-            <ol class="breadcrumb">
-                <li class="active">
-                    <i class="material-icons">home</i> Home
-                </li>
-            </ol>
-        </div>
         <div class="row clearfix">
+            <?php if( $info_usuario['data']->tipo == 6 || $info_usuario['data']->tipo == 5 ) : ?>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box bg-teal hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">event_note</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">Ganancia Semanal</div>
+                            <div class="number">$ <?=$ganancias['semanal']->cantidad?></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box bg-light-green hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">event</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">Ganancia Mensual</div>
+                            <div class="number">$ <?=$ganancias['mensual']->cantidad?></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="info-box bg-green hover-expand-effect">
+                        <div class="icon">
+                            <i class="material-icons">event_available</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">Ganancia Total</div>
+                            <div class="number">$ <?=$ganancias['total']->cantidad?></div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
             <?php if ($info_usuario['data']->tipo != 5 && $info_usuario['data']->tipo != 6) : ?>
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="info-box bg-green hover-expand-effect">

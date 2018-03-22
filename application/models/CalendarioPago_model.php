@@ -171,11 +171,6 @@ class CalendarioPago_model extends CI_Model
             ->get()
             ->result_object();
 
-        //echo json_encode($results);
-        /*echo "<pre>";
-        print_r($results);
-        echo "</pre>";
-        exit;*/
         return $query;
     }
 
@@ -189,6 +184,7 @@ class CalendarioPago_model extends CI_Model
             ->join('usuarios_data', 'usuarios_data.id_usuario = comisiones_diarias.id_usuario')
             ->join('usuarios_personas', 'usuarios_personas.id_persona = usuarios_data.id_persona')
             ->where('comisiones_diarias.id_usuario', $idusuario)
+            ->where('comisiones_diarias.estatus =! ', 'I')
             ->order_by('comisiones_diarias.fecha', 'ASC')
             ->get()
             ->result_object();
@@ -255,6 +251,53 @@ class CalendarioPago_model extends CI_Model
         return explode('-', $fecha)[0];
     }
 
+    public function getGananciasSemanalUser($idusuario)
+    {
+        $fechas = $this->getFechaInitAndFechaFin( $this->getNumeroSemana(date("Y-m-d")), date('Y'));
+
+        $query = $this->ganancias($idusuario)
+            ->where(['fecha >=' => $fechas[0], 'fecha <=' => $fechas[1]])
+            ->group_by(["id_usuario"])
+            ->order_by('comisiones_diarias.fecha', 'ASC')
+            ->get()
+            ->result_object()[0];
+
+        return $query;
+    }
+
+    public function getGananciasMensualUser($idusuario)
+    {
+        $query = $this->ganancias($idusuario)
+            ->where(['YEAR(fecha)' => date('Y'), 'MONTH(fecha)' => date('m')])
+            ->group_by(["id_usuario"])
+            ->order_by('comisiones_diarias.fecha', 'ASC')
+            ->get()
+            ->result_object()[0];
+
+        return $query;
+    }
+
+    public function getGananciasTotalUser($idusuario)
+    {
+        $query = $this->ganancias($idusuario)
+                    ->or_where('comisiones_diarias.estatus', 'L')
+                    ->group_by(["id_usuario"])
+                    ->order_by('comisiones_diarias.fecha', 'ASC')
+                    ->get()
+                    ->result_object()[0];
+        return $query;
+    }
+
+    public function ganancias($idusuario)
+    {
+        return $this->db
+                    ->select('comisiones_diarias.id_usuario, SUM(comisiones_diarias.cantidad) AS cantidad')
+                    ->from('comisiones_diarias')
+                    ->join('usuarios_data', 'usuarios_data.id_usuario = comisiones_diarias.id_usuario')
+                    ->join('usuarios_personas', 'usuarios_personas.id_persona = usuarios_data.id_persona')
+                    ->where('comisiones_diarias.id_usuario', $idusuario)
+                    ->where('comisiones_diarias.estatus', 'A');
+    }
 
 }
 

@@ -472,14 +472,13 @@ class Academia_model extends CI_Model
         //ESTATUS ---> L = LIQUIDADO && A = ACTIVO && I = INACTIVO
         //$users_paquete = $this->getUsersMesMin();
         $users = $this->getUsesAll();
-
         $array_users = [];
 
         foreach ($users as $value) {
             $user = $this->getUsersMesMin($value->id_usuario);
             if(count($user) > 0) {
                 $mes = $this->calcularMeses($user[0]->fecha);
-                //SI EL MES >= 6 ACTUALIZA EL ESTATUS DE TODOS LOS PAGOS A L
+                //SI EL MES >= 6 ACTUALIZA EL ESTATUS DE TODOS LOS PAGOS A 'L'
                 if ($mes >= $meses) {
                     $this->db->update('comisiones_diarias',
                         ['estatus' => 'L'],
@@ -495,19 +494,7 @@ class Academia_model extends CI_Model
                 $array_users[] = $value->id_usuario;
             }
         }
-        /*foreach ($users_paquete as $user) {
-            $mes = $this->calcularMeses($user->fecha);
-            //SI EL MES >= 6 ACTUALIZA EL ESTATUS DE TODOS LOS PAGOS A L
-            if ($mes >= $meses) {
-                $this->db->update('comisiones_diarias',
-                    ['estatus' => 'L'],
-                    ['id_usuario' => $user->id_usuario, 'estatus' => 'A']);
-            }
-            else
-            {
-                $array_users[] = $user->id_usuario;
-            }
-        }*/
+
         return $array_users;
     }
 
@@ -553,15 +540,15 @@ class Academia_model extends CI_Model
 	public function pagoConfirmados($id_usuario, $numpaquete = 5)
     {
         return $this->db->select('comisiones_diarias.id_usuario,comisiones_diarias.fecha,comisiones_diarias.razon,
-        comisiones_diarias.cantidad,comisiones_diarias.pagada')
-            ->from('comisiones_diarias')
-            ->join('usuarios_data', 'usuarios_data.id_usuario = comisiones_diarias.id_usuario')
-            ->where('comisiones_diarias.pagada', '1')
-            ->where_in('comisiones_diarias.estatus', ['A','L'])
-            ->where('comisiones_diarias.id_usuario', $id_usuario)
-            ->order_by('comisiones_diarias.fecha', 'ASC')
-            ->get()
-            ->result_object();
+                    comisiones_diarias.cantidad,comisiones_diarias.pagada')
+                    ->from('comisiones_diarias')
+                    ->join('usuarios_data', 'usuarios_data.id_usuario = comisiones_diarias.id_usuario')
+                    ->where('comisiones_diarias.pagada', '1')
+                    ->where_in('comisiones_diarias.estatus', ['A','L'])
+                    ->where('comisiones_diarias.id_usuario', $id_usuario)
+                    ->order_by('comisiones_diarias.fecha', 'ASC')
+                    ->get()
+                    ->result_object();
     }
 
     public function __get($var)

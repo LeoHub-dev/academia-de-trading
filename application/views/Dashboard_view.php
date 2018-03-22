@@ -46,22 +46,55 @@
       <div class="block-header"><h2>DASHBOARD</h2></div>
 
       <div class="row clearfix">
-        <?php if($info_usuario['data']->tipo != 5 && $info_usuario['data']->tipo != 6) : ?>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-          <div class="info-box bg-pink hover-expand-effect">
-            <div class="icon">
-              <i class="material-icons">playlist_add_check</i>
-            </div>
-            <div class="content">
-              <div class="text">CLASES</div>
-              <div class="number count-to" data-from="0" data-to="7" data-speed="15" data-fresh-interval="20">8</div>
-            </div>
+          <?php if( $info_usuario['data']->tipo == 6 || $info_usuario['data']->tipo == 5 ) : ?>
+          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="info-box bg-teal hover-expand-effect">
+                  <div class="icon">
+                      <i class="material-icons">event_note</i>
+                  </div>
+                  <div class="content">
+                      <div class="text">Ganancia Semanal</div>
+                      <div class="number">$ <?=$ganancias['semanal']->cantidad?></div>
+                  </div>
+              </div>
           </div>
-        </div>
-        
-          <?php if($info_usuario['data']->pago == 0) : ?>
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="info-box bg-light-green hover-expand-effect">
+                      <div class="icon">
+                          <i class="material-icons">event</i>
+                      </div>
+                      <div class="content">
+                          <div class="text">Ganancia Mensual</div>
+                          <div class="number">$ <?=$ganancias['mensual']->cantidad?></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                  <div class="info-box bg-green hover-expand-effect">
+                      <div class="icon">
+                          <i class="material-icons">event_available</i>
+                      </div>
+                      <div class="content">
+                          <div class="text">Ganancia Total</div>
+                          <div class="number">$ <?=$ganancias['total']->cantidad?></div>
+                      </div>
+                  </div>
+              </div>
+          <?php endif; ?>
+        <?php if($info_usuario['data']->tipo != 5 && $info_usuario['data']->tipo != 6) : ?>
 
-            
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <div class="info-box bg-pink hover-expand-effect">
+                  <div class="icon">
+                      <i class="material-icons">playlist_add_check</i>
+                  </div>
+                  <div class="content">
+                      <div class="text">CLASES</div>
+                      <div class="number count-to" data-from="0" data-to="7" data-speed="15" data-fresh-interval="20">8</div>
+                  </div>
+              </div>
+          </div>
+          <?php if($info_usuario['data']->pago == 0) : ?>
 
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
               <div class="info-box bg-orange hover-expand-effect">
@@ -74,45 +107,37 @@
                 </div>
               </div>
             </div>
-
-          
           <?php else: ?>
-          <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1) : ?>
-
-              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                <div class="info-box bg-orange hover-expand-effect">
-                  <div class="icon">
-                    <i class="material-icons">verified_user</i>
+              <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1) : ?>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <div class="info-box bg-orange hover-expand-effect">
+                      <div class="icon">
+                        <i class="material-icons">verified_user</i>
+                      </div>
+                      <div class="content">
+                        <div class="text">BIENVENIDO</div>
+                        <div class="number " data-speed="1" data-fresh-interval="20">VIP</div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="content">
-                    <div class="text">BIENVENIDO</div>
-                    <div class="number " data-speed="1" data-fresh-interval="20">VIP</div>
-                  </div>
-                </div>
-              </div>
-
               <?php else: ?>
-
-              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                <div class="info-box bg-orange hover-expand-effect">
-                  <div class="icon">
-                    <i class="material-icons">access_alarm</i>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <div class="info-box bg-orange hover-expand-effect">
+                      <div class="icon">
+                        <i class="material-icons">access_alarm</i>
+                      </div>
+                      <div class="content">
+                        <div class="text">FECHA FINAL DE MENSUALIDAD</div>
+                        <div class="number " data-speed="1" data-fresh-interval="20"><?php
+                            $factura_final = new DateTime( $factura->fecha_final, new DateTimeZone(TIMEZONE));
+                            echo $factura_final->format("Y-m-d"); ?></div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="content">
-                    <div class="text">FECHA FINAL DE MENSUALIDAD</div>
-                    <div class="number " data-speed="1" data-fresh-interval="20"><?php
-                        $factura_final = new DateTime( $factura->fecha_final, new DateTimeZone(TIMEZONE));
-                        echo $factura_final->format("Y-m-d"); ?></div>
-                  </div>
-                </div>
-              </div>
-
               <?php endif; ?>
-
           <?php endif; ?>
-
+        <?php endif; ?>
       </div>
-      <?php endif; ?>
 
       <div class="row clearfix">
 

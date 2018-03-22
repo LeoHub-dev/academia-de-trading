@@ -201,6 +201,12 @@
               <span>Ganancias</span>
             </a>
           </li>
+            <li>
+                <a href="<?= site_url('calendario'); ?>">
+                    <i class="material-icons col-indigo">date_range</i>
+                    <span>Calendario</span>
+                </a>
+            </li>
           <?php endif; ?>
 
           <?php if(count($calendario_pagos) == 0 && $info_usuario['data']->pago == 0) : ?> 

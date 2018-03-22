@@ -133,8 +133,8 @@ class CalendarioPago_model extends CI_Model
                     comisiones_diarias.cantidad,DATE_FORMAT(comisiones_diarias.fecha,"%Y-%m-%d") as fecha,usuarios_personas.nombre,
                     usuarios_personas.apellido,usuarios_data.usuario')
             ->from('comisiones_diarias')
-            ->join('usuarios_personas', 'usuarios_personas.id_persona = comisiones_diarias.id_usuario')
-            ->join('usuarios_data', 'usuarios_data.id_persona = comisiones_diarias.id_usuario')
+            ->join('usuarios_data', 'usuarios_data.id_usuario = comisiones_diarias.id_usuario')
+            ->join('usuarios_personas', 'usuarios_personas.id_persona = usuarios_data.id_persona')
             ->where('comisiones_diarias.pagada', '0')
             ->where('comisiones_diarias.estatus', 'A')
             ->order_by('comisiones_diarias.fecha', 'ASC')
@@ -151,6 +151,34 @@ class CalendarioPago_model extends CI_Model
         return $results;
     }
 
+    public function getPagosMensualAllUser()
+    {
+        $query = $this->db
+            ->select('comisiones_diarias.id_usuario,comisiones_diarias.id_comision,usuarios_personas.wallet_btc,
+                    usuarios_personas.wallet_ltc,usuarios_personas.wallet_bth,
+                    SUM(comisiones_diarias.cantidad) AS cantidad,
+                    DATE_FORMAT(comisiones_diarias.fecha,"%Y-%m-%d") as fecha,
+                    MONTH(fecha) AS mes, 
+                    usuarios_personas.nombre,
+                    usuarios_personas.apellido,usuarios_data.usuario')
+            ->from('comisiones_diarias')
+            ->join('usuarios_data', 'usuarios_data.id_usuario = comisiones_diarias.id_usuario')
+            ->join('usuarios_personas', 'usuarios_personas.id_persona = usuarios_data.id_persona')
+            ->where('comisiones_diarias.pagada', '0')
+            ->where('comisiones_diarias.estatus', 'A')
+            ->group_by(["id_usuario","YEAR(fecha), MONTH(fecha)"])
+            ->order_by('comisiones_diarias.fecha', 'ASC')
+            ->get()
+            ->result_object();
+
+        //echo json_encode($results);
+        /*echo "<pre>";
+        print_r($results);
+        echo "</pre>";
+        exit;*/
+        return $query;
+    }
+
     public function getPagosDiariosUser($idusuario)
     {
         $query = $this->db
@@ -158,8 +186,8 @@ class CalendarioPago_model extends CI_Model
                     comisiones_diarias.cantidad,comisiones_diarias.fecha,usuarios_personas.nombre,
                     usuarios_personas.apellido,usuarios_data.usuario')
             ->from('comisiones_diarias')
-            ->join('usuarios_personas', 'usuarios_personas.id_persona = comisiones_diarias.id_usuario')
-            ->join('usuarios_data', 'usuarios_data.id_persona = comisiones_diarias.id_usuario')
+            ->join('usuarios_data', 'usuarios_data.id_usuario = comisiones_diarias.id_usuario')
+            ->join('usuarios_personas', 'usuarios_personas.id_persona = usuarios_data.id_persona')
             ->where('comisiones_diarias.id_usuario', $idusuario)
             ->order_by('comisiones_diarias.fecha', 'ASC')
             ->get()

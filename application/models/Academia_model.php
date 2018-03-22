@@ -24,7 +24,7 @@ class Academia_model extends CI_Model
             {
                 if($this->debePagar($inf))
                 {
-                    if($inf->tipo != 3)
+                    if($inf->tipo != 3 || $inf->tipo != 5 || $inf->tipo != 6)
                     {
                         if($this->cantidadReferidosAccesibles($inf->id_usuario) >= 3)
                         {
@@ -457,9 +457,10 @@ class Academia_model extends CI_Model
     public function getUsesAll()
     {
         return $this->db
-            ->select('coinbase_invoice.tipo,usuarios_personas.nombre,usuarios_personas.apellido,usuarios_personas.id_persona')
+            ->select('coinbase_invoice.tipo,usuarios_personas.nombre,usuarios_personas.apellido,usuarios_personas.id_persona,usuarios_data.id_usuario')
             ->from('coinbase_invoice')
-            ->join('usuarios_personas', 'usuarios_personas.id_persona = coinbase_invoice.id_user')
+            ->join('usuarios_data', 'usuarios_data.id_usuario = coinbase_invoice.id_user')
+            ->join('usuarios_personas', 'usuarios_data.id_persona = usuarios_personas.id_persona')
             ->where('coinbase_invoice.status', '1')
             ->where('coinbase_invoice.tipo', '5')
             ->get()
@@ -475,7 +476,7 @@ class Academia_model extends CI_Model
         $array_users = [];
 
         foreach ($users as $value) {
-            $user = $this->getUsersMesMin($value->id_persona);
+            $user = $this->getUsersMesMin($value->id_usuario);
             if(count($user) > 0) {
                 $mes = $this->calcularMeses($user[0]->fecha);
                 //SI EL MES >= 6 ACTUALIZA EL ESTATUS DE TODOS LOS PAGOS A L
@@ -491,7 +492,7 @@ class Academia_model extends CI_Model
             }
             else
             {
-                $array_users[] = $value->id_persona;
+                $array_users[] = $value->id_usuario;
             }
         }
         /*foreach ($users_paquete as $user) {
@@ -535,13 +536,13 @@ class Academia_model extends CI_Model
 	      $query = $this->db
 				->select('coinbase_invoice.tipo,usuarios_personas.wallet_btc,usuarios_personas.wallet_ltc,
 						usuarios_personas.wallet_bth,usuarios_personas.nombre,usuarios_personas.apellido,
-						usuarios_data.usuario,usuarios_personas.id_persona')
+						usuarios_data.usuario,usuarios_personas.id_persona,usuarios_data.id_usuario')
 				->from('coinbase_invoice')
-				->join('usuarios_personas', 'usuarios_personas.id_persona = coinbase_invoice.id_user')
-				->join('usuarios_data', 'usuarios_data.id_persona = usuarios_personas.id_persona')
+                ->join('usuarios_data', 'usuarios_data.id_usuario = coinbase_invoice.id_user')
+				->join('usuarios_personas', 'usuarios_data.id_persona = usuarios_personas.id_persona')
 				->where('coinbase_invoice.status', '1')
 				->where('coinbase_invoice.tipo', $num)
-                ->where_in('usuarios_personas.id_persona', $usuarios)
+                ->where_in('usuarios_data.id_usuario', $usuarios)
 				->get()
 				->result_object();
 
@@ -554,7 +555,7 @@ class Academia_model extends CI_Model
         return $this->db->select('comisiones_diarias.id_usuario,comisiones_diarias.fecha,comisiones_diarias.razon,
         comisiones_diarias.cantidad,comisiones_diarias.pagada')
             ->from('comisiones_diarias')
-            ->join('usuarios_personas', 'usuarios_personas.id_persona = comisiones_diarias.id_usuario')
+            ->join('usuarios_data', 'usuarios_data.id_usuario = comisiones_diarias.id_usuario')
             ->where('comisiones_diarias.pagada', '1')
             ->where_in('comisiones_diarias.estatus', ['A','L'])
             ->where('comisiones_diarias.id_usuario', $id_usuario)

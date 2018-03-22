@@ -221,6 +221,11 @@ class Panel_model extends CI_Model
         return $this->db->update('comisiones_diarias', array('pagada' => 1, 'fecha_pagado' => date('Y-m-d H:m:s')), $data);
     }
 
+    public function confirmarPagoMesual($data)
+    {
+        return $this->db->update('comisiones_diarias', array('pagada' => 1, 'fecha_pagado' => date('Y-m-d H:m:s')), $data);
+    }
+
     public function eliminarIndicio($id)
     {
         $this->db->delete('indicios', array('id_indicio' => $id));

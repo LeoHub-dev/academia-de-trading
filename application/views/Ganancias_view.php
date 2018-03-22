@@ -53,7 +53,7 @@
             </div>
 
             <div class="row clearfix">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                 <?php if($info_usuario['data']->tipo != 5 && $info_usuario['data']->tipo != 6) : ?><div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="info-box bg-green hover-expand-effect">
                         <div class="icon">
                             <i class="material-icons">check</i>
@@ -76,6 +76,7 @@
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
             </div>
 
             <div class="row clearfix">

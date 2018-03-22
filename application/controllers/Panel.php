@@ -26,14 +26,17 @@ class Panel extends LH_Controller {
 
 	public function index()
 	{
-		$this->scope['titulo'] = "Panel";
-		$this->scope['lista_usuarios_admin'] = $this->Panel_model->obtenerUsuarios();
-		$this->scope['lista_pagos_admin'] = $this->Panel_model->listaPagos();
-		$this->scope['lista_indicios_admin'] = $this->Academia_model->obtenerIndicios();
-		$this->scope['lista_ganancias_admin'] = $this->Panel_model->listaGanancias();
-		$this->scope['lista_pagos_manual_admin'] = $this->Academia_model->listaPagosGeneral();
-		$this->scope['lista_pagos_manual_admin_paquete'] = $this->Academia_model->listaPagosGeneralPaquete(5);
-		$this->scope['confirmar_pagos_manual_admin_paquete'] = $this->CalendarioPago_model->getPagosDiariosAllUser();
+        $this->scope['titulo'] = "Panel";
+        $this->scope['lista_usuarios_admin'] = $this->Panel_model->obtenerUsuarios();
+        $this->scope['lista_pagos_admin'] = $this->Panel_model->listaPagos();
+        $this->scope['lista_indicios_admin'] = $this->Academia_model->obtenerIndicios();
+        $this->scope['lista_ganancias_admin'] = $this->Panel_model->listaGanancias();
+        $this->scope['lista_pagos_manual_admin'] = $this->Academia_model->listaPagosGeneral();
+        $this->scope['lista_pagos_manual_admin_paquete'] = $this->Academia_model->listaPagosGeneralPaquete(5);
+
+
+
+		$this->scope['confirmar_pagos_manual_admin_paquete'] = $this->CalendarioPago_model->getPagosMensualAllUser();
 
 		$this->load->view('Panel_view',$this->scope);
 	}
@@ -60,6 +63,20 @@ class Panel extends LH_Controller {
             {
                $this->Panel_model->confirmarPago(['id_comision' => $id,'id_usuario' => $idusuario]);
             }
+            echo response_good('Correcto','Pagada');
+        }
+    }
+
+    public function confirmar_pago_mensual()
+    {
+        if($this->input->server('REQUEST_METHOD') == 'POST')
+        {
+            $mes = $this->input->post('mes_pago');
+            $idusuario = $this->input->post('id_usuario');
+
+
+            $this->Panel_model->confirmarPagoMesual(['MONTH(fecha)' => $mes,'id_usuario' => $idusuario]);
+
             echo response_good('Correcto','Pagada');
         }
     }
@@ -344,7 +361,7 @@ class Panel extends LH_Controller {
 
 		foreach ($getListUser as $user) {
 			$this->Panel_model->establecerPagoDiario([
-				'id_usuario' => $user->id_persona,
+				'id_usuario' => $user->id_usuario,
 				'cantidad' => $monto,
 				'razon' => "Comision diaria del dia ".date('d-m-Y')." por el monto de {$monto}$",
 				'fecha' => $fechaPago.' '.date('H:m:s'),

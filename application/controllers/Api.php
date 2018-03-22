@@ -33,14 +33,13 @@ class Api extends LH_Controller {
 
 
 
-		public function d($cuenta = NULL)
+	public function d($cuenta = NULL)
 	{
 		if(!$this->Auth_model->estaConectado())
 		{
 			if($this->Auth_model->obtenerReferidoID($cuenta)['response'])
 	        {
 	            $this->session->set_userdata('ref',$cuenta);
-	            $this->session->set_userdata('usuario',$this->Auth_model->obtenerUsuarioID($cuenta));
 	        }
 	        
 			redirect('/trading' ,'refresh');
@@ -50,6 +49,43 @@ class Api extends LH_Controller {
 			redirect('/dashboard' ,'refresh');
 		}
 	}
+
+
+	public function i($cuenta = NULL)
+	{
+		if(!$this->Auth_model->estaConectado())
+		{
+			if($this->Auth_model->obtenerReferidoID($cuenta)['response'])
+	        {
+	            $this->session->set_userdata('ref',$cuenta);
+	        }
+	        
+			redirect('/inversionista' ,'refresh');
+		}
+		else
+		{
+			redirect('/dashboard' ,'refresh');
+		}
+	}
+
+	public function m($cuenta = NULL)
+	{
+		if(!$this->Auth_model->estaConectado())
+		{
+			if($this->Auth_model->obtenerReferidoID($cuenta)['response'])
+	        {
+	            $this->session->set_userdata('ref',$cuenta);
+	        }
+	        
+			redirect('/curso-master-nodes' ,'refresh');
+		}
+		else
+		{
+			redirect('/dashboard' ,'refresh');
+		}
+	}
+
+
 
 	public function getContactos()
 	{

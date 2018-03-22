@@ -220,7 +220,7 @@ $(function () {
 
       $.ajax({
           method: 'POST',
-             url: base_url + 'panel/confirmar_pago',
+             url: base_url + 'panel/confirmar_pago_mensual',
             data: data,
          success: function(res) {
             const response = JSON.parse(res);

@@ -65,8 +65,6 @@ class Auth extends LH_Controller {
 	        	}
 	        	else
 	        	{
-
-
 		        	$usuario = array(
 						'usuario' => $this->input->post('usuario'),
 						'password' => myHash($this->input->post('password'))
@@ -156,6 +154,11 @@ class Auth extends LH_Controller {
 		{
 			if($this->input->server('REQUEST_METHOD') == 'POST')
 			{
+				if($this->session->userdata('tipo_registro'))
+				{
+					$_POST['referido'] = 1;
+				}
+				
 				if ($this->form_validation->run('registro') == FALSE)
 	        	{
 	        		echo response_bad(validation_errors());
@@ -175,9 +178,23 @@ class Auth extends LH_Controller {
 					);
 
 					if($this->Auth_model->registrar_master_node($usuario))
+
+					$usuario_temp = array(
+						'nombre' => $this->input->post('nombre'),
+						'apellido' => $this->input->post('apellido'),
+						'fecha_nacimiento' => $this->input->post('fecha_nacimiento'),
+						'email' => $this->input->post('email'),
+						'telefono' => $this->input->post('telefono'),
+						'usuario' => $this->input->post('usuario'),
+						'referido' => $this->input->post('referido')
+					);
+
+					if($this->Auth_model->registrar($usuario))
 					{
+						//var_dump($this->Auth_model->ingresar($usuario));
 						$this->Auth_model->ingresar($usuario);
-						echo response_good('Correcto','Ya puede ingresar a su cuenta');
+
+						echo response_good('Correcto','Ya puede ingresar a su cuenta',array('data_usuario' => $usuario_temp));
 		        	}
 		        	else
 		        	{

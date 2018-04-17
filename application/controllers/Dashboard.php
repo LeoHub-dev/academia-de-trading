@@ -30,11 +30,15 @@ class Dashboard extends LH_Controller
 
 		$this->scope['calendario'] = $this->Academia_model->obtenerCalendario();
 
+		if( $this->scope['info_usuario']['data']->tipo == 6 || $this->scope['info_usuario']['data']->tipo == 5 ) :
+
 		$this->scope['ganancias'] = [
 		    'semanal' => $this->CalendarioPago_model->getGananciasSemanalUser($this->session->userdata('id_usuario')),
             'mensual' => $this->CalendarioPago_model->getGananciasMensualUser($this->session->userdata('id_usuario')),
               'total' => $this->CalendarioPago_model->getGananciasTotalUser($this->session->userdata('id_usuario'))
         ];
+
+    	endif;
 
         
         $this->scope['verificar'] = $this->Academia_model->checkUserPaquete($this->session->userdata('id_usuario'), 5);

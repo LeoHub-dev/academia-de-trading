@@ -260,9 +260,9 @@ class CalendarioPago_model extends CI_Model
             ->group_by(["id_usuario"])
             ->order_by('comisiones_diarias.fecha', 'ASC')
             ->get()
-            ->result_object()[0];
+            ->result_object();
 
-        return $query;
+        return (array_key_exists(0, $query)) ? $query[0] : NULL;
     }
 
     public function getGananciasMensualUser($idusuario)
@@ -272,9 +272,9 @@ class CalendarioPago_model extends CI_Model
             ->group_by(["id_usuario"])
             ->order_by('comisiones_diarias.fecha', 'ASC')
             ->get()
-            ->result_object()[0];
+            ->result_object();
 
-        return $query;
+        return (array_key_exists(0, $query)) ? $query[0] : NULL;
     }
 
     public function getGananciasTotalUser($idusuario)
@@ -284,8 +284,8 @@ class CalendarioPago_model extends CI_Model
                     ->group_by(["id_usuario"])
                     ->order_by('comisiones_diarias.fecha', 'ASC')
                     ->get()
-                    ->result_object()[0];
-        return $query;
+                    ->result_object();
+        return (array_key_exists(0, $query)) ? $query[0] : NULL;
     }
 
     public function ganancias($idusuario)

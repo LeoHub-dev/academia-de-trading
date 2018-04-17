@@ -161,8 +161,8 @@ class Coinbase
             $coinbase_invoice = array(
                'id_user' => $this->id_user,
                'tipo' => $this->tipo,
-               'total_to_pay' => $this->usdToBtc(260),
-               'usd' => 260,
+               'total_to_pay' => $this->usdToBtc(110),
+               'usd' => 110,
                'moneda' => $this->moneda,
                'id_factura' => $factura->id_factura
             );
@@ -173,9 +173,9 @@ class Coinbase
             $coinbase_invoice = array(
                'id_user' => $this->id_user,
                'tipo' => $this->tipo,
-               'usd' => 300,
+               'usd' => 160,
                'moneda' => $this->moneda,
-               'total_to_pay' => $this->usdToBtc(300),
+               'total_to_pay' => $this->usdToBtc(160),
                'id_factura' => $factura->id_factura
             );
 
@@ -213,30 +213,7 @@ class Coinbase
                 'id_factura' => NULL
             );
         }
-        else if($this->tipo == 6)
-        {
-            $coinbase_invoice = array(
-               'id_user' => $this->id_user,
-               'tipo' => $this->tipo,
-               'usd' => 497,
-               'moneda' => $this->moneda,
-               'total_to_pay' => $this->usdToBtc(497),
-               'id_factura' => NULL
-            );
 
-        }
-        else if($this->tipo == 7)
-        {
-            $coinbase_invoice = array(
-               'id_user' => $this->id_user,
-               'tipo' => $this->tipo,
-               'usd' => 2000,
-               'moneda' => $this->moneda,
-               'total_to_pay' => $this->usdToBtc(2000),
-               'id_factura' => NULL
-            );
-
-        }
 
         $coinbase_invoice_search = array(
             'id_user' => $this->id_user,

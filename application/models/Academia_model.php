@@ -551,6 +551,133 @@ class Academia_model extends CI_Model
                     ->result_object();
     }
 
+    public function comprarPaquete($id_paquete)
+    {
+        //$usuario = $this->Auth_model->obtenerUsuarioID($this->session->userdata('id_usuario'))['data'];
+
+        $saldo = $this->Saldo_model->obtenerSaldo($this->session->userdata('id_usuario'));
+
+        if($id_paquete == 1)
+        {
+            
+            if($saldo >= 50)
+            {
+                $this->Auth_model->activarUsuario($this->session->userdata('id_usuario'));
+                $this->marcarPagadoFactura($this->session->userdata('id_usuario'));
+                $this->verificarMensualidad();
+                $this->Saldo_model->removerSaldo($this->session->userdata('id_usuario'),50,"Compra paquete Nº".$id_paquete);
+
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+                
+        }
+        else if($id_paquete == 3)
+        {
+
+            if($saldo >= 150)
+            {
+
+                $this->Auth_model->matrizUsuario($this->session->userdata('id_usuario'));
+                //Agrego a la Matriz
+                $this->Matriz_model->agregarCuentaMatriz($this->session->userdata('id_usuario'));
+
+                $this->Auth_model->activarUsuario($this->session->userdata('id_usuario'));
+                $this->Saldo_model->removerSaldo($this->session->userdata('id_usuario'),150,"Compra paquete Nº".$id_paquete);
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+
+            
+        }
+        else if($id_paquete == 4)
+        {
+            if($saldo >= 200){
+
+                $this->Auth_model->matrizUsuario($this->session->userdata('id_usuario'));
+                //Agrego a la Matriz
+                //Agrego a los Circulos
+                $this->Matriz_model->agregarCuentaMatriz($this->session->userdata('id_usuario'));
+                $this->Matriz_model->agregarCuentaCirculo($this->session->userdata('id_usuario'));
+                $this->Auth_model->activarUsuario($this->session->userdata('id_usuario'));
+
+                $this->Saldo_model->removerSaldo($this->session->userdata('id_usuario'),200,"Compra paquete Nº".$id_paquete);
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+            
+        }
+        else if($id_paquete == 5)
+        {
+            if($saldo >= 1500){
+                $this->Auth_model->activarUsuario($this->session->userdata('id_usuario'));
+                $this->Saldo_model->removerSaldo($this->session->userdata('id_usuario'),1500,"Compra paquete Nº".$id_paquete);
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+        
+        }
+        else if($id_paquete == 6)
+        {
+            if($saldo >= 500){
+                $this->Auth_model->activarUsuario($this->session->userdata('id_usuario'));
+                $this->Saldo_model->removerSaldo($this->session->userdata('id_usuario'),500,"Compra paquete Nº".$id_paquete);
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+        }
+        else if($id_paquete == 7)
+        {
+            if($saldo >= 2000){
+                $this->Auth_model->activarUsuario($this->session->userdata('id_usuario'));
+                $this->Saldo_model->removerSaldo($this->session->userdata('id_usuario'),2000,"Compra paquete Nº".$id_paquete);
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+        }
+        else if($id_paquete == 8)
+        {
+
+            if($saldo >= 1000){
+
+                $this->Auth_model->matrizUsuario($this->session->userdata('id_usuario'));
+                //Agrego a la Matriz
+                $this->Matriz_Pro_model->agregarCuentaMatriz($this->session->userdata('id_usuario'));
+
+                $this->Auth_model->activarUsuario($this->session->userdata('id_usuario'));
+
+                $this->Saldo_model->removerSaldo($this->session->userdata('id_usuario'),1000,"Compra paquete Nº".$id_paquete);
+                return TRUE;
+            }
+            else
+            {
+                return FALSE;
+            }
+
+            
+        }
+
+        return FALSE;
+    }
+
     public function __get($var)
     {
         return get_instance()->$var;

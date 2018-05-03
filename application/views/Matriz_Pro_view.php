@@ -56,7 +56,7 @@
                         <div class="body">
                             <img src="https://i.imgur.com/eRlY8fH.jpg" class="img-responsive">
                             <div class="chart" id="matriz_nivel_1"></div>
-                            <img src="https://i.imgur.com/HzMtBK7.jpg" style="width: 100%;" class="img-responsive">
+                            <img src="https://i.imgur.com/a4r6tKu.jpg" style="width: 100%;" class="img-responsive">
 
                         </div>
                     </div>
@@ -71,7 +71,7 @@
     <?php include_once 'modules/Scripts.php' ; ?>
     <script src="<?= asset_url(); ?>plugins/treant/raphael.js"></script>
     <script src="<?= asset_url(); ?>plugins/treant/Treant.js"></script>
-    <script src="<?= site_url('api/obtener_matriz/'); ?>"></script>
+    <script src="<?= site_url('api/obtener_matriz_pro/'); ?>"></script>
 
     <script>
 

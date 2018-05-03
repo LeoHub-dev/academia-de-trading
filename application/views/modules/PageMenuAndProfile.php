@@ -107,7 +107,16 @@
             <li>
               <a href="<?= site_url('matriz'); ?>">
                 <i class="material-icons col-red">call_split</i>
-                <span>Matriz</span>
+                <span>Matriz $100</span>
+              </a>
+            </li>
+          <?php endif; ?>
+
+          <?php if($this->Matriz_Pro_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
+            <li>
+              <a href="<?= site_url('matrizpro'); ?>">
+                <i class="material-icons col-red">call_split</i>
+                <span>Matriz $1000</span>
               </a>
             </li>
           <?php endif; ?>
@@ -142,24 +151,23 @@
           <?php endif; ?>
 
 
-          <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL || $info_usuario['data']->tipo == 0) : ?>
+          
             <li>
               <a href="<?= site_url('pago'); ?>">
                 <i class="material-icons col-light-blue">attach_money</i>
-                <span>Pagar membresia</span>
+                <span>Recargar Saldo</span>
               </a>
             </li>
-          <?php endif; ?>
 
-
-          <?php if($this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) == NULL) : ?>
             <li>
-              <a href="<?= site_url('pago/multinivel'); ?>">
+              <a href="<?= site_url('planes'); ?>">
                 <i class="material-icons col-light-blue">attach_money</i>
-                <span>Pagar Entrada</span>
+                <span>Compra de planes</span>
               </a>
             </li>
-          <?php endif; ?>
+         
+
+
 
 
           <?php if($info_usuario['data']->pago == 1) : ?>
@@ -209,16 +217,19 @@
             </li>
           <?php endif; ?>
 
-          <?php if(count($calendario_pagos) == 0 && $info_usuario['data']->pago == 0) : ?> 
-
-            <li>
-              <a href="<?= site_url('pago/multinivel'); ?>">
+          <li>
+              <a href="<?= site_url('pago'); ?>">
                 <i class="material-icons col-light-blue">attach_money</i>
-                <span>Pagar Entrada</span>
+                <span>Recargar Saldo</span>
               </a>
             </li>
 
-          <?php endif; ?>
+            <li>
+              <a href="<?= site_url('planes'); ?>">
+                <i class="material-icons col-light-blue">attach_money</i>
+                <span>Compra de planes</span>
+              </a>
+            </li>
 
         <?php elseif($info_usuario['data']->tipo == 6) : ?>
 
@@ -248,17 +259,19 @@
             </ul>
           </li>
 
-          <?php if($info_usuario['data']->pago == 0) : ?>
-
-
-            <li>
-              <a href="<?= site_url('pago/multinivel'); ?>">
+          <li>
+              <a href="<?= site_url('pago'); ?>">
                 <i class="material-icons col-light-blue">attach_money</i>
-                <span>Pagar Entrada</span>
+                <span>Recargar Saldo</span>
               </a>
             </li>
 
-          <?php endif; ?>
+            <li>
+              <a href="<?= site_url('planes'); ?>">
+                <i class="material-icons col-light-blue">attach_money</i>
+                <span>Compra de planes</span>
+              </a>
+            </li>
 
         <?php endif; ?>
 

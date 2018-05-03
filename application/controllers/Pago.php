@@ -27,7 +27,8 @@ class Pago extends LH_Controller {
 		/*}
 		else
 		{*/
-			$this->scope['titulo'] = "Paga tu inicial";
+			$this->scope['saldo'] = $this->Saldo_model->obtenerSaldo($this->session->userdata('id_usuario'));
+			$this->scope['titulo'] = "Recarga Saldo en tu cuenta";
 			//$this->scope['lista_monedas'] = $this->coinpayments->obtenerMonedas();
 			$this->load->view('Pago_view',$this->scope);
 		/*}*/

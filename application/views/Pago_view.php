@@ -51,14 +51,26 @@
             </div>
 
         </div>
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                      <div class="info-box bg-green hover-expand-effect">
+                          <div class="icon">
+                              <i class="material-icons">attach_money</i>
+                          </div>
+                          <div class="content">
+                              <div class="text">Saldo Actual</div>
+                              <div class="number " data-from="0" data-to="<?= $saldo; ?>" data-speed="1" data-fresh-interval="20" class="btc-pagado"><?= $saldo; ?></div>
+                          </div>
+                      </div>
+                </div>
+            </div>
 
-            <?php if($info_usuario['data']->tipo != 5 && $info_usuario['data']->tipo != 6) : ?>
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Pago mensual <small>Realiza tu pago de 40$ para mantenerte dentro de la academia</small>
+                                Recarga tu saldo <small>Recuerda solo enviar las monedas respectivas segun selecciones</small>
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
@@ -102,7 +114,7 @@
 
                                 <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;"> 
                                     
-                                        <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="1">Pagar con</button> 
+                                        <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="1">Recargar con </button> 
                                     
  
                                         <select class="form-control show-tick" id="moneda_pago"> 
@@ -115,25 +127,11 @@
                                 </div>
                             </div>
                             <form style="display: none">
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="donar">Donar</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="input-group">
-                                            <div class="form-line">
-                                                <input type="text" id="donar" class="form-control btc-monto">
-                                            </div>
-                                            <span class="input-group-addon moneda-text">
-                                                BTC
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
+                     
 
                                 <div class="row clearfix">
                                     <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="direccion">A esta wallet</label>
+                                        <label for="direccion">Enviar tu recarga a esta wallet</label>
                                     </div>
                                     <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
                                         <div class="form-group">
@@ -144,354 +142,13 @@
                                     </div>
                                 </div>
 
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="pagado">Pagado</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" id="pagado" class="form-control btc-pagado" value="0">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php elseif($info_usuario['data']->tipo != 5) : ?>
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Pago inversion <small>Realiza tu pago de 1500$ para la inversion de 6 meses</small>
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="loader-container text-center">
-                                <div class="icon">
-                                    <div class="preloader">
-                                        <div class="spinner-layer pl-black">
-                                            <div class="circle-clipper left">
-                                                <div class="circle"></div>
-                                            </div>
-                                            <div class="circle-clipper right">
-                                                <div class="circle"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="title">Cargando</div>
-                            </div>
-                            <div class="row clearfix">
-                                <!--<div class="col-md-12" >
-                                  <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="1">Donar con BTC</button>
-                                </div>-->
-
-                                <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;"> 
-                                    
-                                        <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="5">Pagar con</button> 
-                                    
- 
-                                        <select class="form-control show-tick" id="moneda_pago"> 
-                                            <option value="BTC">BTC (Bitcoin)</option>
-                                            <option value="LTC">LTC (Litecoin)</option>
-                                            <option value="BCH">BCH (BitcoinCash)</option>
-                                        </select> 
-                                     
- 
-                                </div>
-                            </div>
-                            <form style="display: none">
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="donar">Donar</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="input-group">
-                                            <div class="form-line">
-                                                <input type="text" id="donar" class="form-control btc-monto">
-                                            </div>
-                                            <span class="input-group-addon moneda-text">
-                                                BTC
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="direccion">A esta wallet</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" id="direccion" class="form-control btc-address">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="pagado">Pagado</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" id="pagado" class="form-control btc-pagado" value="0">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 
                             </form>
-
-               
                         </div>
                     </div>
                 </div>
             </div>
-            <?php elseif($info_usuario['data']->tipo != 6) : ?>
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Pago Masternodos 497$<small>Realiza tu pago de 497$ para tener acceso al tutorial de masternodos</small>
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="loader-container text-center">
-                                <div class="icon">
-                                    <div class="preloader">
-                                        <div class="spinner-layer pl-black">
-                                            <div class="circle-clipper left">
-                                                <div class="circle"></div>
-                                            </div>
-                                            <div class="circle-clipper right">
-                                                <div class="circle"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="title">Cargando</div>
-                            </div>
-                            <div class="row clearfix">
-                                <!--<div class="col-md-12" >
-                                   
-                                        <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="1">Donar con BTC</button>
-                                   
-
-                                        
-                                    
-
-                                </div>-->
-
-                                <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;"> 
-                                    
-                                        <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="6">Pagar con</button> 
-                                    
- 
-                                        <select class="form-control show-tick" id="moneda_pago"> 
-                                            <option value="BTC">BTC (Bitcoin)</option>
-                                            <option value="LTC">LTC (Litecoin)</option>
-                                            <option value="BCH">BCH (BitcoinCash)</option>
-                                        </select> 
-                                     
- 
-                                </div>
-                            </div>
-                            <form style="display: none">
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="donar">Donar</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="input-group">
-                                            <div class="form-line">
-                                                <input type="text" id="donar" class="form-control btc-monto">
-                                            </div>
-                                            <span class="input-group-addon moneda-text">
-                                                BTC
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="direccion">A esta wallet</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" id="direccion" class="form-control btc-address">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="pagado">Pagado</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" id="pagado" class="form-control btc-pagado" value="0">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </form>
-
-               
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                Pago 2000$ <small>Realiza tu pago de 2000$ para el tutorial de masternodos y soporte tecnico especializado para la preparacion de los mismos</small>
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Another action</a></li>
-                                        <li><a href="javascript:void(0);" class=" waves-effect waves-block">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="loader-container text-center">
-                                <div class="icon">
-                                    <div class="preloader">
-                                        <div class="spinner-layer pl-black">
-                                            <div class="circle-clipper left">
-                                                <div class="circle"></div>
-                                            </div>
-                                            <div class="circle-clipper right">
-                                                <div class="circle"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="title">Cargando</div>
-                            </div>
-                            <div class="row clearfix">
-                                <!--<div class="col-md-12" >
-                                   
-                                        <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="1">Donar con BTC</button>
-                                   
-
-                                        
-                                    
-
-                                </div>-->
-
-                                <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;"> 
-                                    
-                                        <button type="button" class="btn btn-primary waves-effect pagar-con-btc" id-tipo="7">Pagar con</button> 
-                                    
- 
-                                        <select class="form-control show-tick" id="moneda_pago"> 
-                                            <option value="BTC">BTC (Bitcoin)</option>
-                                            <option value="LTC">LTC (Litecoin)</option>
-                                            <option value="BCH">BCH (BitcoinCash)</option>
-                                        </select> 
-                                     
- 
-                                </div>
-                            </div>
-                            <form style="display: none">
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="donar">Donar</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="input-group">
-                                            <div class="form-line">
-                                                <input type="text" id="donar" class="form-control btc-monto">
-                                            </div>
-                                            <span class="input-group-addon moneda-text">
-                                                BTC
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="direccion">A esta wallet</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" id="direccion" class="form-control btc-address">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row clearfix">
-                                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
-                                        <label for="pagado">Pagado</label>
-                                    </div>
-                                    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
-                                        <div class="form-group">
-                                            <div class="form-line">
-                                                <input type="text" id="pagado" class="form-control btc-pagado" value="0">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </form>
-
-               
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php endif; ?>
+            
             
         </div>
     </section>

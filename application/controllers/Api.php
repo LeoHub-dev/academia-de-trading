@@ -161,6 +161,24 @@ class Api extends LH_Controller {
 		echo json_encode($this->Matriz_model->obtenerHijos('05208681'), true);*/
 	}
 
+	public function obtener_matriz_pro()
+	{
+		if(!$this->session->userdata('id_usuario'))
+		{
+			header("Content-type: application/x-javascript");
+		}
+		else
+		{
+			
+
+			header("Content-type: application/x-javascript");
+			echo "var chart_config = ".json_encode($this->Matriz_Pro_model->crearMatriz(@$this->Matriz_Pro_model->obtenerMatrizActiva($this->session->userdata('id_usuario'))->id_matriz)).";";
+		}
+		
+		/*header('Content-Type: application/json');
+		echo json_encode($this->Matriz_model->obtenerHijos('05208681'), true);*/
+	}
+
 	public function obtener_circulo()
 	{
 		if(!$this->session->userdata('id_usuario'))

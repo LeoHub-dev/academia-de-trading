@@ -132,5 +132,5 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('Auth_model', 'Academia_model', 'Matriz_model', 'Contacto_model', 'Panel_model','CalendarioPago_model');
+$autoload['model'] = array('Auth_model', 'Academia_model', 'Matriz_model', 'Matriz_Pro_model', 'Contacto_model', 'Panel_model','CalendarioPago_model', 'Saldo_model');
 

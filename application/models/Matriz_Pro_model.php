@@ -2,7 +2,7 @@
 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Matriz_model extends CI_Model {
+class Matriz_Pro_model extends CI_Model {
 
 
 
@@ -41,7 +41,7 @@ class Matriz_model extends CI_Model {
 
         $this->db->where('completa',1);
 
-        $query = $this->db->get('matriz');
+        $query = $this->db->get('pro_matriz');
         
         if($query->num_rows() > 0)
         {
@@ -63,7 +63,7 @@ class Matriz_model extends CI_Model {
         $this->db->where('id_usuario',$id_usuario);
         $this->db->where('completa',1);
 
-        $query = $this->db->get('matriz');
+        $query = $this->db->get('pro_matriz');
         
         if($query->num_rows() > 0)
         {
@@ -80,10 +80,10 @@ class Matriz_model extends CI_Model {
     {
         $this->db->where('id_matriz',$id_matriz);
 
-        $this->db->join('usuarios_data', 'usuarios_data.id_usuario = matriz.id_usuario');
+        $this->db->join('usuarios_data', 'usuarios_data.id_usuario = pro_matriz.id_usuario');
         $this->db->join('usuarios_personas', 'usuarios_data.id_persona = usuarios_personas.id_persona', 'left');
 
-        $query_cuentas = $this->db->get('matriz');
+        $query_cuentas = $this->db->get('pro_matriz');
 
         if($query_cuentas->num_rows() > 0)
         {
@@ -101,11 +101,11 @@ class Matriz_model extends CI_Model {
     public function obtenerRaizMatriz()
     {
 
-        $this->db->join('usuarios_data', 'usuarios_data.id_usuario = matriz.id_usuario');
+        $this->db->join('usuarios_data', 'usuarios_data.id_usuario = pro_matriz.id_usuario');
         $this->db->join('usuarios_personas', 'usuarios_data.id_persona = usuarios_personas.id_persona', 'left');
 
 
-        $query_cuentas = $this->db->get('matriz');
+        $query_cuentas = $this->db->get('pro_matriz');
 
         if($query_cuentas->num_rows() > 0)
         {
@@ -125,12 +125,12 @@ class Matriz_model extends CI_Model {
 
         $this->db->where('completa',0);
 
-        $this->db->where('matriz.id_usuario',$id_usuario);
+        $this->db->where('pro_matriz.id_usuario',$id_usuario);
 
-        $this->db->join('usuarios_data', 'usuarios_data.id_usuario = matriz.id_usuario');
+        $this->db->join('usuarios_data', 'usuarios_data.id_usuario = pro_matriz.id_usuario');
         $this->db->join('usuarios_personas', 'usuarios_data.id_persona = usuarios_personas.id_persona', 'left');
 
-        $query_cuentas = $this->db->get('matriz');
+        $query_cuentas = $this->db->get('pro_matriz');
 
         if($query_cuentas->num_rows() > 0)
         {
@@ -149,7 +149,7 @@ class Matriz_model extends CI_Model {
     {
         $this->db->where('matriz_hasta',$id_inicio);
 
-        $query_hijos = $this->db->get('matriz_relaciones');
+        $query_hijos = $this->db->get('pro_matriz_relaciones');
         
         $h_n = 0;
 
@@ -196,7 +196,7 @@ class Matriz_model extends CI_Model {
 
         $this->db->where('matriz_hasta',$id_busqueda);
 
-        $query_nietos = $this->db->get('matriz_relaciones');
+        $query_nietos = $this->db->get('pro_matriz_relaciones');
 
 
         $nivel++;
@@ -248,7 +248,7 @@ class Matriz_model extends CI_Model {
            'matriz_hasta' => $id_matriz_hasta
         );
 
-        $query = $this->db->insert('matriz_relaciones',$data); 
+        $query = $this->db->insert('pro_matriz_relaciones',$data); 
 
         if($query)
         {
@@ -278,7 +278,7 @@ class Matriz_model extends CI_Model {
 
             $this->db->where('matriz_hasta',$nodo);
 
-            $query_sons = $this->db->get('matriz_relaciones');
+            $query_sons = $this->db->get('pro_matriz_relaciones');
 
 
 
@@ -318,7 +318,7 @@ class Matriz_model extends CI_Model {
            'temp' => $temp
         );
 
-        $query = $this->db->insert('matriz',$data);
+        $query = $this->db->insert('pro_matriz',$data);
 
 
         if($query)
@@ -335,7 +335,6 @@ class Matriz_model extends CI_Model {
             {
                 return $matriz_id;
             }
-            
         }
         else
         {
@@ -367,22 +366,32 @@ class Matriz_model extends CI_Model {
 
                 if($father_account->temp == NULL)
                 {
-
-                    /*if($this->Matriz_model->obtenerCirculoActivo($father_account->id_usuario) == NULL)
+                    if(count($this->obtenerMatrizCompletas($father_account->id_usuario)) != 1)
                     {
-                        $this->Academia_model->agregarGanancia($father_account->id_usuario,210,"Pago por Completar Matriz");
-                        $this->Academia_model->agregarGanancia($father_account->id_usuario,40,"Pago mensualidad",1);
-                        $this->Academia_model->agregarGanancia($father_account->id_usuario,250,"Nueva Matriz",1);
-                        $this->agregarCuentaCirculo($father_account->id_usuario);
-                        $this->Academia_model->marcarPagadoFactura($father_account->id_usuario);
+                        /*if($this->Matriz_model->obtenerCirculoActivo($father_account->id_usuario) == NULL)
+                        {
+                            $this->Academia_model->agregarGanancia($father_account->id_usuario,950,"Pago por Completar Matriz");
+                            $this->Academia_model->agregarGanancia($father_account->id_usuario,50,"Pago mensualidad",1);
+                            $this->Academia_model->agregarGanancia($father_account->id_usuario,1000,"Nueva Matriz",1);
+                            $this->agregarCuentaCirculo($father_account->id_usuario);
+                            $this->Academia_model->marcarPagadoFactura($father_account->id_usuario);
+                        }
+                        else
+                        {*/
+                            $this->Academia_model->agregarGanancia($father_account->id_usuario,1000,"Pago por Completar Matriz");
+                            $this->Academia_model->agregarGanancia($father_account->id_usuario,1000,"Nueva Matriz",1);
+                        //}
                     }
                     else
-                    {*/
-                        $this->Academia_model->agregarGanancia($father_account->id_usuario,100,"Pago por Completar Matriz");
-                        $this->Academia_model->agregarGanancia($father_account->id_usuario,150,"Nueva Matriz",1);
-                    //}
-
+                    {
+                        $this->Academia_model->agregarGanancia($father_account->id_usuario,500,"Pago por Completar Matriz");
+                        $this->Academia_model->agregarGanancia($father_account->id_usuario,500,"Cobro academia",1);
+                        $this->Academia_model->agregarGanancia($father_account->id_usuario,1000,"Nueva Matriz",1);
+                    }
+                    
                 }
+
+                
 
                 $this->agregarCuentaMatriz($father_account->id_usuario);
                 
@@ -410,6 +419,44 @@ class Matriz_model extends CI_Model {
 
             $this->asignarRelacionDerrameMatriz($id_matriz,$matriz_padre);
 
+
+            /*$father = $this->obtenerPadreMatriz($id_matriz,1);
+
+            if($father && $this->matrizEstaLista($father))
+            {
+
+                $this->matriz_array = NULL;
+
+                $father_account = $this->obtenerCuentaMatriz($father);
+
+                if($this->Matriz_model->obtenerCirculoActivo($father_account->id_usuario) == NULL)
+                {
+                    $this->Academia_model->agregarGanancia($father_account->id_usuario,210,"Pago por Completar Matriz");
+                    $this->Academia_model->agregarGanancia($father_account->id_usuario,40,"Pago mensualidad",1);
+                    $this->Academia_model->agregarGanancia($father_account->id_usuario,250,"Nueva Matriz",1);
+                    $this->agregarCuentaCirculo($father_account->id_usuario);
+                    $this->Academia_model->marcarPagadoFactura($father_account->id_usuario);
+                }
+                else
+                {
+                    $this->Academia_model->agregarGanancia($father_account->id_usuario,250,"Pago por Completar Matriz");
+                    $this->Academia_model->agregarGanancia($father_account->id_usuario,250,"Nueva Matriz",1);
+                }
+
+                $this->agregarCuentaMatriz($father_account->id_usuario);
+                
+
+
+                
+
+                
+                $this->marcarMatrizComoCompletada($father);
+            }
+            else
+            {
+                $this->matriz_array = NULL;
+            }*/
+
         }
 
 
@@ -421,7 +468,7 @@ class Matriz_model extends CI_Model {
         { 
             $this->db->where('matriz_desde',$id_matriz);
 
-            $query_father = $this->db->get('matriz_relaciones');
+            $query_father = $this->db->get('pro_matriz_relaciones');
 
             if($query_father->num_rows() > 0)
             {
@@ -453,7 +500,7 @@ class Matriz_model extends CI_Model {
 
         $this->db->where('matriz_hasta',$id_matriz_inicio);
 
-        $query_hijos = $this->db->get('matriz_relaciones');
+        $query_hijos = $this->db->get('pro_matriz_relaciones');
 
         
         if($query_hijos->num_rows() > 0)
@@ -593,7 +640,7 @@ class Matriz_model extends CI_Model {
 
         $this->db->where('circulo_hasta',$circulo->id_circulo);
 
-        $query_hijos = $this->db->get('circulo_relaciones');
+        $query_hijos = $this->db->get('pro_circulo_relaciones');
 
         $n = 0;
 
@@ -618,7 +665,7 @@ class Matriz_model extends CI_Model {
 
         $this->db->where('circulo_hasta',$circulo->id_circulo);
 
-        $query_hijos = $this->db->get('circulo_relaciones');
+        $query_hijos = $this->db->get('pro_circulo_relaciones');
 
         $n = 0;
 
@@ -628,7 +675,7 @@ class Matriz_model extends CI_Model {
             {
                 $this->db->where('circulo_hasta',$relacion_hijo->circulo_desde);
 
-                $query_nietos = $this->db->get('circulo_relaciones');
+                $query_nietos = $this->db->get('pro_circulo_relaciones');
 
                 if($query_nietos->num_rows() > 0)
                 {
@@ -651,7 +698,7 @@ class Matriz_model extends CI_Model {
     {
         $this->db->where('circulo_hasta',$id_inicio);
 
-        $query_hijos = $this->db->get('circulo_relaciones');
+        $query_hijos = $this->db->get('pro_circulo_relaciones');
 
         $h_n = 0;
 
@@ -707,7 +754,7 @@ class Matriz_model extends CI_Model {
 
         $this->db->where('circulo_hasta',$id_busqueda);
 
-        $query_nietos = $this->db->get('circulo_relaciones');
+        $query_nietos = $this->db->get('pro_circulo_relaciones');
         
         $nivel++;
 
@@ -835,7 +882,7 @@ class Matriz_model extends CI_Model {
 
             $this->db->where('circulo_hasta',$nodo);
 
-            $query_hijos = $this->db->get('circulo_relaciones');
+            $query_hijos = $this->db->get('pro_circulo_relaciones');
 
             if($query_hijos->num_rows() > 0)
             {
@@ -869,7 +916,7 @@ class Matriz_model extends CI_Model {
            'id_usuario' => $id_usuario
         );
 
-        $query = $this->db->insert('circulo',$data);
+        $query = $this->db->insert('pro_circulo',$data);
 
         if($query)
         {
@@ -969,7 +1016,7 @@ class Matriz_model extends CI_Model {
         { 
             $this->db->where('circulo_desde',$id_circulo);
 
-            $query_padre = $this->db->get('circulo_relaciones');
+            $query_padre = $this->db->get('pro_circulo_relaciones');
            
             if($query_padre->num_rows() > 0)
             {

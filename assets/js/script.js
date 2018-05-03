@@ -183,7 +183,7 @@ $(function () {
         e.preventDefault();
         e.stopImmediatePropagation();
 
-        if (confirm('¿ Esta seguro que desea pagar ?  \n Debe de tener su billetera a mano y con saldo suficiente')) {
+        if (confirm('¿ Esta seguro que desea recargar ?  \n Debe de tener su billetera a mano')) {
         } else {
             return;
         }
@@ -215,10 +215,10 @@ $(function () {
 
                             console.log(payment);
 
-                            if(payment.amount_paid >= data.payment_amount)
+                            /*if(payment.amount_paid >= data.payment_amount)
                             {
                                 location.reload();
-                            }
+                            }*/
                             $(pagos_con_btc).find('.btc-pagado').val(payment.amount_paid);
 
                         },"json").fail(function(xhr, status, error) {

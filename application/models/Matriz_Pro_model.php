@@ -415,9 +415,13 @@ class Matriz_Pro_model extends CI_Model {
         }
         else
         {
-            $matriz_padre = $this->agregarCuentaMatriz($account->referido,1);
+            if($account->referido != NULL)
+            {
+                $matriz_padre = $this->agregarCuentaMatriz($account->referido,1);
 
-            $this->asignarRelacionDerrameMatriz($id_matriz,$matriz_padre);
+                $this->asignarRelacionDerrameMatriz($id_matriz,$matriz_padre);
+            }
+            
 
 
             /*$father = $this->obtenerPadreMatriz($id_matriz,1);

@@ -40,7 +40,7 @@ class Planes extends LH_Controller {
 		else
 		{
 			$this->session->set_flashdata('resultado', FALSE);
-			$this->session->set_flashdata('respuesta', 'Saldo insuficiente o el Paquete no existe');
+			$this->session->set_flashdata('respuesta', 'Saldo insuficiente');
             redirect('planes', 'refresh');
 		}
 	}

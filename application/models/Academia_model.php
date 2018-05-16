@@ -656,7 +656,7 @@ class Academia_model extends CI_Model
         else if($id_paquete == 8)
         {
 
-            if($saldo >= 1000){
+            if($saldo >= 500){
 
                 $this->Auth_model->matrizUsuario($this->session->userdata('id_usuario'));
                 //Agrego a la Matriz
@@ -664,7 +664,7 @@ class Academia_model extends CI_Model
 
                 $this->Auth_model->activarUsuario($this->session->userdata('id_usuario'));
 
-                $this->Saldo_model->removerSaldo($this->session->userdata('id_usuario'),1000,"Compra paquete Nº".$id_paquete);
+                $this->Saldo_model->removerSaldo($this->session->userdata('id_usuario'),500,"Compra paquete Nº".$id_paquete);
                 return TRUE;
             }
             else

@@ -73,37 +73,7 @@
         <?php endif; ?>
 
         <?php if($info_usuario['data']->tipo != 5 && $info_usuario['data']->tipo != 6) : ?>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <div class="card">
-            <div class="header text-center">
-              <h2>
-                Mensualidad Academia ($50)
-              </h2>
-             
-            </div>
-            <div class="body">
-              <div class="loader-container text-center">
-                <div class="icon">
-                    <div class="preloader">
-                        <div class="spinner-layer pl-black">
-                            <div class="circle-clipper left">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="circle-clipper right">
-                                <div class="circle"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="title">Cargando</div>
-              </div>
-              <div class="row clearfix text-center">
-                <a href="<?= site_url('planes/comprar_paquete/1') ?>" class="btn btn-primary m-t-15 waves-effect">Comprar</a>
-              </div>
-                    
-            </div>
-          </div>
-        </div>
+        
 
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <div class="card">
@@ -137,43 +107,14 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <div class="card">
-            <div class="header text-center">
-              <h2>
-                Plan Matriz $100 + Academia ($200)
-              </h2>
-             
-            </div>
-            <div class="body">
-              <div class="loader-container text-center">
-                <div class="icon">
-                    <div class="preloader">
-                        <div class="spinner-layer pl-black">
-                            <div class="circle-clipper left">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="circle-clipper right">
-                                <div class="circle"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="title">Cargando</div>
-              </div>
-              <div class="row clearfix text-center">
-                <a href="<?= site_url('planes/comprar_paquete/4') ?>" class="btn btn-primary m-t-15 waves-effect">Comprar</a>
-              </div>
-                    
-            </div>
-          </div>
-        </div>
+        
+        
 
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <div class="card">
             <div class="header text-center">
               <h2>
-                Plan Matriz $1000 ($1000)
+                Plan Matriz $500 ($500)
               </h2>
              
             </div>

@@ -685,10 +685,10 @@
 		                        <div class="wn-number wn-number--price">
 		                            <div class="wn-number__num">
 		                                <div class="wn-number__group">
-		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">40</span>
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">150</span>
 		                                </div>
 		                            </div>
-		                            <div class="wn-number__caption">Por Mes </font><!--<br><br><small style="text-decoration: line-through;"><font color="red">$40 / Mes </font></small>--></div>
+		                            <div class="wn-number__caption">Pago Unico</font><!--<br><br><small style="text-decoration: line-through;"><font color="red">$40 / Mes </font></small>--></div>
 		                        </div>
 		                    </div>
 		                    <div class="wn-plan__details"><ul>
@@ -715,7 +715,7 @@
 		                        <div class="wn-number wn-number--price">
 		                            <div class="wn-number__num">
 		                                <div class="wn-number__group">
-		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">250</span> 
+		                                    <sup class="wn-number__left">$</sup><span class="wn-number__value">500</span> 
 		                                </div>
 		                            </div>
 		                            <div class="wn-number__caption">Pago Unico<!--<br><br><small style="text-decoration: line-through;"><font color="red">$497</font></small>--></div>
@@ -901,7 +901,7 @@
 
 		</section>
 
-		<!--<section>
+		<section>
 
 			
 
@@ -957,7 +957,7 @@ float: left;
 
 			</div> 
 
-		</section>-->
+		</section>
 
 		<!--<section id="inversiones">
 

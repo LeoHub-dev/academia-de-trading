@@ -378,15 +378,16 @@ class Matriz_Pro_model extends CI_Model {
                         }
                         else
                         {*/
-                            $this->Academia_model->agregarGanancia($father_account->id_usuario,1000,"Pago por Completar Matriz");
-                            $this->Academia_model->agregarGanancia($father_account->id_usuario,1000,"Nueva Matriz",1);
+                            $this->Academia_model->agregarGanancia($father_account->id_usuario,450,"Pago por Completar Matriz");
+                            $this->Academia_model->agregarGanancia($father_account->id_usuario,50,"10% Academia",1);
+                            $this->Academia_model->agregarGanancia($father_account->id_usuario,500,"Nueva Matriz",1);
                         //}
                     }
                     else
                     {
-                        $this->Academia_model->agregarGanancia($father_account->id_usuario,500,"Pago por Completar Matriz");
+      
                         $this->Academia_model->agregarGanancia($father_account->id_usuario,500,"Cobro academia",1);
-                        $this->Academia_model->agregarGanancia($father_account->id_usuario,1000,"Nueva Matriz",1);
+                        $this->Academia_model->agregarGanancia($father_account->id_usuario,500,"Nueva Matriz",1);
                     }
                     
                 }

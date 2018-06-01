@@ -51,7 +51,7 @@
                   </a>
                 </li>
               <?php endif; ?>
-              <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1 || $this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
+              <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1 || $this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL || $this->Matriz_Pro_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
                 <li>
                   <a href="<?= site_url('clases/vip'); ?>">
                     <i class="material-icons col-amber">local_library</i>
@@ -61,7 +61,7 @@
               <?php endif; ?>
 
 
-              <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1 || $this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
+              <?php if($info_usuario['data']->tipo == 2 || $info_usuario['data']->tipo == 1 || $this->Matriz_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL || $this->Matriz_Pro_model->obtenerMatrizActiva($info_usuario['data']->id_usuario) != NULL) : ?>
                 <li>
                   <a href="https://t.me/joinchat/AAAAAEHuh3_T6r8SYQnhZA" target="_blank">
                     <i class="material-icons fa fa-telegram col-red" style="font-size: 23px;"></i>
@@ -116,7 +116,7 @@
             <li>
               <a href="<?= site_url('matrizpro'); ?>">
                 <i class="material-icons col-red">call_split</i>
-                <span>Matriz $1000</span>
+                <span>Matriz $500</span>
               </a>
             </li>
           <?php endif; ?>

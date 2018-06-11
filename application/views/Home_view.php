@@ -22,8 +22,34 @@
     <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>home/css/social-icons.css">
     <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>home/css/slick.css">
     <link rel="stylesheet" type="text/css" href="<?= asset_url(); ?>home/css/style.css">
+    <link href="<?= asset_url(); ?>plugins/sweetalert/sweetalert.css" rel="stylesheet">
     <script src="https://use.fontawesome.com/a7fd4b808d.js"></script>
     <link rel="icon" type="image/png" href="<?= asset_url(); ?>home/img/logo.png" />
+    <style type="text/css">
+
+
+	
+
+		.container-countdown {
+		  color: #333;
+		  text-align: center;
+		  padding: 40px 0px;
+		}
+
+
+		.countdown-ul li {
+		  display: inline-block;
+		  font-size: 1em;
+		  list-style-type: none;
+		  padding: 1em;
+		  text-transform: uppercase;
+		}
+
+		.countdown-ul li span {
+		  display: block;
+		  font-size: 1em;
+		}
+    </style>
 
     
 </head>
@@ -150,6 +176,31 @@
 
 				</div>
 			</div>
+		</section>
+		<section class="clearfix" style="padding-bottom: 50px">
+			<img src="<?= asset_url(); ?>home/img/socialrobot.jpg" class="img-responsive" style="width: 100%; float: none">
+			<div class="container-countdown">
+			  <h3 id="head">Cuenta regresiva a la beta:</h3>
+			  <ul class="countdown-ul">
+			    <li><span id="days"></span>Dias</li>
+			    <li><span id="hours"></span>Horas</li>
+			    <li><span id="minutes"></span>Minutos</li>
+			    <li><span id="seconds"></span>Segundos</li>
+			  </ul>
+			</div>
+			<div class="col-md-12 text-center">
+				<h3 id="head">Inscribete y recibe informacion:</h3>
+
+			 	<form action="<?= site_url('inicio/beta'); ?>" id="beta_form" class="form-inline">
+
+					  <div class="form-group">
+					    <label for="emaillabel">Email</label>
+					    <input type="email" class="form-control" name="email" id="emaillabel" placeholder="Tu email">
+					  </div>
+                    
+                	<button type="submit" class="btn btn-primary m-t-15 waves-effect">Enviar</button>
+                </form>
+            </div>
 		</section>
 
 		<section id="home">
@@ -359,7 +410,7 @@
 							<div class="col-md-4">
 
 								<div class="img-container">	
-									<!--<img src="https://i.imgur.com/J1mOynB.jpg" alt="Alfredo Gutierrez Uzcanga" class="circle-img">-->
+									
 									<div class="round">
 							            <img src="https://i.imgur.com/J1mOynB.jpg" />
 							        </div>
@@ -1265,12 +1316,56 @@ float: left;
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108152284-1"></script>
+
+	<script src="<?= asset_url(); ?>plugins/sweetalert/sweetalert.min.js"></script>
 	<script>
 	  	window.dataLayer = window.dataLayer || [];
 	  	function gtag(){dataLayer.push(arguments);}
 	  	gtag('js', new Date());
 
 	  	gtag('config', 'UA-108152284-1');
+
+	  	const second = 1000,
+      minute = second * 60,
+      hour = minute * 60,
+      day = hour * 24;
+
+	let countDown = new Date('Jul 1, 2018 00:00:00').getTime(),
+    x = setInterval(function() {
+
+      let now = new Date().getTime(),
+          distance = countDown - now;
+
+      document.getElementById('days').innerText = Math.floor(distance / (day)),
+        document.getElementById('hours').innerText = Math.floor((distance % (day)) / (hour)),
+        document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+        document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+      
+      //do something later when date is reached
+      //if (distance < 0) {
+      //  clearInterval(x);
+      //  'IT'S MY BIRTHDAY!;
+      //}
+
+    }, second)
+
+    $('#beta_form').on('submit', function(e){
+
+        e.preventDefault();
+        e.stopImmediatePropagation();   
+
+        var form = $(this);
+
+        $.post($(this).attr('action'), $(this).serialize(), function(data) {
+            console.log(data);
+            if(data.response == true){  swal(data.response_title, data.response_text, "success");  } else {  swal({title:'Error', type: "error", html: data.errors});    }
+
+        },"json").fail(function(xhr, status, error) {
+            console.log(error);
+            console.log(xhr.responseText);
+            console.log(status);
+        });
+    });
 	</script>
 
 </body>

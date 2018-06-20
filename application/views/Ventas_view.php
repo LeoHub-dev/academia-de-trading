@@ -350,7 +350,7 @@
 									
  
 								<div class="col-md-12 text-center padding-top" >
-									<a href="#planes" class="btn btn-default black-yellow smoothScroll">QUIERO INSCRIBIRME</a>
+									<a href="https://pay.hotmart.com/X8116820N?off=ldyh4j81" class="btn btn-default black-yellow smoothScroll" target="_blank">QUIERO INSCRIBIRME</a>
 								</div>
 									
 								
@@ -603,7 +603,7 @@
 
 
 		                    <div class="wn-plan__buttons">
-		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
+		                        <div class="wn-buttons wn-buttons--center"><a href="https://pay.hotmart.com/X8116820N?off=ldyh4j81" target="_blank" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
 		                    </div>
 		                </div>
 		            </div>
@@ -617,7 +617,7 @@
 
 
 		                    <div class="wn-plan__buttons">
-		                        <div class="wn-buttons wn-buttons--center"><a href="<?= site_url('auth'); ?>#_registro" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
+		                        <div class="wn-buttons wn-buttons--center"><a href="https://pay.hotmart.com/X8116820N?off=ldyh4j81" target="_blank" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
 		                    </div>
 		                </div>
 		            </div>
@@ -659,7 +659,7 @@
 							<p class="big">No pierda mas tiempo y dinero tratando de invertir en otras cosas que no funcionan o con otras empresas que solo quieren quitarle su dinero.</p>
 							<p class="big">Comience a invertir con los expertos hoy mismo y gane dinero en esta rentable industria aprendiendo a manejar usted mismo sus inversiones.</p>	
 							<div class="col-md-12 text-center">
-							<a href="#planes" class="btn btn-default black-yellow smoothScroll">QUIERO INSCRIBIRME</a>
+							<a href="https://pay.hotmart.com/X8116820N?off=ldyh4j81" target="_blank" class="btn btn-default black-yellow smoothScroll">QUIERO INSCRIBIRME</a>
 						</div>
 						</div>
 

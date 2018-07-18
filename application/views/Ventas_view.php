@@ -334,12 +334,12 @@
 										<p class="big">En la academia de trading encontrara lo siguiente:</p>
 									</div>
 										<div class="col-md-12">
-										<ul class="lista-basica font-yellow">
-											<li class="medium"> Curso Básico de Trading: ideal para personas que no tienen experiencia en trabajar con trading o Criptomonedas. Aprenderás el idioma de trading, secretos y estrategias de expertos en trading.</li>
-											<li class="medium">	Señales y Alertas de Trading Poloniex y Bittrex: obtendrás en vivo y directo, datos detallados acerca de oportunidades de inversión en trading de Criptomonedas detectadas por nuestro staff de expertos quienes están estudiando las tendencias del mercado las 24 horas del día. Las inversiones las realizarás en las plataformas POLONIEX y BITTREX.</li>
-											<li class="medium">	Acceso a Soporte por Skype o Telegram.</li>
-											<li class="medium">	Clases de Análisis Técnico 100% en VIVO para avanzados y principiantes.</li>
-											<li class="medium">	Acceso a Herramientas Avanzadas: tendrás acceso a nuestra calculadora de ganancias y monitor del mercado que te permitirán monitorear el comportamiento de varias Criptomonedas de manera simultánea y calcular los márgenes de ganancias para reducir al máximo todo riesgo de inversión.</li>
+										<ul class="lista-basica font-yellow"     style="font-family: arial;">
+											<li class="big"> Curso Básico de Trading: ideal para personas que no tienen experiencia en trabajar con trading o Criptomonedas. Aprenderás el idioma de trading, secretos y estrategias de expertos en trading.</li>
+											<li class="big">	Señales y Alertas de Trading Poloniex y Bittrex: obtendrás en vivo y directo, datos detallados acerca de oportunidades de inversión en trading de Criptomonedas detectadas por nuestro staff de expertos quienes están estudiando las tendencias del mercado las 24 horas del día. Las inversiones las realizarás en las plataformas POLONIEX y BITTREX.</li>
+											<li class="big">	Acceso a Soporte por Skype o Telegram.</li>
+											<li class="big">	Clases de Análisis Técnico 100% en VIVO para avanzados y principiantes.</li>
+											<li class="big">	Acceso a Herramientas Avanzadas: tendrás acceso a nuestra calculadora de ganancias y monitor del mercado que te permitirán monitorear el comportamiento de varias Criptomonedas de manera simultánea y calcular los márgenes de ganancias para reducir al máximo todo riesgo de inversión.</li>
 										
 
 										</ul>
@@ -350,7 +350,7 @@
 									
  
 								<div class="col-md-12 text-center padding-top" >
-									<a href="https://pay.hotmart.com/X8116820N?off=ldyh4j81" class="btn btn-default black-yellow smoothScroll" target="_blank">QUIERO INSCRIBIRME</a>
+									<a onclick="return false;" href="https://pay.hotmart.com/X8116820N?checkoutMode=2" class="btn btn-default black-yellow smoothScroll hotmart-fb">QUIERO INSCRIBIRME</a>
 								</div>
 									
 								
@@ -595,32 +595,20 @@
 				<div class="row about-team">
 
 
-		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite col-md-6 col-sm-6">
-		                <div class="wn-plan__box">
+		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite col-md-12 col-sm-12">
+		                <div class="wn-plan__box text-center">
 		               
 
-<img class="img-responsive" src="<?= asset_url(); ?>/ventas/img/planbasico.jpg" alt="">
+<img class="img-responsive" src="<?= asset_url(); ?>/ventas/img/planbasico.jpg" alt="" style="float: none; display: initial;">
 
 
 		                    <div class="wn-plan__buttons">
-		                        <div class="wn-buttons wn-buttons--center"><a href="https://pay.hotmart.com/X8116820N?off=ldyh4j81" target="_blank" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
+		                        <div class="wn-buttons wn-buttons--center"><a onclick="return false;" href="https://pay.hotmart.com/X8116820N?checkoutMode=2" class="hotmart-fb wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
 		                    </div>
 		                </div>
 		            </div>
 		           
 
-
-		            <div class="wn-plan col-xs-12 wn-plan--success wn-plan--favorite wn-plan--last col-md-6 col-sm-6">
-		                <div class="wn-plan__box">
-		                   
-		           <img class="img-responsive" src="<?= asset_url(); ?>/ventas/img/plan-Enterprise.jpg" alt="">         
-
-
-		                    <div class="wn-plan__buttons">
-		                        <div class="wn-buttons wn-buttons--center"><a href="https://pay.hotmart.com/X8116820N?off=ldyh4j81" target="_blank" class="wn-buttons__btn btn btn-wrap btn-xs-lg btn-default">Comprar Ahora</a></div>
-		                    </div>
-		                </div>
-		            </div>
 
 				</div> <!-- /.row -->
 
@@ -659,7 +647,7 @@
 							<p class="big">No pierda mas tiempo y dinero tratando de invertir en otras cosas que no funcionan o con otras empresas que solo quieren quitarle su dinero.</p>
 							<p class="big">Comience a invertir con los expertos hoy mismo y gane dinero en esta rentable industria aprendiendo a manejar usted mismo sus inversiones.</p>	
 							<div class="col-md-12 text-center">
-							<a href="https://pay.hotmart.com/X8116820N?off=ldyh4j81" target="_blank" class="btn btn-default black-yellow smoothScroll">QUIERO INSCRIBIRME</a>
+							<a onclick="return false;" href="https://pay.hotmart.com/X8116820N?checkoutMode=2" class="hotmart-fb btn btn-default black-yellow smoothScroll">QUIERO INSCRIBIRME</a>
 						</div>
 						</div>
 
@@ -836,6 +824,15 @@
 
 	  	gtag('config', 'UA-108152284-1');
 	</script>
+	<script type="text/javascript">
+	function importHotmart(){ 
+ 		var imported = document.createElement('script'); 
+ 		imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
+ 		document.head.appendChild(imported); 
+	} 
+ 	importHotmart(); 
+ 	</script> 
+
 
 </body>
 </html>
